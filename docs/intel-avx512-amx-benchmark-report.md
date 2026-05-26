@@ -38,6 +38,8 @@ This local machine is useful for smoke testing the benchmark and proving repeata
 
 ## Required Xeon Bonus Run
 
+Recommended target: Azure `Standard_D4s_v6` because it is a 4-vCPU Xeon VM and Microsoft documents AVX-512 and Intel AMX support for the Dsv6 series. Full provisioning instructions are in `docs/xeon-amx-benchmark-runbook.md`.
+
 Run the same command on an Intel Xeon system that exposes AVX-512 and AMX, preferably Linux so `/proc/cpuinfo` exposes ISA flags:
 
 ```bash
@@ -64,3 +66,20 @@ WearEdge OPEA Manufacturing includes an Intel CPU benchmark harness and was prof
 ```
 
 Do not claim production LLM acceleration unless a real embedding/LLM service path is benchmarked on the same host.
+
+## Current Machine Search Result
+
+Best option found for the challenge profile:
+
+```text
+Azure Standard_D4s_v6, Ubuntu 22.04, 4 vCPU, 16 GiB RAM
+```
+
+Backup options:
+
+```text
+AWS c7i.xlarge
+Google Cloud c3-standard-4
+```
+
+The local workstation does not have cloud CLI credentials configured, so the Xeon run requires an authenticated cloud shell or CLI session before the JSON can be captured.

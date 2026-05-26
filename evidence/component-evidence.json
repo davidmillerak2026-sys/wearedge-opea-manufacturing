@@ -62,7 +62,9 @@
       "status": "harness_ready_local_smoke_test_captured",
       "local_paths": [
         "scripts/intel_cpu_benchmark.py",
+        "scripts/xeon_amx_benchmark_remote.sh",
         "docs/intel-avx512-amx-benchmark-report.md",
+        "docs/xeon-amx-benchmark-runbook.md",
         "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json"
       ],
       "claim_boundary": "Local Core Ultra smoke test is not an AVX-512/AMX claim; rerun on Xeon with AVX-512/AMX flags for the full bonus."

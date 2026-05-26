@@ -153,6 +153,13 @@ python scripts\intel_cpu_benchmark.py --iterations 200
 
 The committed local benchmark JSON is in `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`. It is a repeatability smoke test on an Intel Core Ultra 9 185H, not yet an AVX-512/AMX claim. Rerun the same script on a Xeon host that exposes AVX-512/AMX flags before claiming the Intel bonus.
 
+Xeon AMX runbook:
+
+```text
+docs/xeon-amx-benchmark-runbook.md
+scripts/xeon_amx_benchmark_remote.sh
+```
+
 ## Source Provenance
 
 This repository is the self-contained OPEA competition package. The full engineering project remains available at:
