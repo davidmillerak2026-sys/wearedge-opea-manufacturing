@@ -10,7 +10,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Harden OPEA runtime wrapper into final challenge profile | Protects the 20-point "Use of OPEA" subscore | `docker compose up` or `./deploy.sh` starts the five-agent Manufacturing demo path and records expected output |
 | Polish one-click challenge deployment | Official submission requirement | Fresh clone can run sample Manufacturing flow with documented logs |
 | Finalize <=2 page technical report | Official submission requirement | PDF/Markdown report has no `TBD` or planned claims |
-| Produce 1-3 minute prototype demo video | Optional officially, essential for champion-level clarity | Video shows actual M400/edge workflow, not only cinematic branding |
+| Produce 1-3 minute prototype demo video | Optional officially, essential for champion-level clarity | Script and captions are ready; external video upload URL recorded |
 
 ## P1
 
@@ -18,9 +18,9 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | --- | --- | --- |
 | Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | OPEA embedding service or selected embedding model is documented and benchmarked |
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Current `/v1/scorecard` exists; add throughput, memory, and setup-time logs |
-| Add Intel hardware optimization path | Up to 15 bonus points | OpenVINO/AVX-512/AMX or Intel CPU benchmark is documented |
-| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | Public link recorded in `submission-fields.draft.json` |
-| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Public link recorded as `publication_url` |
+| Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
+| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | Draft package is ready; public upstream issue/PR link recorded in `submission-fields.draft.json` |
+| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article URL is recorded; external video URL added if uploaded |
 
 ## P2
 

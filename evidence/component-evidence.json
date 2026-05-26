@@ -34,6 +34,39 @@
       "used_for": "Example application and deployment reference"
     }
   ],
+  "bonus_evidence": [
+    {
+      "category": "OPEA open-source contribution",
+      "status": "draft_ready_public_url_pending",
+      "local_paths": [
+        "docs/opea-upstream/rfc-issue-draft.md",
+        "docs/opea-upstream/blueprint-feedback.md"
+      ],
+      "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
+      "claim_boundary": "Draft is ready; claim full upstream contribution after the public OPEA issue or PR URL exists."
+    },
+    {
+      "category": "Knowledge sharing",
+      "status": "article_ready_video_script_ready",
+      "local_paths": [
+        "public/article-wear-edge-opea-manufacturing.md",
+        "public/demo-video-script.md",
+        "public/demo-video-captions.srt"
+      ],
+      "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
+      "claim_boundary": "The article is public once pushed to GitHub; add an external video URL after upload."
+    },
+    {
+      "category": "Intel AVX-512/AMX benchmark",
+      "status": "harness_ready_local_smoke_test_captured",
+      "local_paths": [
+        "scripts/intel_cpu_benchmark.py",
+        "docs/intel-avx512-amx-benchmark-report.md",
+        "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json"
+      ],
+      "claim_boundary": "Local Core Ultra smoke test is not an AVX-512/AMX claim; rerun on Xeon with AVX-512/AMX flags for the full bonus."
+    }
+  ],
   "component_map": [
     {
       "opea_layer": "Gateway",

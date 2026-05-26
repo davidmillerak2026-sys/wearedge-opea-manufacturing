@@ -1,0 +1,160 @@
+{
+  "benchmark": "WearEdge OPEA Manufacturing five-agent CPU benchmark",
+  "schema_version": "2026-05-26",
+  "claim_status": "local_smoke_test_not_avx512_amx_claim",
+  "cpu": {
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "processor": "Intel(R) Core(TM) Ultra 9 185H",
+    "python": "3.12.7",
+    "flags_detected_count": 76,
+    "feature_detection": {
+      "avx2": true,
+      "avx512f": false,
+      "avx512_bf16": false,
+      "avx512_vnni": false,
+      "amx_tile": false,
+      "amx_int8": false,
+      "amx_bf16": false
+    },
+    "feature_notes": "Windows often hides ISA flags from standard APIs. Install py-cpuinfo or rerun on Linux for richer AVX-512/AMX detection."
+  },
+  "pipeline": {
+    "iterations_per_route": 200,
+    "warmup_per_route": 10,
+    "total_calls": 1000,
+    "total_seconds": 0.4887,
+    "calls_per_second": 2046.1899,
+    "overall": {
+      "count": 1000,
+      "min_ms": 0.3974,
+      "mean_ms": 0.4882,
+      "p50_ms": 0.455,
+      "p95_ms": 0.6585,
+      "max_ms": 1.324
+    },
+    "routes": {
+      "maintenance": {
+        "count": 200,
+        "min_ms": 0.4786,
+        "mean_ms": 0.5454,
+        "p50_ms": 0.512,
+        "p95_ms": 0.7295,
+        "max_ms": 1.324
+      },
+      "iqc": {
+        "count": 200,
+        "min_ms": 0.4213,
+        "mean_ms": 0.4828,
+        "p50_ms": 0.4562,
+        "p95_ms": 0.6366,
+        "max_ms": 1.0841
+      },
+      "changeover": {
+        "count": 200,
+        "min_ms": 0.3974,
+        "mean_ms": 0.456,
+        "p50_ms": 0.4262,
+        "p95_ms": 0.6005,
+        "max_ms": 1.1118
+      },
+      "wi": {
+        "count": 200,
+        "min_ms": 0.3999,
+        "mean_ms": 0.4718,
+        "p50_ms": 0.4311,
+        "p95_ms": 0.6659,
+        "max_ms": 1.3058
+      },
+      "hazard": {
+        "count": 200,
+        "min_ms": 0.422,
+        "mean_ms": 0.4847,
+        "p50_ms": 0.4541,
+        "p95_ms": 0.6509,
+        "max_ms": 1.0627
+      }
+    },
+    "scorecard": {
+      "ok": true,
+      "suite": "WearEdge OPEA Manufacturing five-agent scorecard",
+      "metrics": [
+        "latency_ms",
+        "contract_pass",
+        "guardrail_pass",
+        "rag_source_match",
+        "action_target_correctness",
+        "route_isolation_pass"
+      ],
+      "routes": [
+        {
+          "mode": "maintenance",
+          "status": "pass",
+          "latency_ms": 0.51,
+          "risk_level": "high",
+          "channel": "maintenance_report",
+          "integration_target": "maintenance_work_order",
+          "contract_pass": true,
+          "guardrail_pass": true,
+          "rag_source_match": true,
+          "action_target_correctness": true,
+          "route_isolation_pass": true
+        },
+        {
+          "mode": "iqc",
+          "status": "pass",
+          "latency_ms": 0.67,
+          "risk_level": "medium",
+          "channel": "quality_hold",
+          "integration_target": "qms_quality_event",
+          "contract_pass": true,
+          "guardrail_pass": true,
+          "rag_source_match": true,
+          "action_target_correctness": true,
+          "route_isolation_pass": true
+        },
+        {
+          "mode": "changeover",
+          "status": "pass",
+          "latency_ms": 0.66,
+          "risk_level": "medium",
+          "channel": "changeover_verification",
+          "integration_target": "changeover_checklist",
+          "contract_pass": true,
+          "guardrail_pass": true,
+          "rag_source_match": true,
+          "action_target_correctness": true,
+          "route_isolation_pass": true
+        },
+        {
+          "mode": "wi",
+          "status": "pass",
+          "latency_ms": 0.45,
+          "risk_level": "low",
+          "channel": "guided_operation",
+          "integration_target": "wi_reference",
+          "contract_pass": true,
+          "guardrail_pass": true,
+          "rag_source_match": true,
+          "action_target_correctness": true,
+          "route_isolation_pass": true
+        },
+        {
+          "mode": "hazard",
+          "status": "pass",
+          "latency_ms": 0.46,
+          "risk_level": "high",
+          "channel": "stop_and_make_safe",
+          "integration_target": "ehs_case",
+          "contract_pass": true,
+          "guardrail_pass": true,
+          "rag_source_match": true,
+          "action_target_correctness": true,
+          "route_isolation_pass": true
+        }
+      ]
+    }
+  },
+  "competition_note": "For Intel AVX-512/AMX bonus evidence, rerun this script on a Xeon host that advertises avx512f plus AMX flags, then attach the JSON and report."
+}

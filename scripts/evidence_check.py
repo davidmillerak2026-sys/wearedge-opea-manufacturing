@@ -20,6 +20,14 @@ REQUIRED_LOCAL_FILES = [
     "docs/opea-component-evidence.md",
     "docs/champion-gap-worklist.md",
     "docs/source-project-map.md",
+    "docs/opea-upstream/rfc-issue-draft.md",
+    "docs/opea-upstream/blueprint-feedback.md",
+    "docs/intel-avx512-amx-benchmark-report.md",
+    "public/article-wear-edge-opea-manufacturing.md",
+    "public/demo-video-script.md",
+    "public/demo-video-captions.srt",
+    "scripts/intel_cpu_benchmark.py",
+    "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
     "evidence/component-evidence.json",
     "docker-compose.yml",
     "deploy.sh",
@@ -59,6 +67,11 @@ def main() -> int:
             if not (ROOT / path).exists():
                 missing_manifest_paths.append(f"{item['opea_layer']}: {path}")
 
+    for item in manifest.get("bonus_evidence", []):
+        for path in item.get("local_paths", []):
+            if not (ROOT / path).exists():
+                missing_manifest_paths.append(f"{item['category']}: {path}")
+
     if missing_manifest_paths:
         print("OPEA submission evidence check failed")
         for path in missing_manifest_paths:
@@ -67,6 +80,7 @@ def main() -> int:
 
     print("OPEA submission evidence check passed")
     print(f"components={len(manifest['component_map'])}")
+    print(f"bonus_evidence={len(manifest.get('bonus_evidence', []))}")
     for status in sorted(statuses):
         print(f"{status}={statuses[status]}")
     print(manifest["submission"]["target_github_url"])

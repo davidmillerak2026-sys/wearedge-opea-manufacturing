@@ -92,6 +92,10 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | --- | --- |
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
+| [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
+| [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark protocol and local smoke-test report |
+| [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
+| [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
 | [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
@@ -121,6 +125,32 @@ Expected:
 ```text
 OPEA submission evidence check passed
 ```
+
+## Bonus Evidence
+
+OPEA open-source contribution package:
+
+```text
+docs/opea-upstream/rfc-issue-draft.md
+docs/opea-upstream/blueprint-feedback.md
+```
+
+Knowledge-sharing package:
+
+```text
+public/article-wear-edge-opea-manufacturing.md
+public/demo-video-script.md
+public/demo-video-captions.srt
+```
+
+Intel CPU benchmark harness:
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts\intel_cpu_benchmark.py --iterations 200
+```
+
+The committed local benchmark JSON is in `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`. It is a repeatability smoke test on an Intel Core Ultra 9 185H, not yet an AVX-512/AMX claim. Rerun the same script on a Xeon host that exposes AVX-512/AMX flags before claiming the Intel bonus.
 
 ## Source Provenance
 

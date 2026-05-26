@@ -77,7 +77,14 @@ Key archived evidence already mapped into this submission package:
 
 ## Remaining Champion Bonus Work
 
-- Publish OPEA issue/PR/blueprint feedback link.
-- Publish technical article or public walkthrough.
-- Add 1-3 minute demo video link.
-- Add Intel AVX-512/AMX benchmark evidence.
+- OPEA issue/PR/blueprint feedback: draft package is ready in `docs/opea-upstream/`; public upstream URL still needs posting.
+- Knowledge sharing: public article is ready at `public/article-wear-edge-opea-manufacturing.md`; video script and captions are ready in `public/`.
+- Intel AVX-512/AMX: benchmark harness and local Intel Core Ultra smoke-test JSON are ready; Xeon AVX-512/AMX run still needs to be captured before claiming the full hardware bonus.
+
+## Bonus URLs And Artifacts
+
+- `publication_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md`
+- OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
+- OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
+- Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
+- Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`

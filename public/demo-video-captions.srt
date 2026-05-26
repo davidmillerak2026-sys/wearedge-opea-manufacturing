@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:10,000
+WearEdge Pro is an OPEA-aligned manufacturing agent suite. One Gateway and Megaservice power five plant-floor workflows.
+
+2
+00:00:10,000 --> 00:00:25,000
+Evidence enters the Gateway, the Megaservice selects a route, RAG retrieves source evidence, and guardrails produce a bounded action card.
+
+3
+00:00:25,000 --> 00:00:45,000
+The route registry exposes maintenance, IQC, changeover, work instruction, and hazard agents through one API.
+
+4
+00:00:45,000 --> 00:01:05,000
+Maintenance is the hero demo: gearbox evidence becomes a CMMS-ready work-order draft while root cause and restart permission stay blocked.
+
+5
+00:01:05,000 --> 00:01:20,000
+The IQC route turns defect evidence on an aluminum housing into a QMS quality event and blocks unsupported product release.
+
+6
+00:01:20,000 --> 00:01:35,000
+The changeover route checks SKU setup evidence and holds restart until first-piece sign-off is recorded.
+
+7
+00:01:35,000 --> 00:01:50,000
+The work-instruction route answers from released source instructions and blocks unreleased instructions or interlock bypass guidance.
+
+8
+00:01:50,000 --> 00:02:05,000
+The hazard route detects blocked walkways, PPE gaps, or moving-parts exposure and creates an EHS observation without claiming the area is safe.
+
+9
+00:02:05,000 --> 00:02:20,000
+The scorecard verifies latency, contract pass, guardrails, source match, action target correctness, and route isolation for all five routes.

@@ -75,4 +75,4 @@ Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edg
 
 WearEdge Pro is MIT licensed. It is an assistive decision-support prototype, not a certified industrial safety controller or autonomous maintenance-release system. Guardrails block unsupported claims including final root cause, remaining useful life, restart permission, quality release, safety clearance, incident root cause, and maintenance release. High-risk outputs require human confirmation.
 
-Remaining bonus work before final submission: publish OPEA issue/PR/blueprint feedback, public technical article/video, 1-3 minute demo video, and Intel AVX-512/AMX benchmark evidence.
+Bonus evidence package: OPEA RFC/blueprint drafts are in `docs/opea-upstream/`, the public article and demo video script are in `public/`, and the Intel benchmark harness plus local smoke-test JSON are in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`. Public upstream issue/PR URL, external demo video URL, and Xeon AVX-512/AMX rerun remain final submission tasks.
