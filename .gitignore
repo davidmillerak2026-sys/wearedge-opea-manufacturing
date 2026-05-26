@@ -1,0 +1,24 @@
+# Local runtime
+runtime/
+outputs/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Local secrets
+.env
+*.local.json
+SETTINGS.json
+
+# Large generated deliverables
+*.mp4
+*.mov
+*.wav
+*.tar
+*.tar.gz
+*.zip
+*.gguf
+*.safetensors
+*.onnx
+*.engine
+

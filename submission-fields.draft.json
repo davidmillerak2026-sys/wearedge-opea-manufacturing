@@ -1,0 +1,35 @@
+{
+  "challenge": {
+    "name": "Innovation Challenge on Generative AI Applications for Enterprise Scenarios Using OPEA",
+    "submission_url": "https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submission",
+    "vertical": "Manufacturing"
+  },
+  "github": {
+    "target_submission_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
+  },
+  "submission_meta_attributes": {
+    "ApplicationName": "WearEdge Pro",
+    "IndustryVertical": "Manufacturing",
+    "OPEAComponents": [
+      "LLM",
+      "RAG",
+      "Orchestration",
+      "Guardrails"
+    ],
+    "OpenSourceCommitment": true
+  },
+  "default_submission_fields": {
+    "method_name": "WearEdge Pro: OPEA Manufacturing Lao-Shi-Fu Agent",
+    "method_description": "WearEdge Pro is a wearable edge AI agent for Manufacturing maintenance workflows. A Vuzix M400 captures first-person evidence, a local edge gateway performs multimodal inference and industrial RAG, and an OPEA-style Manufacturing Megaservice returns auditable action cards for human-confirmed CMMS/QMS/MES/EHS workflows. The submission focuses on the lao-shi-fu predictive-maintenance loop: evidence-first diagnosis, local knowledge retrieval, deterministic threshold evaluation, guardrailed actions, and reproducible deployment.",
+    "project_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "publication_url": "TBD"
+  },
+  "do_not_claim_until_implemented": {
+    "Vector DB": "Add and document an OPEA-compatible Qdrant, Chroma, Milvus, Redis, OpenSearch, or equivalent vector-store path first.",
+    "Intel hardware optimization": "Add an Intel CPU/OpenVINO/AVX-512 or AMX benchmark path before claiming bonus points.",
+    "GenAIEval": "Add an OPEA GenAIEval-style scorecard before presenting evaluation as OPEA-native.",
+    "self-contained source": "Mirror or vendor the selected WearEdge Pro source files into this repository before treating it as the sole project_url."
+  }
+}
+
