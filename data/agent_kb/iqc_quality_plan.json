@@ -1,0 +1,32 @@
+{
+  "mode": "iqc",
+  "entity_id": "AL-HOUSING-L3",
+  "line": "Line 3 machining output",
+  "title": "Machined Aluminum Housing IQC Quality Plan",
+  "revision": "QP-2026.05-demo",
+  "thresholds": {
+    "detector_min_confidence": 0.62
+  },
+  "sections": [
+    {
+      "id": "ALH-BURR-01",
+      "title": "Edge burr containment",
+      "content": "Any visible burr on sealing or assembly edges requires adjacent-unit inspection and quality engineer review before release."
+    },
+    {
+      "id": "ALH-SEAL-02",
+      "title": "Sealing face scratch hold",
+      "content": "Scratch or uneven mark on the sealing face requires product hold because leakage escape risk is customer-facing."
+    },
+    {
+      "id": "ALH-CONTAM-03",
+      "title": "Contamination containment",
+      "content": "Foreign material or handling contamination near the sealing surface requires containment until cleaning and reinspection evidence is recorded."
+    },
+    {
+      "id": "ALH-MIX-04",
+      "title": "Label mismatch stop",
+      "content": "Label mismatch or suspected SKU mix-up requires stopping station output and containing the affected time window."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "changeover",
+  "machine_id": "LABELER-FL1",
+  "target_sku": "SKU-C500",
+  "operator_observation": "Previous SKU labels are removed, C500 label roll is loaded, HMI recipe RCP-C500-LBL is visible, and first piece is waiting for quality sign-off.",
+  "confirmations": {
+    "line_clearance": true,
+    "label_roll_match": true,
+    "recipe_match": true,
+    "first_piece_verified": false
+  }
+}

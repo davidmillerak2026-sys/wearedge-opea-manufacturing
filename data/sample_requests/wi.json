@@ -1,0 +1,11 @@
+{
+  "mode": "wi",
+  "machine_id": "CARTONER-ST2",
+  "operator_observation": "Operator asks how to align the product guide after clearing the infeed. Guard is closed and no alarm is active.",
+  "confirmations": {
+    "machine_identity": true,
+    "released_revision_visible": true,
+    "guard_closed": true,
+    "active_alarm": false
+  }
+}

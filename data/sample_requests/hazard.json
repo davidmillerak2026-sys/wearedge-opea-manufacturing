@@ -1,0 +1,11 @@
+{
+  "mode": "hazard",
+  "area_id": "PACK-L3-AISLE",
+  "operator_observation": "M400 scene shows a pallet blocking the marked walkway while an operator stands near moving transfer equipment without eye protection.",
+  "hazards": {
+    "blocked_walkway": true,
+    "moving_parts_exposure": true,
+    "missing_ppe": true,
+    "spill": false
+  }
+}

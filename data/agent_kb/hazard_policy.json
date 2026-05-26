@@ -1,0 +1,30 @@
+{
+  "mode": "hazard",
+  "entity_id": "EHS-POLICY-LINE3",
+  "line": "Manufacturing floor safety",
+  "title": "PPE, Moving Parts, And Walkway Hazard Policy",
+  "revision": "EHS-2026.05-demo",
+  "thresholds": {},
+  "sections": [
+    {
+      "id": "EHS-PPE-01",
+      "title": "PPE control",
+      "content": "Missing eye protection, gloves, hearing protection, or required area PPE should create an EHS observation and require supervisor confirmation before task continuation."
+    },
+    {
+      "id": "EHS-MOVE-02",
+      "title": "Moving parts exposure",
+      "content": "Open guards, exposed moving parts, bypassed interlocks, or hands near transfer points require immediate stop-and-make-safe action."
+    },
+    {
+      "id": "EHS-WALK-03",
+      "title": "Blocked walkway and slip risk",
+      "content": "Blocked walkways, spills, loose pallets, cords, and material in marked pedestrian lanes require area isolation and corrective action logging."
+    },
+    {
+      "id": "EHS-CASE-04",
+      "title": "EHS case evidence",
+      "content": "A safety action card should preserve scene, risk, action, owner, and human confirmation without claiming the area is safe for restart."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "mode": "changeover",
+  "entity_id": "LABELER-FL1",
+  "line": "Filling Line 1",
+  "title": "Filling Line 1 Labeler Changeover Checklist For SKU-C500",
+  "revision": "CO-2026.05-demo",
+  "thresholds": {},
+  "sections": [
+    {
+      "id": "CO-C500-LINE-CLEAR",
+      "title": "Line clearance",
+      "content": "Remove previous SKU labels, cartons, and loose product from the labeler, reject bin, and guide rail area before loading SKU-C500 materials."
+    },
+    {
+      "id": "CO-C500-GUIDE-RECIPE",
+      "title": "Guide and recipe setup",
+      "content": "Set guide rails to the C500 reference marks, load the C500 label roll, and confirm HMI recipe RCP-C500-LBL before jogging product."
+    },
+    {
+      "id": "CO-C500-FIRST-PIECE",
+      "title": "First-piece verification",
+      "content": "Hold restart until first-piece verification confirms label position, barcode readability, SKU match, and quality sign-off."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # OPEA Component Evidence
 
-This document translates WearEdge Pro into the OPEA architecture expected by the challenge judges. The goal is to make the OPEA connection concrete while avoiding unsupported claims.
+This document maps WearEdge Pro's five Manufacturing agents to the OPEA architecture expected by the challenge judges.
 
 ## Official OPEA References
 
@@ -15,39 +15,54 @@ This document translates WearEdge Pro into the OPEA architecture expected by the
 
 ```mermaid
 flowchart LR
-    M400["Vuzix M400<br/>first-person evidence"] --> GW["Gateway"]
+    M400["M400 / API evidence"] --> GW["Gateway"]
     GW --> MEGA["Manufacturing Megaservice"]
-    MEGA --> DATA["Dataprep"]
-    MEGA --> RET["Retriever / RAG"]
-    MEGA --> PROMPT["Prompt Contract"]
-    MEGA --> LLM["LLM Service"]
-    MEGA --> EVAL["Deterministic Evaluator"]
+    MEGA --> ROUTE["Agent Route Registry"]
+    ROUTE --> DATA["Dataprep"]
+    DATA --> RET["Retriever / RAG"]
+    RET --> VDB["Qdrant Vector DB"]
+    MEGA --> LLM["LLM Adapter"]
+    MEGA --> EVAL["Route Evaluator"]
     MEGA --> GUARD["Guardrails"]
-    MEGA --> AUDIT["Audit / Runtime Stream"]
-    GUARD --> ACTION["CMMS-ready Action Card"]
+    GUARD --> ACTION["Action Card"]
+    ACTION --> SYS["CMMS / QMS / MES / WI / EHS"]
 ```
+
+## Five-Agent Coverage
+
+| Mode | Knowledge source | Evaluator | Guarded target |
+| --- | --- | --- | --- |
+| `maintenance` | Gearbox KB and thresholds | vibration, temperature, lubrication, PLC alarm | `maintenance_work_order` |
+| `iqc` | Aluminum housing quality plan | detector confidence and defect severity | `qms_quality_event` |
+| `changeover` | SKU-C500 changeover checklist | line clearance, label, recipe, first-piece | `changeover_checklist` |
+| `wi` | Cartoner released work instruction | identity, released revision, guard, alarm | `wi_reference` |
+| `hazard` | PPE, moving-parts, walkway policy | active hazard flags | `ehs_case` |
 
 ## Evidence Table
 
 | OPEA layer | Status | WearEdge evidence | Claim |
 | --- | --- | --- | --- |
-| Gateway | Implemented in source | `jetson/app.py`, `scripts/run_fastapi.sh`, `docs/m400-inference-contract.md` | M400/Web/audit/session entry point |
-| Megaservice | Implemented in source | `jetson/agently_orchestrator.py`, `jetson/agent_loop.py` | Manufacturing orchestration |
-| Dataprep | Adapter-ready | `industrial-rag-agent/src/wear_edge_rag/documents.py` | SOP/log/quality-plan prep |
-| Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py`, source `jetson/maintenance_kb.py` | Machine-specific maintenance retrieval |
-| Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant profile with in-memory fallback |
-| LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Local deterministic no-model demo; source project has OpenAI-compatible edge LLM |
-| Prompt Contract | Implemented in source | `jetson/output_contract.py` | Bounded Manufacturing fields and action starters |
-| Guardrails | Implemented | `src/wear_edge_opea/guardrails.py`, source `jetson/agent_loop.py` | Source guard, uncertainty guard, human gate |
-| Evaluation | Adapter-ready | `src/wear_edge_opea/evaluator.py`, source `docs/edge-runtime-benchmark.md` | Add GenAIEval-style scorecard next |
-| Embeddings | Demo implemented | `src/wear_edge_opea/embedding.py` | Hashing embeddings for runnable profile; production embedding service next |
+| Gateway | Implemented | `src/wear_edge_opea/gateway.py`, `Dockerfile`, `docker-compose.yml` | Five-agent FastAPI entry point |
+| Megaservice | Implemented | `src/wear_edge_opea/megaservice.py` | Shared orchestration across five routes |
+| Route registry | Implemented | `src/wear_edge_opea/agents.py` | Mode metadata, samples, KB paths, targets, guardrails |
+| Dataprep | Implemented | `src/wear_edge_opea/dataprep.py`, `data/agent_kb/`, `data/maintenance_kb/` | Route-specific knowledge loading and chunking |
+| Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py` | Route-specific retrieval before explanation |
+| Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant collections per route, in-memory fallback |
+| LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Deterministic no-model demo, OpenAI-compatible source path |
+| Guardrails | Implemented | `src/wear_edge_opea/guardrails.py` | Blocked claims and human gates per route |
+| Evaluation | Implemented scorecard | `src/wear_edge_opea/evaluator.py`, `src/wear_edge_opea/scorecard.py` | Latency, contract, guardrail, RAG, target, isolation checks |
 
-## Required OPEA Hardening
+## Current Hardening Status
 
-The current source project already contains an OPEA-shaped Manufacturing application. To make the challenge claim stronger, this standalone repository should add:
+Implemented now:
 
-- Final challenge logs for `deploy.sh` and Docker Compose profile.
-- OPEA-compatible wrappers around gateway, retrieval, LLM service, and evaluator.
-- Production embedding model or OPEA embedding service.
-- GenAIEval-style scorecard with latency, throughput, RAG quality, and action-card correctness.
-- OPEA blueprint feedback issue or PR link.
+- Five runnable agent demos.
+- `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/agents/{mode}/infer`, and `/v1/scorecard`.
+- Qdrant profile with route-specific collections.
+- Route-isolation tests and scorecard tests.
+
+Still required for maximum bonus:
+
+- Public OPEA issue/PR/blueprint feedback link.
+- Intel AVX-512/AMX benchmark evidence.
+- Public technical article and 1-3 minute demo video.

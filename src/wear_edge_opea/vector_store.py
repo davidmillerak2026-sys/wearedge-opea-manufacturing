@@ -113,10 +113,10 @@ class QdrantVectorStore:
         ]
 
 
-def build_vector_store() -> VectorStore:
+def build_vector_store(collection: str | None = None) -> VectorStore:
     backend = os.getenv("WEAREDGE_VECTOR_BACKEND", "memory").lower()
     if backend == "qdrant":
-        qdrant = QdrantVectorStore()
+        qdrant = QdrantVectorStore(collection=collection)
         try:
             qdrant._request("GET", "/")
             return qdrant

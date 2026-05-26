@@ -1,0 +1,25 @@
+{
+  "mode": "wi",
+  "entity_id": "CARTONER-ST2",
+  "line": "Cartoner Station 2",
+  "title": "Cartoner Station 2 Released Work Instruction",
+  "revision": "WI-2026.05-demo",
+  "thresholds": {},
+  "sections": [
+    {
+      "id": "WI-CARTONER-ST2-START",
+      "title": "Safe start and guard check",
+      "content": "Before operation, confirm the machine is CARTONER-ST2, close all guard doors, clear the infeed, and verify no active alarm is present."
+    },
+    {
+      "id": "WI-CARTONER-ST2-GUIDE",
+      "title": "Product guide alignment",
+      "content": "Adjust only the released guide rail reference marks for the running carton family; stop and ask the line lead if cartons skew or jam repeatedly."
+    },
+    {
+      "id": "WI-CARTONER-ST2-RISK",
+      "title": "Risk control and escalation",
+      "content": "Keep hands outside guarded transfer areas, do not bypass interlocks, and escalate abnormal noise, vibration, tooling contact, or repeated rejects."
+    }
+  ]
+}

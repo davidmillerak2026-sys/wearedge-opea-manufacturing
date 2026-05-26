@@ -1,0 +1,10 @@
+{
+  "mode": "iqc",
+  "product_id": "AL-HOUSING-L3",
+  "operator_observation": "M400 view shows edge burrs and dark handling contamination near the sealing face on a machined aluminum housing.",
+  "detector": {
+    "edge_burr": 0.84,
+    "contamination": 0.71,
+    "sealing_face_scratch": 0.41
+  }
+}

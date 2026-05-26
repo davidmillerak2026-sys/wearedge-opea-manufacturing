@@ -2,60 +2,45 @@
 
 Dedicated ITU AI for Good / OPEA Manufacturing submission package for WearEdge Pro.
 
-Target GitHub URL:
+Project URL:
 
 ```text
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-This repository is intentionally separated from the original WearEdge Pro engineering repository so judges can review the OPEA-specific architecture, component mapping, reproducibility plan, and Manufacturing evidence without mixing it with earlier contest material.
+WearEdge OPEA Manufacturing is a five-agent, OPEA-aligned manufacturing suite. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
 
-## Submission Focus
+## Five Manufacturing Agents
 
-WearEdge OPEA Manufacturing packages WearEdge Pro as an OPEA-aligned enterprise GenAI application for Manufacturing. The primary use case is a `lao-shi-fu` predictive-maintenance workflow for a packaging-line gearbox:
+| Mode | Scenario | Integration target | Business value |
+| --- | --- | --- | --- |
+| `maintenance` | Lao-shi-fu predictive maintenance for `PKG-L3-GBX-03` | `maintenance_work_order` | Reduce downtime and preserve expert troubleshooting patterns |
+| `iqc` | Machined aluminum housing quality inspection | `qms_quality_event` | Reduce scrap, rework, and customer escape risk |
+| `changeover` | Labeler SKU-C500 changeover verification | `changeover_checklist` | Reduce restart errors, mix-up risk, and changeover loss |
+| `wi` | Released work-instruction guidance for `CARTONER-ST2` | `wi_reference` | Reduce training time and procedure drift |
+| `hazard` | PPE, moving-parts, and blocked-walkway EHS observation | `ehs_case` | Improve near-miss capture and corrective action routing |
 
-```text
-Vuzix M400 first-person evidence
-  -> edge gateway
-  -> OPEA-style Manufacturing Megaservice
-  -> RAG / maintenance KB
-  -> LLM service
-  -> deterministic threshold evaluation
-  -> guardrailed action card
-  -> CMMS-ready work-order event
-```
+The maintenance route remains the hero demo because it has the strongest archived M400/Jetson field evidence, but all five agents are runnable through the same OPEA-style API.
 
-The workflow asks for missing evidence instead of inventing final root cause. High-risk recommendations remain human-confirmed.
-
-## Official OPEA Component Mapping
-
-| OPEA layer | WearEdge implementation evidence | Claim status |
-| --- | --- | --- |
-| Gateway | FastAPI edge gateway for M400, audit, and maintenance sessions | implemented in source project |
-| Megaservice | Manufacturing orchestration across evidence, RAG, LLM, evaluator, guardrails, and action cards | implemented in source project |
-| Dataprep | Industrial document loading and chunking for SOPs, logs, quality plans | adapter-ready |
-| Retriever / RAG | Machine-specific maintenance KB and local industrial retriever | implemented in this repo and source project |
-| Vector DB | Qdrant Docker Compose profile with dependency-free in-memory fallback | implemented in this repo |
-| LLM service | OpenAI-compatible local LLM/VLM endpoint; local deterministic stub for no-model demo | adapter-ready |
-| Prompt contract | Mode-specific output contract and action-starter constraints | implemented in source project |
-| Guardrails | Source guard, action map, uncertainty guard, human gate | implemented in source project |
-| Evaluation | Repo-native benchmark and deterministic scorecard | adapter-ready for GenAIEval-style report |
-
-Detailed machine-readable evidence: [`evidence/component-evidence.json`](evidence/component-evidence.json).
-
-## Submission Fields
-
-Draft fields for the challenge form are in [`submission-fields.draft.json`](submission-fields.draft.json).
-
-Recommended current component selection:
+## OPEA Architecture
 
 ```text
-LLM, RAG, Vector DB, Orchestration, Guardrails
+Vuzix M400 / API request
+  -> Gateway
+  -> Manufacturing Megaservice
+  -> route registry: maintenance / iqc / changeover / wi / hazard
+  -> Dataprep + route-specific knowledge source
+  -> Retriever / RAG
+  -> Qdrant Vector DB profile, with in-memory fallback
+  -> LLM service adapter, deterministic no-model demo path
+  -> route-specific evaluator
+  -> Guardrails and blocked claims
+  -> CMMS / QMS / MES / WI / EHS action card
 ```
 
-The Docker Compose profile uses Qdrant as the Vector DB. The dependency-free local demo falls back to an in-memory hashing vector store so reviewers can still run the pipeline without Docker.
+Official component evidence is in [`evidence/component-evidence.json`](evidence/component-evidence.json) and [`docs/opea-component-evidence.md`](docs/opea-component-evidence.md).
 
-## Run The Demo
+## Run Locally
 
 Dependency-free local demo:
 
@@ -63,42 +48,72 @@ Dependency-free local demo:
 .\scripts\run_demo.ps1
 ```
 
-Code-level validation:
+Code validation:
 
 ```powershell
 $env:PYTHONPATH="src"
-& "C:\Users\ryan hui\anaconda3\python.exe" -m unittest discover -s tests
+python -m unittest discover -s tests
 ```
 
 Docker Compose profile with Qdrant:
 
 ```bash
-./deploy.sh
+docker compose up --build -d
 curl http://127.0.0.1:8088/healthz
-curl http://127.0.0.1:8088/v1/manufacturing/demo
+curl http://127.0.0.1:8088/v1/agents
+curl http://127.0.0.1:8088/v1/agents/maintenance/demo
+curl http://127.0.0.1:8088/v1/agents/iqc/demo
+curl http://127.0.0.1:8088/v1/agents/changeover/demo
+curl http://127.0.0.1:8088/v1/agents/wi/demo
+curl http://127.0.0.1:8088/v1/agents/hazard/demo
+curl http://127.0.0.1:8088/v1/scorecard
 ```
+
+The legacy maintenance endpoints remain available:
+
+```bash
+curl http://127.0.0.1:8088/v1/manufacturing/demo
+curl http://127.0.0.1:8088/v1/manufacturing/suite
+```
+
+## API Surface
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /healthz` | Service, vector backend, and supported agents |
+| `GET /v1/agents` | Route registry and knowledge/sample paths |
+| `GET /v1/agents/{mode}/demo` | Fixed sample request for one agent |
+| `POST /v1/agents/{mode}/infer` | Route-specific inference with caller-provided evidence |
+| `GET /v1/scorecard` | Five-route scorecard: latency, contract, guardrail, RAG/source match, action target correctness |
 
 ## Included Materials
 
 | Path | Purpose |
 | --- | --- |
-| [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary and evidence checklist |
-| [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | Draft <=2 page technical report |
-| [`docs/opea-component-evidence.md`](docs/opea-component-evidence.md) | Human-readable OPEA architecture evidence |
-| [`docs/champion-gap-worklist.md`](docs/champion-gap-worklist.md) | Remaining work to compete for first prize |
-| [`docs/source-project-map.md`](docs/source-project-map.md) | Mapping from this submission repo to the full WearEdge Pro source repo |
-| [`scripts/evidence_check.py`](scripts/evidence_check.py) | Dependency-free local evidence manifest checker |
+| [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
+| [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
+| [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
+| [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
+| [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
+| [`src/wear_edge_opea/agents.py`](src/wear_edge_opea/agents.py) | Unified route registry |
+| [`src/wear_edge_opea/scorecard.py`](src/wear_edge_opea/scorecard.py) | Five-agent evaluation scorecard |
 | [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
-| [`deploy.sh`](deploy.sh) | One-command startup with Docker Compose fallback behavior |
-| [`src/wear_edge_opea/`](src/wear_edge_opea/) | OPEA-style executable Manufacturing wrapper |
-| [`tests/`](tests/) | Standard-library validation for the Manufacturing pipeline |
+| [`tests/`](tests/) | Route, guardrail, scorecard, and Qdrant validation |
+
+## Submission Fields
+
+Draft challenge fields are in [`submission-fields.draft.json`](submission-fields.draft.json).
+
+Recommended component selection:
+
+```text
+LLM, RAG, Vector DB, Orchestration, Guardrails
+```
 
 ## Evidence Check
 
-Run:
-
 ```powershell
-& "C:\Users\ryan hui\anaconda3\python.exe" scripts\evidence_check.py
+python scripts\evidence_check.py
 ```
 
 Expected:
@@ -107,17 +122,12 @@ Expected:
 OPEA submission evidence check passed
 ```
 
-## Source Repository
+## Source Provenance
 
-Full engineering source currently lives at:
+This repository is the self-contained OPEA competition package. The full engineering project remains available at:
 
 ```text
 https://github.com/davidmillerak2026-sys/WearEdge-Pro
 ```
 
-Before final submission, choose one of two clean publication strategies:
-
-1. Mirror the necessary source code into this repository so the challenge `project_url` is fully self-contained.
-2. Keep this as the OPEA submission landing repository and use the original WearEdge Pro repo as the complete source-code link.
-
-For the official challenge, self-contained source is stronger.
+The submitted system is an assistive industrial decision-support prototype, not a certified safety or maintenance-release controller. High-risk outputs remain human-confirmed, and guardrails block unsupported claims such as final root cause, restart permission, quality release, safety clearance, and maintenance release.

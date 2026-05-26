@@ -24,7 +24,18 @@ REQUIRED_LOCAL_FILES = [
     "docker-compose.yml",
     "deploy.sh",
     "run_manufacturing_demo.sh",
+    "data/sample_requests/maintenance.json",
+    "data/sample_requests/iqc.json",
+    "data/sample_requests/changeover.json",
+    "data/sample_requests/wi.json",
+    "data/sample_requests/hazard.json",
+    "data/agent_kb/iqc_quality_plan.json",
+    "data/agent_kb/changeover_sku_c500.json",
+    "data/agent_kb/wi_cartoner_st2.json",
+    "data/agent_kb/hazard_policy.json",
+    "src/wear_edge_opea/agents.py",
     "src/wear_edge_opea/megaservice.py",
+    "src/wear_edge_opea/scorecard.py",
     "tests/test_pipeline.py",
 ]
 
