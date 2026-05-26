@@ -19,7 +19,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | OPEA embedding service or selected embedding model is documented and benchmarked |
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Current `/v1/scorecard` exists; add throughput, memory, and setup-time logs |
 | Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
-| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | Draft package is ready; public upstream issue/PR link recorded in `submission-fields.draft.json` |
+| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; PR pending maintainer feedback |
 | Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article URL is recorded; external video URL added if uploaded |
 
 ## P2

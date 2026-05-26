@@ -26,10 +26,16 @@
     "project_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
     "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md"
   },
+  "bonus_urls": {
+    "opea_rfc_issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+    "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
+    "demo_video_url": "pending_external_upload",
+    "xeon_avx512_amx_benchmark_url": "pending_xeon_run"
+  },
   "do_not_claim_until_implemented": {
     "production embedding service": "The committed demo uses deterministic hashing embeddings. Add an OPEA embedding microservice or production embedding model before claiming production-grade semantic embeddings.",
     "Intel hardware optimization": "Benchmark harness and local Intel Core Ultra smoke test are included. Rerun on a Xeon host with AVX-512/AMX flags before claiming the Intel AVX-512/AMX bonus.",
-    "OPEA public contribution": "RFC issue and blueprint feedback drafts are included. Add the public OPEA issue or PR URL before claiming upstream contribution bonus points.",
+    "OPEA public contribution": "Public RFC issue is posted at https://github.com/opea-project/GenAIExamples/issues/2461. PR remains pending maintainer feedback.",
     "external video publication": "Demo script and captions are included. Replace or supplement publication_url after the public demo video is uploaded."
   }
 }

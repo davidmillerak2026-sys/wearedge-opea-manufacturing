@@ -131,6 +131,7 @@ OPEA submission evidence check passed
 OPEA open-source contribution package:
 
 ```text
+https://github.com/opea-project/GenAIExamples/issues/2461
 docs/opea-upstream/rfc-issue-draft.md
 docs/opea-upstream/blueprint-feedback.md
 ```

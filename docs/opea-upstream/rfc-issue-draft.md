@@ -2,6 +2,12 @@
 
 Target repository: `opea-project/GenAIExamples`
 
+Posted issue:
+
+```text
+https://github.com/opea-project/GenAIExamples/issues/2461
+```
+
 Suggested title:
 
 ```text

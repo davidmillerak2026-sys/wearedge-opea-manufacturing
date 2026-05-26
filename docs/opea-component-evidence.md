@@ -63,6 +63,6 @@ Implemented now:
 
 Still required for maximum bonus:
 
-- Public OPEA issue/PR/blueprint URL. Drafts are ready in `docs/opea-upstream/`.
+- OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
 - Xeon AVX-512/AMX benchmark run. Harness and local smoke-test JSON are ready in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.

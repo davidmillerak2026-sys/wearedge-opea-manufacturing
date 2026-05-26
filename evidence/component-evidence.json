@@ -37,13 +37,14 @@
   "bonus_evidence": [
     {
       "category": "OPEA open-source contribution",
-      "status": "draft_ready_public_url_pending",
+      "status": "public_rfc_issue_posted",
       "local_paths": [
         "docs/opea-upstream/rfc-issue-draft.md",
         "docs/opea-upstream/blueprint-feedback.md"
       ],
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
-      "claim_boundary": "Draft is ready; claim full upstream contribution after the public OPEA issue or PR URL exists."
+      "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+      "claim_boundary": "Public RFC issue is posted; PR remains pending maintainer feedback."
     },
     {
       "category": "Knowledge sharing",

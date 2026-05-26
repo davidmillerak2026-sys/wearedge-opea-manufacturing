@@ -49,13 +49,13 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 | Scorecard endpoint | Ready |
 | Qdrant vector DB profile | Ready |
 | Intel CPU benchmark harness | Ready in `scripts/intel_cpu_benchmark.py` |
-| Upstream issue URL | Pending manual/public posting |
+| Upstream issue URL | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461` |
 | Upstream PR URL | Pending maintainer feedback |
 
-## Prefilled Issue Link
+## Posted Issue Link
 
-GitHub does not provide a stable plain-text issue body URL for very long bodies. Use the title below and paste the contents of `docs/opea-upstream/rfc-issue-draft.md`:
+The RFC issue has been posted to OPEA GenAIExamples:
 
 ```text
-https://github.com/opea-project/GenAIExamples/issues/new?title=RFC%3A%20ManufacturingAgentSuite%20blueprint%20for%20route-isolated%20industrial%20action-card%20agents
+https://github.com/opea-project/GenAIExamples/issues/2461
 ```
