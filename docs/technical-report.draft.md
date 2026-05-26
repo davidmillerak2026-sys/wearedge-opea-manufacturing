@@ -27,9 +27,9 @@ M400 / demo UI
 
 The current source project already contains the manufacturing gateway, agent orchestration, local industrial RAG/KB, deterministic evaluators, guardrails, audit logs, and M400 client. This standalone repository makes the OPEA evidence explicit and keeps planned components from being overclaimed.
 
-Honest current component claim: `LLM`, `RAG`, `Orchestration`, `Guardrails`.
+Honest current component claim: `LLM`, `RAG`, `Vector DB`, `Orchestration`, `Guardrails`.
 
-Do not claim `Vector DB` until Qdrant, Chroma, Milvus, Redis, OpenSearch, or another OPEA-compatible vector-store path is committed and demonstrated.
+The committed Docker Compose profile uses Qdrant as the Vector DB. The dependency-free local demo uses an in-memory hashing vector fallback so the pipeline remains runnable without Docker.
 
 ## 3. Implementation
 
@@ -60,20 +60,19 @@ The prototype is honest about current limitations. The high-detail M400 maintena
 
 ## 5. Deployment And Reproducibility
 
-The source project includes Jetson setup scripts, model download/build scripts, gateway and model-server startup scripts, systemd service templates, tests, and smoke-test commands. The challenge-ready gap is a single evaluator-facing command that starts the full Manufacturing demo in a clean environment.
+This repository now includes an evaluator-facing OPEA-style wrapper, Docker Compose Qdrant profile, and dependency-free local demo. The source project includes Jetson setup scripts, model download/build scripts, gateway and model-server startup scripts, systemd service templates, tests, and smoke-test commands.
 
-Required final submission target:
+Current demo commands:
 
 ```bash
 ./deploy.sh
 ./run_manufacturing_demo.sh
 ```
 
-Expected final output should include gateway health, OPEA component health, model service health, sample manufacturing session inference, action-card JSON, audit request id, and benchmark summary.
+Expected output includes gateway health, vector backend status, sample manufacturing session inference, maintenance evaluation, action-card JSON, and source IDs. Final submission should still add a saved benchmark summary and GenAIEval-style scorecard.
 
 ## 6. Safety, Licensing, And Open Source
 
 WearEdge Pro is licensed under MIT, which is allowed by the challenge rules. The system is an assistive decision-support prototype, not a certified industrial safety controller. All high-risk outputs require human confirmation, and the agent is designed to ask for missing evidence rather than invent final root cause or release decisions.
 
 For bonus points, the team should publish an OPEA blueprint feedback issue or PR, a technical article/video explaining the Manufacturing architecture, and an Intel CPU/OpenVINO or AVX-512/AMX optimization benchmark path.
-

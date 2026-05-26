@@ -1,0 +1,35 @@
+{
+  "asset_id": "PKG-L3-GBX-03",
+  "line": "Packaging Line 3",
+  "machine": "Gearbox drive station",
+  "revision": "manufacturing-demo-kb-2026-05-26",
+  "thresholds": {
+    "vibration_rms_mm_s_high": 7.0,
+    "gearbox_temperature_c_high": 75.0,
+    "bearing_temperature_c_high": 70.0,
+    "lubrication_interval_days_max": 14
+  },
+  "sections": [
+    {
+      "id": "GBX-VIB-01",
+      "title": "Gearbox vibration escalation",
+      "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order draft for technician confirmation."
+    },
+    {
+      "id": "GBX-TEMP-01",
+      "title": "Gearbox and bearing temperature confirmation",
+      "content": "Gearbox temperature above 75 C or bearing temperature above 70 C should be cross-checked with vibration trend, load, and lubrication evidence. Do not declare final root cause from temperature alone."
+    },
+    {
+      "id": "GBX-LUBE-01",
+      "title": "Lubrication record cross-check",
+      "content": "If lubrication interval exceeds 14 days or oil leakage is visible, request lubrication record evidence and recent work-order history before recommending restart or maintenance release."
+    },
+    {
+      "id": "GBX-HUMAN-01",
+      "title": "Operator sensory observation",
+      "content": "High-pitched noise, burnt-oil smell, abnormal heat, visible shaking, or fresh oil leakage are valid operator sensory evidence. They should escalate the action card only when paired with accepted machine identity and condition evidence."
+    }
+  ]
+}
+

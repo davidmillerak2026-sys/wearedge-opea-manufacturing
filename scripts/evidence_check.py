@@ -21,6 +21,11 @@ REQUIRED_LOCAL_FILES = [
     "docs/champion-gap-worklist.md",
     "docs/source-project-map.md",
     "evidence/component-evidence.json",
+    "docker-compose.yml",
+    "deploy.sh",
+    "run_manufacturing_demo.sh",
+    "src/wear_edge_opea/megaservice.py",
+    "tests/test_pipeline.py",
 ]
 
 
@@ -33,19 +38,20 @@ def main() -> int:
         return 1
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    accidental_claims = []
     statuses: dict[str, int] = {}
+    missing_manifest_paths: list[str] = []
 
     for item in manifest["component_map"]:
         status = item["status"]
         statuses[status] = statuses.get(status, 0) + 1
-        if item["opea_layer"] in {"Vector DB", "Embeddings"} and status != "planned":
-            accidental_claims.append(item["opea_layer"])
+        for path in item.get("local_paths", []):
+            if not (ROOT / path).exists():
+                missing_manifest_paths.append(f"{item['opea_layer']}: {path}")
 
-    if accidental_claims:
+    if missing_manifest_paths:
         print("OPEA submission evidence check failed")
-        for layer in accidental_claims:
-            print(f"- {layer} must stay planned until implemented")
+        for path in missing_manifest_paths:
+            print(f"- missing manifest path {path}")
         return 1
 
     print("OPEA submission evidence check passed")
@@ -58,4 +64,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

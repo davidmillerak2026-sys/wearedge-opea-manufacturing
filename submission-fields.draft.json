@@ -14,6 +14,7 @@
     "OPEAComponents": [
       "LLM",
       "RAG",
+      "Vector DB",
       "Orchestration",
       "Guardrails"
     ],
@@ -26,10 +27,9 @@
     "publication_url": "TBD"
   },
   "do_not_claim_until_implemented": {
-    "Vector DB": "Add and document an OPEA-compatible Qdrant, Chroma, Milvus, Redis, OpenSearch, or equivalent vector-store path first.",
+    "production embedding service": "The committed demo uses deterministic hashing embeddings. Add an OPEA embedding microservice or production embedding model before claiming production-grade semantic embeddings.",
     "Intel hardware optimization": "Add an Intel CPU/OpenVINO/AVX-512 or AMX benchmark path before claiming bonus points.",
     "GenAIEval": "Add an OPEA GenAIEval-style scorecard before presenting evaluation as OPEA-native.",
     "self-contained source": "Mirror or vendor the selected WearEdge Pro source files into this repository before treating it as the sole project_url."
   }
 }
-

@@ -30,10 +30,10 @@ The final output is not an unsafe autonomous decision. It is a bounded action ca
 Current honest submission components:
 
 ```text
-LLM, RAG, Orchestration, Guardrails
+LLM, RAG, Vector DB, Orchestration, Guardrails
 ```
 
-The repository includes explicit OPEA component evidence and a worklist for making the claim fully executable through an OPEA-style runtime wrapper.
+The repository includes an executable OPEA-style runtime wrapper and a Docker Compose Qdrant profile. The local no-dependency demo uses an in-memory vector fallback; the Docker profile is the Vector DB claim path.
 
 ## Current Source Evidence
 
@@ -59,14 +59,11 @@ Key existing evidence in the source project:
 P0:
 
 - Make this repository self-contained or clearly linked to the source repository.
-- Add one-click challenge deployment.
 - Add final two-page technical report.
 - Add 1-3 minute real prototype demo video.
 
 P1:
 
-- Add OPEA-compatible vector-store profile.
 - Add GenAIEval-style scorecard.
 - Add OPEA issue/PR/blueprint feedback link.
 - Add Intel CPU/OpenVINO or AVX-512/AMX optimization evidence.
-

@@ -1,0 +1,12 @@
+{
+  "asset_id": "PKG-L3-GBX-03",
+  "operator_observation": "Operator reports high-pitched gearbox noise, faint burnt-oil smell, warmer housing, visible guard shaking, and small oil seepage after speed increase.",
+  "signals": {
+    "vibration_rms_mm_s": 7.8,
+    "gearbox_temperature_c": 82,
+    "bearing_temperature_c": 78,
+    "lubrication_interval_days": 18,
+    "plc_alarm": "GBX-VIB-HI"
+  }
+}
+

@@ -1,0 +1,25 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.6
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  manufacturing-gateway:
+    build: .
+    depends_on:
+      - qdrant
+    environment:
+      WEAREDGE_VECTOR_BACKEND: qdrant
+      WEAREDGE_QDRANT_URL: http://qdrant:6333
+      WEAREDGE_COLLECTION: wearedge_manufacturing_kb
+      WEAREDGE_HOST: 0.0.0.0
+      WEAREDGE_PORT: "8088"
+    ports:
+      - "8088:8088"
+
+volumes:
+  qdrant_storage:
+

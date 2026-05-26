@@ -34,21 +34,20 @@ flowchart LR
 | Gateway | Implemented in source | `jetson/app.py`, `scripts/run_fastapi.sh`, `docs/m400-inference-contract.md` | M400/Web/audit/session entry point |
 | Megaservice | Implemented in source | `jetson/agently_orchestrator.py`, `jetson/agent_loop.py` | Manufacturing orchestration |
 | Dataprep | Adapter-ready | `industrial-rag-agent/src/wear_edge_rag/documents.py` | SOP/log/quality-plan prep |
-| Retriever / RAG | Implemented in source | `jetson/maintenance_kb.py`, `industrial-rag-agent/src/wear_edge_rag/retriever.py` | Machine-specific maintenance retrieval |
-| LLM Service | Adapter-ready | `jetson/llama_client.py`, `scripts/run_llama_server.sh` | OpenAI-compatible edge LLM service |
+| Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py`, source `jetson/maintenance_kb.py` | Machine-specific maintenance retrieval |
+| Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant profile with in-memory fallback |
+| LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Local deterministic no-model demo; source project has OpenAI-compatible edge LLM |
 | Prompt Contract | Implemented in source | `jetson/output_contract.py` | Bounded Manufacturing fields and action starters |
-| Guardrails | Implemented in source | `jetson/agent_loop.py`, `jetson/released_source.py` | Source guard, uncertainty guard, human gate |
-| Evaluation | Adapter-ready | `docs/edge-runtime-benchmark.md`, `docs/test-log-history.md` | Add GenAIEval-style scorecard next |
-| Embeddings | Planned | Not committed | Do not claim yet |
-| Vector DB | Planned | Not committed | Do not claim yet |
+| Guardrails | Implemented | `src/wear_edge_opea/guardrails.py`, source `jetson/agent_loop.py` | Source guard, uncertainty guard, human gate |
+| Evaluation | Adapter-ready | `src/wear_edge_opea/evaluator.py`, source `docs/edge-runtime-benchmark.md` | Add GenAIEval-style scorecard next |
+| Embeddings | Demo implemented | `src/wear_edge_opea/embedding.py` | Hashing embeddings for runnable profile; production embedding service next |
 
 ## Required OPEA Hardening
 
 The current source project already contains an OPEA-shaped Manufacturing application. To make the challenge claim stronger, this standalone repository should add:
 
-- `deploy.sh` or Docker Compose challenge profile.
+- Final challenge logs for `deploy.sh` and Docker Compose profile.
 - OPEA-compatible wrappers around gateway, retrieval, LLM service, and evaluator.
-- Qdrant/Chroma/Milvus/Redis vector-store profile.
+- Production embedding model or OPEA embedding service.
 - GenAIEval-style scorecard with latency, throughput, RAG quality, and action-card correctness.
 - OPEA blueprint feedback issue or PR link.
-

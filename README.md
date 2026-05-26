@@ -34,12 +34,12 @@ The workflow asks for missing evidence instead of inventing final root cause. Hi
 | Gateway | FastAPI edge gateway for M400, audit, and maintenance sessions | implemented in source project |
 | Megaservice | Manufacturing orchestration across evidence, RAG, LLM, evaluator, guardrails, and action cards | implemented in source project |
 | Dataprep | Industrial document loading and chunking for SOPs, logs, quality plans | adapter-ready |
-| Retriever / RAG | Machine-specific maintenance KB and local industrial retriever | implemented in source project |
-| LLM service | OpenAI-compatible local LLM/VLM endpoint | adapter-ready |
+| Retriever / RAG | Machine-specific maintenance KB and local industrial retriever | implemented in this repo and source project |
+| Vector DB | Qdrant Docker Compose profile with dependency-free in-memory fallback | implemented in this repo |
+| LLM service | OpenAI-compatible local LLM/VLM endpoint; local deterministic stub for no-model demo | adapter-ready |
 | Prompt contract | Mode-specific output contract and action-starter constraints | implemented in source project |
 | Guardrails | Source guard, action map, uncertainty guard, human gate | implemented in source project |
 | Evaluation | Repo-native benchmark and deterministic scorecard | adapter-ready for GenAIEval-style report |
-| Vector DB | Qdrant/Chroma/Milvus/Redis profile not committed yet | do not claim yet |
 
 Detailed machine-readable evidence: [`evidence/component-evidence.json`](evidence/component-evidence.json).
 
@@ -50,10 +50,33 @@ Draft fields for the challenge form are in [`submission-fields.draft.json`](subm
 Recommended current component selection:
 
 ```text
-LLM, RAG, Orchestration, Guardrails
+LLM, RAG, Vector DB, Orchestration, Guardrails
 ```
 
-Do not select `Vector DB` until a vector-store profile is committed in this repository.
+The Docker Compose profile uses Qdrant as the Vector DB. The dependency-free local demo falls back to an in-memory hashing vector store so reviewers can still run the pipeline without Docker.
+
+## Run The Demo
+
+Dependency-free local demo:
+
+```powershell
+.\scripts\run_demo.ps1
+```
+
+Code-level validation:
+
+```powershell
+$env:PYTHONPATH="src"
+& "C:\Users\ryan hui\anaconda3\python.exe" -m unittest discover -s tests
+```
+
+Docker Compose profile with Qdrant:
+
+```bash
+./deploy.sh
+curl http://127.0.0.1:8088/healthz
+curl http://127.0.0.1:8088/v1/manufacturing/demo
+```
 
 ## Included Materials
 
@@ -65,6 +88,10 @@ Do not select `Vector DB` until a vector-store profile is committed in this repo
 | [`docs/champion-gap-worklist.md`](docs/champion-gap-worklist.md) | Remaining work to compete for first prize |
 | [`docs/source-project-map.md`](docs/source-project-map.md) | Mapping from this submission repo to the full WearEdge Pro source repo |
 | [`scripts/evidence_check.py`](scripts/evidence_check.py) | Dependency-free local evidence manifest checker |
+| [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
+| [`deploy.sh`](deploy.sh) | One-command startup with Docker Compose fallback behavior |
+| [`src/wear_edge_opea/`](src/wear_edge_opea/) | OPEA-style executable Manufacturing wrapper |
+| [`tests/`](tests/) | Standard-library validation for the Manufacturing pipeline |
 
 ## Evidence Check
 
@@ -94,4 +121,3 @@ Before final submission, choose one of two clean publication strategies:
 2. Keep this as the OPEA submission landing repository and use the original WearEdge Pro repo as the complete source-code link.
 
 For the official challenge, self-contained source is stronger.
-
