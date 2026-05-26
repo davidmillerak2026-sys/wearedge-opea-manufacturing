@@ -74,11 +74,15 @@ class QdrantVectorStore:
             return json.loads(text) if text else {}
 
     def index(self, chunks: list[KnowledgeChunk]) -> None:
-        self._request(
-            "PUT",
-            f"/collections/{self.collection}",
-            {"vectors": {"size": self.dimensions, "distance": "Cosine"}},
-        )
+        try:
+            self._request(
+                "PUT",
+                f"/collections/{self.collection}",
+                {"vectors": {"size": self.dimensions, "distance": "Cosine"}},
+            )
+        except urllib.error.HTTPError as exc:
+            if exc.code != 409:
+                raise
         points = []
         for idx, chunk in enumerate(chunks, start=1):
             points.append(
@@ -119,4 +123,3 @@ def build_vector_store() -> VectorStore:
         except (OSError, urllib.error.URLError, TimeoutError):
             return InMemoryVectorStore()
     return InMemoryVectorStore()
-
