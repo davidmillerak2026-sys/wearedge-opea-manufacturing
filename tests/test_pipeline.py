@@ -150,6 +150,14 @@ class PipelineTest(unittest.TestCase):
         with patch.dict("os.environ", {}, clear=True):
             self.assertEqual(embedding_profile_name(), "hashing")
 
+    def test_embedding_profile_can_be_named_for_official_tei(self) -> None:
+        with patch.dict("os.environ", {"WEAREDGE_EMBEDDING_PROFILE": "opea-tei"}, clear=True):
+            self.assertEqual(embedding_profile_name(), "opea-tei")
+
+    def test_strict_embedding_dimensions_reject_mismatch(self) -> None:
+        with self.assertRaises(ValueError):
+            _coerce_dimensions([1.0, 2.0], 3, strict=True)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -28,7 +28,7 @@ ManufacturingAgentSuite/
   assets/flow.md
 ```
 
-The first PR should stay intentionally small: route registry, Docker Compose, Qdrant profile, deterministic demo path, scorecard, and docs. Helm/GMC can be a follow-up once maintainers accept the blueprint.
+The first PR should stay intentionally small: route registry, Docker Compose, Qdrant profile, optional OPEA TEI embedding profile, deterministic demo path, scorecard, and docs. Helm/GMC can be a follow-up once maintainers accept the blueprint.
 
 ## Maintainer Feedback Questions
 
@@ -48,6 +48,7 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 | Five route demos | Ready |
 | Scorecard endpoint | Ready |
 | Qdrant vector DB profile | Ready |
+| Official OPEA TEI embedding profile | Local E2E passed; ready for C3 rerun |
 | Intel CPU benchmark harness | Ready in `scripts/intel_cpu_benchmark.py` |
 | Upstream issue URL | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461` |
 | Implementation feedback comment | Prepared in `docs/opea-upstream/implementation-feedback-comment.md` |

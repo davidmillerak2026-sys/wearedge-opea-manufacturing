@@ -29,6 +29,8 @@ Current validation status:
 - `GET /v1/agents/{mode}/demo` returns a route-specific action card for every mode.
 - `GET /v1/scorecard` reports five passing route checks covering contract, guardrail, RAG/source match, action target correctness, and route isolation.
 - The Docker profile starts a Qdrant-backed gateway, with a deterministic no-model demo path for CI/reviewer reproducibility.
+- `docker-compose.opea.yml` adds an OPEA-compatible `/v1/embeddings` microservice boundary for Qdrant RAG.
+- `docker-compose.opea-tei.yml` adds the official OPEA TEI embedding pattern with Hugging Face TEI, `TEI_EMBEDDING_ENDPOINT`, and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; local E2E passed with 768-dimensional embeddings and all five demos using `qdrant-opea-tei-vector-store`.
 
 PR-ready minimal scope I can prepare if this direction is useful:
 
@@ -37,6 +39,7 @@ ManufacturingAgentSuite/
   README.md
   manufacturing_agent_suite.py
   docker_compose/intel/cpu/xeon/compose.yaml
+  docker_compose/intel/cpu/xeon/compose.opea-tei.yaml
   benchmark/README.md
   tests/test_compose_on_xeon.sh
   assets/flow.md

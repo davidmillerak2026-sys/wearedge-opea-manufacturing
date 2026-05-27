@@ -31,6 +31,11 @@
       "used_for": "Composable component reference"
     },
     {
+      "name": "OPEA TEI Embedding Microservice",
+      "url": "https://opea-project.github.io/latest/GenAIComps/comps/embeddings/src/README_tei.html",
+      "used_for": "Official TEI embedding component profile with TEI_EMBEDDING_ENDPOINT, OPEA_TEI_EMBEDDING, and /v1/embeddings"
+    },
+    {
       "name": "GenAIExamples",
       "url": "https://github.com/opea-project/GenAIExamples",
       "used_for": "Example application and deployment reference"
@@ -119,6 +124,26 @@
         "Docker stats"
       ],
       "claim_boundary": "Fresh-clone OPEA-compatible embedding profile E2E passed. This validates a microservice boundary, not production TEI embedding quality or LLM acceleration."
+    },
+    {
+      "category": "Official OPEA TEI embedding profile",
+      "status": "local_passed_c3_rerun_pending",
+      "local_paths": [
+        "docker-compose.opea-tei.yml",
+        "scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh",
+        "docs/official-opea-tei-profile.md",
+        "docs/local-opea-tei-profile-e2e-report.md",
+        "evidence/benchmarks/local_opea_tei_profile_e2e.summary.json"
+      ],
+      "validated_surface_pending": [
+        "OPEA /v1/embeddings via TEI",
+        "/healthz",
+        "/v1/agents/{mode}/demo",
+        "/v1/scorecard",
+        "Qdrant route collections",
+        "Docker stats"
+      ],
+      "claim_boundary": "Profile passed local Docker Desktop E2E. Do not claim production TEI C3 benchmark evidence until the runner passes on Google Cloud C3 and the JSON artifact is committed."
     }
   ],
   "component_map": [
@@ -193,20 +218,25 @@
     },
     {
       "opea_layer": "Embeddings",
-      "wear_edge_component": "Deterministic hashing embedding path plus OPEA-compatible embedding microservice profile",
-      "status": "opea_compatible_profile_implemented",
+      "wear_edge_component": "Deterministic hashing path, OPEA-compatible embedding microservice, and official OPEA TEI profile",
+      "status": "opea_tei_profile_local_passed_cloud_pending",
       "local_paths": [
         "src/wear_edge_opea/embedding.py",
         "src/wear_edge_opea/opea_embedding_service.py",
         "docker-compose.opea.yml",
+        "docker-compose.opea-tei.yml",
         "pyproject.toml",
         "docs/official-opea-profile.md",
+        "docs/official-opea-tei-profile.md",
+        "scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh",
+        "docs/local-opea-tei-profile-e2e-report.md",
         "evidence/benchmarks/local_opea_profile_e2e.summary.json",
+        "evidence/benchmarks/local_opea_tei_profile_e2e.summary.json",
         "evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json",
         "docs/gcp-c3-opea-profile-e2e-report.md"
       ],
       "source_paths": [],
-      "submission_claim": "Runnable no-download embedding profile plus optional `/v1/embeddings` microservice boundary; production TEI/GenAIComps embedding remains a hardening item"
+      "submission_claim": "Runnable no-download embedding profile plus an official OPEA TEI profile that connects Hugging Face TEI, OPEA embedding microservice, Qdrant, and the five manufacturing routes; production TEI benchmark evidence requires the pending C3 rerun artifact"
     },
     {
       "opea_layer": "Vector DB",

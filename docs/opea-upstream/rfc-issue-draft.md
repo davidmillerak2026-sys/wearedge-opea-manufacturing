@@ -99,6 +99,17 @@ curl http://127.0.0.1:8088/v1/agents/hazard/demo
 curl http://127.0.0.1:8088/v1/scorecard
 ```
 
+It also includes OPEA embedding profiles:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.opea.yml up --build -d
+docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d
+```
+
+The TEI profile follows the OPEA GenAIComps TEI pattern with
+`TEI_EMBEDDING_ENDPOINT`, `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and
+`/v1/embeddings`.
+
 Expected route registry:
 
 ```text
@@ -123,4 +134,5 @@ If maintainers agree, I can prepare a PR with:
 - Five sample manufacturing routes.
 - Deterministic CI-friendly demo mode.
 - Qdrant vector DB profile.
+- OPEA-compatible and official TEI embedding profiles.
 - Scorecard endpoint and E2E test.

@@ -21,6 +21,9 @@ def embedding_backend() -> str:
 
 
 def embedding_profile_name() -> str:
+    configured = os.getenv("WEAREDGE_EMBEDDING_PROFILE", "").strip()
+    if configured:
+        return configured
     if embedding_backend() in {"opea", "remote", "microservice"}:
         return "opea-compatible-embedding"
     return "hashing"
@@ -63,11 +66,12 @@ def hashing_embed_text(text: str, dimensions: int = DEFAULT_DIMENSIONS) -> list[
 def embed_text_remote(text: str, dimensions: int = DEFAULT_DIMENSIONS) -> list[float]:
     url = os.getenv("WEAREDGE_EMBEDDING_URL", "http://127.0.0.1:6000/v1/embeddings")
     timeout = float(os.getenv("WEAREDGE_EMBEDDING_TIMEOUT", "5"))
-    payload = {
-        "input": text,
-        "model": os.getenv("WEAREDGE_EMBEDDING_MODEL", "wear-edge-hashing-embedding"),
-        "dimensions": dimensions,
-    }
+    payload = {"input": text}
+    model = os.getenv("WEAREDGE_EMBEDDING_MODEL", "wear-edge-hashing-embedding").strip()
+    if model:
+        payload["model"] = model
+    if os.getenv("WEAREDGE_EMBEDDING_SEND_DIMENSIONS", "true").lower() not in {"0", "false", "no"}:
+        payload["dimensions"] = dimensions
     request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
@@ -77,7 +81,7 @@ def embed_text_remote(text: str, dimensions: int = DEFAULT_DIMENSIONS) -> list[f
     with urllib.request.urlopen(request, timeout=timeout) as response:
         body = json.loads(response.read().decode("utf-8"))
     embedding = _extract_embedding(body)
-    return _coerce_dimensions(embedding, dimensions)
+    return _coerce_dimensions(embedding, dimensions, strict=_strict_dimensions())
 
 
 def _extract_embedding(body: dict) -> list[float]:
@@ -88,9 +92,17 @@ def _extract_embedding(body: dict) -> list[float]:
     raise ValueError("Embedding response did not include data[0].embedding")
 
 
-def _coerce_dimensions(vector: list[float], dimensions: int) -> list[float]:
+def _strict_dimensions() -> bool:
+    return os.getenv("WEAREDGE_EMBEDDING_STRICT_DIMENSIONS", "false").lower() in {"1", "true", "yes"}
+
+
+def _coerce_dimensions(vector: list[float], dimensions: int, strict: bool = False) -> list[float]:
     if len(vector) == dimensions:
         return vector
+    if strict:
+        raise ValueError(
+            f"Embedding response dimension mismatch: expected {dimensions}, got {len(vector)}"
+        )
     if len(vector) > dimensions:
         return vector[:dimensions]
     return vector + [0.0] * (dimensions - len(vector))

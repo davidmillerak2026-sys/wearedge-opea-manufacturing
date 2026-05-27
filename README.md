@@ -99,6 +99,22 @@ This profile routes Qdrant embeddings through a separate `/v1/embeddings`
 microservice and reports `qdrant-opea-compatible-embedding-vector-store` in
 RAG results.
 
+Official OPEA TEI embedding profile:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d
+curl http://127.0.0.1:6000/v1/health_check
+curl http://127.0.0.1:8088/healthz
+curl http://127.0.0.1:8088/v1/agents/maintenance/demo
+curl http://127.0.0.1:8088/v1/scorecard
+```
+
+This profile follows the OPEA GenAIComps TEI pattern: Hugging Face TEI serves
+the embedding model, the OPEA embedding microservice connects through
+`TEI_EMBEDDING_ENDPOINT` and
+`EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and the Manufacturing Gateway
+uses `/v1/embeddings` for Qdrant indexing and retrieval.
+
 The legacy maintenance endpoints remain available:
 
 ```bash
@@ -125,11 +141,13 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/official-opea-profile.md`](docs/official-opea-profile.md) | OPEA-compatible embedding microservice profile |
+| [`docs/official-opea-tei-profile.md`](docs/official-opea-tei-profile.md) | Official OPEA TEI embedding profile and C3 rerun instructions |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
+| [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
@@ -140,6 +158,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`src/wear_edge_opea/scorecard.py`](src/wear_edge_opea/scorecard.py) | Five-agent evaluation scorecard |
 | [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
 | [`docker-compose.opea.yml`](docker-compose.opea.yml) | Optional OPEA-compatible embedding microservice override |
+| [`docker-compose.opea-tei.yml`](docker-compose.opea-tei.yml) | Optional official OPEA TEI embedding profile |
 | [`tests/`](tests/) | Route, guardrail, scorecard, and Qdrant validation |
 
 ## Submission Fields
@@ -200,7 +219,14 @@ evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
 evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
 evidence/benchmarks/local_opea_profile_e2e.summary.json
+evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
+```
+
+Official OPEA TEI rerun script:
+
+```text
+scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh
 ```
 
 The Xeon run was captured on Google Cloud C3 `c3-standard-4` with Intel Xeon Platinum 8481C, `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`, scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic route calls.

@@ -28,6 +28,7 @@ M400 or API request
   -> Dataprep
   -> Retriever/RAG
   -> Qdrant vector DB profile
+  -> optional OPEA / TEI embedding microservice
   -> LLM adapter
   -> deterministic evaluator
   -> Guardrails
@@ -77,7 +78,7 @@ The OPEA submission package is public:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-It includes Docker Compose, Qdrant, five sample requests, route-specific knowledge sources, a FastAPI gateway, a scorecard endpoint, tests, OPEA component mapping, and a draft upstream blueprint proposal for the OPEA community.
+It includes Docker Compose, Qdrant, five sample requests, route-specific knowledge sources, a FastAPI gateway, a scorecard endpoint, tests, OPEA component mapping, an OPEA-compatible embedding profile, an official OPEA TEI profile, and a draft upstream blueprint proposal for the OPEA community.
 
 The OPEA RFC issue is public:
 
@@ -92,14 +93,16 @@ Current validation status:
 - `/v1/agents` returns all five routes.
 - `/v1/agents/{mode}/demo` returns route-specific action cards for all five modes.
 - `/v1/scorecard` reports five passing route checks.
+- `docker-compose.opea.yml` validates the `/v1/embeddings` microservice boundary.
+- `docker-compose.opea-tei.yml` passed locally with `opea/embedding:latest`, Hugging Face TEI, Qdrant, and all five route demos.
 
 ## What Comes Next
 
 The next hardening steps are:
 
 - Prepare the first minimal OPEA PR once maintainers confirm the preferred blueprint location and naming.
-- Add a production embedding microservice profile.
-- Run the benchmark harness on Intel Xeon hardware with AVX-512 and AMX.
+- Re-run the official OPEA TEI profile on Google Cloud C3 and attach the fresh-clone JSON evidence.
+- Run the production LLM profile on Intel Xeon hardware with AVX-512 and AMX when available.
 - Add a short demo video showing all five agents in less than three minutes.
 
 WearEdge Pro's position is simple: the best plant-floor AI systems will be source-grounded, route-aware, human-confirmed, and measured. That is the shape this OPEA Manufacturing suite is trying to make concrete.

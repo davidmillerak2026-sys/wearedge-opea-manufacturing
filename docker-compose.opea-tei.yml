@@ -1,0 +1,44 @@
+services:
+  tei-embedding-serving:
+    image: ${TEI_IMAGE:-ghcr.io/huggingface/text-embeddings-inference:cpu-latest}
+    command:
+      - --model-id
+      - ${EMBEDDING_MODEL_ID:-BAAI/bge-base-en-v1.5}
+      - --port
+      - "80"
+    environment:
+      HF_HUB_ENABLE_HF_TRANSFER: "0"
+    ports:
+      - "8090:80"
+    volumes:
+      - tei_model_cache:/data
+
+  opea-embedding-tei:
+    image: ${OPEA_EMBEDDING_IMAGE:-opea/embedding:latest}
+    depends_on:
+      - tei-embedding-serving
+    environment:
+      TEI_EMBEDDING_ENDPOINT: http://tei-embedding-serving:80
+      EMBEDDING_COMPONENT_NAME: OPEA_TEI_EMBEDDING
+    ports:
+      - "6000:6000"
+
+  manufacturing-gateway:
+    depends_on:
+      - qdrant
+      - opea-embedding-tei
+    environment:
+      WEAREDGE_VECTOR_BACKEND: qdrant
+      WEAREDGE_QDRANT_URL: http://qdrant:6333
+      WEAREDGE_COLLECTION: wearedge_manufacturing_kb_tei
+      WEAREDGE_EMBEDDING_BACKEND: opea
+      WEAREDGE_EMBEDDING_PROFILE: opea-tei
+      WEAREDGE_EMBEDDING_URL: http://opea-embedding-tei:6000/v1/embeddings
+      WEAREDGE_EMBEDDING_MODEL: ""
+      WEAREDGE_EMBEDDING_DIMENSIONS: "768"
+      WEAREDGE_EMBEDDING_SEND_DIMENSIONS: "false"
+      WEAREDGE_EMBEDDING_STRICT_DIMENSIONS: "true"
+      WEAREDGE_EMBEDDING_TIMEOUT: "30"
+
+volumes:
+  tei_model_cache:

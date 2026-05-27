@@ -1,6 +1,6 @@
 # Official OPEA Profile
 
-Status: first implementation added.
+Status: lightweight profile validated; official TEI profile added separately.
 
 ## Why This Exists
 
@@ -14,6 +14,12 @@ Gateway and Megaservice. OPEA's embedding service documentation exposes
 `/v1/embeddings` and describes the API as OpenAI-compatible. This profile moves
 WearEdge's embedding boundary out of the Gateway process and into a separate
 OPEA-compatible embedding microservice.
+
+For the production-model OPEA component path, see
+[`docs/official-opea-tei-profile.md`](official-opea-tei-profile.md). That
+profile wires the Gateway to OPEA's TEI embedding pattern through
+`TEI_EMBEDDING_ENDPOINT`, `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and
+`/v1/embeddings`.
 
 ## Run
 
@@ -135,6 +141,7 @@ pip install -e ".[opea]"
 ```
 
 Do not claim that this profile runs a production embedding model. The next
-hardening step is to swap `wear_edge_opea.opea_embedding_service` for an
-official OPEA GenAIComps embedding implementation such as TEI, then benchmark
-that production model path on the same C3 host.
+hardening profile is now in `docker-compose.opea-tei.yml` and the matching
+Google Cloud C3 runner is
+`scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh`. Claim production TEI
+evidence only after that fresh-clone runner passes.
