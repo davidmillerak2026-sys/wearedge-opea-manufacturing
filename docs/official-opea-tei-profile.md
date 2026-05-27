@@ -103,6 +103,13 @@ starts `docker-compose.yml + docker-compose.opea-tei.yml`, validates the OPEA
 embedding service, verifies all five agent routes and `/v1/scorecard`, records
 Docker stats, prints JSON evidence, and deletes the VM unless `KEEP_VM=1`.
 
+After the run, copy the printed JSON artifact into a local file and generate the
+submission summary/report with:
+
+```bash
+python scripts/record_gcp_opea_tei_evidence.py gcp_c3_opea_tei_profile_e2e.json
+```
+
 ## Local Validation
 
 Local Docker Desktop validation passed:

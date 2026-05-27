@@ -42,6 +42,7 @@ REQUIRED_LOCAL_FILES = [
     "scripts/xeon_amx_benchmark_remote.sh",
     "scripts/gcp_c3_opea_profile_e2e_cloudshell.sh",
     "scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh",
+    "scripts/record_gcp_opea_tei_evidence.py",
     "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
     "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
