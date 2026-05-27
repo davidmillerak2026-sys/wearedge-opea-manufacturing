@@ -11,7 +11,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Polish one-click challenge deployment | Official submission requirement | Fresh clone can run sample Manufacturing flow with documented logs |
 | Finalize <=2 page technical report | Official submission requirement | PDF/Markdown report has no `TBD` or planned claims |
 | Productize judge-facing demo console | Converts API evidence into an evaluable product | `/demo` lets judges switch routes, run demos, inspect RAG evidence, action cards, guardrails, and scorecard |
-| Produce 1-3 minute prototype demo video | Optional officially, useful after product console exists | Local HyperFrames source and MP4 render are ready; upload the MP4 and add external video URL |
+| Produce 1-3 minute prototype demo video | Optional officially, useful after product console exists | Local HyperFrames source, MP4 render, and public raw video URL are ready |
 
 ## P1
 
@@ -21,7 +21,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Current `/v1/scorecard` exists; add throughput, memory, and setup-time logs |
 | Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
 | Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue and TEI update are posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR pending maintainer feedback |
-| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article is public and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video source and local render are ready; external video URL pending upload |
+| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article is public and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video source, local render, and public raw video URL are ready |
 
 ## P2
 

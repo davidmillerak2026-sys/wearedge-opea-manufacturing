@@ -1,7 +1,7 @@
 # Final Submission Readiness Audit
 
-Status: strong technical package; local demo video render complete; final
-external video URL and optional upstream PR remain.
+Status: strong technical package; public demo video URL verified; optional
+upstream PR and final form dry run remain.
 
 ## Product Decision
 
@@ -31,7 +31,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
 | Open-source contribution bonus | RFC issue posted; upstream TEI update comment posted; project tracker updated; PR pending maintainer feedback | Strong |
-| Knowledge sharing bonus | Public article ready; demo video script/captions plus renderable HyperFrames source and local MP4 render ready | Strong pending upload |
+| Knowledge sharing bonus | Public article ready; demo video script/captions, renderable HyperFrames source, local MP4 render, and public video URL ready | Ready |
 
 ## Hard Evidence
 
@@ -45,6 +45,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
+| Public demo video URL | https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
@@ -88,12 +89,11 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 
 | Item | Why it matters | Next action |
 | --- | --- | --- |
-| External demo video URL | Improves prototype quality and knowledge sharing bonus | Upload `renders/wearedge-opea-manufacturing-demo.mp4` and replace `pending_external_upload` |
 | Minimal upstream PR | Could improve open-source contribution bonus | Wait for maintainer response or open a small docs/example PR if time allows |
 | Final form dry run | Prevents URL/claim mistakes | Paste fields from `submission-fields.draft.json`, then verify every URL loads publicly |
 
 ## Current Verdict
 
 The core technical package is now competition-ready. The highest-return final
-work is uploading the rendered demo video and performing the final submission
-form dry run, not more architecture code.
+work is performing the final submission form dry run and optionally opening a
+small upstream PR, not more architecture code.

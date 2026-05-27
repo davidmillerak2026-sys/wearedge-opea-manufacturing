@@ -2,7 +2,7 @@
 
 Date: 2026-05-27
 
-Status: local render complete; external upload URL still pending.
+Status: local render complete; public GitHub raw video URL verified.
 
 ## Rendered Asset
 
@@ -11,8 +11,14 @@ renders/wearedge-opea-manufacturing-demo.mp4
 ```
 
 The rendered `.mp4` is intentionally excluded from git by `.gitignore`.
-Upload this file to a public video host before final form submission and replace
-`bonus_urls.demo_video_url` in `submission-fields.draft.json`.
+The file is hosted on the public `codex/video-assets` branch:
+
+```text
+https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
+```
+
+This URL was verified with `curl -I -L` and returned `HTTP/1.1 200 OK` with
+`Content-Length: 16135620`.
 
 ## Source Package
 

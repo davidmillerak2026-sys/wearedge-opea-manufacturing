@@ -115,7 +115,7 @@ Key archived evidence already mapped into this submission package:
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; official TEI update comment posted at `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR remains pending maintainer feedback.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
-- Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, and a local MP4 render report are ready.
+- Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, local MP4 render report, and public raw MP4 URL are ready.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` run captured on Intel Xeon Platinum 8481C with `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
@@ -140,6 +140,7 @@ Key archived evidence already mapped into this submission package:
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
 - Demo video source package: `public/demo-video/`
 - Demo video render report: `docs/demo-video-render-report.md`
+- Demo video URL: `https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4`
 - Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`
 - Xeon AVX-512/AMX benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`
 - GCP Docker/Qdrant E2E summary JSON: `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json`

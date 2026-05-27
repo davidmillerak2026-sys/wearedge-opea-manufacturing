@@ -32,7 +32,7 @@
     "opea_tei_update_comment_url": "https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017",
     "opea_tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
     "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
-    "demo_video_url": "pending_external_upload",
+    "demo_video_url": "https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4",
     "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
     "demo_video_render_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md",
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
