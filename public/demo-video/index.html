@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WearEdge Pro: Five OPEA Manufacturing Agents</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #101414;
+      color: #edf4ef;
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #wearedge-opea-demo {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #101414;
+      color: #edf4ef;
+    }
+
+    .background {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(80, 216, 188, 0.18), rgba(80, 216, 188, 0) 28%),
+        radial-gradient(circle at 14% 84%, rgba(201, 143, 85, 0.16), rgba(201, 143, 85, 0) 30%),
+        linear-gradient(90deg, rgba(237, 244, 239, 0.045) 1px, rgba(16, 20, 20, 0) 1px),
+        linear-gradient(0deg, rgba(237, 244, 239, 0.035) 1px, rgba(16, 20, 20, 0) 1px);
+      background-size: 100% 100%, 100% 100%, 96px 96px, 96px 96px;
+      z-index: 0;
+    }
+
+    .scan-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -220px;
+      width: 180px;
+      background: linear-gradient(90deg, rgba(80, 216, 188, 0), rgba(80, 216, 188, 0.12), rgba(80, 216, 188, 0));
+      transform: skewX(-11deg);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      z-index: 2;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      padding: 56px 88px 44px;
+      gap: 22px;
+      background-color: rgba(16, 20, 20, 0.26);
+    }
+
+    .scene-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .eyebrow {
+      color: #50d8bc;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-family: "Archivo Black", "Arial Black", sans-serif;
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 1320px;
+      margin-top: 14px;
+      font-size: 98px;
+    }
+
+    h2 {
+      max-width: 1180px;
+      margin-top: 12px;
+      font-size: 64px;
+    }
+
+    .subline {
+      max-width: 980px;
+      margin: 18px 0 0;
+      color: #c8d3cd;
+      font-size: 28px;
+      line-height: 1.28;
+      font-weight: 300;
+    }
+
+    .badge {
+      min-width: 290px;
+      padding: 15px 18px;
+      border: 1px solid rgba(80, 216, 188, 0.38);
+      border-radius: 8px;
+      background: rgba(24, 32, 31, 0.84);
+      color: #edf4ef;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+      line-height: 1.35;
+      text-align: right;
+    }
+
+    .body-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      min-height: 0;
+      height: 100%;
+      align-items: stretch;
+    }
+
+    .body-grid.three {
+      grid-template-columns: 0.9fr 1.2fr 0.9fr;
+    }
+
+    .panel {
+      border: 1px solid rgba(174, 187, 180, 0.18);
+      border-radius: 8px;
+      background: rgba(24, 32, 31, 0.88);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .panel.alt {
+      background: rgba(32, 41, 39, 0.92);
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+      color: #edf4ef;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .panel-title code,
+    .mono {
+      color: #50d8bc;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 22px;
+      font-variant-ligatures: none;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .route-tile {
+      min-height: 128px;
+      padding: 18px 16px;
+      border: 1px solid rgba(80, 216, 188, 0.3);
+      border-radius: 8px;
+      background: rgba(32, 41, 39, 0.82);
+    }
+
+    .route-tile strong {
+      display: block;
+      color: #edf4ef;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .route-tile span {
+      display: block;
+      margin-top: 12px;
+      color: #aebbb4;
+      font-size: 18px;
+      line-height: 1.24;
+    }
+
+    .route-tile.hero {
+      border-color: rgba(240, 191, 76, 0.7);
+      background: rgba(79, 62, 35, 0.45);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .pipe-node {
+      min-height: 96px;
+      border: 1px solid rgba(80, 216, 188, 0.36);
+      border-radius: 8px;
+      background: rgba(24, 32, 31, 0.9);
+      padding: 18px 14px;
+      text-align: center;
+    }
+
+    .pipe-node .num {
+      display: block;
+      color: #c98f55;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .pipe-node .label {
+      display: block;
+      margin-top: 10px;
+      color: #edf4ef;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .api-list {
+      display: grid;
+      gap: 11px;
+      margin-top: 16px;
+    }
+
+    .api-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 16px;
+      border-radius: 8px;
+      background: rgba(16, 20, 20, 0.7);
+      border: 1px solid rgba(174, 187, 180, 0.12);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 20px;
+      line-height: 1.2;
+      color: #dce8e1;
+    }
+
+    .api-line .ok {
+      color: #50d8bc;
+      font-weight: 700;
+    }
+
+    .action-card {
+      display: grid;
+      gap: 13px;
+      padding: 20px;
+      border-radius: 8px;
+      background: rgba(16, 20, 20, 0.78);
+      border: 1px solid rgba(201, 143, 85, 0.42);
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 188px 1fr;
+      gap: 16px;
+      align-items: start;
+      min-height: 36px;
+      color: #dfe9e3;
+      font-size: 21px;
+      line-height: 1.26;
+    }
+
+    .action-row .key {
+      color: #c98f55;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .blocked {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .blocked span {
+      padding: 9px 12px;
+      border-radius: 6px;
+      background: rgba(227, 106, 95, 0.16);
+      color: #ffc3bd;
+      border: 1px solid rgba(227, 106, 95, 0.35);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .evidence-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .evidence-item {
+      padding: 13px 16px;
+      border-radius: 8px;
+      background: rgba(16, 20, 20, 0.6);
+      border: 1px solid rgba(80, 216, 188, 0.22);
+    }
+
+    .evidence-item strong {
+      display: block;
+      color: #50d8bc;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+    }
+
+    .evidence-item span {
+      display: block;
+      margin-top: 8px;
+      color: #c8d3cd;
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      min-height: 92px;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(32, 41, 39, 0.86);
+      border: 1px solid rgba(174, 187, 180, 0.14);
+    }
+
+    .metric .value {
+      display: block;
+      color: #f0bf4c;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 30px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric .label {
+      display: block;
+      margin-top: 8px;
+      color: #aebbb4;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .agent-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .agent-row {
+      min-height: 182px;
+      border-radius: 8px;
+      border: 1px solid rgba(174, 187, 180, 0.16);
+      background: rgba(24, 32, 31, 0.88);
+      padding: 20px;
+    }
+
+    .agent-row .mode {
+      color: #50d8bc;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .agent-row .target {
+      margin-top: 8px;
+      color: #edf4ef;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .agent-row .guardrail {
+      margin-top: 12px;
+      color: #c8d3cd;
+      font-size: 21px;
+      line-height: 1.24;
+    }
+
+    .score-table {
+      display: grid;
+      gap: 10px;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 20px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: 210px 150px 150px 190px 1fr;
+      gap: 14px;
+      align-items: center;
+      min-height: 50px;
+      padding: 11px 14px;
+      border-radius: 6px;
+      background: rgba(16, 20, 20, 0.64);
+      color: #dce8e1;
+    }
+
+    .score-row.header {
+      color: #aebbb4;
+      background: rgba(32, 41, 39, 0.88);
+      text-transform: uppercase;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .pass {
+      color: #50d8bc;
+      font-weight: 700;
+    }
+
+    .warn {
+      color: #f0bf4c;
+      font-weight: 700;
+    }
+
+    .caption {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-top: 1px solid rgba(174, 187, 180, 0.18);
+      background: rgba(16, 20, 20, 0.72);
+      color: #edf4ef;
+      font-size: 24px;
+      line-height: 1.22;
+      text-align: center;
+    }
+
+    .transition {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      pointer-events: none;
+    }
+
+    .transition .bar {
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: #18201f;
+    }
+
+    .transition .bar:nth-child(2n) {
+      background: #202927;
+    }
+
+    .transition .bar.accent {
+      background: #c98f55;
+    }
+
+    .transition .bar.teal {
+      background: #50d8bc;
+    }
+
+    .final-note {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .link-box {
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(16, 20, 20, 0.64);
+      border: 1px solid rgba(80, 216, 188, 0.24);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      color: #c8d3cd;
+      font-size: 20px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <div id="wearedge-opea-demo" data-composition-id="wearedge-opea-demo" data-width="1920" data-height="1080" data-start="0" data-duration="140">
+    <div class="background" data-layout-ignore></div>
+    <div class="scan-line" data-layout-ignore></div>
+
+    <section id="scene-title" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">ITU AI for Good / OPEA Manufacturing</div>
+          <h1>WearEdge Pro</h1>
+          <p class="subline">Five route-isolated manufacturing agents on one OPEA-style Gateway and Megaservice.</p>
+        </div>
+        <div class="badge">
+          Project URL<br />
+          github.com/davidmillerak2026-sys/<br />
+          wearedge-opea-manufacturing
+        </div>
+      </div>
+      <div>
+        <div class="route-grid">
+          <div class="route-tile hero"><strong>maintenance</strong><span>lao-shi-fu predictive maintenance / CMMS work order</span></div>
+          <div class="route-tile"><strong>iqc</strong><span>incoming and in-process quality / QMS hold</span></div>
+          <div class="route-tile"><strong>changeover</strong><span>SKU setup verification / MES checklist</span></div>
+          <div class="route-tile"><strong>wi</strong><span>released work-instruction guidance</span></div>
+          <div class="route-tile"><strong>hazard</strong><span>EHS observation and stop-and-make-safe card</span></div>
+        </div>
+      </div>
+      <div class="caption">WearEdge Pro is an OPEA-aligned manufacturing agent suite. One Gateway and Megaservice power five plant-floor workflows.</div>
+    </section>
+
+    <section id="scene-architecture" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Shared OPEA Pipeline</div>
+          <h2>One architecture. Five bounded action paths.</h2>
+        </div>
+        <div class="badge">Gateway -> Megaservice -> RAG -> Guardrails</div>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><span>Manufacturing Megaservice route</span><code>same contract, route-specific evidence</code></div>
+        <div class="pipeline">
+          <div class="pipe-node"><span class="num">01</span><span class="label">M400 / API evidence</span></div>
+          <div class="pipe-node"><span class="num">02</span><span class="label">Gateway</span></div>
+          <div class="pipe-node"><span class="num">03</span><span class="label">Megaservice</span></div>
+          <div class="pipe-node"><span class="num">04</span><span class="label">Dataprep</span></div>
+          <div class="pipe-node"><span class="num">05</span><span class="label">Retriever / RAG</span></div>
+          <div class="pipe-node"><span class="num">06</span><span class="label">LLM adapter</span></div>
+          <div class="pipe-node"><span class="num">07</span><span class="label">Evaluator</span></div>
+          <div class="pipe-node"><span class="num">08</span><span class="label">Guardrails</span></div>
+        </div>
+        <div class="metric-strip">
+          <div class="metric"><span class="value">Qdrant</span><span class="label">route-isolated vector DB profile</span></div>
+          <div class="metric"><span class="value">TEI</span><span class="label">official OPEA embedding profile</span></div>
+          <div class="metric"><span class="value">5</span><span class="label">manufacturing routes</span></div>
+          <div class="metric"><span class="value">0</span><span class="label">unsupported release claims</span></div>
+        </div>
+      </div>
+      <div class="caption">Evidence enters the Gateway, the Megaservice selects a route, RAG retrieves source evidence, and guardrails produce a bounded action card.</div>
+    </section>
+
+    <section id="scene-registry" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Route Registry</div>
+          <h2>One API surface exposes the complete manufacturing suite.</h2>
+        </div>
+        <div class="badge">GET /v1/agents<br />GET /v1/scorecard</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel alt">
+          <div class="panel-title"><span>Runnable endpoints</span><code>HTTP 200</code></div>
+          <div class="api-list">
+            <div class="api-line"><span>GET /v1/agents</span><span class="ok">five modes</span></div>
+            <div class="api-line"><span>GET /v1/agents/maintenance/demo</span><span class="ok">CMMS card</span></div>
+            <div class="api-line"><span>GET /v1/agents/iqc/demo</span><span class="ok">QMS hold</span></div>
+            <div class="api-line"><span>GET /v1/agents/changeover/demo</span><span class="ok">checklist</span></div>
+            <div class="api-line"><span>GET /v1/agents/wi/demo</span><span class="ok">WI reference</span></div>
+            <div class="api-line"><span>GET /v1/agents/hazard/demo</span><span class="ok">EHS case</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><span>Unified action-card contract</span><code>guardrail-first</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">mode</span><span>maintenance | iqc | changeover | wi | hazard</span></div>
+            <div class="action-row"><span class="key">source_ids</span><span>preserved from retrieved route-specific knowledge</span></div>
+            <div class="action-row"><span class="key">target</span><span>CMMS, QMS, MES checklist, WI reference, or EHS case</span></div>
+            <div class="action-row"><span class="key">blocked</span><span>restart permission, quality release, safety clearance, final root cause</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The route registry exposes maintenance, IQC, changeover, work instruction, and hazard agents through one API.</div>
+    </section>
+
+    <section id="scene-maintenance" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Hero Demo / Maintenance</div>
+          <h2>Lao-shi-fu evidence becomes a human-confirmed CMMS draft.</h2>
+        </div>
+        <div class="badge">PKG-L3-GBX-03<br />risk: high<br />owner: maintenance_engineer</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel alt">
+          <div class="panel-title"><span>Accepted evidence</span><code>5 flags</code></div>
+          <div class="evidence-list">
+            <div class="evidence-item"><strong>vibration_rms_mm_s = 7.8</strong><span>Threshold breached above 7.0 mm/s.</span></div>
+            <div class="evidence-item"><strong>gearbox_temperature_c = 82</strong><span>Threshold breached above 75 C.</span></div>
+            <div class="evidence-item"><strong>bearing_temperature_c = 78</strong><span>Threshold breached above 70 C.</span></div>
+            <div class="evidence-item"><strong>lubrication_interval_days = 18</strong><span>Exceeds 14-day cross-check threshold.</span></div>
+            <div class="evidence-item"><strong>plc_alarm = GBX-VIB-HI</strong><span>Paired with operator sensory observation.</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><span>Action card</span><code>maintenance_work_order</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">channel</span><span>maintenance_report</span></div>
+            <div class="action-row"><span class="key">priority</span><span>high</span></div>
+            <div class="action-row"><span class="key">action</span><span>Report high-risk gearbox condition and prepare a human-confirmed work-order draft.</span></div>
+            <div class="action-row"><span class="key">sources</span><span>GBX-HUMAN-01, GBX-LUBE-01, GBX-VIB-01</span></div>
+            <div class="blocked"><span>final_root_cause</span><span>remaining_useful_life</span><span>restart_permission</span><span>maintenance_release</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Maintenance is the hero demo: gearbox evidence becomes a CMMS-ready work-order draft while root cause and restart permission stay blocked.</div>
+    </section>
+
+    <section id="scene-quality" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Quality Agent / IQC</div>
+          <h2>First-person defect evidence routes to QMS, not unsupported release.</h2>
+        </div>
+        <div class="badge">AL-HOUSING-L3<br />risk: medium<br />target: qms_quality_event</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel">
+          <div class="panel-title"><span>Detector evidence</span><code>threshold 0.62</code></div>
+          <div class="metric-strip">
+            <div class="metric"><span class="value">0.84</span><span class="label">edge burr</span></div>
+            <div class="metric"><span class="value">0.71</span><span class="label">contamination</span></div>
+            <div class="metric"><span class="value">0.41</span><span class="label">sealing scratch below threshold</span></div>
+            <div class="metric"><span class="value">2</span><span class="label">accepted flags</span></div>
+          </div>
+        </div>
+        <div class="panel alt">
+          <div class="panel-title"><span>Bounded QMS action</span><code>quality_hold</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">action</span><span>Hold AL-HOUSING-L3, expand inspection, and create a QMS quality event with detector evidence.</span></div>
+            <div class="action-row"><span class="key">sources</span><span>ALH-CONTAM-03, ALH-SEAL-02, ALH-MIX-04</span></div>
+            <div class="blocked"><span>quality_release</span><span>final_disposition</span><span>customer_acceptance</span><span>measurement_certification</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The IQC route turns defect evidence on an aluminum housing into a QMS quality event and blocks unsupported product release.</div>
+    </section>
+
+    <section id="scene-changeover" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Changeover Agent</div>
+          <h2>SKU setup evidence holds restart until first-piece sign-off.</h2>
+        </div>
+        <div class="badge">LABELER-FL1<br />target SKU-C500<br />target: changeover_checklist</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel alt">
+          <div class="panel-title"><span>Checklist state</span><code>one missing confirmation</code></div>
+          <div class="api-list">
+            <div class="api-line"><span>line_clearance</span><span class="ok">true</span></div>
+            <div class="api-line"><span>label_roll_match</span><span class="ok">true</span></div>
+            <div class="api-line"><span>recipe_match</span><span class="ok">true</span></div>
+            <div class="api-line"><span>first_piece_verified</span><span class="warn">false</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><span>MES checklist action</span><code>restart blocked</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">action</span><span>Hold restart on LABELER-FL1 until first-piece verification and quality sign-off are recorded.</span></div>
+            <div class="action-row"><span class="key">sources</span><span>CO-C500-GUIDE-RECIPE, CO-C500-LINE-CLEAR, CO-C500-FIRST-PIECE</span></div>
+            <div class="blocked"><span>restart_permission</span><span>quality_release</span><span>recipe_release</span><span>first_piece_release</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The changeover route checks SKU setup evidence and holds restart until first-piece sign-off is recorded.</div>
+    </section>
+
+    <section id="scene-wi" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Work Instruction Agent</div>
+          <h2>Operators get released guidance with interlock and release guardrails.</h2>
+        </div>
+        <div class="badge">CARTONER-ST2<br />risk: low<br />target: wi_reference</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel">
+          <div class="panel-title"><span>Released source evidence</span><code>WI-2026.05-demo</code></div>
+          <div class="evidence-list">
+            <div class="evidence-item"><strong>WI-CARTONER-ST2-START</strong><span>Confirm machine identity, close guards, clear infeed, verify no active alarm.</span></div>
+            <div class="evidence-item"><strong>WI-CARTONER-ST2-GUIDE</strong><span>Align only released guide rail reference marks for the running carton family.</span></div>
+            <div class="evidence-item"><strong>WI-CARTONER-ST2-RISK</strong><span>Escalate abnormal noise, vibration, tooling contact, or repeated rejects.</span></div>
+          </div>
+        </div>
+        <div class="panel alt">
+          <div class="panel-title"><span>Guided operation</span><code>no release claim</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">action</span><span>Guide from released WI: keep guards closed, align only released guide marks, escalate repeated jams.</span></div>
+            <div class="action-row"><span class="key">human</span><span>not required for low-risk reference guidance</span></div>
+            <div class="blocked"><span>unreleased_instruction</span><span>bypass_interlock</span><span>quality_release</span><span>restart_permission</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The work-instruction route answers from released source instructions and blocks unreleased instructions or interlock bypass guidance.</div>
+    </section>
+
+    <section id="scene-hazard" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Hazard Agent / EHS</div>
+          <h2>Near-miss scenes become stop-and-make-safe action cards.</h2>
+        </div>
+        <div class="badge">PACK-L3-AISLE<br />risk: high<br />target: ehs_case</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel alt">
+          <div class="panel-title"><span>Observed hazards</span><code>3 accepted flags</code></div>
+          <div class="api-list">
+            <div class="api-line"><span>blocked_walkway</span><span class="warn">true</span></div>
+            <div class="api-line"><span>moving_parts_exposure</span><span class="warn">true</span></div>
+            <div class="api-line"><span>missing_ppe</span><span class="warn">true</span></div>
+            <div class="api-line"><span>spill</span><span class="ok">false</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><span>EHS action card</span><code>critical</code></div>
+          <div class="action-card">
+            <div class="action-row"><span class="key">action</span><span>Stop work, clear the walkway or exposure, restore required PPE, and create an EHS observation.</span></div>
+            <div class="action-row"><span class="key">sources</span><span>EHS-MOVE-02, EHS-CASE-04, EHS-WALK-03</span></div>
+            <div class="blocked"><span>area_safe</span><span>restart_permission</span><span>safety_clearance</span><span>incident_root_cause</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The hazard route detects blocked walkways, PPE gaps, or moving-parts exposure and creates an EHS observation without claiming the area is safe.</div>
+    </section>
+
+    <section id="scene-tei" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Official OPEA TEI Profile</div>
+          <h2>OPEA component evidence moved from mapping to runtime.</h2>
+        </div>
+        <div class="badge">GCP C3 fresh clone<br />all checks pass<br />qdrant-opea-tei-vector-store</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel">
+          <div class="panel-title"><span>Compose profile</span><code>docker-compose.opea-tei.yml</code></div>
+          <div class="api-list">
+            <div class="api-line"><span>ghcr.io/huggingface/text-embeddings-inference</span><span class="ok">CPU TEI</span></div>
+            <div class="api-line"><span>opea/embedding:latest</span><span class="ok">OPEA microservice</span></div>
+            <div class="api-line"><span>qdrant/qdrant:v1.12.6</span><span class="ok">Vector DB</span></div>
+            <div class="api-line"><span>Manufacturing Gateway</span><span class="ok">five routes</span></div>
+          </div>
+        </div>
+        <div class="panel alt">
+          <div class="panel-title"><span>Runtime proof</span><code>2026-05-27</code></div>
+          <div class="metric-strip">
+            <div class="metric"><span class="value">768</span><span class="label">embedding dimensions</span></div>
+            <div class="metric"><span class="value">5/5</span><span class="label">route demos passed</span></div>
+            <div class="metric"><span class="value">C3</span><span class="label">Xeon fresh-clone run</span></div>
+            <div class="metric"><span class="value">pass</span><span class="label">scorecard routes</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The official OPEA TEI profile proves the suite runs with TEI, the OPEA embedding microservice, Qdrant, and the Manufacturing Gateway.</div>
+    </section>
+
+    <section id="scene-scorecard" class="scene">
+      <div class="scene-header">
+        <div>
+          <div class="eyebrow">Scorecard and Submission Evidence</div>
+          <h2>Prototype quality is measurable route by route.</h2>
+        </div>
+        <div class="badge">GET /v1/scorecard<br />status: pass<br />routes: five</div>
+      </div>
+      <div class="body-grid">
+        <div class="panel alt">
+          <div class="panel-title"><span>Five-route scorecard</span><code>pass</code></div>
+          <div class="score-table">
+            <div class="score-row header"><span>mode</span><span>contract</span><span>guardrail</span><span>rag match</span><span>target</span></div>
+            <div class="score-row"><span>maintenance</span><span class="pass">pass</span><span class="pass">pass</span><span class="pass">pass</span><span>maintenance_work_order</span></div>
+            <div class="score-row"><span>iqc</span><span class="pass">pass</span><span class="pass">pass</span><span class="pass">pass</span><span>qms_quality_event</span></div>
+            <div class="score-row"><span>changeover</span><span class="pass">pass</span><span class="pass">pass</span><span class="pass">pass</span><span>changeover_checklist</span></div>
+            <div class="score-row"><span>wi</span><span class="pass">pass</span><span class="pass">pass</span><span class="pass">pass</span><span>wi_reference</span></div>
+            <div class="score-row"><span>hazard</span><span class="pass">pass</span><span class="pass">pass</span><span class="pass">pass</span><span>ehs_case</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><span>Challenge package</span><code>ready evidence</code></div>
+          <div class="final-note">
+            <div class="link-box">Project repo<br />github.com/davidmillerak2026-sys/wearedge-opea-manufacturing</div>
+            <div class="link-box">OPEA RFC issue<br />github.com/opea-project/GenAIExamples/issues/2461</div>
+            <div class="link-box">GCP C3 OPEA TEI E2E<br />docs/gcp-c3-opea-tei-profile-e2e-report.md</div>
+            <div class="link-box">Intel AVX-512 / AMX evidence<br />evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">The scorecard verifies latency, contract pass, guardrails, source match, action target correctness, and route isolation for all five routes.</div>
+    </section>
+
+    <div class="transition" data-layout-ignore>
+      <div class="bar accent"></div>
+      <div class="bar"></div>
+      <div class="bar teal"></div>
+      <div class="bar"></div>
+      <div class="bar accent"></div>
+      <div class="bar"></div>
+      <div class="bar teal"></div>
+      <div class="bar"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      const tl = gsap.timeline({ paused: true });
+      const scenes = [
+        "scene-title",
+        "scene-architecture",
+        "scene-registry",
+        "scene-maintenance",
+        "scene-quality",
+        "scene-changeover",
+        "scene-wi",
+        "scene-hazard",
+        "scene-tei",
+        "scene-scorecard"
+      ];
+      const starts = [0, 10, 25, 45, 65, 80, 95, 110, 125, 134];
+      const bars = ".transition .bar";
+
+      tl.set(".scene", { opacity: 0 }, 0);
+      tl.set("#scene-title", { opacity: 1 }, 0);
+
+      tl.to(".scan-line", {
+        x: 2300,
+        duration: 7,
+        repeat: 19,
+        ease: "sine.inOut"
+      }, 0.4);
+
+      function enterScene(id, t) {
+        tl.from("#" + id + " .eyebrow", { y: 28, opacity: 0, duration: 0.48, ease: "power3.out" }, t + 0.18);
+        tl.from("#" + id + " h1, #" + id + " h2", { x: -46, opacity: 0, duration: 0.62, ease: "expo.out" }, t + 0.28);
+        tl.from("#" + id + " .subline, #" + id + " .badge", { y: 34, opacity: 0, duration: 0.55, ease: "back.out(1.2)" }, t + 0.44);
+        tl.from("#" + id + " .panel, #" + id + " .route-tile, #" + id + " .pipe-node", { y: 42, scale: 0.985, opacity: 0, duration: 0.58, stagger: 0.045, ease: "power2.out" }, t + 0.72);
+        tl.from("#" + id + " .caption", { y: 26, opacity: 0, duration: 0.42, ease: "sine.out" }, t + 1.05);
+      }
+
+      function transitionTo(id, boundary, accent) {
+        const inStart = boundary - 0.36;
+        const switchTime = boundary - 0.04;
+        tl.fromTo(bars, { scaleX: 0 }, {
+          scaleX: 1,
+          duration: accent ? 0.42 : 0.34,
+          stagger: 0.018,
+          ease: accent ? "power4.inOut" : "power3.inOut"
+        }, inStart);
+        tl.set(".scene", { opacity: 0 }, switchTime);
+        tl.set("#" + id, { opacity: 1 }, switchTime);
+        tl.to(bars, {
+          scaleX: 0,
+          transformOrigin: "right center",
+          duration: accent ? 0.48 : 0.38,
+          stagger: 0.016,
+          ease: "power2.inOut"
+        }, boundary + 0.02);
+        tl.set(bars, { transformOrigin: "left center" }, boundary + 0.6);
+        enterScene(id, boundary + 0.08);
+      }
+
+      enterScene("scene-title", 0);
+      for (let i = 1; i < scenes.length; i += 1) {
+        transitionTo(scenes[i], starts[i], i === 3 || i === 9);
+      }
+
+      tl.to("#scene-scorecard .caption", { opacity: 0, y: 22, duration: 0.55, ease: "sine.in" }, 139.0);
+      tl.to("#scene-scorecard", { opacity: 0, duration: 0.65, ease: "sine.inOut" }, 139.25);
+
+      window.__timelines["wearedge-opea-demo"] = tl;
+    </script>
+  </div>
+</body>
+</html>

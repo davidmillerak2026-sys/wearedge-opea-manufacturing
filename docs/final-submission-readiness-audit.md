@@ -1,7 +1,7 @@
 # Final Submission Readiness Audit
 
-Status: strong technical package; final external video URL and upstream PR/comment
-remain.
+Status: strong technical package; local demo video render complete; final
+external video URL and optional upstream PR remain.
 
 ## Product Decision
 
@@ -30,8 +30,8 @@ with Docker, Web UI, API routes, and scorecard only.
 | Prototype quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
-| Open-source contribution bonus | RFC issue posted; project tracker updated; upstream TEI update prepared but direct upstream post blocked by GitHub App permissions | Partial |
-| Knowledge sharing bonus | Public article ready; demo video script/captions ready | Partial |
+| Open-source contribution bonus | RFC issue posted; upstream TEI update comment posted; project tracker updated; PR pending maintainer feedback | Strong |
+| Knowledge sharing bonus | Public article ready; demo video script/captions plus renderable HyperFrames source and local MP4 render ready | Strong pending upload |
 
 ## Hard Evidence
 
@@ -41,7 +41,10 @@ with Docker, Web UI, API routes, and scorecard only.
 | Source engineering repo | https://github.com/davidmillerak2026-sys/WearEdge-Pro |
 | OPEA RFC issue | https://github.com/opea-project/GenAIExamples/issues/2461 |
 | Public project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
+| OPEA TEI update comment | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
+| Demo video source package | `public/demo-video/` |
+| Demo video render report | `docs/demo-video-render-report.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
@@ -85,13 +88,12 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 
 | Item | Why it matters | Next action |
 | --- | --- | --- |
-| External demo video URL | Improves prototype quality and knowledge sharing bonus | Record 1-3 minute `/demo` walkthrough using `public/demo-video-script.md` and upload |
-| Upstream OPEA TEI update comment | Strengthens OPEA public contribution evidence | Post `docs/opea-upstream/tei-update-comment.md` manually in browser because GitHub App returned 403 |
+| External demo video URL | Improves prototype quality and knowledge sharing bonus | Upload `renders/wearedge-opea-manufacturing-demo.mp4` and replace `pending_external_upload` |
 | Minimal upstream PR | Could improve open-source contribution bonus | Wait for maintainer response or open a small docs/example PR if time allows |
 | Final form dry run | Prevents URL/claim mistakes | Paste fields from `submission-fields.draft.json`, then verify every URL loads publicly |
 
 ## Current Verdict
 
 The core technical package is now competition-ready. The highest-return final
-work is a short public video and one more upstream OPEA interaction, not more
-architecture code.
+work is uploading the rendered demo video and performing the final submission
+form dry run, not more architecture code.

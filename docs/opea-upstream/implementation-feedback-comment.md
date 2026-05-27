@@ -6,7 +6,15 @@ Target issue:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-Status: prepared for posting. GitHub App write permission to the upstream OPEA repository is not available in this environment, so this comment should be posted through an authenticated GitHub browser session or `gh` CLI.
+Status: posted to the upstream OPEA issue on 2026-05-27:
+
+```text
+https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4551375202
+```
+
+GitHub App write permission to the upstream OPEA repository is not available in
+this environment; the authoritative upstream comment was posted through a
+user-authenticated GitHub browser session.
 
 ## Comment Body
 

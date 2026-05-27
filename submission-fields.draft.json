@@ -29,9 +29,12 @@
   },
   "bonus_urls": {
     "opea_rfc_issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+    "opea_tei_update_comment_url": "https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017",
     "opea_tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
     "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
     "demo_video_url": "pending_external_upload",
+    "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
+    "demo_video_render_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md",
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
     "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
@@ -47,7 +50,7 @@
   "do_not_claim_until_implemented": {
     "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
     "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible and official OPEA TEI embedding E2E runs validate the submission package. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
-    "OPEA public contribution": "Public RFC issue is posted at https://github.com/opea-project/GenAIExamples/issues/2461. PR remains pending maintainer feedback.",
-    "external video publication": "Demo script and captions are included. Replace or supplement publication_url after the public demo video is uploaded."
+    "OPEA public contribution": "Public RFC issue and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. PR remains pending maintainer feedback.",
+    "external video publication": "Demo script, captions, HyperFrames source, and local MP4 render evidence are included. Replace demo_video_url after the public demo video is uploaded."
   }
 }

@@ -152,6 +152,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
+| [`public/demo-video/`](public/demo-video/) | Renderable HyperFrames demo video source package |
+| [`docs/demo-video-render-report.md`](docs/demo-video-render-report.md) | Local demo video render and validation evidence |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
 | [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
@@ -192,6 +194,7 @@ OPEA open-source contribution package:
 ```text
 https://github.com/opea-project/GenAIExamples/issues/2461
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2
+https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
 docs/opea-upstream/rfc-issue-draft.md
 docs/opea-upstream/blueprint-feedback.md
 docs/opea-upstream/implementation-feedback-comment.md
@@ -205,6 +208,8 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
 public/demo-video-script.md
 public/demo-video-captions.srt
+public/demo-video/
+docs/demo-video-render-report.md
 ```
 
 Intel CPU benchmark evidence:

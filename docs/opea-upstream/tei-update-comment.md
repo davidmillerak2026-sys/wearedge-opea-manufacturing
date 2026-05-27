@@ -6,10 +6,16 @@ Target issue:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-Status: prepared for posting to the upstream OPEA issue. A GitHub App attempt on
-2026-05-27 returned `403 Resource not accessible by integration`, so this
-comment should be posted through a user-authenticated GitHub browser session or
-`gh` CLI. The same update was posted to the project tracker:
+Status: posted to the upstream OPEA issue on 2026-05-27:
+
+```text
+https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
+```
+
+A GitHub App attempt on 2026-05-27 returned
+`403 Resource not accessible by integration`, so the comment was posted through
+a user-authenticated GitHub browser session. The same update was also posted to
+the project tracker:
 
 ```text
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627
@@ -55,7 +61,7 @@ Evidence:
 - GCP C3 TEI JSON summary:
   https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
 - Commit:
-  https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/commit/310cdb2
+  https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/commit/e7126c63d0e4dc7d7cee6784550a3f3dd8a8131d
 
 This makes the proposed `ManufacturingAgentSuite` blueprint closer to an
 OPEA-native example rather than only an API-compatible wrapper: it now has
