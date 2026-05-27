@@ -1,0 +1,91 @@
+{
+  "benchmark": "WearEdge official OPEA TEI embedding profile C3 E2E",
+  "schema_version": "2026-05-27",
+  "captured_at": "2026-05-27T10:41:49Z",
+  "source": "user_provided_cloud_shell_transcript",
+  "claim_status": "fresh_clone_official_opea_tei_embedding_profile_e2e_passed",
+  "repo": {
+    "url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing.git",
+    "branch": "main",
+    "latest_local_commit_before_recording": "46cb30d"
+  },
+  "gcp": {
+    "project_id": "gen-lang-client-0555254036",
+    "zone": "us-central1-a",
+    "machine_type": "c3-standard-4",
+    "temporary_vm": "wearedge-opea-tei-0527103938",
+    "temporary_vm_deleted": true
+  },
+  "official_components": {
+    "opea_embedding_image": "opea/embedding:latest",
+    "tei_image": "ghcr.io/huggingface/text-embeddings-inference:cpu-latest",
+    "qdrant_image": "qdrant/qdrant:v1.12.6",
+    "embedding_model_id": "BAAI/bge-base-en-v1.5",
+    "embedding_dimensions": 768
+  },
+  "runtime": {
+    "compose_project": "wearedge-opea-tei-fresh",
+    "compose_version": "2.40.3",
+    "profile": "docker-compose.yml + docker-compose.opea-tei.yml"
+  },
+  "rag_vector_store_markers": {
+    "maintenance": "qdrant-opea-tei-vector-store",
+    "iqc": "qdrant-opea-tei-vector-store",
+    "changeover": "qdrant-opea-tei-vector-store",
+    "wi": "qdrant-opea-tei-vector-store",
+    "hazard": "qdrant-opea-tei-vector-store"
+  },
+  "validation": {
+    "gateway_ok": true,
+    "qdrant_backend": true,
+    "gateway_embedding_backend_opea": true,
+    "gateway_embedding_url_is_opea_tei": true,
+    "embedding_health_endpoint_responds": true,
+    "embedding_endpoint_openai_shape": true,
+    "embedding_dimensions_768": true,
+    "all_demos_ok": true,
+    "all_rag_uses_opea_tei_marker": true,
+    "scorecard_ok": true,
+    "scorecard_routes_pass": true
+  },
+  "route_examples_visible_in_transcript": {
+    "wi": {
+      "ok": true,
+      "channel": "guided_operation",
+      "integration_target": "wi_reference",
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "pipeline_latency_ms": 184.06
+    },
+    "hazard": {
+      "ok": true,
+      "channel": "stop_and_make_safe",
+      "integration_target": "ehs_case",
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "pipeline_latency_ms": 212.98
+    }
+  },
+  "docker_stats": [
+    {
+      "name": "wearedge-opea-tei-fresh-manufacturing-gateway-1",
+      "cpu": "0.05%",
+      "memory": "36.37MiB / 15.61GiB"
+    },
+    {
+      "name": "wearedge-opea-tei-fresh-opea-embedding-tei-1",
+      "cpu": "0.05%",
+      "memory": "93.68MiB / 15.61GiB"
+    },
+    {
+      "name": "wearedge-opea-tei-fresh-qdrant-1",
+      "cpu": "0.05%",
+      "memory": "56.07MiB / 15.61GiB"
+    },
+    {
+      "name": "wearedge-opea-tei-fresh-tei-embedding-serving-1",
+      "cpu": "0.07%",
+      "memory": "855.6MiB / 15.61GiB"
+    }
+  ],
+  "all_checks_pass": true,
+  "claim_boundary": "This Google Cloud C3 fresh-clone run validates the official OPEA TEI embedding component path for WearEdge OPEA Manufacturing. It does not claim production LLM acceleration. The pasted Cloud Shell transcript shows the full runner reached all_checks_pass=true and deleted the temporary VM."
+}

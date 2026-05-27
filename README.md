@@ -148,6 +148,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
 | [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
+| [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
@@ -221,6 +222,7 @@ evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
 evidence/benchmarks/local_opea_profile_e2e.summary.json
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
+evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
 ```
 
 Official OPEA TEI rerun script:
@@ -232,6 +234,8 @@ scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh
 The Xeon run was captured on Google Cloud C3 `c3-standard-4` with Intel Xeon Platinum 8481C, `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`, scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic route calls.
 
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
+
+The official OPEA TEI E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway, verified 768-dimensional TEI embeddings, passed all five route demos with `qdrant-opea-tei-vector-store`, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-opea-tei-0527103938` after the run.
 
 Xeon AMX runbook:
 

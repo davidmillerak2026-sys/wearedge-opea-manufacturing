@@ -95,13 +95,13 @@ Current validation status:
 - `/v1/scorecard` reports five passing route checks.
 - `docker-compose.opea.yml` validates the `/v1/embeddings` microservice boundary.
 - `docker-compose.opea-tei.yml` passed locally with `opea/embedding:latest`, Hugging Face TEI, Qdrant, and all five route demos.
+- The same official OPEA TEI profile passed as a Google Cloud C3 fresh-clone run with 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard`.
 
 ## What Comes Next
 
 The next hardening steps are:
 
 - Prepare the first minimal OPEA PR once maintainers confirm the preferred blueprint location and naming.
-- Re-run the official OPEA TEI profile on Google Cloud C3 and attach the fresh-clone JSON evidence.
 - Run the production LLM profile on Intel Xeon hardware with AVX-512 and AMX when available.
 - Add a short demo video showing all five agents in less than three minutes.
 

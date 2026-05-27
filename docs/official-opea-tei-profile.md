@@ -1,7 +1,7 @@
 # Official OPEA TEI Profile
 
 Status: profile and benchmark runner added; local Docker Desktop E2E passed;
-cloud C3 E2E rerun pending.
+Google Cloud C3 fresh-clone E2E passed.
 
 ## Why This Exists
 
@@ -131,12 +131,13 @@ Evidence:
 ```text
 docs/local-opea-tei-profile-e2e-report.md
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
+docs/gcp-c3-opea-tei-profile-e2e-report.md
+evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
 ```
 
 ## Claim Boundary
 
-Before the C3 rerun passes, claim only that the official TEI profile is
-implemented and locally validated. After it passes, we can claim:
+The C3 rerun passed, so we can claim:
 
 ```text
 WearEdge OPEA Manufacturing was fresh-clone validated on Google Cloud C3 with

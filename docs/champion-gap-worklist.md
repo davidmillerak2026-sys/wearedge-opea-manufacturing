@@ -17,7 +17,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 
 | Work item | Reason | Done when |
 | --- | --- | --- |
-| Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | Official TEI/GenAIComps profile is implemented and locally passed in `docker-compose.opea-tei.yml`; next step is the C3 fresh-clone benchmark and evidence capture |
+| Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | Official TEI/GenAIComps profile is implemented and passed both local Docker Desktop and Google Cloud C3 fresh-clone E2E |
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Current `/v1/scorecard` exists; add throughput, memory, and setup-time logs |
 | Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
 | Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR pending maintainer feedback |

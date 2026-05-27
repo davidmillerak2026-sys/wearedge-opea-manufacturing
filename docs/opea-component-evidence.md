@@ -55,7 +55,7 @@ flowchart LR
 | Megaservice | Implemented | `src/wear_edge_opea/megaservice.py` | Shared orchestration across five routes |
 | Route registry | Implemented | `src/wear_edge_opea/agents.py` | Mode metadata, samples, KB paths, targets, guardrails |
 | Dataprep | Implemented | `src/wear_edge_opea/dataprep.py`, `data/agent_kb/`, `data/maintenance_kb/` | Route-specific knowledge loading and chunking |
-| Embedding microservice | OPEA-compatible profile implemented; official TEI profile added | `docker-compose.opea.yml`, `docker-compose.opea-tei.yml`, `src/wear_edge_opea/opea_embedding_service.py`, `src/wear_edge_opea/embedding.py` | Optional `/v1/embeddings` service boundary plus OPEA TEI path for Qdrant RAG |
+| Embedding microservice | OPEA-compatible profile implemented; official TEI profile passed local and C3 E2E | `docker-compose.opea.yml`, `docker-compose.opea-tei.yml`, `src/wear_edge_opea/opea_embedding_service.py`, `src/wear_edge_opea/embedding.py` | Optional `/v1/embeddings` service boundary plus OPEA TEI path for Qdrant RAG |
 | Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py` | Route-specific retrieval before explanation |
 | Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant collections per route, in-memory fallback |
 | LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Deterministic no-model demo, OpenAI-compatible source path |
@@ -72,12 +72,12 @@ Implemented now:
 - Route-isolation tests and scorecard tests.
 - Google Cloud C3 fresh-clone Docker/Qdrant E2E run with all five demo and infer routes passing.
 - Optional OPEA-compatible embedding microservice profile in `docker-compose.opea.yml`.
-- Optional official OPEA TEI embedding profile in `docker-compose.opea-tei.yml`.
+- Optional official OPEA TEI embedding profile in `docker-compose.opea-tei.yml`, validated locally and on Google Cloud C3.
 
 Still required for maximum bonus:
 
 - OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
-- Official OPEA component hardening: run and record the `docker-compose.opea-tei.yml` C3 fresh-clone benchmark, then add a production LLM service profile.
+- Official OPEA component hardening: add a production LLM service profile and benchmark it separately.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.
 
 ## Cloud Runtime Evidence

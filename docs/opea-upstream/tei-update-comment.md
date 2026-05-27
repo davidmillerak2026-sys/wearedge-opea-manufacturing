@@ -34,6 +34,9 @@ What changed:
   `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and `/v1/embeddings`.
 - Local E2E passed with `BAAI/bge-base-en-v1.5`, 768-dimensional embeddings,
   all five manufacturing demo routes, and `/v1/scorecard` passing.
+- Google Cloud C3 fresh-clone E2E passed on `c3-standard-4` in
+  `us-central1-a`; the temporary VM `wearedge-opea-tei-0527103938` was deleted
+  after the run.
 - All five route demos report `qdrant-opea-tei-vector-store` in the RAG
   evidence when this profile is used.
 - A Google Cloud C3 fresh-clone rerun script is included for the same profile:
@@ -47,6 +50,10 @@ Evidence:
   https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-opea-tei-profile-e2e-report.md
 - Local TEI JSON summary:
   https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
+- GCP C3 TEI E2E report:
+  https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md
+- GCP C3 TEI JSON summary:
+  https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
 - Commit:
   https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/commit/310cdb2
 
