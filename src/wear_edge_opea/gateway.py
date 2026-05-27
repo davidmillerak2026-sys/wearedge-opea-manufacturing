@@ -4,16 +4,28 @@ import os
 
 try:
     from fastapi import FastAPI
+    from fastapi.responses import HTMLResponse
     import uvicorn
 except ImportError as exc:  # pragma: no cover - import guard for local no-deps demo
     raise SystemExit("Install server dependencies with `pip install -r requirements.txt`.") from exc
 
 from .agents import list_agents, load_sample_request
+from .demo_console import build_demo_console_html
 from .megaservice import run_agent_demo, run_all_agent_demos, run_pipeline
 from .scorecard import build_scorecard
 
 
 app = FastAPI(title="WearEdge OPEA Manufacturing Gateway", version="0.1.0")
+
+
+@app.get("/", response_class=HTMLResponse)
+def root_console() -> str:
+    return build_demo_console_html()
+
+
+@app.get("/demo", response_class=HTMLResponse)
+def demo_console() -> str:
+    return build_demo_console_html()
 
 
 @app.get("/healthz")

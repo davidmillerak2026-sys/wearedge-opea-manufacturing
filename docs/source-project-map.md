@@ -22,6 +22,7 @@ https://github.com/davidmillerak2026-sys/WearEdge-Pro
 | Source guard | `jetson/released_source.py`, `data/released_sources/` |
 | Industrial RAG agent | `industrial-rag-agent/` |
 | M400 client | `clients/m400/android/` |
+| Judge-facing Web Demo Console | `src/wear_edge_opea/demo_console.py` in this OPEA submission repo |
 | Deployment | `scripts/`, `deploy/systemd/` |
 | Tests | `tests/` |
 | Benchmark | `docs/edge-runtime-benchmark.md` |
@@ -36,4 +37,4 @@ Preferred final strategy:
 2. Keep `wearedge-opea-manufacturing` as the competition landing repository.
 3. Before final submission, either mirror selected source directories into this repository or add a clear source release package so judges can reproduce from one place.
 
-The safest official `project_url` is the URL that contains both source and OPEA submission evidence.
+The safest official `project_url` is this OPEA submission repository because it contains the reproducible Docker/Web/API evaluation path. The full WearEdge-Pro repository remains the engineering source for the M400 Android client, Jetson edge gateway, and field evidence.

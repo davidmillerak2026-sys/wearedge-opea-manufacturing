@@ -27,6 +27,7 @@ def run_pipeline(request: dict, mode: str | None = None) -> dict:
     result = {
         "ok": True,
         "mode": route.mode,
+        "request": request,
         "agent": {
             "name": route.name,
             "business_value": route.business_value,

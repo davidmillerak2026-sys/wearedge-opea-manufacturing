@@ -14,6 +14,7 @@ from wear_edge_opea.agents import ROUTES, load_sample_request
 from wear_edge_opea.dataprep import KnowledgeChunk
 from wear_edge_opea.scorecard import build_scorecard
 from wear_edge_opea.vector_store import QdrantVectorStore
+from wear_edge_opea.demo_console import build_demo_console_html
 
 
 class PipelineTest(unittest.TestCase):
@@ -74,6 +75,15 @@ class PipelineTest(unittest.TestCase):
             self.assertTrue(route["guardrail_pass"])
             self.assertTrue(route["rag_source_match"])
             self.assertTrue(route["action_target_correctness"])
+
+    def test_demo_console_exposes_product_entrypoint(self) -> None:
+        html = build_demo_console_html()
+
+        self.assertIn("Manufacturing Demo Console", html)
+        self.assertIn("/v1/agents", html)
+        self.assertIn("/v1/scorecard", html)
+        for mode in ROUTES:
+            self.assertIn(mode, html)
 
     def test_qdrant_index_treats_existing_collection_as_idempotent(self) -> None:
         class ConflictOnceQdrant(QdrantVectorStore):

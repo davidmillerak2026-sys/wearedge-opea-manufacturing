@@ -6,6 +6,8 @@ Manufacturing operators see early evidence before enterprise systems do: abnorma
 
 WearEdge Pro addresses this "last ten meters" problem with a wearable edge AI workflow. A Vuzix M400 captures first-person evidence, an edge gateway runs OPEA-style orchestration, route-specific RAG retrieves the released knowledge source, deterministic evaluators check thresholds or confirmations, and guardrails produce bounded action cards for human-confirmed plant workflows.
 
+The challenge submission packages this product as a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console at `/demo`. The M400 Android client remains the real deployment front end and field-evidence source, but the judge-facing artifact is the reproducible Web/API package in this repository.
+
 The submission covers five Manufacturing agents:
 
 | Agent | Target workflow | Action target |
@@ -55,6 +57,7 @@ Runnable commands:
 
 ```bash
 docker compose up --build -d
+# Open in browser: http://127.0.0.1:8088/demo
 curl http://127.0.0.1:8088/v1/agents
 curl http://127.0.0.1:8088/v1/manufacturing/suite
 curl http://127.0.0.1:8088/v1/scorecard

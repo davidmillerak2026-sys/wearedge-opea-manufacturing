@@ -10,6 +10,20 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 
 WearEdge OPEA Manufacturing is a five-agent, OPEA-aligned manufacturing suite. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
 
+## Submission Product Shape
+
+This repository is the challenge-facing product package. It is not submitted as an Android-only app. The submitted deliverable is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console, public API, five route demos, and scorecard.
+
+Product front ends:
+
+| Front end | Role |
+| --- | --- |
+| Web Demo Console at `/demo` | Judge-facing experience for reproducible evaluation |
+| API endpoints under `/v1` | Machine-verifiable OPEA route and scorecard surface |
+| Vuzix M400 / Android client | Real deployment front end and field-evidence source from the full WearEdge-Pro project |
+
+The M400 evidence is a product differentiator, but judges do not need M400 hardware to evaluate the submission.
+
 ## Five Manufacturing Agents
 
 | Mode | Scenario | Integration target | Business value |
@@ -59,6 +73,7 @@ Docker Compose profile with Qdrant:
 
 ```bash
 docker compose up --build -d
+# Open in browser: http://127.0.0.1:8088/demo
 curl http://127.0.0.1:8088/healthz
 curl http://127.0.0.1:8088/v1/agents
 curl http://127.0.0.1:8088/v1/agents/maintenance/demo
@@ -80,6 +95,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 
 | Endpoint | Purpose |
 | --- | --- |
+| `GET /` and `GET /demo` | Browser Manufacturing Demo Console |
 | `GET /healthz` | Service, vector backend, and supported agents |
 | `GET /v1/agents` | Route registry and knowledge/sample paths |
 | `GET /v1/agents/{mode}/demo` | Fixed sample request for one agent |
@@ -92,6 +108,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | --- | --- |
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
+| [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark protocol and local smoke-test report |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
@@ -100,6 +117,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
 | [`src/wear_edge_opea/agents.py`](src/wear_edge_opea/agents.py) | Unified route registry |
+| [`src/wear_edge_opea/demo_console.py`](src/wear_edge_opea/demo_console.py) | Judge-facing browser product console |
 | [`src/wear_edge_opea/scorecard.py`](src/wear_edge_opea/scorecard.py) | Five-agent evaluation scorecard |
 | [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
 | [`tests/`](tests/) | Route, guardrail, scorecard, and Qdrant validation |

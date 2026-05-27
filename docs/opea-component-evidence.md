@@ -2,6 +2,14 @@
 
 This document maps WearEdge Pro's five Manufacturing agents to the OPEA architecture expected by the challenge judges.
 
+The judge-facing product entry point is the browser Manufacturing Demo Console:
+
+```text
+http://127.0.0.1:8088/demo
+```
+
+The M400 Android client is the real deployment front end and field-evidence source; the Web Console is the reproducible evaluation surface in this OPEA package.
+
 ## Official OPEA References
 
 | Reference | URL | How this submission uses it |
@@ -43,6 +51,7 @@ flowchart LR
 | OPEA layer | Status | WearEdge evidence | Claim |
 | --- | --- | --- | --- |
 | Gateway | Implemented | `src/wear_edge_opea/gateway.py`, `Dockerfile`, `docker-compose.yml` | Five-agent FastAPI entry point |
+| Web Demo Console | Implemented | `src/wear_edge_opea/demo_console.py` | Judge-facing browser product experience for five route demos |
 | Megaservice | Implemented | `src/wear_edge_opea/megaservice.py` | Shared orchestration across five routes |
 | Route registry | Implemented | `src/wear_edge_opea/agents.py` | Mode metadata, samples, KB paths, targets, guardrails |
 | Dataprep | Implemented | `src/wear_edge_opea/dataprep.py`, `data/agent_kb/`, `data/maintenance_kb/` | Route-specific knowledge loading and chunking |

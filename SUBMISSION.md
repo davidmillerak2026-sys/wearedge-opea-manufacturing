@@ -10,6 +10,18 @@ Application name: WearEdge Pro
 
 WearEdge Pro is an OPEA-aligned wearable edge AI suite for Manufacturing that routes first-person M400 evidence into five bounded agents: maintenance, IQC, changeover, work instruction, and hazard observation.
 
+## Final Product Shape
+
+The competition deliverable is not an Android-only APK. It is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console and API surface.
+
+Judge-facing entry point:
+
+```text
+http://127.0.0.1:8088/demo
+```
+
+The Vuzix M400 / Android client is the real deployment front end and field-evidence source from the full WearEdge-Pro product. The Web Demo Console is the reproducible evaluation surface for judges who do not have M400 hardware.
+
 ## Why This Fits Manufacturing
 
 Manufacturing losses rarely live in one silo. A frontline operator may see a gearbox vibration issue, a machined-part defect, a changeover mismatch, a work-instruction question, or an unsafe walkway. WearEdge Pro uses one OPEA-style Gateway and Manufacturing Megaservice to convert those observations into auditable action cards for plant systems.
@@ -40,10 +52,13 @@ Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> Vector DB -
 
 The Docker Compose profile uses Qdrant as the Vector DB. The local no-dependency demo keeps an in-memory vector fallback so reviewers can run the same route contracts without Docker.
 
+The FastAPI gateway also serves a browser Manufacturing Demo Console at `/demo`, so reviewers can inspect requests, RAG evidence, action cards, guardrails, and scorecard results without writing curl commands.
+
 ## Runnable Evidence
 
 ```bash
 docker compose up --build -d
+# Open in browser: http://127.0.0.1:8088/demo
 curl http://127.0.0.1:8088/v1/agents
 curl http://127.0.0.1:8088/v1/agents/maintenance/demo
 curl http://127.0.0.1:8088/v1/agents/iqc/demo

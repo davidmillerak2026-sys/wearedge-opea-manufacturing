@@ -4,6 +4,8 @@
     "target_github_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
     "source_project_url": "https://github.com/davidmillerak2026-sys/WearEdge-Pro",
     "vertical": "Manufacturing",
+    "judge_entrypoint": "http://127.0.0.1:8088/demo",
+    "product_shape": "Docker-runnable OPEA Manufacturing Agent Suite with Web Demo Console, API, scorecard, and M400/Android deployment-front-end evidence",
     "agents": [
       "maintenance",
       "iqc",
@@ -77,6 +79,7 @@
       "status": "implemented_in_submission",
       "local_paths": [
         "src/wear_edge_opea/gateway.py",
+        "src/wear_edge_opea/demo_console.py",
         "Dockerfile",
         "docker-compose.yml"
       ],
@@ -85,7 +88,7 @@
         "scripts/run_fastapi.sh",
         "docs/m400-inference-contract.md"
       ],
-      "submission_claim": "Five-agent M400/API entry point with health, demo, infer, suite, and scorecard routes"
+      "submission_claim": "Five-agent browser/API entry point with Web Demo Console, health, demo, infer, suite, and scorecard routes"
     },
     {
       "opea_layer": "Megaservice",

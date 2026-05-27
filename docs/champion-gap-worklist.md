@@ -10,7 +10,8 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Harden OPEA runtime wrapper into final challenge profile | Protects the 20-point "Use of OPEA" subscore | `docker compose up` or `./deploy.sh` starts the five-agent Manufacturing demo path and records expected output |
 | Polish one-click challenge deployment | Official submission requirement | Fresh clone can run sample Manufacturing flow with documented logs |
 | Finalize <=2 page technical report | Official submission requirement | PDF/Markdown report has no `TBD` or planned claims |
-| Produce 1-3 minute prototype demo video | Optional officially, essential for champion-level clarity | Script and captions are ready; external video upload URL recorded |
+| Productize judge-facing demo console | Converts API evidence into an evaluable product | `/demo` lets judges switch routes, run demos, inspect RAG evidence, action cards, guardrails, and scorecard |
+| Produce 1-3 minute prototype demo video | Optional officially, useful after product console exists | Record the `/demo` console plus M400 evidence, then add external video URL |
 
 ## P1
 
