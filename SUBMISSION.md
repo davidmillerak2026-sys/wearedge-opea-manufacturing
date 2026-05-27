@@ -94,7 +94,7 @@ Key archived evidence already mapped into this submission package:
 
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR remains pending maintainer feedback.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script and captions are ready in `public/`.
-- Intel AVX-512/AMX: benchmark harness and local Intel Core Ultra smoke-test JSON are ready; Xeon AVX-512/AMX run still needs to be captured before claiming the full hardware bonus.
+- Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` run captured on Intel Xeon Platinum 8481C with `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed.
 
 ## Bonus URLs And Artifacts
 
@@ -106,3 +106,4 @@ Key archived evidence already mapped into this submission package:
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
 - Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`
+- Xeon AVX-512/AMX benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`

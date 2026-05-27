@@ -1,6 +1,6 @@
 # Intel AVX-512 / AMX Benchmark Report
 
-Status: benchmark harness implemented; local smoke test captured; Xeon AVX-512/AMX run pending.
+Status: benchmark harness implemented; local smoke test captured; Google Cloud C3 Xeon AVX-512/AMX run captured.
 
 ## Objective
 
@@ -36,9 +36,62 @@ evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 
 This local machine is useful for smoke testing the benchmark and proving repeatability, but it is not sufficient for an AVX-512/AMX bonus claim unless the feature detector reports the relevant flags.
 
-## Required Xeon Bonus Run
+## Captured Xeon Bonus Run
 
-Recommended target: Azure `Standard_D4s_v6` because it is a 4-vCPU Xeon VM and Microsoft documents AVX-512 and Intel AMX support for the Dsv6 series. Full provisioning instructions are in `docs/xeon-amx-benchmark-runbook.md`.
+Cloud machine:
+
+```text
+Google Cloud C3 `c3-standard-4`, us-central1-a, 4 vCPU, 16 GiB RAM
+Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz
+Linux 6.17.0-1016-gcp, Python 3.12.3
+```
+
+Result file:
+
+```text
+evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
+```
+
+Detected ISA evidence:
+
+| Feature | Detected |
+| --- | --- |
+| `avx512f` | `true` |
+| `avx512_bf16` | `true` |
+| `avx512_vnni` | `true` |
+| `amx_tile` | `true` |
+| `amx_int8` | `true` |
+| `amx_bf16` | `true` |
+
+Five-agent deterministic route benchmark:
+
+| Metric | Result |
+| --- | --- |
+| Total calls | 5,000 |
+| Iterations per route | 1,000 |
+| Calls/second | 4,581.4536 |
+| Overall mean latency | 0.2179 ms |
+| Overall p50 latency | 0.2111 ms |
+| Overall p95 latency | 0.2748 ms |
+| Scorecard | `ok=true` |
+
+Route-level p95 latency:
+
+| Route | p95 latency |
+| --- | --- |
+| `maintenance` | 0.2813 ms |
+| `iqc` | 0.2232 ms |
+| `changeover` | 0.1998 ms |
+| `wi` | 0.2068 ms |
+| `hazard` | 0.2306 ms |
+
+The temporary VM was deleted after the run:
+
+```text
+wearedge-amx-bench-0527072816 in us-central1-a
+```
+
+## Reproducibility Command
 
 Run the same command on an Intel Xeon system that exposes AVX-512 and AMX, preferably Linux so `/proc/cpuinfo` exposes ISA flags:
 
@@ -59,27 +112,12 @@ For a strong bonus submission, attach:
 
 ## Claim Language
 
-Use this language after a Xeon run is captured:
-
 ```text
-WearEdge OPEA Manufacturing includes an Intel CPU benchmark harness and was profiled on an Intel Xeon host with AVX-512/AMX feature flags detected. The five-agent route suite passed the scorecard while reporting per-route latency and throughput.
+WearEdge OPEA Manufacturing includes an Intel CPU benchmark harness and was profiled on a Google Cloud C3 Intel Xeon Platinum 8481C host with AVX-512 and Intel AMX feature flags detected. The five-agent deterministic route suite passed the scorecard while reporting 4,581.4536 calls/second, 0.2111 ms p50 latency, and 0.2748 ms p95 latency across 5,000 route calls.
 ```
 
 Do not claim production LLM acceleration unless a real embedding/LLM service path is benchmarked on the same host.
 
 ## Current Machine Search Result
 
-Best option found for the challenge profile:
-
-```text
-Azure Standard_D4s_v6, Ubuntu 22.04, 4 vCPU, 16 GiB RAM
-```
-
-Backup options:
-
-```text
-AWS c7i.xlarge
-Google Cloud c3-standard-4
-```
-
-The local workstation does not have cloud CLI credentials configured, so the Xeon run requires an authenticated cloud shell or CLI session before the JSON can be captured.
+The accepted cloud path used Google Cloud `c3-standard-4`. Azure `Standard_D4s_v6` and AWS `c7i.xlarge` remain valid rerun options if an additional provider comparison is needed.

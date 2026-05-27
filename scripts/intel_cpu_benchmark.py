@@ -109,6 +109,27 @@ def detect_cpu() -> dict:
     }
 
 
+def claim_status(cpu: dict) -> str:
+    features = cpu["feature_detection"]
+    has_amx = any(features.get(name) for name in ("amx_tile", "amx_int8", "amx_bf16"))
+    if features.get("avx512f") and has_amx:
+        return "xeon_avx512_amx_detected"
+    return "local_smoke_test_not_avx512_amx_claim"
+
+
+def competition_note(status: str) -> str:
+    if status == "xeon_avx512_amx_detected":
+        return (
+            "AVX-512 and AMX feature flags were detected on this host. "
+            "This is valid Intel CPU bonus evidence for the deterministic "
+            "five-agent route pipeline, but not a production LLM acceleration claim."
+        )
+    return (
+        "For Intel AVX-512/AMX bonus evidence, rerun this script on a Xeon host "
+        "that advertises avx512f plus AMX flags, then attach the JSON and report."
+    )
+
+
 def summarize(values: list[float]) -> dict:
     return {
         "count": len(values),
@@ -166,16 +187,15 @@ def main() -> int:
     args = parser.parse_args()
 
     modes = list(ROUTES)
+    cpu = detect_cpu()
+    status = claim_status(cpu)
     report = {
         "benchmark": "WearEdge OPEA Manufacturing five-agent CPU benchmark",
         "schema_version": "2026-05-26",
-        "claim_status": "local_smoke_test_not_avx512_amx_claim",
-        "cpu": detect_cpu(),
+        "claim_status": status,
+        "cpu": cpu,
         "pipeline": run_iterations(modes, args.iterations, args.warmup),
-        "competition_note": (
-            "For Intel AVX-512/AMX bonus evidence, rerun this script on a Xeon host "
-            "that advertises avx512f plus AMX flags, then attach the JSON and report."
-        ),
+        "competition_note": competition_note(status),
     }
 
     output = ROOT / args.output

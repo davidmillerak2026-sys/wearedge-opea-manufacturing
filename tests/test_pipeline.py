@@ -15,6 +15,7 @@ from wear_edge_opea.dataprep import KnowledgeChunk
 from wear_edge_opea.scorecard import build_scorecard
 from wear_edge_opea.vector_store import QdrantVectorStore
 from wear_edge_opea.demo_console import build_demo_console_html
+from scripts.intel_cpu_benchmark import claim_status
 
 
 class PipelineTest(unittest.TestCase):
@@ -84,6 +85,16 @@ class PipelineTest(unittest.TestCase):
         self.assertIn("/v1/scorecard", html)
         for mode in ROUTES:
             self.assertIn(mode, html)
+
+    def test_benchmark_claim_status_requires_avx512_and_amx(self) -> None:
+        self.assertEqual(
+            claim_status({"feature_detection": {"avx512f": True, "amx_tile": True}}),
+            "xeon_avx512_amx_detected",
+        )
+        self.assertEqual(
+            claim_status({"feature_detection": {"avx512f": True, "amx_tile": False}}),
+            "local_smoke_test_not_avx512_amx_claim",
+        )
 
     def test_qdrant_index_treats_existing_collection_as_idempotent(self) -> None:
         class ConflictOnceQdrant(QdrantVectorStore):

@@ -1,27 +1,32 @@
 # Xeon AVX-512 / AMX Benchmark Runbook
 
-Goal: produce `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` on a real Xeon host that exposes both AVX-512 and AMX flags.
+Goal: reproduce `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` on a real Xeon host that exposes both AVX-512 and AMX flags.
 
-## Recommended Machine
+## Captured Machine
 
-Use Azure `Standard_D4s_v6` first.
+The benchmark evidence was captured on Google Cloud:
 
-Why this is the cleanest option:
+```text
+Google Cloud C3 c3-standard-4
+Zone: us-central1-a
+CPU: Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz
+Detected: avx512f, avx512_bf16, avx512_vnni, amx_tile, amx_int8, amx_bf16
+Result: evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
+```
 
-- 4 vCPU / 16 GiB fits the challenge's single-node 4-core profile.
-- Microsoft documents the Dsv6-series on 5th Generation Intel Xeon Platinum 8573C processors.
-- Microsoft documents AVX-512 and Intel AMX support for Dsv6.
-- Azure Cloud Shell can create, run, print, and delete the VM without local CLI setup.
+The temporary VM `wearedge-amx-bench-0527072816` was deleted after the run.
 
-Official reference: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv6-series
+## Recommended Rerun Machines
+
+Use Google Cloud `c3-standard-4` first because it has already produced the accepted evidence in this repository.
 
 Backup options:
 
 | Provider | Instance | Notes |
 | --- | --- | --- |
+| Google Cloud | `c3-standard-4` | Captured evidence on Intel Xeon Platinum 8481C with AVX-512 and AMX flags. |
 | Azure | `Standard_D4s_v6` | Best claim language because docs explicitly mention AVX-512 and AMX. |
 | AWS | `c7i.xlarge` | 4th Gen Intel Xeon Scalable with Intel AMX. Verify `avx512f` and AMX flags in JSON. |
-| Google Cloud | `c3-standard-4` | 4th Gen Intel Xeon Scalable C3. Google docs list AMX for C3 and AVX-512 for Intel Xeon Scalable CPU platforms. |
 
 Official references:
 
@@ -95,7 +100,7 @@ scp ubuntu@<public-ip>:~/wearedge-opea-manufacturing/evidence/benchmarks/intel_c
 
 ## Google Cloud Path
 
-Use `c3-standard-4`:
+Use `c3-standard-4`. The submitted evidence used `us-central1-a`:
 
 ```bash
 gcloud compute instances create wearedge-amx-bench \

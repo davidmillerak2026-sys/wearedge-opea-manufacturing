@@ -65,7 +65,7 @@ Use the Web Demo Console as the judge-friendly substitute when reviewers do not 
 | Manufacturing value | Five route suite: maintenance, IQC, changeover, WI, hazard |
 | Safety and trust | Route-specific blocked claims and human confirmation gates |
 | Open-source contribution | OPEA RFC issue `https://github.com/opea-project/GenAIExamples/issues/2461` |
-| Intel bonus readiness | Xeon AMX runbook and benchmark harness |
+| Intel bonus readiness | Google Cloud C3 Xeon AVX-512/AMX benchmark JSON, runbook, and harness |
 
 ## Submission Wording
 
@@ -80,5 +80,4 @@ WearEdge Pro is a wearable edge AI product packaged for the OPEA challenge as a 
 - Do not claim the submission is only an Android APK.
 - Do not require judges to own a Vuzix M400.
 - Do not claim certified safety release, quality release, restart permission, or autonomous maintenance release.
-- Do not claim AVX-512/AMX bonus until the Xeon benchmark JSON is captured.
-
+- Do not claim production LLM acceleration from the AVX-512/AMX benchmark; the captured JSON measures the deterministic five-agent route pipeline.

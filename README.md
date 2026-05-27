@@ -111,7 +111,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
-| [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark protocol and local smoke-test report |
+| [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
@@ -167,14 +167,21 @@ public/demo-video-script.md
 public/demo-video-captions.srt
 ```
 
-Intel CPU benchmark harness:
+Intel CPU benchmark evidence:
 
 ```powershell
 $env:PYTHONPATH="src"
 python scripts\intel_cpu_benchmark.py --iterations 200
 ```
 
-The committed local benchmark JSON is in `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`. It is a repeatability smoke test on an Intel Core Ultra 9 185H, not yet an AVX-512/AMX claim. Rerun the same script on a Xeon host that exposes AVX-512/AMX flags before claiming the Intel bonus.
+The committed benchmark evidence includes:
+
+```text
+evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
+evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
+```
+
+The Xeon run was captured on Google Cloud C3 `c3-standard-4` with Intel Xeon Platinum 8481C, `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`, scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic route calls.
 
 Xeon AMX runbook:
 

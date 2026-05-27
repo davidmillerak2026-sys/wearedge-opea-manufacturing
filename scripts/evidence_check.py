@@ -34,6 +34,7 @@ REQUIRED_LOCAL_FILES = [
     "scripts/intel_cpu_benchmark.py",
     "scripts/xeon_amx_benchmark_remote.sh",
     "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
+    "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "evidence/component-evidence.json",
     "docker-compose.yml",
     "deploy.sh",

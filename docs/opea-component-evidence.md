@@ -73,5 +73,5 @@ Implemented now:
 Still required for maximum bonus:
 
 - OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
-- Xeon AVX-512/AMX benchmark run. Harness and local smoke-test JSON are ready in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`.
+- Xeon AVX-512/AMX benchmark run. Google Cloud C3 evidence is captured in `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`; local repeatability smoke test remains in `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.
