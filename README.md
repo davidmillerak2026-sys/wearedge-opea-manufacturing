@@ -140,6 +140,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
+| [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/official-opea-profile.md`](docs/official-opea-profile.md) | OPEA-compatible embedding microservice profile |
 | [`docs/official-opea-tei-profile.md`](docs/official-opea-tei-profile.md) | Official OPEA TEI embedding profile and C3 rerun instructions |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |

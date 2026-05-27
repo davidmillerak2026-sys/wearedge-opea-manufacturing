@@ -19,6 +19,7 @@ REQUIRED_LOCAL_FILES = [
     "pyproject.toml",
     "docs/technical-report.draft.md",
     "docs/submission-product-shape.md",
+    "docs/final-submission-readiness-audit.md",
     "docs/opea-component-evidence.md",
     "docs/official-opea-profile.md",
     "docs/official-opea-tei-profile.md",
