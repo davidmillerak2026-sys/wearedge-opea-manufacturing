@@ -30,6 +30,7 @@ REQUIRED_LOCAL_FILES = [
     "docs/opea-upstream/blueprint-feedback.md",
     "docs/opea-upstream/implementation-feedback-comment.md",
     "docs/opea-upstream/minimal-pr-scope.md",
+    "docs/opea-upstream/tei-update-comment.md",
     "docs/intel-avx512-amx-benchmark-report.md",
     "docs/gcp-c3-docker-qdrant-e2e-report.md",
     "docs/gcp-c3-opea-profile-e2e-report.md",
