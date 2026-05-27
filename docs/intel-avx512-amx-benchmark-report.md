@@ -91,6 +91,43 @@ The temporary VM was deleted after the run:
 wearedge-amx-bench-0527072816 in us-central1-a
 ```
 
+## Complementary Docker / Qdrant E2E Run
+
+A second Google Cloud C3 run validates the challenge-facing Docker package
+rather than only the dependency-free benchmark harness.
+
+Result files:
+
+```text
+docs/gcp-c3-docker-qdrant-e2e-report.md
+evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
+```
+
+Captured run:
+
+```text
+Google Cloud C3 c3-standard-4, us-central1-a
+Temporary VM: wearedge-docker-e2e-0527082214
+Runtime: fresh clone -> docker compose -> Qdrant -> Manufacturing Gateway
+Cleanup: VM deleted after run
+```
+
+All E2E checks passed: `/demo` HTTP 200, `/healthz` ok, Qdrant backend reported,
+five agents registered, five demo endpoints ok, five infer endpoints ok, action
+targets correct, `/v1/scorecard` ok, scorecard routes pass, and Docker stats
+captured.
+
+Endpoint p95 latency from the deterministic Qdrant profile:
+
+| Endpoint group | p95 latency |
+| --- | ---: |
+| `GET /v1/scorecard` | 23.0418 ms |
+| `POST /v1/agents/maintenance/infer` | 6.4216 ms |
+| `POST /v1/agents/iqc/infer` | 6.2449 ms |
+| `POST /v1/agents/changeover/infer` | 5.7111 ms |
+| `POST /v1/agents/wi/infer` | 5.9895 ms |
+| `POST /v1/agents/hazard/infer` | 5.7732 ms |
+
 ## Reproducibility Command
 
 Run the same command on an Intel Xeon system that exposes AVX-512 and AMX, preferably Linux so `/proc/cpuinfo` exposes ISA flags:

@@ -51,7 +51,7 @@ def run_pipeline(request: dict, mode: str | None = None) -> dict:
         "action_card": action_card,
         "timing": {
             "pipeline_latency_ms": elapsed_ms,
-            "note": "Dependency-free demo timing; production model latency is measured in the WearEdge source project.",
+            "note": "Deterministic demo-path timing; production embedding and LLM service latency should be measured separately.",
         },
     }
     if route.mode == "maintenance":

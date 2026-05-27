@@ -1,0 +1,165 @@
+{
+  "benchmark": "WearEdge OPEA Manufacturing GCP C3 Docker/Qdrant fresh-clone E2E benchmark",
+  "schema_version": "2026-05-27",
+  "artifact_status": "summary_from_cloud_shell_output",
+  "claim_status": "fresh_clone_docker_qdrant_e2e_passed",
+  "repo": {
+    "url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "branch": "main"
+  },
+  "gcp": {
+    "project_id": "gen-lang-client-0555254036",
+    "machine_type": "c3-standard-4",
+    "zone": "us-central1-a",
+    "vm_name": "wearedge-docker-e2e-0527082214",
+    "cleanup": "deleted_after_run"
+  },
+  "runtime_profile": {
+    "container_profile": "docker compose",
+    "vector_backend": "qdrant",
+    "vector_store_reported_by_api": "qdrant-hashing-vector-store",
+    "routes": [
+      "maintenance",
+      "iqc",
+      "changeover",
+      "wi",
+      "hazard"
+    ],
+    "note": "This run measures the deterministic demo path with Qdrant. It does not claim production LLM or embedding acceleration."
+  },
+  "validation": {
+    "demo_http_200": true,
+    "health_ok": true,
+    "qdrant_backend": true,
+    "qdrant_endpoint_responds": true,
+    "five_agents": true,
+    "all_demo_ok": true,
+    "all_infer_ok": true,
+    "demo_action_targets_correct": true,
+    "infer_action_targets_correct": true,
+    "scorecard_ok": true,
+    "scorecard_has_five_routes": true,
+    "scorecard_routes_pass": true,
+    "docker_stats_captured": true
+  },
+  "all_checks_pass": true,
+  "latency": {
+    "GET /healthz": {
+      "count": 30,
+      "p50_ms": 0.9072,
+      "p95_ms": 1.6402,
+      "mean_ms": 1.7362,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents": {
+      "count": 30,
+      "p50_ms": 1.1411,
+      "p95_ms": 1.2557,
+      "mean_ms": 1.1499,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/scorecard": {
+      "count": 30,
+      "p50_ms": 21.5195,
+      "p95_ms": 23.0418,
+      "mean_ms": 21.4063,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents/maintenance/demo": {
+      "count": 30,
+      "p50_ms": 4.9185,
+      "p95_ms": 5.8133,
+      "mean_ms": 5.2314,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents/iqc/demo": {
+      "count": 30,
+      "p50_ms": 4.885,
+      "p95_ms": 5.6839,
+      "mean_ms": 5.2031,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents/changeover/demo": {
+      "count": 30,
+      "p50_ms": 4.7706,
+      "p95_ms": 5.7552,
+      "mean_ms": 5.0532,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents/wi/demo": {
+      "count": 30,
+      "p50_ms": 4.8481,
+      "p95_ms": 5.9601,
+      "mean_ms": 5.1655,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents/hazard/demo": {
+      "count": 30,
+      "p50_ms": 4.8374,
+      "p95_ms": 5.8232,
+      "mean_ms": 5.1855,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/maintenance/infer": {
+      "count": 30,
+      "p50_ms": 5.0734,
+      "p95_ms": 6.4216,
+      "mean_ms": 5.3537,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/iqc/infer": {
+      "count": 30,
+      "p50_ms": 4.9159,
+      "p95_ms": 6.2449,
+      "mean_ms": 5.0849,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/changeover/infer": {
+      "count": 30,
+      "p50_ms": 4.864,
+      "p95_ms": 5.7111,
+      "mean_ms": 5.0675,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/wi/infer": {
+      "count": 30,
+      "p50_ms": 4.9049,
+      "p95_ms": 5.9895,
+      "mean_ms": 5.1316,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/hazard/infer": {
+      "count": 30,
+      "p50_ms": 4.9588,
+      "p95_ms": 5.7732,
+      "mean_ms": 5.0523,
+      "status_codes": [
+        200
+      ]
+    }
+  }
+}

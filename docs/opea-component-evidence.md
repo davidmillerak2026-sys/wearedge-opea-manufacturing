@@ -69,9 +69,36 @@ Implemented now:
 - `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/agents/{mode}/infer`, and `/v1/scorecard`.
 - Qdrant profile with route-specific collections.
 - Route-isolation tests and scorecard tests.
+- Google Cloud C3 fresh-clone Docker/Qdrant E2E run with all five demo and infer routes passing.
 
 Still required for maximum bonus:
 
 - OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
-- Xeon AVX-512/AMX benchmark run. Google Cloud C3 evidence is captured in `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`; local repeatability smoke test remains in `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`.
+- Official OPEA component hardening: add a GenAIComps-compatible embedding or LLM microservice profile so the project is not only OPEA-aligned but visibly runnable with official OPEA component interfaces.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.
+
+## Cloud Runtime Evidence
+
+The challenge-facing Docker/Qdrant package has been run on Google Cloud C3:
+
+| Evidence | Result |
+| --- | --- |
+| Fresh clone on `c3-standard-4` | pass |
+| Docker Compose startup | pass |
+| Qdrant backend reported by `/healthz` | pass |
+| Five demo endpoints | pass |
+| Five infer endpoints | pass |
+| `/v1/scorecard` | pass |
+| Temporary VM cleanup | pass |
+
+Evidence files:
+
+```text
+scripts/gcp_c3_docker_qdrant_e2e_cloudshell.sh
+docs/gcp-c3-docker-qdrant-e2e-report.md
+evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
+```
+
+Claim boundary: this run proves the submitted Docker/Qdrant deterministic demo
+profile is reproducible on cloud C3 hardware. It does not claim production
+embedding or LLM acceleration.

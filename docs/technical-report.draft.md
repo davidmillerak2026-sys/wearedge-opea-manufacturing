@@ -72,10 +72,10 @@ The scorecard reports:
 - action target correctness
 - route isolation
 
-Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance POC, five-agent POC validation, power/runtime notes, and edge-runtime benchmark records.
+Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance POC, five-agent POC validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4`, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`.
 
 ## 5. Safety, Licensing, And Limits
 
 WearEdge Pro is MIT licensed. It is an assistive decision-support prototype, not a certified industrial safety controller or autonomous maintenance-release system. Guardrails block unsupported claims including final root cause, remaining useful life, restart permission, quality release, safety clearance, incident root cause, and maintenance release. High-risk outputs require human confirmation.
 
-Bonus evidence package: the OPEA RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`, the public OPEA tracker is posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`, the technical article is recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`, and the Intel benchmark harness plus Google Cloud C3 Xeon AVX-512/AMX JSON are in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`. OPEA PR and external demo video URL remain final submission tasks.
+Bonus evidence package: the OPEA RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`, the public OPEA tracker is posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`, the technical article is recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`, and the Intel benchmark harness plus Google Cloud C3 Xeon AVX-512/AMX JSON are in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`. The Docker/Qdrant fresh-clone E2E report is in `docs/gcp-c3-docker-qdrant-e2e-report.md`. OPEA PR and external demo video URL remain final submission tasks.
