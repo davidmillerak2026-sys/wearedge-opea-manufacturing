@@ -57,6 +57,7 @@
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
+      "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
       "claim_boundary": "Public RFC issue is posted; official TEI update is posted to the project tracker. Posting the TEI update directly to the upstream OPEA issue through the GitHub App was blocked by integration permissions; PR remains pending maintainer feedback."
     },
     {
