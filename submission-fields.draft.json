@@ -31,6 +31,7 @@
     "opea_rfc_issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
     "opea_tei_update_comment_url": "https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017",
     "opea_tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
+    "opea_pr_ready_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready",
     "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
     "demo_video_url": "https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4",
     "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
@@ -50,7 +51,7 @@
   "do_not_claim_until_implemented": {
     "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
     "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible and official OPEA TEI embedding E2E runs validate the submission package. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
-    "OPEA public contribution": "Public RFC issue and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. PR remains pending maintainer feedback.",
-    "external video publication": "Demo script, captions, HyperFrames source, and local MP4 render evidence are included. Replace demo_video_url after the public demo video is uploaded."
+    "OPEA public contribution": "Public RFC issue, implementation comment, and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. A copyable PR-ready upstream package is included at docs/opea-upstream/pr-ready; the actual upstream PR remains pending fork/write path or maintainer feedback.",
+    "external video publication": "Demo script, captions, HyperFrames source, render report, and public raw MP4 URL are included."
   }
 }

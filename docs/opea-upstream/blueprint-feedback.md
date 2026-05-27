@@ -48,12 +48,15 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 | Five route demos | Ready |
 | Scorecard endpoint | Ready |
 | Qdrant vector DB profile | Ready |
-| Official OPEA TEI embedding profile | Local E2E passed; ready for C3 rerun |
+| Official OPEA TEI embedding profile | Local and GCP C3 fresh-clone E2E passed |
 | Intel CPU benchmark harness | Ready in `scripts/intel_cpu_benchmark.py` |
 | Upstream issue URL | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461` |
-| Implementation feedback comment | Prepared in `docs/opea-upstream/implementation-feedback-comment.md` |
+| Implementation feedback comment | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4551375202` |
+| Official TEI update comment | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017` |
 | Minimal PR scope | Prepared in `docs/opea-upstream/minimal-pr-scope.md` |
-| Upstream PR URL | Pending maintainer feedback |
+| PR-ready update comment | Prepared in `docs/opea-upstream/pr-ready-update-comment.md` |
+| PR-ready package | Prepared and smoke-tested in `docs/opea-upstream/pr-ready/ManufacturingAgentSuite/` |
+| Upstream PR URL | Pending fork/write path or maintainer direction |
 
 ## Posted Issue Link
 
@@ -65,4 +68,8 @@ https://github.com/opea-project/GenAIExamples/issues/2461
 
 ## Current Publishing Boundary
 
-The GitHub App available in this environment has read-only access to `opea-project/GenAIExamples`, so the implementation follow-up comment and PR must be posted from an authenticated browser session, an installed `gh` CLI, or a fork with push access.
+The GitHub App available in this environment has read-only access to
+`opea-project/GenAIExamples`, so upstream PR creation still needs an
+authenticated fork/write path. To avoid waiting on that external step, a
+copyable PR-ready package is now included in this repository under
+`docs/opea-upstream/pr-ready/`.

@@ -145,6 +145,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/official-opea-tei-profile.md`](docs/official-opea-tei-profile.md) | Official OPEA TEI embedding profile and C3 rerun instructions |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
+| [`docs/opea-upstream/pr-ready/`](docs/opea-upstream/pr-ready/) | Copyable OPEA `GenAIExamples` PR-ready package |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
@@ -199,6 +200,8 @@ docs/opea-upstream/rfc-issue-draft.md
 docs/opea-upstream/blueprint-feedback.md
 docs/opea-upstream/implementation-feedback-comment.md
 docs/opea-upstream/minimal-pr-scope.md
+docs/opea-upstream/pr-ready-update-comment.md
+docs/opea-upstream/pr-ready/
 ```
 
 Knowledge-sharing package:

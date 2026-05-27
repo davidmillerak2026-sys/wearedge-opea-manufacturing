@@ -112,7 +112,7 @@ Key archived evidence already mapped into this submission package:
 
 ## Remaining Champion Bonus Work
 
-- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; official TEI update comment posted at `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR remains pending maintainer feedback.
+- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; copyable PR-ready package prepared under `docs/opea-upstream/pr-ready/`; PR remains pending fork/write path or maintainer feedback.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, local MP4 render report, and public raw MP4 URL are ready.
@@ -131,6 +131,7 @@ Key archived evidence already mapped into this submission package:
 - OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
 - OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
+- OPEA PR-ready package: `docs/opea-upstream/pr-ready/`
 - Official OPEA profile: `docs/official-opea-profile.md`
 - Official OPEA TEI profile: `docs/official-opea-tei-profile.md`
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`

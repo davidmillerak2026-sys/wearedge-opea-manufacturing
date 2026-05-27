@@ -1,6 +1,10 @@
 # Minimal OPEA PR Scope
 
-This is the proposed first PR shape for `opea-project/GenAIExamples` once maintainers confirm the preferred location and naming from RFC issue #2461.
+This is the proposed first PR shape for `opea-project/GenAIExamples` once
+maintainers confirm the preferred location and naming from RFC issue #2461.
+
+Status: PR-ready package prepared and locally smoke-tested in
+`docs/opea-upstream/pr-ready/ManufacturingAgentSuite/`.
 
 ## Proposed Path
 
@@ -35,3 +39,24 @@ After maintainers accept the example shape:
 - Add Helm/GMC deployment.
 - Decide whether reusable route registry, action-card contract, and guardrail checks belong in `GenAIComps`.
 - Add Intel Xeon AVX-512/AMX benchmark results from a cloud host.
+
+## Prepared Artifact
+
+The current repository includes a copyable upstream artifact at:
+
+```text
+docs/opea-upstream/pr-ready/ManufacturingAgentSuite/
+```
+
+It has been validated locally with:
+
+```text
+Python syntax parse: pass
+HTTP smoke: /healthz, five agents, five demos, five infers, scorecard pass
+docker-compose base config: pass
+docker-compose official TEI config: pass
+```
+
+The package is intentionally smaller than the competition repository so OPEA
+maintainers can review the example shape first, then decide whether production
+LLM, Helm/GMC, or reusable GenAIComps pieces should move into later PRs.

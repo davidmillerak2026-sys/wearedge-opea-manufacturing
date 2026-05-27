@@ -11,7 +11,8 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Official TEI update comment | Posted upstream | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | GCP C3 official TEI update | Posted to project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045 |
 | Public OPEA tracker | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
-| Upstream PR | Pending maintainer feedback | TBD |
+| PR-ready upstream package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
+| Upstream PR | Pending fork/write path or maintainer feedback | TBD |
 
 ## Knowledge Sharing
 
@@ -34,4 +35,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - The official TEI update is posted directly in `opea-project/GenAIExamples#2461`. The GitHub App still cannot write to the upstream repository, so the browser-authenticated comment is the authoritative upstream evidence.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
 - The demo video has a rendered local MP4, committed HyperFrames source package, and public raw GitHub URL on the `codex/video-assets` branch.
-- The first PR scope is intentionally small: route registry, Docker Compose, Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard, and docs.
+- The first PR scope is intentionally small: route registry, Docker Compose,
+  Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard,
+  and docs. A copyable PR-ready package is included under
+  `docs/opea-upstream/pr-ready/`.
