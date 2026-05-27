@@ -55,6 +55,7 @@ flowchart LR
 | Megaservice | Implemented | `src/wear_edge_opea/megaservice.py` | Shared orchestration across five routes |
 | Route registry | Implemented | `src/wear_edge_opea/agents.py` | Mode metadata, samples, KB paths, targets, guardrails |
 | Dataprep | Implemented | `src/wear_edge_opea/dataprep.py`, `data/agent_kb/`, `data/maintenance_kb/` | Route-specific knowledge loading and chunking |
+| Embedding microservice | OPEA-compatible profile implemented | `docker-compose.opea.yml`, `src/wear_edge_opea/opea_embedding_service.py`, `src/wear_edge_opea/embedding.py` | Optional `/v1/embeddings` service boundary for Qdrant RAG |
 | Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py` | Route-specific retrieval before explanation |
 | Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant collections per route, in-memory fallback |
 | LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Deterministic no-model demo, OpenAI-compatible source path |
@@ -70,11 +71,12 @@ Implemented now:
 - Qdrant profile with route-specific collections.
 - Route-isolation tests and scorecard tests.
 - Google Cloud C3 fresh-clone Docker/Qdrant E2E run with all five demo and infer routes passing.
+- Optional OPEA-compatible embedding microservice profile in `docker-compose.opea.yml`.
 
 Still required for maximum bonus:
 
 - OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
-- Official OPEA component hardening: add a GenAIComps-compatible embedding or LLM microservice profile so the project is not only OPEA-aligned but visibly runnable with official OPEA component interfaces.
+- Official OPEA component hardening: replace the deterministic embedding service with an official TEI/GenAIComps production embedding implementation and add a production LLM service profile.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.
 
 ## Cloud Runtime Evidence

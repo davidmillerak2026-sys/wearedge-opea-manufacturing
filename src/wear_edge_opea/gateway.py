@@ -35,6 +35,8 @@ def healthz() -> dict:
         "service": "wear-edge-opea-manufacturing-gateway",
         "vector_backend": os.getenv("WEAREDGE_VECTOR_BACKEND", "memory"),
         "qdrant_url": os.getenv("WEAREDGE_QDRANT_URL", "not-set"),
+        "embedding_backend": os.getenv("WEAREDGE_EMBEDDING_BACKEND", "hashing"),
+        "embedding_url": os.getenv("WEAREDGE_EMBEDDING_URL", "in-process"),
         "agents": ["maintenance", "iqc", "changeover", "wi", "hazard"],
     }
 

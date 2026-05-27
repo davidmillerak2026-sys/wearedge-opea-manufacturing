@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 import unittest
 import urllib.error
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -15,6 +16,7 @@ from wear_edge_opea.dataprep import KnowledgeChunk
 from wear_edge_opea.scorecard import build_scorecard
 from wear_edge_opea.vector_store import QdrantVectorStore
 from wear_edge_opea.demo_console import build_demo_console_html
+from wear_edge_opea.embedding import _coerce_dimensions, _extract_embedding, embedding_profile_name
 from scripts.intel_cpu_benchmark import claim_status
 
 
@@ -128,6 +130,25 @@ class PipelineTest(unittest.TestCase):
         )
 
         self.assertIn("/collections/existing/points?wait=true", store.paths)
+
+    def test_opea_embedding_response_parser_supports_openai_shape(self) -> None:
+        body = {
+            "object": "list",
+            "data": [
+                {
+                    "object": "embedding",
+                    "index": 0,
+                    "embedding": [0.1, 0.2, 0.3],
+                }
+            ],
+        }
+
+        self.assertEqual(_extract_embedding(body), [0.1, 0.2, 0.3])
+        self.assertEqual(_coerce_dimensions([1.0], 3), [1.0, 0.0, 0.0])
+
+    def test_default_embedding_profile_is_hashing(self) -> None:
+        with patch.dict("os.environ", {}, clear=True):
+            self.assertEqual(embedding_profile_name(), "hashing")
 
 
 if __name__ == "__main__":

@@ -52,6 +52,14 @@ Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> Vector DB -
 
 The Docker Compose profile uses Qdrant as the Vector DB. The local no-dependency demo keeps an in-memory vector fallback so reviewers can run the same route contracts without Docker.
 
+The repository also includes an official OPEA-compatible embedding microservice profile:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.opea.yml up --build -d
+```
+
+That profile adds a separate `/v1/embeddings` microservice and configures the Gateway with `WEAREDGE_EMBEDDING_BACKEND=opea`, so Qdrant indexing and search use a microservice boundary instead of only in-process embeddings.
+
 The FastAPI gateway also serves a browser Manufacturing Demo Console at `/demo`, so reviewers can inspect requests, RAG evidence, action cards, guardrails, and scorecard results without writing curl commands.
 
 ## Runnable Evidence
@@ -93,6 +101,7 @@ Key archived evidence already mapped into this submission package:
 ## Remaining Champion Bonus Work
 
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR remains pending maintainer feedback.
+- OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it; production TEI/GenAIComps embedding remains the next hardening step.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script and captions are ready in `public/`.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` run captured on Intel Xeon Platinum 8481C with `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
@@ -105,6 +114,7 @@ Key archived evidence already mapped into this submission package:
 - OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
 - OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
+- Official OPEA profile: `docs/official-opea-profile.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
 - Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`

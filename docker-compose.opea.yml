@@ -1,0 +1,23 @@
+services:
+  opea-embedding:
+    build: .
+    environment:
+      WEAREDGE_EMBEDDING_HOST: 0.0.0.0
+      WEAREDGE_EMBEDDING_PORT: "6000"
+      WEAREDGE_EMBEDDING_DIMENSIONS: "64"
+      WEAREDGE_EMBEDDING_MODEL: wear-edge-hashing-embedding
+    command: ["python", "-m", "wear_edge_opea.opea_embedding_service"]
+    ports:
+      - "6000:6000"
+
+  manufacturing-gateway:
+    depends_on:
+      - qdrant
+      - opea-embedding
+    environment:
+      WEAREDGE_VECTOR_BACKEND: qdrant
+      WEAREDGE_QDRANT_URL: http://qdrant:6333
+      WEAREDGE_COLLECTION: wearedge_manufacturing_kb
+      WEAREDGE_EMBEDDING_BACKEND: opea
+      WEAREDGE_EMBEDDING_URL: http://opea-embedding:6000/v1/embeddings
+      WEAREDGE_EMBEDDING_DIMENSIONS: "64"

@@ -173,13 +173,17 @@
     },
     {
       "opea_layer": "Embeddings",
-      "wear_edge_component": "Deterministic hashing embedding path",
-      "status": "demo_implemented_in_submission",
+      "wear_edge_component": "Deterministic hashing embedding path plus OPEA-compatible embedding microservice profile",
+      "status": "opea_compatible_profile_implemented",
       "local_paths": [
-        "src/wear_edge_opea/embedding.py"
+        "src/wear_edge_opea/embedding.py",
+        "src/wear_edge_opea/opea_embedding_service.py",
+        "docker-compose.opea.yml",
+        "pyproject.toml",
+        "docs/official-opea-profile.md"
       ],
       "source_paths": [],
-      "submission_claim": "Runnable no-download embedding profile; production OPEA embedding service remains a bonus hardening item"
+      "submission_claim": "Runnable no-download embedding profile plus optional `/v1/embeddings` microservice boundary; production TEI/GenAIComps embedding remains a hardening item"
     },
     {
       "opea_layer": "Vector DB",

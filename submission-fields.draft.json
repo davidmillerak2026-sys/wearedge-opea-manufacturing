@@ -22,7 +22,7 @@
   },
   "default_submission_fields": {
     "method_name": "WearEdge Pro: OPEA Manufacturing Five-Agent Suite",
-    "method_description": "WearEdge Pro is a wearable edge AI product packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, LLM adapter, deterministic evaluators, guardrails, browser demo console, five route demos, and a scorecard. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The five runnable agents cover maintenance / CMMS work order, IQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation.",
+    "method_description": "WearEdge Pro is a wearable edge AI product packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, optional OPEA-compatible embedding microservice profile, LLM adapter, deterministic evaluators, guardrails, browser demo console, five route demos, and a scorecard. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The five runnable agents cover maintenance / CMMS work order, IQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation.",
     "project_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
     "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
     "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1"
@@ -34,10 +34,11 @@
     "demo_video_url": "pending_external_upload",
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
-    "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json"
+    "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
+    "official_opea_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md"
   },
   "do_not_claim_until_implemented": {
-    "production embedding service": "The committed demo uses deterministic hashing embeddings. Add an OPEA embedding microservice or production embedding model before claiming production-grade semantic embeddings.",
+    "production embedding service": "The committed OPEA profile exposes an OPEA-compatible /v1/embeddings microservice but still uses deterministic hashing embeddings for reproducibility. Add an official production TEI/GenAIComps embedding model before claiming production-grade semantic embeddings.",
     "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and a C3 Docker/Qdrant fresh-clone E2E run validates the submission package. Do not claim production LLM acceleration until a real embedding/LLM service path is benchmarked.",
     "OPEA public contribution": "Public RFC issue is posted at https://github.com/opea-project/GenAIExamples/issues/2461. PR remains pending maintainer feedback.",
     "external video publication": "Demo script and captions are included. Replace or supplement publication_url after the public demo video is uploaded."

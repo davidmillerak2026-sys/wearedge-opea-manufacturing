@@ -27,6 +27,7 @@ M400 / API request
   -> route registry: maintenance / iqc / changeover / wi / hazard
   -> Dataprep + route-specific knowledge source
   -> Retriever / RAG + Qdrant Vector DB profile
+  -> optional OPEA-compatible Embedding Microservice /v1/embeddings
   -> LLM service adapter or deterministic no-model demo
   -> route-specific evaluator
   -> Guardrails and blocked claims
@@ -35,7 +36,7 @@ M400 / API request
 
 Current component claim: `LLM`, `RAG`, `Vector DB`, `Orchestration`, `Guardrails`.
 
-The submitted Docker Compose profile starts Qdrant and a FastAPI Manufacturing Gateway. The local demo can also run without dependencies through an in-memory vector fallback. This keeps the prototype reproducible while preserving the OPEA component boundaries.
+The submitted Docker Compose profile starts Qdrant and a FastAPI Manufacturing Gateway. The local demo can also run without dependencies through an in-memory vector fallback. This keeps the prototype reproducible while preserving the OPEA component boundaries. An optional `docker-compose.opea.yml` profile adds a separate OPEA-compatible `/v1/embeddings` microservice and configures the Gateway to call it during Qdrant indexing and retrieval.
 
 ## 3. Implementation
 

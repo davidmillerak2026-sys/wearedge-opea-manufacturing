@@ -8,7 +8,7 @@ from dataclasses import asdict
 from typing import Protocol
 
 from .dataprep import KnowledgeChunk
-from .embedding import cosine_similarity, embed_text
+from .embedding import DEFAULT_DIMENSIONS, cosine_similarity, embed_text, embedding_profile_name
 
 
 class VectorStore(Protocol):
@@ -22,7 +22,9 @@ class VectorStore(Protocol):
 
 
 class InMemoryVectorStore:
-    name = "in-memory-hashing-vector-store"
+    @property
+    def name(self) -> str:
+        return f"in-memory-{embedding_profile_name()}-vector-store"
 
     def __init__(self) -> None:
         self._rows: list[tuple[list[float], KnowledgeChunk]] = []
@@ -47,18 +49,20 @@ class InMemoryVectorStore:
 
 
 class QdrantVectorStore:
-    name = "qdrant-hashing-vector-store"
+    @property
+    def name(self) -> str:
+        return f"qdrant-{embedding_profile_name()}-vector-store"
 
     def __init__(
         self,
         url: str | None = None,
         collection: str | None = None,
-        dimensions: int = 64,
+        dimensions: int | None = None,
         timeout: float = 3.0,
     ) -> None:
         self.url = (url or os.getenv("WEAREDGE_QDRANT_URL") or "http://127.0.0.1:6333").rstrip("/")
         self.collection = collection or os.getenv("WEAREDGE_COLLECTION") or "wearedge_manufacturing_kb"
-        self.dimensions = dimensions
+        self.dimensions = dimensions or int(os.getenv("WEAREDGE_EMBEDDING_DIMENSIONS", str(DEFAULT_DIMENSIONS)))
         self.timeout = timeout
 
     def _request(self, method: str, path: str, body: dict | None = None) -> dict:

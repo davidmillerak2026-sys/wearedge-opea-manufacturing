@@ -46,6 +46,7 @@ Vuzix M400 / API request
   -> Dataprep + route-specific knowledge source
   -> Retriever / RAG
   -> Qdrant Vector DB profile, with in-memory fallback
+  -> optional OPEA-compatible Embedding Microservice /v1/embeddings
   -> LLM service adapter, deterministic no-model demo path
   -> route-specific evaluator
   -> Guardrails and blocked claims
@@ -84,6 +85,20 @@ curl http://127.0.0.1:8088/v1/agents/hazard/demo
 curl http://127.0.0.1:8088/v1/scorecard
 ```
 
+Official OPEA-compatible embedding microservice profile:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.opea.yml up --build -d
+curl http://127.0.0.1:6000/healthz
+curl http://127.0.0.1:8088/healthz
+curl http://127.0.0.1:8088/v1/agents/maintenance/demo
+curl http://127.0.0.1:8088/v1/scorecard
+```
+
+This profile routes Qdrant embeddings through a separate `/v1/embeddings`
+microservice and reports `qdrant-opea-compatible-embedding-vector-store` in
+RAG results.
+
 The legacy maintenance endpoints remain available:
 
 ```bash
@@ -109,6 +124,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
+| [`docs/official-opea-profile.md`](docs/official-opea-profile.md) | OPEA-compatible embedding microservice profile |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
@@ -122,6 +138,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`src/wear_edge_opea/demo_console.py`](src/wear_edge_opea/demo_console.py) | Judge-facing browser product console |
 | [`src/wear_edge_opea/scorecard.py`](src/wear_edge_opea/scorecard.py) | Five-agent evaluation scorecard |
 | [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
+| [`docker-compose.opea.yml`](docker-compose.opea.yml) | Optional OPEA-compatible embedding microservice override |
 | [`tests/`](tests/) | Route, guardrail, scorecard, and Qdrant validation |
 
 ## Submission Fields
