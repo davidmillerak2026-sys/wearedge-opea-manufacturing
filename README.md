@@ -198,6 +198,7 @@ The committed benchmark evidence includes:
 evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
 evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
+evidence/benchmarks/local_opea_profile_e2e.summary.json
 ```
 
 The Xeon run was captured on Google Cloud C3 `c3-standard-4` with Intel Xeon Platinum 8481C, `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`, scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic route calls.

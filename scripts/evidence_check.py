@@ -40,6 +40,7 @@ REQUIRED_LOCAL_FILES = [
     "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
     "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
+    "evidence/benchmarks/local_opea_profile_e2e.summary.json",
     "evidence/component-evidence.json",
     "docker-compose.yml",
     "docker-compose.opea.yml",

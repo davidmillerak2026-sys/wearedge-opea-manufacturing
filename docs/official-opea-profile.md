@@ -51,6 +51,27 @@ Expected RAG vector-store marker:
 qdrant-opea-compatible-embedding-vector-store
 ```
 
+## Local Validation
+
+Local Docker Desktop validation passed with:
+
+| Check | Result |
+| --- | --- |
+| `opea-embedding` service | pass |
+| `/v1/embeddings` vector length | 64 |
+| Gateway `embedding_backend` | `opea` |
+| Gateway `vector_backend` | `qdrant` |
+| Five `/demo` routes | pass |
+| Five `/infer` routes | pass |
+| `/v1/scorecard` | pass |
+| RAG vector store marker | `qdrant-opea-compatible-embedding-vector-store` |
+
+Evidence:
+
+```text
+evidence/benchmarks/local_opea_profile_e2e.summary.json
+```
+
 ## Service Topology
 
 ```text

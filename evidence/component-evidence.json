@@ -180,7 +180,8 @@
         "src/wear_edge_opea/opea_embedding_service.py",
         "docker-compose.opea.yml",
         "pyproject.toml",
-        "docs/official-opea-profile.md"
+        "docs/official-opea-profile.md",
+        "evidence/benchmarks/local_opea_profile_e2e.summary.json"
       ],
       "source_paths": [],
       "submission_claim": "Runnable no-download embedding profile plus optional `/v1/embeddings` microservice boundary; production TEI/GenAIComps embedding remains a hardening item"

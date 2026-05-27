@@ -1,0 +1,96 @@
+{
+  "benchmark": "WearEdge OPEA-compatible embedding profile local Docker Desktop E2E",
+  "schema_version": "2026-05-27",
+  "artifact_status": "local_docker_desktop_validation",
+  "claim_status": "local_opea_embedding_profile_e2e_passed",
+  "runtime_profile": {
+    "compose_files": [
+      "docker-compose.yml",
+      "docker-compose.opea.yml"
+    ],
+    "services": [
+      "qdrant",
+      "opea-embedding",
+      "manufacturing-gateway"
+    ],
+    "vector_backend": "qdrant",
+    "embedding_backend": "opea",
+    "embedding_url": "http://opea-embedding:6000/v1/embeddings",
+    "rag_vector_store_marker": "qdrant-opea-compatible-embedding-vector-store"
+  },
+  "validation": {
+    "embedding_service_ok": true,
+    "embedding_endpoint_vector_length": 64,
+    "gateway_ok": true,
+    "gateway_vector_backend": "qdrant",
+    "gateway_embedding_backend": "opea",
+    "agents": [
+      "maintenance",
+      "iqc",
+      "changeover",
+      "wi",
+      "hazard"
+    ],
+    "scorecard_ok": true,
+    "scorecard_routes": 5,
+    "all_demo_routes_ok": true,
+    "all_infer_routes_ok": true,
+    "all_routes_use_opea_embedding_marker": true
+  },
+  "infer_validation": [
+    {
+      "mode": "maintenance",
+      "ok": true,
+      "action_target": "maintenance_work_order",
+      "vector_store": "qdrant-opea-compatible-embedding-vector-store",
+      "single_call_latency_ms": 151.21
+    },
+    {
+      "mode": "iqc",
+      "ok": true,
+      "action_target": "qms_quality_event",
+      "vector_store": "qdrant-opea-compatible-embedding-vector-store",
+      "single_call_latency_ms": 22.34
+    },
+    {
+      "mode": "changeover",
+      "ok": true,
+      "action_target": "changeover_checklist",
+      "vector_store": "qdrant-opea-compatible-embedding-vector-store",
+      "single_call_latency_ms": 20.59
+    },
+    {
+      "mode": "wi",
+      "ok": true,
+      "action_target": "wi_reference",
+      "vector_store": "qdrant-opea-compatible-embedding-vector-store",
+      "single_call_latency_ms": 19.26
+    },
+    {
+      "mode": "hazard",
+      "ok": true,
+      "action_target": "ehs_case",
+      "vector_store": "qdrant-opea-compatible-embedding-vector-store",
+      "single_call_latency_ms": 19.3
+    }
+  ],
+  "docker_stats_snapshot": [
+    {
+      "service": "manufacturing-gateway",
+      "cpu_percent": "0.16%",
+      "memory_usage": "35.55MiB / 27.4GiB"
+    },
+    {
+      "service": "opea-embedding",
+      "cpu_percent": "0.16%",
+      "memory_usage": "35.47MiB / 27.4GiB"
+    },
+    {
+      "service": "qdrant",
+      "cpu_percent": "0.39%",
+      "memory_usage": "163.7MiB / 27.4GiB"
+    }
+  ],
+  "all_checks_pass": true,
+  "claim_boundary": "This local Docker Desktop run validates the OPEA-compatible /v1/embeddings microservice profile with deterministic embeddings. It is not a production TEI/LLM acceleration claim."
+}
