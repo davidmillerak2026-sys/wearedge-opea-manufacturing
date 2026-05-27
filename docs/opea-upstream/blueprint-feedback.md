@@ -50,6 +50,8 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 | Qdrant vector DB profile | Ready |
 | Intel CPU benchmark harness | Ready in `scripts/intel_cpu_benchmark.py` |
 | Upstream issue URL | Posted at `https://github.com/opea-project/GenAIExamples/issues/2461` |
+| Implementation feedback comment | Prepared in `docs/opea-upstream/implementation-feedback-comment.md` |
+| Minimal PR scope | Prepared in `docs/opea-upstream/minimal-pr-scope.md` |
 | Upstream PR URL | Pending maintainer feedback |
 
 ## Posted Issue Link
@@ -59,3 +61,7 @@ The RFC issue has been posted to OPEA GenAIExamples:
 ```text
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
+
+## Current Publishing Boundary
+
+The GitHub App available in this environment has read-only access to `opea-project/GenAIExamples`, so the implementation follow-up comment and PR must be posted from an authenticated browser session, an installed `gh` CLI, or a fork with push access.

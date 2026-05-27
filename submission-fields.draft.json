@@ -24,10 +24,12 @@
     "method_name": "WearEdge Pro: OPEA Manufacturing Five-Agent Suite",
     "method_description": "WearEdge Pro is a wearable edge AI product packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, LLM adapter, deterministic evaluators, guardrails, browser demo console, five route demos, and a scorecard. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The five runnable agents cover maintenance / CMMS work order, IQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation.",
     "project_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
-    "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md"
+    "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
+    "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1"
   },
   "bonus_urls": {
     "opea_rfc_issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+    "opea_tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
     "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
     "demo_video_url": "pending_external_upload",
     "xeon_avx512_amx_benchmark_url": "pending_xeon_run"

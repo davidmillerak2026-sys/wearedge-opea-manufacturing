@@ -92,14 +92,16 @@ Key archived evidence already mapped into this submission package:
 
 ## Remaining Champion Bonus Work
 
-- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; PR remains pending maintainer feedback.
-- Knowledge sharing: public article is ready at `public/article-wear-edge-opea-manufacturing.md`; video script and captions are ready in `public/`.
+- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR remains pending maintainer feedback.
+- Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script and captions are ready in `public/`.
 - Intel AVX-512/AMX: benchmark harness and local Intel Core Ultra smoke-test JSON are ready; Xeon AVX-512/AMX run still needs to be captured before claiming the full hardware bonus.
 
 ## Bonus URLs And Artifacts
 
 - `publication_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md`
+- `publication_record_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`
 - OPEA RFC issue: `https://github.com/opea-project/GenAIExamples/issues/2461`
+- OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
 - OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`

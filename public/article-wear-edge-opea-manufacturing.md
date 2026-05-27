@@ -36,6 +36,12 @@ M400 or API request
 
 This maps naturally to OPEA concepts: Gateway, Megaservice, Dataprep, Retriever/RAG, Vector DB, LLM service, Guardrails, and Evaluation. The submitted repository keeps a deterministic no-model path so judges and maintainers can run the full suite without pulling a large model, while the architecture remains compatible with a production LLM service.
 
+The challenge package is not an Android-only APK. It is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console and API surface. The Vuzix M400 / Android client remains the real deployment front end and field-evidence source, while the reproducible judge-facing entry point is:
+
+```text
+http://127.0.0.1:8088/demo
+```
+
 ## Why Five Agents Matter
 
 Manufacturing AI value does not come from one isolated demo. The enterprise value comes from covering several loss pools with the same governed platform:
@@ -73,11 +79,25 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 
 It includes Docker Compose, Qdrant, five sample requests, route-specific knowledge sources, a FastAPI gateway, a scorecard endpoint, tests, OPEA component mapping, and a draft upstream blueprint proposal for the OPEA community.
 
+The OPEA RFC issue is public:
+
+```text
+https://github.com/opea-project/GenAIExamples/issues/2461
+```
+
+Current validation status:
+
+- `docker compose up --build -d` starts the Qdrant-backed gateway.
+- `/demo` serves the browser Manufacturing Demo Console.
+- `/v1/agents` returns all five routes.
+- `/v1/agents/{mode}/demo` returns route-specific action cards for all five modes.
+- `/v1/scorecard` reports five passing route checks.
+
 ## What Comes Next
 
 The next hardening steps are:
 
-- Publish an OPEA RFC issue proposing a `ManufacturingAgentSuite` blueprint.
+- Prepare the first minimal OPEA PR once maintainers confirm the preferred blueprint location and naming.
 - Add a production embedding microservice profile.
 - Run the benchmark harness on Intel Xeon hardware with AVX-512 and AMX.
 - Add a short demo video showing all five agents in less than three minutes.

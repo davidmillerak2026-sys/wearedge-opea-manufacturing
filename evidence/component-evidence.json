@@ -42,22 +42,28 @@
       "status": "public_rfc_issue_posted",
       "local_paths": [
         "docs/opea-upstream/rfc-issue-draft.md",
-        "docs/opea-upstream/blueprint-feedback.md"
+        "docs/opea-upstream/blueprint-feedback.md",
+        "docs/opea-upstream/implementation-feedback-comment.md",
+        "docs/opea-upstream/minimal-pr-scope.md",
+        "docs/publication-record.md"
       ],
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+      "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "claim_boundary": "Public RFC issue is posted; PR remains pending maintainer feedback."
     },
     {
       "category": "Knowledge sharing",
-      "status": "article_ready_video_script_ready",
+      "status": "article_published_video_script_ready",
       "local_paths": [
         "public/article-wear-edge-opea-manufacturing.md",
         "public/demo-video-script.md",
-        "public/demo-video-captions.srt"
+        "public/demo-video-captions.srt",
+        "docs/publication-record.md"
       ],
       "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
-      "claim_boundary": "The article is public once pushed to GitHub; add an external video URL after upload."
+      "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1",
+      "claim_boundary": "The article is public in GitHub; add an external video URL after upload."
     },
     {
       "category": "Intel AVX-512/AMX benchmark",

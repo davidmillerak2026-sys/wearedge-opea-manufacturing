@@ -109,6 +109,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
+| [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark protocol and local smoke-test report |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
@@ -150,13 +151,17 @@ OPEA open-source contribution package:
 
 ```text
 https://github.com/opea-project/GenAIExamples/issues/2461
+https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2
 docs/opea-upstream/rfc-issue-draft.md
 docs/opea-upstream/blueprint-feedback.md
+docs/opea-upstream/implementation-feedback-comment.md
+docs/opea-upstream/minimal-pr-scope.md
 ```
 
 Knowledge-sharing package:
 
 ```text
+https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
 public/demo-video-script.md
 public/demo-video-captions.srt
