@@ -72,6 +72,27 @@ Evidence:
 evidence/benchmarks/local_opea_profile_e2e.summary.json
 ```
 
+## GCP C3 Validation
+
+Google Cloud C3 fresh-clone validation also passed:
+
+| Check | Result |
+| --- | --- |
+| `docker-compose.yml + docker-compose.opea.yml` | pass |
+| `embedding_backend=opea` | pass |
+| Embedding response compatibility | `OPEA/OpenAI-compatible /v1/embeddings` |
+| Five `/demo` routes | pass |
+| `/v1/scorecard` | pass |
+| RAG vector store marker | `qdrant-opea-compatible-embedding-vector-store` |
+| Temporary VM cleanup | pass |
+
+Evidence:
+
+```text
+docs/gcp-c3-opea-profile-e2e-report.md
+evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
+```
+
 ## Service Topology
 
 ```text

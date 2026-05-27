@@ -35,7 +35,9 @@
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
     "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
-    "official_opea_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md"
+    "official_opea_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md",
+    "gcp_c3_opea_profile_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-profile-e2e-report.md",
+    "gcp_c3_opea_profile_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json"
   },
   "do_not_claim_until_implemented": {
     "production embedding service": "The committed OPEA profile exposes an OPEA-compatible /v1/embeddings microservice but still uses deterministic hashing embeddings for reproducibility. Add an official production TEI/GenAIComps embedding model before claiming production-grade semantic embeddings.",

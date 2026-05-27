@@ -1,0 +1,110 @@
+{
+  "benchmark": "WearEdge OPEA-compatible embedding profile GCP C3 fresh-clone E2E",
+  "schema_version": "2026-05-27",
+  "artifact_status": "summary_from_cloud_shell_output",
+  "claim_status": "fresh_clone_opea_embedding_profile_e2e_passed",
+  "gcp": {
+    "project_id": "gen-lang-client-0555254036",
+    "machine_type": "c3-standard-4",
+    "zone": "us-central1-a",
+    "vm_name": "wearedge-opea-profile-0527085558",
+    "cleanup": "deleted_after_run"
+  },
+  "runtime_profile": {
+    "compose_files": [
+      "docker-compose.yml",
+      "docker-compose.opea.yml"
+    ],
+    "services": [
+      "qdrant",
+      "opea-embedding",
+      "manufacturing-gateway"
+    ],
+    "embedding_endpoint": "/v1/embeddings",
+    "embedding_component": "Embedding Microservice",
+    "embedding_compatibility": "OPEA/OpenAI-compatible /v1/embeddings",
+    "embedding_sample_prompt_tokens": 6,
+    "vector_backend": "qdrant",
+    "embedding_backend": "opea",
+    "rag_vector_store_marker": "qdrant-opea-compatible-embedding-vector-store"
+  },
+  "scorecard": {
+    "ok": true,
+    "routes": [
+      {
+        "mode": "maintenance",
+        "status": "pass",
+        "latency_ms": 90.96,
+        "integration_target": "maintenance_work_order"
+      },
+      {
+        "mode": "iqc",
+        "status": "pass",
+        "latency_ms": 83.13,
+        "integration_target": "qms_quality_event"
+      },
+      {
+        "mode": "changeover",
+        "status": "pass",
+        "latency_ms": 95.67,
+        "integration_target": "changeover_checklist"
+      },
+      {
+        "mode": "wi",
+        "status": "pass",
+        "latency_ms": 85.08,
+        "integration_target": "wi_reference"
+      },
+      {
+        "mode": "hazard",
+        "status": "pass",
+        "latency_ms": 79.96,
+        "integration_target": "ehs_case"
+      }
+    ]
+  },
+  "demo_pipeline_latency_ms": {
+    "maintenance": 10.87,
+    "iqc": 9.14,
+    "changeover": 8.12,
+    "wi": 8.13,
+    "hazard": 10.5
+  },
+  "rag_vector_store_markers": {
+    "maintenance": "qdrant-opea-compatible-embedding-vector-store",
+    "iqc": "qdrant-opea-compatible-embedding-vector-store",
+    "changeover": "qdrant-opea-compatible-embedding-vector-store",
+    "wi": "qdrant-opea-compatible-embedding-vector-store",
+    "hazard": "qdrant-opea-compatible-embedding-vector-store"
+  },
+  "docker_stats_snapshot": [
+    {
+      "service": "manufacturing-gateway",
+      "cpu_percent": "0.04%",
+      "memory_usage": "35.95MiB / 15.61GiB"
+    },
+    {
+      "service": "qdrant",
+      "cpu_percent": "0.03%",
+      "memory_usage": "55.33MiB / 15.61GiB"
+    },
+    {
+      "service": "opea-embedding",
+      "cpu_percent": "0.06%",
+      "memory_usage": "35.47MiB / 15.61GiB"
+    }
+  ],
+  "validation": {
+    "gateway_ok": true,
+    "qdrant_backend": true,
+    "gateway_embedding_backend_opea": true,
+    "embedding_service_ok": true,
+    "embedding_endpoint_openai_shape": true,
+    "all_demos_ok": true,
+    "all_rag_uses_opea_embedding_marker": true,
+    "scorecard_ok": true,
+    "scorecard_routes_pass": true
+  },
+  "all_checks_pass": true,
+  "claim_boundary": "This GCP C3 fresh-clone run validates the OPEA-compatible /v1/embeddings microservice profile with deterministic embeddings. It is not a production TEI or LLM acceleration claim."
+}
