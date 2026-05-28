@@ -20,9 +20,9 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | Official TEI/GenAIComps profile is implemented and passed both local Docker Desktop and Google Cloud C3 fresh-clone E2E |
 | Add production LLM adapter benchmark path | Prevents the LLM component claim from looking like a pure stub | OpenAI/OPEA-compatible adapter, benchmark script, local contract smoke JSON, and strict production endpoint claim boundary are included |
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Done: `evals/genaieval/` and `evidence/genaieval/` include a 15-case route dataset, metrics runner, summary, and 300-call throughput/latency benchmark |
-| Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
+| Add Intel hardware optimization path | Up to 15 bonus points | Done: Xeon AVX-512/AMX JSON, C3 Docker/Qdrant E2E, OPEA-compatible embedding E2E, official OPEA TEI E2E, and `docs/intel-effective-use-evidence.md` are captured with application-level claim boundaries |
 | Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue, implementation update, and TEI update are posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; upstream PR #2462 is open at `https://github.com/opea-project/GenAIExamples/pull/2462`; contribution package and `git format-patch` artifact are prepared under `docs/opea-upstream/pr-ready/` |
-| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article is public and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video source, local render, render report, and public GitHub video asset page are ready |
+| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | GitHub article/video evidence and copy-ready external article/video package are ready; non-GitHub public platform URLs remain pending and are tracked in `docs/public-platform-publishing-handoff.md` |
 
 ## P2
 

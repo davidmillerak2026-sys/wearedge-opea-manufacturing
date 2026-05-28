@@ -14,7 +14,7 @@ form submission.
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r7` |
+| Final tag | `final-submission-2026-05-28-r8` |
 
 ## Verification Already Passed
 

@@ -6,7 +6,7 @@
   },
   "github": {
     "target_submission_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
-    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r7",
+    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r8",
     "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
   },
   "submission_meta_attributes": {
@@ -45,6 +45,7 @@
     "telecom_manufacturing_positioning_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/telecom-scope-and-manufacturing-positioning.md",
     "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
     "external_platform_article_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md",
+    "external_platform_publishing_handoff_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md",
     "demo_video_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4",
     "video_platform_description_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md",
     "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
