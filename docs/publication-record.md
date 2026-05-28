@@ -12,7 +12,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | GCP C3 official TEI update | Posted to project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045 |
 | Public OPEA tracker | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | PR-ready upstream package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
-| Upstream PR | Pending fork/write path or maintainer feedback | TBD |
+| Upstream PR | Not opened; PR-ready package is available while fork/write path or maintainer feedback is pending | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
 
 ## Knowledge Sharing
 
