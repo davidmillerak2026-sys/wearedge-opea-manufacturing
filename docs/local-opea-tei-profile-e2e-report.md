@@ -1,13 +1,14 @@
 # Local OPEA TEI Profile E2E Report
 
-Captured: 2026-05-27 18:16 +08:00
+Captured: 2026-05-28 16:45 +08:00
 
 ## Summary
 
-The official OPEA TEI profile passed locally through Docker Desktop:
+The official OPEA TEI profile passed locally through Docker Desktop after a
+fresh Gateway rebuild/recreate:
 
 ```text
-docker-compose.yml + docker-compose.opea-tei.yml
+docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d --build
 ```
 
 Validated path:
@@ -34,37 +35,60 @@ Manufacturing Gateway
 | Vector DB | `qdrant/qdrant:v1.12.6` |
 | Gateway embedding backend | `opea` |
 | Gateway embedding URL | `http://opea-embedding-tei:6000/v1/embeddings` |
+| Browser console | `/demo` returned HTTP 200, 16246 bytes |
 
 ## Route Results
 
 | Route | Demo status | RAG vector store | Integration target | Demo latency |
 | --- | --- | --- | --- | --- |
-| `maintenance` | pass | `qdrant-opea-tei-vector-store` | `maintenance_work_order` | 727.29 ms |
-| `iqc` | pass | `qdrant-opea-tei-vector-store` | `qms_quality_event` | 489.71 ms |
-| `changeover` | pass | `qdrant-opea-tei-vector-store` | `changeover_checklist` | 427.15 ms |
-| `wi` | pass | `qdrant-opea-tei-vector-store` | `wi_reference` | 413.43 ms |
-| `hazard` | pass | `qdrant-opea-tei-vector-store` | `ehs_case` | 562.94 ms |
+| `maintenance` | pass | `qdrant-opea-tei-vector-store` | `maintenance_work_order` | 706.66 ms |
+| `iqc` | pass | `qdrant-opea-tei-vector-store` | `qms_quality_event` | 423.15 ms |
+| `changeover` | pass | `qdrant-opea-tei-vector-store` | `changeover_checklist` | 287.71 ms |
+| `wi` | pass | `qdrant-opea-tei-vector-store` | `wi_reference` | 387.12 ms |
+| `hazard` | pass | `qdrant-opea-tei-vector-store` | `ehs_case` | 441.92 ms |
 
 Scorecard: pass for all five routes.
+
+## Infer Results
+
+All five `POST /v1/agents/{mode}/infer` routes passed with the expected action
+targets and `qdrant-opea-tei-vector-store` RAG marker.
+
+| Route | Infer status | Integration target | Infer latency |
+| --- | --- | --- | --- |
+| `maintenance` | pass | `maintenance_work_order` | 537.12 ms |
+| `iqc` | pass | `qms_quality_event` | 342.89 ms |
+| `changeover` | pass | `changeover_checklist` | 279.86 ms |
+| `wi` | pass | `wi_reference` | 237.74 ms |
+| `hazard` | pass | `ehs_case` | 285.99 ms |
+
+## HTTP Concurrency
+
+The local Docker Gateway also passed an HTTP-level concurrency smoke test
+against `GET /v1/agents/{mode}/demo`:
+
+| Metric | Value |
+| --- | --- |
+| Workers | 8 |
+| Total requests | 50 |
+| Route coverage | 10 requests each for maintenance, IQC, changeover, WI, hazard |
+| Result | all requests OK; all used `qdrant-opea-tei-vector-store` |
+| Throughput | 4.4 requests/second |
+| Latency mean / p50 / p95 | 1713.01 ms / 1590.57 ms / 2774.17 ms |
 
 ## Resource Snapshot
 
 | Container | CPU | Memory |
 | --- | --- | --- |
-| Manufacturing Gateway | 0.15% | 36.54 MiB / 27.4 GiB |
-| OPEA embedding wrapper | 0.18% | 94.66 MiB / 27.4 GiB |
-| Qdrant | 0.53% | 200.9 MiB / 27.4 GiB |
-| TEI | 0.37% | 966.1 MiB / 27.4 GiB |
+| Manufacturing Gateway | 0.15% | 36.14 MiB / 27.4 GiB |
+| OPEA embedding wrapper | 0.17% | 92.09 MiB / 27.4 GiB |
+| Qdrant | 1.63% | 215.2 MiB / 27.4 GiB |
+| TEI | 0.39% | 967.9 MiB / 27.4 GiB |
 
 ## Claim Boundary
 
-This is local evidence for the official OPEA TEI component path. The next
-competition-grade evidence step is a Google Cloud C3 fresh-clone rerun using:
-
-```text
-scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh
-```
-
-After that C3 run passes and its JSON artifact is committed, we can claim
-official OPEA TEI embedding evidence on the same Xeon-class cloud family used
-for the AVX-512/AMX benchmark.
+This is local Docker Desktop evidence for the official OPEA TEI component path.
+It validates the judge-facing Gateway, Qdrant, OPEA embedding wrapper, TEI
+embedding service, `/demo`, demo routes, infer routes, scorecard, and HTTP
+concurrency. It does not claim certified plant control, oneDNN/TEI microkernel
+dispatch proof, or production LLM acceleration.

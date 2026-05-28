@@ -9,8 +9,12 @@ Result: pass.
 
 ## Running Profile
 
-Docker Desktop was already running the WearEdge OPEA TEI profile on the standard
-judge-facing ports:
+Docker Desktop ran the WearEdge OPEA TEI profile on the standard judge-facing
+ports after the Gateway was rebuilt/recreated with:
+
+```text
+docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d --build
+```
 
 | Container | Image | Port evidence |
 | --- | --- | --- |
@@ -19,8 +23,7 @@ judge-facing ports:
 | `wearedge-opea-manufacturing-opea-embedding-tei-1` | `opea/embedding:latest` | `0.0.0.0:6000->6000/tcp` |
 | `wearedge-opea-manufacturing-tei-embedding-serving-1` | `ghcr.io/huggingface/text-embeddings-inference:cpu-latest` | `0.0.0.0:8090->80/tcp` |
 
-The containers were left running because they were already active before this
-validation pass.
+The containers were left running after validation for local browser/API review.
 
 ## API Validation
 
@@ -46,6 +49,7 @@ http://127.0.0.1:6000
 | `GET /v1/scorecard` | `ok=true`, five routes, all `status=pass` |
 | `GET /v1/health_check` on OPEA embedding service | Pass |
 | `POST /v1/embeddings` on OPEA embedding service | OpenAI-compatible shape, 768 dimensions |
+| HTTP concurrency | 8 workers, 50 route requests, all OK, all TEI/Qdrant |
 
 ## Route Results
 
@@ -80,13 +84,14 @@ Result:
 
 | Container | CPU | Memory | PIDs |
 | --- | --- | --- | --- |
-| `manufacturing-gateway` | `0.14%` | `36.01MiB / 27.4GiB` | `6` |
-| `opea-embedding-tei` | `0.19%` | `92.08MiB / 27.4GiB` | `25` |
-| `qdrant` | `0.59%` | `210.2MiB / 27.4GiB` | `109` |
-| `tei-embedding-serving` | `0.39%` | `967MiB / 27.4GiB` | `67` |
+| `manufacturing-gateway` | `0.15%` | `36.14MiB / 27.4GiB` | `6` |
+| `opea-embedding-tei` | `0.17%` | `92.09MiB / 27.4GiB` | `25` |
+| `qdrant` | `1.63%` | `215.2MiB / 27.4GiB` | `127` |
+| `tei-embedding-serving` | `0.39%` | `967.9MiB / 27.4GiB` | `68` |
 
 ## Verdict
 
 The local Docker Desktop profile validates the final submission product shape:
 browser demo console, API route registry, five route demos, five infer routes,
-Qdrant-backed RAG, official OPEA TEI embedding path, and five-route scorecard.
+Qdrant-backed RAG, official OPEA TEI embedding path, five-route scorecard, and
+HTTP-level concurrent route handling.

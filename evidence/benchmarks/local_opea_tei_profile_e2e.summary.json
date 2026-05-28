@@ -1,16 +1,49 @@
 {
-  "benchmark": "WearEdge official OPEA TEI embedding profile local E2E",
-  "schema_version": "2026-05-27",
-  "captured_at": "2026-05-27T18:16:19.7028381+08:00",
-  "claim_status": "local_official_opea_tei_profile_e2e_passed",
+  "benchmark": "WearEdge official OPEA TEI embedding profile local Docker Desktop E2E",
+  "schema_version": "2026-05-28",
+  "captured_at": "2026-05-28T16:45:00+08:00",
+  "claim_status": "local_official_opea_tei_profile_e2e_passed_after_rebuild",
   "profile": {
     "compose_files": [
       "docker-compose.yml",
       "docker-compose.opea-tei.yml"
     ],
+    "startup_command": "docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d --build",
     "embedding_model_id": "BAAI/bge-base-en-v1.5",
     "embedding_dimensions": 768,
     "rag_vector_store_marker": "qdrant-opea-tei-vector-store"
+  },
+  "docker": {
+    "desktop_version": "4.74.0",
+    "engine_version": "29.4.3",
+    "compose_version": "v5.1.4",
+    "gateway_rebuilt": true,
+    "containers": [
+      {
+        "name": "wearedge-opea-manufacturing-manufacturing-gateway-1",
+        "image": "wearedge-opea-manufacturing-manufacturing-gateway",
+        "status": "Up",
+        "ports": "0.0.0.0:8088->8088/tcp"
+      },
+      {
+        "name": "wearedge-opea-manufacturing-opea-embedding-tei-1",
+        "image": "opea/embedding:latest",
+        "status": "Up",
+        "ports": "0.0.0.0:6000->6000/tcp"
+      },
+      {
+        "name": "wearedge-opea-manufacturing-qdrant-1",
+        "image": "qdrant/qdrant:v1.12.6",
+        "status": "Up",
+        "ports": "0.0.0.0:6333-6334->6333-6334/tcp"
+      },
+      {
+        "name": "wearedge-opea-manufacturing-tei-embedding-serving-1",
+        "image": "ghcr.io/huggingface/text-embeddings-inference:cpu-latest",
+        "status": "Up",
+        "ports": "0.0.0.0:8090->80/tcp"
+      }
+    ]
   },
   "official_components": {
     "opea_embedding_image": "opea/embedding:latest",
@@ -20,19 +53,31 @@
       "Service Title": "opea_service@embedding",
       "Version": "1.5",
       "Service Description": "OPEA Microservice Infrastructure"
+    },
+    "embedding_response": {
+      "object": "list",
+      "embedding_ok": true,
+      "dimensions": 768
     }
   },
   "validation": {
     "gateway_ok": true,
     "embedding_backend": "opea",
     "embedding_url": "http://opea-embedding-tei:6000/v1/embeddings",
+    "embedding_health_endpoint_responds": true,
     "embedding_endpoint_openai_shape": true,
     "embedding_dimensions_768": true,
     "qdrant_backend": true,
+    "demo_console_http_200": true,
+    "demo_console_html_bytes": 16246,
     "all_demo_ok": true,
     "all_demo_rag_uses_opea_tei_marker": true,
+    "all_infer_ok": true,
+    "all_infer_targets_correct": true,
+    "all_infer_rag_uses_opea_tei_marker": true,
     "scorecard_ok": true,
     "scorecard_routes_pass": true,
+    "http_concurrency_ok": true,
     "all_checks_pass": true
   },
   "demos": {
@@ -40,86 +85,150 @@
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
       "integration_target": "maintenance_work_order",
-      "latency_ms": 727.29
+      "latency_ms": 706.66
     },
     "iqc": {
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
       "integration_target": "qms_quality_event",
-      "latency_ms": 489.71
+      "latency_ms": 423.15
     },
     "changeover": {
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
       "integration_target": "changeover_checklist",
-      "latency_ms": 427.15
+      "latency_ms": 287.71
     },
     "wi": {
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
       "integration_target": "wi_reference",
-      "latency_ms": 413.43
+      "latency_ms": 387.12
     },
     "hazard": {
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
       "integration_target": "ehs_case",
-      "latency_ms": 562.94
+      "latency_ms": 441.92
+    }
+  },
+  "infers": {
+    "maintenance": {
+      "ok": true,
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "integration_target": "maintenance_work_order",
+      "target_ok": true,
+      "latency_ms": 537.12
+    },
+    "iqc": {
+      "ok": true,
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "integration_target": "qms_quality_event",
+      "target_ok": true,
+      "latency_ms": 342.89
+    },
+    "changeover": {
+      "ok": true,
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "integration_target": "changeover_checklist",
+      "target_ok": true,
+      "latency_ms": 279.86
+    },
+    "wi": {
+      "ok": true,
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "integration_target": "wi_reference",
+      "target_ok": true,
+      "latency_ms": 237.74
+    },
+    "hazard": {
+      "ok": true,
+      "vector_store": "qdrant-opea-tei-vector-store",
+      "integration_target": "ehs_case",
+      "target_ok": true,
+      "latency_ms": 285.99
     }
   },
   "scorecard_routes": [
     {
       "mode": "maintenance",
       "status": "pass",
-      "latency_ms": 605.33,
+      "latency_ms": 1192.95,
       "integration_target": "maintenance_work_order"
     },
     {
       "mode": "iqc",
       "status": "pass",
-      "latency_ms": 720.62,
+      "latency_ms": 411.04,
       "integration_target": "qms_quality_event"
     },
     {
       "mode": "changeover",
       "status": "pass",
-      "latency_ms": 276.87,
+      "latency_ms": 434.44,
       "integration_target": "changeover_checklist"
     },
     {
       "mode": "wi",
       "status": "pass",
-      "latency_ms": 331.37,
+      "latency_ms": 285.05,
       "integration_target": "wi_reference"
     },
     {
       "mode": "hazard",
       "status": "pass",
-      "latency_ms": 500.0,
+      "latency_ms": 335.46,
       "integration_target": "ehs_case"
     }
   ],
+  "http_concurrency": {
+    "endpoint_pattern": "GET /v1/agents/{mode}/demo",
+    "workers": 8,
+    "total_requests": 50,
+    "routes": {
+      "maintenance": 10,
+      "iqc": 10,
+      "changeover": 10,
+      "wi": 10,
+      "hazard": 10
+    },
+    "ok": true,
+    "all_tei_qdrant": true,
+    "wall_seconds": 11.358,
+    "requests_per_second": 4.4,
+    "latency_ms": {
+      "min": 882.4,
+      "mean": 1713.01,
+      "p50": 1590.57,
+      "p95": 2774.17,
+      "max": 2785.38
+    }
+  },
   "docker_stats": [
     {
       "name": "wearedge-opea-manufacturing-manufacturing-gateway-1",
       "cpu": "0.15%",
-      "memory": "36.54MiB / 27.4GiB"
+      "memory": "36.14MiB / 27.4GiB",
+      "pids": "6"
     },
     {
       "name": "wearedge-opea-manufacturing-opea-embedding-tei-1",
-      "cpu": "0.18%",
-      "memory": "94.66MiB / 27.4GiB"
+      "cpu": "0.17%",
+      "memory": "92.09MiB / 27.4GiB",
+      "pids": "25"
     },
     {
       "name": "wearedge-opea-manufacturing-qdrant-1",
-      "cpu": "0.53%",
-      "memory": "200.9MiB / 27.4GiB"
+      "cpu": "1.63%",
+      "memory": "215.2MiB / 27.4GiB",
+      "pids": "127"
     },
     {
       "name": "wearedge-opea-manufacturing-tei-embedding-serving-1",
-      "cpu": "0.37%",
-      "memory": "966.1MiB / 27.4GiB"
+      "cpu": "0.39%",
+      "memory": "967.9MiB / 27.4GiB",
+      "pids": "68"
     }
   ],
-  "claim_boundary": "This local Docker Desktop run validates the official OPEA TEI embedding component path. The next championship evidence step is a Google Cloud C3 fresh-clone rerun using scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh."
+  "claim_boundary": "This local Docker Desktop run validates the official OPEA TEI embedding component path with Qdrant, Gateway, demo, infer, scorecard, /demo UI, and HTTP concurrency checks. It does not claim certified plant control, oneDNN/TEI microkernel dispatch proof, or production LLM acceleration."
 }
