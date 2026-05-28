@@ -45,6 +45,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | OPEA TEI update comment | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | OPEA PR-ready package | `docs/opea-upstream/pr-ready/` |
 | Final form fill guide | `docs/final-submission-form-fill-guide.md` |
+| Final pre-submit audit | `docs/final-pre-submit-audit-2026-05-28.md` |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
