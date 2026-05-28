@@ -1,7 +1,8 @@
 # Final Submission Readiness Audit
 
 Status: strong technical package; public demo video URL verified; OPEA
-PR-ready package prepared; optional upstream PR and final form dry run remain.
+PR-ready package prepared; submission URL dry run passed; optional upstream PR
+and final visual form review remain.
 
 ## Product Decision
 
@@ -46,7 +47,8 @@ with Docker, Web UI, API routes, and scorecard only.
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
-| Public demo video URL | https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| Public demo video URL | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| Submission URL dry run | `docs/submission-url-dry-run.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
@@ -91,7 +93,7 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 | Item | Why it matters | Next action |
 | --- | --- | --- |
 | Minimal upstream PR | Could improve open-source contribution bonus | PR-ready package is prepared; open a small docs/example PR once a fork/write path is available |
-| Final form dry run | Prevents URL/claim mistakes | Paste fields from `submission-fields.draft.json`, then verify every URL loads publicly |
+| Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; paste fields from `submission-fields.draft.json`, visually review the challenge form, then submit |
 
 ## Current Verdict
 

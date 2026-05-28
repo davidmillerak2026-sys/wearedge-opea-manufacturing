@@ -14,7 +14,7 @@ The rendered `.mp4` is intentionally excluded from git by `.gitignore`.
 The file is hosted on the public `codex/video-assets` branch:
 
 ```text
-https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
+https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
 ```
 
 This URL was verified with `curl -I -L` and returned `HTTP/1.1 200 OK` with
