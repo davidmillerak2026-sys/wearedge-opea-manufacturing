@@ -1,0 +1,820 @@
+{
+  "suite": "WearEdge GenAIEval-compatible manufacturing route evaluation",
+  "schema_version": "2026-05-28",
+  "generated_at_utc": "2026-05-28T06:39:23+00:00",
+  "compatibility": {
+    "official_genaieval_runner_used": false,
+    "claim_boundary": "This is a lightweight GenAIEval-compatible artifact: JSONL dataset, benchmark config, deterministic runner, metrics, and evidence JSON. It does not claim full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.",
+    "maps_to_genaieval_concepts": [
+      "dataset",
+      "task runner",
+      "metric outputs",
+      "latency benchmark",
+      "pass/fail summary",
+      "reproducible evidence artifact"
+    ]
+  },
+  "dataset": {
+    "path": "evals/genaieval/manufacturing_route_eval.dataset.jsonl",
+    "cases": 15,
+    "routes": [
+      "maintenance",
+      "iqc",
+      "changeover",
+      "wi",
+      "hazard"
+    ]
+  },
+  "metrics": [
+    "contract_pass",
+    "action_target_correctness",
+    "channel_correctness",
+    "risk_level_correctness",
+    "human_gate_correctness",
+    "guardrail_pass",
+    "rag_source_match",
+    "route_isolation_pass"
+  ],
+  "summary": {
+    "ok": true,
+    "total_cases": 15,
+    "passed_cases": 15,
+    "pass_rate": 1.0,
+    "per_metric": {
+      "contract_pass": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "action_target_correctness": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "channel_correctness": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "risk_level_correctness": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "human_gate_correctness": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "guardrail_pass": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "rag_source_match": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      },
+      "route_isolation_pass": {
+        "passed": 15,
+        "total": 15,
+        "pass_rate": 1.0
+      }
+    },
+    "per_route": {
+      "maintenance": {
+        "cases": 3,
+        "passed": 3,
+        "pass_rate": 1.0,
+        "mean_eval_latency_ms": 1.1841,
+        "p95_eval_latency_ms": 1.5958,
+        "status": "pass"
+      },
+      "iqc": {
+        "cases": 3,
+        "passed": 3,
+        "pass_rate": 1.0,
+        "mean_eval_latency_ms": 0.7547,
+        "p95_eval_latency_ms": 0.8065,
+        "status": "pass"
+      },
+      "changeover": {
+        "cases": 3,
+        "passed": 3,
+        "pass_rate": 1.0,
+        "mean_eval_latency_ms": 0.6912,
+        "p95_eval_latency_ms": 0.7244,
+        "status": "pass"
+      },
+      "wi": {
+        "cases": 3,
+        "passed": 3,
+        "pass_rate": 1.0,
+        "mean_eval_latency_ms": 0.738,
+        "p95_eval_latency_ms": 0.8444,
+        "status": "pass"
+      },
+      "hazard": {
+        "cases": 3,
+        "passed": 3,
+        "pass_rate": 1.0,
+        "mean_eval_latency_ms": 0.7337,
+        "p95_eval_latency_ms": 0.8059,
+        "status": "pass"
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "maintenance_high_breach",
+      "mode": "maintenance",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "maintenance_report",
+        "integration_target": "maintenance_work_order",
+        "risk_level": "high",
+        "priority": "high",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "GBX-HUMAN-01",
+          "GBX-VIB-01",
+          "GBX-LUBE-01"
+        ],
+        "blocked_claims": [
+          "final_root_cause",
+          "remaining_useful_life",
+          "restart_permission",
+          "maintenance_release"
+        ],
+        "latency_ms": 1.01,
+        "eval_latency_ms": 1.0669,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 5 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-VIB-01, GBX-LUBE-01. Operator observation: Operator reports high-pitched gearbox noise, burnt-oil smell, warm housing, guard shaking, and small oil seepage after speed increase.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "maintenance_medium_schedule",
+      "mode": "maintenance",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "schedule_maintenance",
+        "integration_target": "maintenance_work_order",
+        "risk_level": "medium",
+        "priority": "medium",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "GBX-VIB-01",
+          "GBX-HUMAN-01",
+          "GBX-TEMP-01"
+        ],
+        "blocked_claims": [
+          "final_root_cause",
+          "remaining_useful_life",
+          "restart_permission",
+          "maintenance_release"
+        ],
+        "latency_ms": 1.58,
+        "eval_latency_ms": 1.5958,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 2 accepted evidence flags. The strongest retrieved maintenance sources are GBX-VIB-01, GBX-HUMAN-01, GBX-TEMP-01. Operator observation: Operator notes rising vibration and gearbox housing heat during the second hour of operation.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "maintenance_low_monitor",
+      "mode": "maintenance",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "condition_monitoring",
+        "integration_target": "maintenance_work_order",
+        "risk_level": "low",
+        "priority": "low",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "GBX-VIB-01",
+          "GBX-LUBE-01",
+          "GBX-TEMP-01"
+        ],
+        "blocked_claims": [
+          "final_root_cause",
+          "remaining_useful_life",
+          "restart_permission",
+          "maintenance_release"
+        ],
+        "latency_ms": 0.87,
+        "eval_latency_ms": 0.8895,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 0 accepted evidence flags. The strongest retrieved maintenance sources are GBX-VIB-01, GBX-LUBE-01, GBX-TEMP-01. Operator observation: Routine inspection shows normal gearbox sound and no visible oil seepage.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "iqc_high_stop",
+      "mode": "iqc",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "stop_production",
+        "integration_target": "qms_quality_event",
+        "risk_level": "high",
+        "priority": "critical",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "ALH-MIX-04",
+          "ALH-CONTAM-03",
+          "ALH-BURR-01"
+        ],
+        "blocked_claims": [
+          "quality_release",
+          "final_disposition",
+          "customer_acceptance",
+          "measurement_certification"
+        ],
+        "latency_ms": 0.79,
+        "eval_latency_ms": 0.8065,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "incoming and in-process quality control for AL-HOUSING-L3 has 2 accepted evidence flags. The strongest retrieved iqc sources are ALH-MIX-04, ALH-CONTAM-03, ALH-BURR-01. Operator observation: M400 view shows a label mismatch and a missing machined feature on the aluminum housing lot.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "iqc_medium_hold",
+      "mode": "iqc",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "quality_hold",
+        "integration_target": "qms_quality_event",
+        "risk_level": "medium",
+        "priority": "high",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "ALH-CONTAM-03",
+          "ALH-SEAL-02",
+          "ALH-MIX-04"
+        ],
+        "blocked_claims": [
+          "quality_release",
+          "final_disposition",
+          "customer_acceptance",
+          "measurement_certification"
+        ],
+        "latency_ms": 0.74,
+        "eval_latency_ms": 0.756,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "incoming and in-process quality control for AL-HOUSING-L3 has 2 accepted evidence flags. The strongest retrieved iqc sources are ALH-CONTAM-03, ALH-SEAL-02, ALH-MIX-04. Operator observation: M400 view shows edge burrs and dark handling contamination near the sealing face on a machined aluminum housing.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "iqc_low_review",
+      "mode": "iqc",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "quality_review",
+        "integration_target": "qms_quality_event",
+        "risk_level": "low",
+        "priority": "medium",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "ALH-CONTAM-03",
+          "ALH-SEAL-02",
+          "ALH-MIX-04"
+        ],
+        "blocked_claims": [
+          "quality_release",
+          "final_disposition",
+          "customer_acceptance",
+          "measurement_certification"
+        ],
+        "latency_ms": 0.69,
+        "eval_latency_ms": 0.7017,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "incoming and in-process quality control for AL-HOUSING-L3 has 0 accepted evidence flags. The strongest retrieved iqc sources are ALH-CONTAM-03, ALH-SEAL-02, ALH-MIX-04. Operator observation: Operator asks to record detector-clear evidence after visual inspection of the sealing face.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "changeover_first_piece_missing",
+      "mode": "changeover",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "changeover_verification",
+        "integration_target": "changeover_checklist",
+        "risk_level": "medium",
+        "priority": "medium",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "CO-C500-GUIDE-RECIPE",
+          "CO-C500-LINE-CLEAR",
+          "CO-C500-FIRST-PIECE"
+        ],
+        "blocked_claims": [
+          "restart_permission",
+          "quality_release",
+          "recipe_release",
+          "first_piece_release"
+        ],
+        "latency_ms": 0.71,
+        "eval_latency_ms": 0.7244,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "SKU changeover verification for LABELER-FL1 has 1 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-GUIDE-RECIPE, CO-C500-LINE-CLEAR, CO-C500-FIRST-PIECE. Operator observation: Previous SKU labels are removed, C500 label roll is loaded, HMI recipe RCP-C500-LBL is visible, and first piece is waiting for quality sign-off.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "changeover_ready_for_signoff",
+      "mode": "changeover",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "changeover_ready_for_signoff",
+        "integration_target": "changeover_checklist",
+        "risk_level": "low",
+        "priority": "medium",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "CO-C500-FIRST-PIECE",
+          "CO-C500-LINE-CLEAR",
+          "CO-C500-GUIDE-RECIPE"
+        ],
+        "blocked_claims": [
+          "restart_permission",
+          "quality_release",
+          "recipe_release",
+          "first_piece_release"
+        ],
+        "latency_ms": 0.66,
+        "eval_latency_ms": 0.6752,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "SKU changeover verification for LABELER-FL1 has 0 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-FIRST-PIECE, CO-C500-LINE-CLEAR, CO-C500-GUIDE-RECIPE. Operator observation: Line clearance, C500 label roll, recipe match, and first-piece verification are all visible for quality sign-off.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "changeover_major_missing",
+      "mode": "changeover",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "changeover_verification",
+        "integration_target": "changeover_checklist",
+        "risk_level": "high",
+        "priority": "medium",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "CO-C500-GUIDE-RECIPE",
+          "CO-C500-LINE-CLEAR",
+          "CO-C500-FIRST-PIECE"
+        ],
+        "blocked_claims": [
+          "restart_permission",
+          "quality_release",
+          "recipe_release",
+          "first_piece_release"
+        ],
+        "latency_ms": 0.66,
+        "eval_latency_ms": 0.6741,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "SKU changeover verification for LABELER-FL1 has 3 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-GUIDE-RECIPE, CO-C500-LINE-CLEAR, CO-C500-FIRST-PIECE. Operator observation: The old labels remain near the reject bin, the C500 roll is not confirmed, and first-piece sign-off is missing.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "wi_guidance_ready",
+      "mode": "wi",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "guided_operation",
+        "integration_target": "wi_reference",
+        "risk_level": "low",
+        "priority": "low",
+        "requires_human_confirmation": false,
+        "source_ids": [
+          "WI-CARTONER-ST2-START",
+          "WI-CARTONER-ST2-GUIDE",
+          "WI-CARTONER-ST2-RISK"
+        ],
+        "blocked_claims": [
+          "unreleased_instruction",
+          "bypass_interlock",
+          "quality_release",
+          "restart_permission"
+        ],
+        "latency_ms": 0.69,
+        "eval_latency_ms": 0.7042,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "released work-instruction guidance for CARTONER-ST2 has 0 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks how to align the product guide after clearing the infeed. Guard is closed and no alarm is active.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "wi_source_check_required",
+      "mode": "wi",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "wi_source_check_required",
+        "integration_target": "wi_reference",
+        "risk_level": "medium",
+        "priority": "medium",
+        "requires_human_confirmation": false,
+        "source_ids": [
+          "WI-CARTONER-ST2-START",
+          "WI-CARTONER-ST2-GUIDE",
+          "WI-CARTONER-ST2-RISK"
+        ],
+        "blocked_claims": [
+          "unreleased_instruction",
+          "bypass_interlock",
+          "quality_release",
+          "restart_permission"
+        ],
+        "latency_ms": 0.83,
+        "eval_latency_ms": 0.8444,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "released work-instruction guidance for CARTONER-ST2 has 1 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks for guide adjustment, but the released revision is not visible on the station screen.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "wi_stop_required",
+      "mode": "wi",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "wi_stop_and_escalate",
+        "integration_target": "wi_reference",
+        "risk_level": "high",
+        "priority": "high",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "WI-CARTONER-ST2-START",
+          "WI-CARTONER-ST2-GUIDE",
+          "WI-CARTONER-ST2-RISK"
+        ],
+        "blocked_claims": [
+          "unreleased_instruction",
+          "bypass_interlock",
+          "quality_release",
+          "restart_permission"
+        ],
+        "latency_ms": 0.65,
+        "eval_latency_ms": 0.6654,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "released work-instruction guidance for CARTONER-ST2 has 1 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks for work guidance while an active alarm is visible on CARTONER-ST2.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "hazard_high_stop",
+      "mode": "hazard",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "stop_and_make_safe",
+        "integration_target": "ehs_case",
+        "risk_level": "high",
+        "priority": "critical",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "EHS-CASE-04",
+          "EHS-MOVE-02",
+          "EHS-PPE-01"
+        ],
+        "blocked_claims": [
+          "area_safe",
+          "restart_permission",
+          "safety_clearance",
+          "incident_root_cause"
+        ],
+        "latency_ms": 0.79,
+        "eval_latency_ms": 0.8059,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "EHS hazard observation for PACK-L3-AISLE has 3 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-MOVE-02, EHS-PPE-01. Operator observation: M400 scene shows a pallet blocking the marked walkway while an operator stands near moving transfer equipment without eye protection.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "hazard_medium_report",
+      "mode": "hazard",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "ehs_report",
+        "integration_target": "ehs_case",
+        "risk_level": "medium",
+        "priority": "high",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "EHS-CASE-04",
+          "EHS-PPE-01",
+          "EHS-MOVE-02"
+        ],
+        "blocked_claims": [
+          "area_safe",
+          "restart_permission",
+          "safety_clearance",
+          "incident_root_cause"
+        ],
+        "latency_ms": 0.66,
+        "eval_latency_ms": 0.6741,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "EHS hazard observation for PACK-L3-AISLE has 1 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-PPE-01, EHS-MOVE-02. Operator observation: Operator sees a small spill near the aisle edge and asks whether to log an EHS observation.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    },
+    {
+      "case_id": "hazard_low_monitor",
+      "mode": "hazard",
+      "ok": true,
+      "metrics": {
+        "contract_pass": true,
+        "action_target_correctness": true,
+        "channel_correctness": true,
+        "risk_level_correctness": true,
+        "human_gate_correctness": true,
+        "guardrail_pass": true,
+        "rag_source_match": true,
+        "route_isolation_pass": true
+      },
+      "actual": {
+        "channel": "hazard_monitoring",
+        "integration_target": "ehs_case",
+        "risk_level": "low",
+        "priority": "low",
+        "requires_human_confirmation": true,
+        "source_ids": [
+          "EHS-CASE-04",
+          "EHS-PPE-01",
+          "EHS-MOVE-02"
+        ],
+        "blocked_claims": [
+          "area_safe",
+          "restart_permission",
+          "safety_clearance",
+          "incident_root_cause"
+        ],
+        "latency_ms": 0.71,
+        "eval_latency_ms": 0.7212,
+        "rag_vector_store": "in-memory-hashing-vector-store",
+        "llm_runtime": {
+          "text": "EHS hazard observation for PACK-L3-AISLE has 0 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-PPE-01, EHS-MOVE-02. Operator observation: Routine safety scan shows no visible obstruction, no spill, required PPE, and no exposed moving-parts condition.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "backend": "deterministic",
+          "model": "deterministic-action-card-template",
+          "latency_ms": 0.01,
+          "service_url": "in-process",
+          "fallback_used": false,
+          "claim_status": "deterministic_llm_adapter_contract",
+          "error": null
+        }
+      }
+    }
+  ]
+}

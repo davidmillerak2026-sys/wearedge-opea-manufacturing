@@ -1,0 +1,31 @@
+suite: WearEdge GenAIEval-compatible manufacturing route evaluation
+schema_version: "2026-05-28"
+claim_boundary: >
+  Lightweight GenAIEval-compatible package only. This maps WearEdge route
+  contracts into dataset, runner, metrics, benchmark, and evidence artifacts.
+  It does not claim full official GenAIEval, RAGAS, AutoRAG, or LLM-as-judge execution.
+dataset: evals/genaieval/manufacturing_route_eval.dataset.jsonl
+runners:
+  route_eval:
+    command: python evals/genaieval/run_wear_edge_eval.py --output evidence/genaieval/route_eval_results.json --summary-output evidence/genaieval/summary.md
+  route_benchmark:
+    command: python evals/genaieval/run_wear_edge_benchmark.py --iterations 20 --output evidence/genaieval/benchmark_results.json
+metrics:
+  - contract_pass
+  - action_target_correctness
+  - channel_correctness
+  - risk_level_correctness
+  - human_gate_correctness
+  - guardrail_pass
+  - rag_source_match
+  - route_isolation_pass
+outputs:
+  - evidence/genaieval/route_eval_results.json
+  - evidence/genaieval/benchmark_results.json
+  - evidence/genaieval/summary.md
+routes:
+  - maintenance
+  - iqc
+  - changeover
+  - wi
+  - hazard

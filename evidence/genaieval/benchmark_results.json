@@ -1,0 +1,80 @@
+{
+  "suite": "WearEdge GenAIEval-compatible manufacturing route benchmark",
+  "schema_version": "2026-05-28",
+  "generated_at_utc": "2026-05-28T06:39:24+00:00",
+  "compatibility": {
+    "official_genaieval_runner_used": false,
+    "claim_boundary": "Benchmark uses the local deterministic WearEdge route runner and GenAIEval-compatible metric schema. It is not a full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge run."
+  },
+  "benchmark_config": {
+    "dataset": "evals/genaieval/manufacturing_route_eval.dataset.jsonl",
+    "cases_per_iteration": 15,
+    "iterations": 20,
+    "warmup": 1,
+    "total_calls": 300
+  },
+  "summary": {
+    "ok": true,
+    "total_seconds": 0.8015,
+    "calls_per_second": 374.3016,
+    "latency_ms": {
+      "count": 300,
+      "min_ms": 1.8799,
+      "mean_ms": 2.6623,
+      "p50_ms": 2.5726,
+      "p95_ms": 3.5925,
+      "max_ms": 6.0342
+    },
+    "python_tracemalloc": {
+      "current_mb": 0.1257,
+      "peak_mb": 0.1415
+    }
+  },
+  "routes": {
+    "maintenance": {
+      "count": 60,
+      "min_ms": 2.5333,
+      "mean_ms": 3.1111,
+      "p50_ms": 2.9691,
+      "p95_ms": 4.0435,
+      "max_ms": 4.7331
+    },
+    "iqc": {
+      "count": 60,
+      "min_ms": 2.0662,
+      "mean_ms": 2.7365,
+      "p50_ms": 2.5347,
+      "p95_ms": 3.5925,
+      "max_ms": 6.0342
+    },
+    "changeover": {
+      "count": 60,
+      "min_ms": 1.8799,
+      "mean_ms": 2.3982,
+      "p50_ms": 2.3318,
+      "p95_ms": 3.0642,
+      "max_ms": 3.2959
+    },
+    "wi": {
+      "count": 60,
+      "min_ms": 1.9371,
+      "mean_ms": 2.3915,
+      "p50_ms": 2.3042,
+      "p95_ms": 3.2588,
+      "max_ms": 3.4764
+    },
+    "hazard": {
+      "count": 60,
+      "min_ms": 2.1748,
+      "mean_ms": 2.6741,
+      "p50_ms": 2.574,
+      "p95_ms": 3.5407,
+      "max_ms": 4.5341
+    }
+  },
+  "validation": {
+    "all_cases_pass": true,
+    "routes_covered": true,
+    "failures": []
+  }
+}

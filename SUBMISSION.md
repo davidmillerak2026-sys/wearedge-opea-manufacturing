@@ -60,6 +60,12 @@ Implemented OPEA-style path:
 Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> Vector DB -> LLM adapter -> Evaluator -> Guardrails -> Action Card
 ```
 
+Evaluation path:
+
+```text
+/v1/scorecard + GenAIEval-compatible JSONL dataset, runner, metrics, benchmark JSON, and summary.md
+```
+
 The Docker Compose profile uses Qdrant as the Vector DB. The local no-dependency demo keeps an in-memory vector fallback so reviewers can run the same route contracts without Docker.
 
 The repository also includes an official OPEA-compatible embedding microservice profile:
@@ -106,6 +112,10 @@ curl http://127.0.0.1:8088/v1/scorecard
 
 The scorecard reports route latency, contract pass, guardrail pass, RAG/source match, action-target correctness, and route-isolation pass/fail for all five agents.
 
+The lightweight GenAIEval-compatible evaluation pack in `evals/genaieval/`
+adds 15 committed route cases and records 15/15 pass across contract, target,
+channel, risk, human gate, guardrail, RAG source, and route-isolation metrics.
+
 ## Source Evidence
 
 Full engineering source:
@@ -131,6 +141,7 @@ Key archived evidence already mapped into this submission package:
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; real upstream PR opened at `https://github.com/opea-project/GenAIExamples/pull/2462`; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`. The prepared contribution package and `git format-patch` artifact remain under `docs/opea-upstream/pr-ready/`.
 - Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR status, and telecom-vs-manufacturing positioning.
 - LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default judge run deterministic and reproducible.
+- GenAIEval-compatible evaluation: `evals/genaieval/` and `evidence/genaieval/` provide a dataset, benchmark config, runner, 15-case route evaluation JSON, throughput/latency benchmark JSON, and summary.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, local MP4 render report, and public GitHub MP4 asset page are ready.
@@ -156,6 +167,9 @@ Key archived evidence already mapped into this submission package:
 - Champion risk burn-down: `docs/champion-risk-burn-down.md`
 - OPEA native depth matrix: `docs/opea-native-depth-matrix.md`
 - Production LLM benchmark path: `docs/production-llm-benchmark-path.md`
+- GenAIEval-compatible evaluation: `docs/genaieval-compatible-evaluation.md`
+- GenAIEval-compatible route eval JSON: `evidence/genaieval/route_eval_results.json`
+- GenAIEval-compatible benchmark JSON: `evidence/genaieval/benchmark_results.json`
 - Official OPEA profile: `docs/official-opea-profile.md`
 - Official OPEA TEI profile: `docs/official-opea-tei-profile.md`
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`

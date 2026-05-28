@@ -74,6 +74,15 @@ The scorecard reports:
 - action target correctness
 - route isolation
 
+The repository also includes a lightweight GenAIEval-compatible evaluation pack
+under `evals/genaieval/`. It provides a JSONL dataset, benchmark metadata,
+runner scripts, metric outputs, and committed evidence under
+`evidence/genaieval/`. The captured local run reports 15/15 cases passing across
+contract, target, channel, risk, human gate, guardrail, RAG source, and
+route-isolation metrics, plus a 300-call route benchmark. This is intentionally
+claimed as GenAIEval-compatible evidence, not full official GenAIEval/RAGAS/
+AutoRAG/LLM-as-judge execution.
+
 Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance POC, five-agent POC validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`.
 
 ## 5. Safety, Licensing, And Limits

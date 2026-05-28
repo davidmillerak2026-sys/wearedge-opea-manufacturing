@@ -14,7 +14,8 @@ Champion submission headline:
 
 ```text
 Five manufacturing agents + official OPEA TEI embeddings + Qdrant RAG +
-Gateway/Megaservice orchestration + guardrails + scorecard + GCP C3 evidence.
+Gateway/Megaservice orchestration + guardrails + GenAIEval-compatible evidence +
+GCP C3 evidence.
 ```
 
 Single-node challenge compliance:
@@ -67,6 +68,7 @@ Vuzix M400 / API request
   -> route-specific evaluator
   -> Guardrails and blocked claims
   -> CMMS / QMS / MES / WI / EHS action card
+  -> scorecard and GenAIEval-compatible evidence artifacts
 ```
 
 Official component evidence is in [`evidence/component-evidence.json`](evidence/component-evidence.json) and [`docs/opea-component-evidence.md`](docs/opea-component-evidence.md).
@@ -145,6 +147,18 @@ To benchmark a real OpenAI/OPEA-compatible LLM endpoint, set
 `WEAREDGE_LLM_STRICT=true`. See
 [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md).
 
+GenAIEval-compatible route evaluation:
+
+```powershell
+$env:PYTHONPATH="src"
+python evals\genaieval\run_wear_edge_eval.py --output evidence\genaieval\route_eval_results.json --summary-output evidence\genaieval\summary.md
+python evals\genaieval\run_wear_edge_benchmark.py --iterations 20 --output evidence\genaieval\benchmark_results.json
+```
+
+This lightweight package provides a JSONL dataset, benchmark metadata, runner,
+metrics, and committed evidence outputs. It does not claim full official
+GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.
+
 The legacy maintenance endpoints remain available:
 
 ```bash
@@ -176,6 +190,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |
 | [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
 | [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md) | Optional production LLM endpoint benchmark path |
+| [`docs/genaieval-compatible-evaluation.md`](docs/genaieval-compatible-evaluation.md) | Lightweight GenAIEval-compatible dataset, runner, metrics, and evidence |
 | [`docs/data-provenance-and-field-validation.md`](docs/data-provenance-and-field-validation.md) | Real-vs-demo data provenance and field validation boundary |
 | [`docs/telecom-scope-and-manufacturing-positioning.md`](docs/telecom-scope-and-manufacturing-positioning.md) | Manufacturing positioning if judges compare telecom/network projects |
 | [`docs/submission-url-dry-run.md`](docs/submission-url-dry-run.md) | Public URL dry run for challenge form fields |
@@ -195,6 +210,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`public/demo-video/`](public/demo-video/) | Renderable HyperFrames demo video source package |
 | [`docs/demo-video-render-report.md`](docs/demo-video-render-report.md) | Local demo video render and validation evidence |
+| [`evals/genaieval/`](evals/genaieval/) | GenAIEval-compatible evaluation pack |
+| [`evidence/genaieval/`](evidence/genaieval/) | Generated route evaluation, benchmark JSON, and summary |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
 | [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
@@ -285,6 +302,20 @@ Official OPEA TEI rerun script:
 ```text
 scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh
 ```
+
+GenAIEval-compatible evidence:
+
+```text
+evals/genaieval/manufacturing_route_eval.dataset.jsonl
+evals/genaieval/manufacturing_route_benchmark.yaml
+evidence/genaieval/route_eval_results.json
+evidence/genaieval/benchmark_results.json
+evidence/genaieval/summary.md
+```
+
+The committed route evaluation reports 15/15 cases passing across maintenance,
+IQC, changeover, WI, and hazard. The benchmark records 300 route evaluations
+with all cases passing and all five routes covered.
 
 The Xeon run was captured on Google Cloud C3 `c3-standard-4`, a single-node
 4-vCPU / 16-GiB-RAM / no-GPU profile that is inside the challenge limit of

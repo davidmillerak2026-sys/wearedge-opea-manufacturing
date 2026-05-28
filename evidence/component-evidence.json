@@ -39,6 +39,11 @@
       "name": "GenAIExamples",
       "url": "https://github.com/opea-project/GenAIExamples",
       "used_for": "Example application and deployment reference"
+    },
+    {
+      "name": "GenAIEval",
+      "url": "https://github.com/opea-project/GenAIEval",
+      "used_for": "Evaluation artifact compatibility boundary: dataset, runner, metrics, benchmark evidence, and pass/fail summary"
     }
   ],
   "bonus_evidence": [
@@ -325,12 +330,23 @@
     },
     {
       "opea_layer": "Evaluation / GenAIEval-style Scorecard",
-      "wear_edge_component": "Deterministic evaluator and five-agent scorecard",
+      "wear_edge_component": "Deterministic evaluator, five-agent scorecard, and GenAIEval-compatible evaluation pack",
       "status": "implemented_in_submission",
       "local_paths": [
         "src/wear_edge_opea/evaluator.py",
         "src/wear_edge_opea/scorecard.py",
+        "docs/genaieval-compatible-evaluation.md",
+        "evals/genaieval/README.md",
+        "evals/genaieval/manufacturing_route_eval.dataset.jsonl",
+        "evals/genaieval/manufacturing_route_benchmark.yaml",
+        "evals/genaieval/wear_edge_eval.py",
+        "evals/genaieval/run_wear_edge_eval.py",
+        "evals/genaieval/run_wear_edge_benchmark.py",
+        "evidence/genaieval/route_eval_results.json",
+        "evidence/genaieval/benchmark_results.json",
+        "evidence/genaieval/summary.md",
         "scripts/evidence_check.py",
+        "tests/test_genaieval_pack.py",
         "tests/test_pipeline.py"
       ],
       "source_paths": [
@@ -338,7 +354,7 @@
         "docs/test-log-history.md",
         "tests/test_agent_poc_validation.py"
       ],
-      "submission_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, and route isolation"
+      "submission_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, and a 15-case GenAIEval-compatible evaluation/benchmark artifact set"
     }
   ]
 }

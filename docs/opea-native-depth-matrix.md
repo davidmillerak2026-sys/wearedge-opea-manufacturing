@@ -13,6 +13,7 @@ Relevant references:
 ```text
 https://github.com/opea-project/GenAIExamples
 https://github.com/opea-project/GenAIComps
+https://github.com/opea-project/GenAIEval
 https://opea-project.github.io/latest/GenAIComps/comps/embeddings/src/README_tei.html
 https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 ```
@@ -30,7 +31,7 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 | Official TEI embedding path | Hugging Face TEI -> `opea/embedding:latest` -> `/v1/embeddings` -> Gateway -> Qdrant | `docker-compose.opea-tei.yml`, local and GCP C3 reports | Very strong |
 | LLM service | Deterministic default plus OpenAI/OPEA-compatible LLM adapter and benchmark harness | `src/wear_edge_opea/llm_adapter.py`, `scripts/llm_adapter_benchmark.py` | Adapter-ready; production endpoint evidence optional |
 | Guardrails | Route-specific blocked claims, human confirmation, and integration target controls | `src/wear_edge_opea/guardrails.py` | Strong |
-| Evaluation | Five-route scorecard checks contract, guardrail, RAG source, target, isolation, latency | `src/wear_edge_opea/scorecard.py`, `/v1/scorecard` | Strong |
+| Evaluation | Five-route scorecard plus lightweight GenAIEval-compatible dataset, runner, metrics, benchmark JSON, and summary | `src/wear_edge_opea/scorecard.py`, `/v1/scorecard`, `evals/genaieval/`, `evidence/genaieval/` | Strong |
 | Docker Compose | One-command base profile plus official OPEA TEI profile | README run commands, C3 fresh-clone evidence | Strong |
 | Helm/GMC | Not implemented in this submission package | Documented as follow-up in upstream blueprint | Do not claim |
 | Upstream example | GenAIExamples first PR opened from the prepared `docs/opea-upstream/pr-ready/` package | Smoke-tested local package, public RFC issue, and upstream PR #2462 | Strong, but weaker than merged PR |
@@ -43,6 +44,7 @@ The project adopts OPEA's enterprise application shape:
 - official OPEA TEI embedding component path;
 - a vector database-backed RAG profile;
 - a megaservice that composes route-specific services;
+- a GenAIEval-compatible evaluation artifact set for 15 route cases;
 - an API and Docker Compose profile that can be evaluated from a fresh clone;
 - an opened GenAIExamples PR for upstream discussion.
 

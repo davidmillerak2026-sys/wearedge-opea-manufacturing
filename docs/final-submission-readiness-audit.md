@@ -3,8 +3,9 @@
 Status: strong technical package; public demo video URL verified; OPEA
 upstream RFC/comment posted; real upstream PR #2462 opened and CI-green;
 contribution package and patch artifact prepared; local Docker Desktop
-validation passed; submission URL dry run passed; champion risk burn-down
-completed; final visual form review remains.
+validation passed; GenAIEval-compatible route evaluation passed; submission URL
+dry run passed; champion risk burn-down completed; final visual form review
+remains.
 
 ## Product Decision
 
@@ -29,7 +30,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Criterion | Evidence | Status |
 | --- | --- | --- |
 | Creativity and business value | Five manufacturing agents cover maintenance, IQC, changeover, WI, and hazard workflows instead of a single demo | Ready |
-| Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, OpenAI/OPEA-compatible LLM adapter, guardrails, scorecard | Ready |
+| Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, OpenAI/OPEA-compatible LLM adapter, guardrails, scorecard, GenAIEval-compatible evaluation pack | Ready |
 | Prototype quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
@@ -54,6 +55,9 @@ with Docker, Web UI, API routes, and scorecard only.
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
 | Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
 | LLM adapter smoke JSON | `evidence/benchmarks/llm_adapter_contract.local-smoke.json` |
+| GenAIEval-compatible evaluation | `docs/genaieval-compatible-evaluation.md` |
+| GenAIEval-compatible route eval JSON | `evidence/genaieval/route_eval_results.json` |
+| GenAIEval-compatible benchmark JSON | `evidence/genaieval/benchmark_results.json` |
 | Final form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Final pre-submit audit | `docs/final-pre-submit-audit-2026-05-28.md` |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |

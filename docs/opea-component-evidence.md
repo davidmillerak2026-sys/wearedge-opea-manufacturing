@@ -18,6 +18,7 @@ The M400 Android client is the real deployment front end and field-evidence sour
 | GenAI microservices | https://opea-project.github.io/latest/microservices/index.html | Microservice categories for LLM, RAG, guardrails, and orchestration |
 | GenAIComps | https://github.com/opea-project/GenAIComps | Composable component reference |
 | GenAIExamples | https://github.com/opea-project/GenAIExamples | Example application and deployment reference |
+| GenAIEval | https://github.com/opea-project/GenAIEval | Compatibility boundary for dataset, runner, metrics, benchmark evidence, and pass/fail summary |
 
 ## Architecture
 
@@ -31,6 +32,7 @@ flowchart LR
     RET --> VDB["Qdrant Vector DB"]
     MEGA --> LLM["LLM Adapter"]
     MEGA --> EVAL["Route Evaluator"]
+    EVAL --> GENAI["GenAIEval-compatible Evidence"]
     MEGA --> GUARD["Guardrails"]
     GUARD --> ACTION["Action Card"]
     ACTION --> SYS["CMMS / QMS / MES / WI / EHS"]
@@ -60,7 +62,7 @@ flowchart LR
 | Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant collections per route, in-memory fallback |
 | LLM Service | OpenAI/OPEA-compatible adapter and benchmark-ready path | `src/wear_edge_opea/llm_stub.py`, `src/wear_edge_opea/llm_adapter.py`, `scripts/llm_adapter_benchmark.py`, `evidence/benchmarks/llm_adapter_contract.local-smoke.json`, source `jetson/llama_client.py` | Deterministic no-model demo by default; configured endpoint benchmark path for production LLM evidence |
 | Guardrails | Implemented | `src/wear_edge_opea/guardrails.py` | Blocked claims and human gates per route |
-| Evaluation | Implemented scorecard | `src/wear_edge_opea/evaluator.py`, `src/wear_edge_opea/scorecard.py` | Latency, contract, guardrail, RAG, target, isolation checks |
+| Evaluation | Implemented scorecard and GenAIEval-compatible pack | `src/wear_edge_opea/evaluator.py`, `src/wear_edge_opea/scorecard.py`, `evals/genaieval/`, `evidence/genaieval/` | Latency, contract, guardrail, RAG, target, isolation, 15-case route dataset, and benchmark artifacts |
 
 ## Current Hardening Status
 
@@ -70,6 +72,7 @@ Implemented now:
 - `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/agents/{mode}/infer`, and `/v1/scorecard`.
 - Qdrant profile with route-specific collections.
 - Route-isolation tests and scorecard tests.
+- GenAIEval-compatible evaluation pack with 15 route cases and 300-call benchmark evidence.
 - Google Cloud C3 fresh-clone Docker/Qdrant E2E run with all five demo and infer routes passing.
 - Optional OPEA-compatible embedding microservice profile in `docker-compose.opea.yml`.
 - Optional official OPEA TEI embedding profile in `docker-compose.opea-tei.yml`, validated locally and on Google Cloud C3.
