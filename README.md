@@ -21,12 +21,19 @@ through a strict adapter boundary. Local edge models serve privacy-sensitive
 and offline factory deployments; external model APIs serve cloud-augmented
 visual reasoning and enterprise model-service replacement.
 
+The OPEA value is the modular system boundary, not any single model choice:
+Gateway, Manufacturing Megaservice, Retriever/RAG, Vector DB, LLM adapter,
+Evaluator, and Guardrails are independent and composable. The model is a
+pluggable component behind the adapter, while the manufacturing route logic,
+source grounding, deterministic checks, human-confirmation gates, and action
+card contracts remain stable.
+
 Champion submission headline:
 
 ```text
 Five manufacturing agents + official OPEA TEI embeddings + Qdrant RAG +
-Gateway/Megaservice orchestration + guardrails + GenAIEval-compatible evidence +
-GCP C3 evidence.
+modular Gateway/Megaservice/Retriever/Vector DB/LLM adapter/Evaluator/Guardrails +
+GenAIEval-compatible evidence + GCP C3 evidence.
 ```
 
 Single-node challenge compliance:

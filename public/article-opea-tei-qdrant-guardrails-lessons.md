@@ -37,6 +37,13 @@ path is deeper: WearEdge-Pro has already run a Jetson edge VLM flow with
 Gemma 4 E2B + `mmproj-F16` through a FastAPI gateway and M400-style image
 evidence.
 
+That is the OPEA value point we want to make explicit: Gateway, Megaservice,
+Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are modular
+parts of the system. The model is only the replaceable component behind the
+adapter. Local Gemma, Gemini, or an enterprise OpenAI-compatible endpoint can
+change, but route isolation, source grounding, deterministic checks, blocked
+claims, human-confirmation gates, and action-card contracts remain stable.
+
 ## Why TEI + Qdrant
 
 OPEA is strongest when the system is visibly composable. We therefore avoided

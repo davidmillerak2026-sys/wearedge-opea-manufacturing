@@ -15,7 +15,7 @@ form submission.
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Evaluation criteria scorecard | `docs/evaluation-criteria-scorecard.md` |
-| Final tag | `final-submission-2026-05-28-r16` |
+| Final tag | `final-submission-2026-05-28-r18` |
 
 ## Verification Already Passed
 
@@ -40,6 +40,7 @@ form submission.
 | OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462`, CI-green on head `0c149a06` |
 | Knowledge-sharing package | External Dev.to article and YouTube demo video published; GitHub article/video backup evidence remains available |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
+| OPEA modular value framing | README, SUBMISSION, technical report, form guide, scorecard, and public article all state that Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are modular; the model is pluggable |
 
 ## Live Runtime State
 

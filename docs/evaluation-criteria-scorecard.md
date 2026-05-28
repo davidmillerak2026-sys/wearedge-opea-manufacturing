@@ -62,9 +62,9 @@ low-level Intel optimization proof.
 | Question | Audit |
 | --- | --- |
 | Can we defend full marks now? | Mostly yes, but `Full-mark vulnerable`. |
-| Why full marks are defensible | The package implements an OPEA-aligned Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> LLM adapter -> Evaluator -> Guardrails architecture. It includes Qdrant, an OPEA-compatible embedding service, and an official OPEA TEI profile using `opea/embedding:latest` plus Hugging Face TEI. It also includes GenAIEval-compatible evaluation artifacts. |
+| Why full marks are defensible | The package implements an OPEA-aligned modular chain: Gateway, Manufacturing Megaservice, Dataprep, Retriever/RAG, Qdrant Vector DB, LLM adapter, Evaluator, and Guardrails. These are composable platform boundaries; the model is only a pluggable component behind the adapter. It includes Qdrant, an OPEA-compatible embedding service, and an official OPEA TEI profile using `opea/embedding:latest` plus Hugging Face TEI. It also includes GenAIEval-compatible evaluation artifacts. |
 | What could cause lost points | A strict OPEA judge could reward teams that use more official GenAIComps microservices, Helm/GMC/Kubernetes deployment, production LLM serving, or merged upstream OPEA code. We must not overstate "OPEA native" beyond what is implemented. |
-| Follow-up to close the gap | First: make PR #2462 and OPEA RFC/comment evidence prominent. Second: keep the official TEI profile as the default champion proof. Stretch: add optional Kubernetes/Helm or GMC notes if time allows, and respond quickly to any upstream review. |
+| Follow-up to close the gap | First: make PR #2462 and OPEA RFC/comment evidence prominent. Second: keep the official TEI profile and modular component map as the default champion proof. Third: repeat that local Gemma, Gemini, or another endpoint can be swapped through the LLM adapter while Gateway/Megaservice/RAG/Evaluator/Guardrails remain unchanged. Stretch: add optional Kubernetes/Helm or GMC notes if time allows, and respond quickly to any upstream review. |
 | Evidence | `docker-compose.opea-tei.yml`, `docs/official-opea-tei-profile.md`, `docs/opea-native-depth-matrix.md`, `docs/opea-component-evidence.md`, `evals/genaieval/`, OPEA issue #2461, OPEA PR #2462. |
 
 ### System Efficiency: 20 Points
@@ -166,11 +166,12 @@ Use these boundaries in the final form and any judge Q&A:
 WearEdge Pro is a real wearable edge industrial AI agent system packaged for
 this OPEA challenge as a Docker-runnable Manufacturing Agent Suite. It targets
 Manufacturing with five executable agents for maintenance, IQC, changeover,
-released work instructions, and EHS hazard observation. The system uses an
-OPEA-aligned Gateway, Manufacturing Megaservice, Dataprep, Qdrant RAG, official
-OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic
-evaluators, guardrails, scorecards, and GenAIEval-compatible artifacts. It has
-local Docker Desktop and Google Cloud C3 single-node 4-vCPU / 16-GiB / no-GPU
-evidence, public OPEA RFC/PR/feedback, a public technical article, a public demo
-video, and Intel AVX-512/AMX effective-use evidence.
+released work instructions, and EHS hazard observation. Its OPEA value is the
+modular chain: Gateway, Manufacturing Megaservice, Retriever/RAG, Qdrant Vector
+DB, LLM adapter, Evaluator, and Guardrails are composable boundaries, while the
+model is pluggable through the adapter. The package includes official OPEA TEI,
+scorecards, GenAIEval-compatible artifacts, local Docker Desktop and Google
+Cloud C3 single-node 4-vCPU / 16-GiB / no-GPU evidence, public OPEA
+RFC/PR/feedback, a public technical article, a public demo video, and Intel
+AVX-512/AMX effective-use evidence.
 ```

@@ -39,6 +39,14 @@ Current component claim: `LLM`, `RAG`, `Vector DB`, `Orchestration`, `Guardrails
 
 The submitted Docker Compose profile starts Qdrant and a FastAPI Manufacturing Gateway. The local runtime can also run without dependencies through an in-memory vector fallback. This keeps the evaluation package reproducible while preserving the OPEA component boundaries. An optional `docker-compose.opea.yml` profile adds a separate OPEA-compatible `/v1/embeddings` microservice and configures the Gateway to call it during Qdrant indexing and retrieval. A second optional `docker-compose.opea-tei.yml` profile follows the official OPEA TEI embedding pattern by connecting Hugging Face TEI to the OPEA embedding microservice through `TEI_EMBEDDING_ENDPOINT` and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; that profile has local Docker Desktop and Google Cloud C3 fresh-clone E2E evidence. The LLM boundary is implemented through an OpenAI/OPEA-compatible adapter with a benchmark harness; the submitted default remains deterministic unless a real endpoint is configured.
 
+The central OPEA value is modularity. Gateway, Manufacturing Megaservice,
+Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are separate
+composable boundaries. The model is intentionally only a replaceable component
+behind the adapter: local Jetson/Gemma 4 E2B, Gemini, or another
+OpenAI/OPEA-compatible model endpoint can be connected without changing the
+route registry, source grounding, deterministic evaluator, human-confirmation
+gates, or action-card contract.
+
 ## 3. Implementation
 
 The route registry defines each agent's business value, entity key, sample request, knowledge source, integration target, owner, human gate, and blocked claims. The same megaservice code runs all five agents; differences are driven by data and route-specific deterministic evaluation.

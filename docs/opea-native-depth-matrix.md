@@ -41,6 +41,9 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 The project adopts OPEA's enterprise application shape:
 
 - microservice boundaries instead of one monolithic script;
+- Gateway, Manufacturing Megaservice, Retriever/RAG, Vector DB, LLM adapter,
+  Evaluator, and Guardrails are treated as modular product boundaries, not
+  labels wrapped around one prompt;
 - official OPEA TEI embedding component path;
 - a vector database-backed RAG profile;
 - a megaservice that composes route-specific services;
@@ -48,11 +51,12 @@ The project adopts OPEA's enterprise application shape:
 - an API and Docker Compose profile that can be evaluated from a fresh clone;
 - an opened GenAIExamples PR for upstream discussion.
 
-The deliberately conservative boundary is LLM serving. The default submission
-does not download or require a large model, so judges can evaluate it quickly.
-The production LLM adapter and benchmark harness are included so the same
-pipeline can be rerun against a real OpenAI/OPEA-compatible endpoint without
-changing the route logic.
+The deliberately conservative boundary is model serving. The default
+submission does not download or require a large model, so judges can evaluate
+it quickly. The LLM/LMM adapter and benchmark harnesses are included so the
+same pipeline can run with local Jetson/Gemma 4 E2B, Gemini, or another
+OpenAI/OPEA-compatible endpoint without changing route logic, RAG source
+grounding, evaluators, guardrails, or action-card contracts.
 
 ## Remaining OPEA Depth Options
 

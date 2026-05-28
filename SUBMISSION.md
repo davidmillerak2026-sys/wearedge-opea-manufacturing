@@ -62,6 +62,14 @@ Implemented OPEA-style path:
 Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> Vector DB -> LLM adapter -> Evaluator -> Guardrails -> Action Card
 ```
 
+The OPEA value point is that these boundaries are modular and composable.
+Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and
+Guardrails are stable platform components; the model is only the pluggable
+service behind the adapter. WearEdge can therefore run with local Jetson/Gemma
+4 E2B, Gemini, or another OpenAI/OPEA-compatible model endpoint without
+rewriting route isolation, source grounding, deterministic checks, or action
+card contracts.
+
 Evaluation path:
 
 ```text
@@ -116,7 +124,7 @@ WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
 | Rubric area | Submission defense |
 | --- | --- |
 | Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, private production-data lineage, and field evidence, not a single chatbot |
-| Technical Implementation, 40 pts | OPEA-style Gateway/Megaservice/RAG/Qdrant/TEI/LLM-adapter/guardrail/evaluation architecture with local and GCP evidence |
+| Technical Implementation, 40 pts | OPEA-style modular Gateway/Megaservice/Retriever-RAG/Qdrant Vector DB/LLM-adapter/Evaluator/Guardrails architecture with local and GCP evidence; model choice is pluggable |
 | Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
 | Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork |
 | Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article and YouTube demo video |
