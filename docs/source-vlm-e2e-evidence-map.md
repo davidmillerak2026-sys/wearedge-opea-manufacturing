@@ -40,6 +40,12 @@ Gateway, Manufacturing Megaservice, Dataprep, OPEA TEI embeddings, Qdrant RAG,
 LLM adapter boundary, deterministic evaluators, route guardrails, scorecard,
 and GenAIEval-compatible evidence.
 
+The local VLM chain and the external LMM benchmark are complementary. The
+Jetson/Gemma 4 E2B path proves WearEdge can run on edge hardware without
+depending on a cloud model. The Gemini/OpenAI-compatible benchmark path proves
+the same OPEA-style industrial agent pipeline can also connect to external
+enterprise or cloud model APIs through a strict adapter boundary.
+
 ## Source Code Evidence
 
 | Capability | WearEdge-Pro source path | What it proves |
@@ -85,15 +91,18 @@ Use precise wording:
 ```text
 WearEdge-Pro has already run a real edge VLM product path on Jetson with
 Gemma 4 E2B + mmproj and M400-style image evidence. The OPEA competition repo
-packages that industrial system into a reproducible OPEA-aligned five-agent
-suite using official TEI embeddings, Qdrant RAG, guardrails, scorecards, and
-one-click Docker.
+packages that industrial system into a reproducible, model-flexible,
+OPEA-aligned five-agent suite using official TEI embeddings, Qdrant RAG,
+guardrails, scorecards, and one-click Docker. The same architecture can use
+local edge VLMs or external production LMM APIs without changing the route,
+RAG, evaluator, guardrail, or action-card layers.
 ```
 
 Avoid wording that would over-claim the OPEA challenge Docker path:
 
 ```text
 Do not say the default OPEA Docker demo runs Gemma 4 E2B VLM locally.
+Do not say the Gemini benchmark is the local WearEdge-Pro product model.
 Do not say the public package contains private production images or large GGUF
 model weights. Do not claim final root cause, restart permission, quality
 release, or safety clearance.

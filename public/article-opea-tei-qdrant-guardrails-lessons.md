@@ -125,6 +125,14 @@ fully runnable. We also added a strict public oil-leak LMM benchmark harness:
 it calls a real image-capable endpoint, parses maintenance evidence, and feeds
 that into the OPEA action-card pipeline with no fallback.
 
+The model story is deliberately not locked to one provider. The local
+Jetson/Gemma 4 E2B path proves WearEdge is not a cloud-wrapper demo. The
+external LMM benchmark path proves the same five-agent OPEA pipeline can also
+attach to Gemini or any OpenAI/OPEA-compatible image endpoint through a strict
+adapter boundary. Edge models serve privacy-sensitive or offline factory
+deployments; external model APIs serve cloud-augmented reasoning and enterprise
+model-service replacement.
+
 ## Evaluation
 
 The scorecard checks every route for:

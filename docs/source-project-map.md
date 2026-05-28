@@ -59,6 +59,12 @@ WearEdge-Pro is the product evidence repository for M400, Jetson, VLM, and
 field workflow proof. The two repositories should be presented as one product
 with two surfaces, not as unrelated demos.
 
+Model-flexibility boundary: the local Jetson/Gemma 4 E2B path proves the
+industrial system can run without depending on a cloud model; the Gemini and
+OpenAI/OPEA-compatible benchmark path proves the same five-agent pipeline can
+also connect to external production LMM APIs. In the submission, describe
+Gemini as an external adapter example, not as the embedded WearEdge-Pro model.
+
 ## Code Quality Position
 
 Do not frame the challenge repository as "only docs" or "only a wrapper." The

@@ -12,6 +12,15 @@ WearEdge OPEA Manufacturing is the OPEA-aligned delivery package for WearEdge Pr
 
 This is not a demo-only repository. The Web Console is the judge-facing demo surface; the product being submitted is a real five-agent industrial system packaged so reviewers can run and inspect it without private plant data or M400 hardware.
 
+WearEdge is model-flexible by design. The original WearEdge-Pro product path
+has been validated on Jetson with a local Gemma 4 E2B VLM, which proves the
+system is not a cloud-wrapper demo. This OPEA package also demonstrates that
+the same five-agent manufacturing pipeline can connect to external production
+LMM endpoints such as Gemini, or any OpenAI/OPEA-compatible vision endpoint,
+through a strict adapter boundary. Local edge models serve privacy-sensitive
+and offline factory deployments; external model APIs serve cloud-augmented
+visual reasoning and enterprise model-service replacement.
+
 Champion submission headline:
 
 ```text
@@ -176,6 +185,10 @@ Only cite this as production LMM evidence when the output reports
 `claim_status=strict_production_lmm_endpoint_benchmarked` and
 `all_checks_pass=true`. See
 [`docs/lmm-machine-oil-leak-benchmark-report.md`](docs/lmm-machine-oil-leak-benchmark-report.md).
+
+This benchmark is intentionally described as an external model-adapter pass:
+it complements the source WearEdge-Pro Jetson/Gemma 4 E2B evidence, but does
+not replace the local VLM product path.
 
 GenAIEval-compatible route evaluation:
 

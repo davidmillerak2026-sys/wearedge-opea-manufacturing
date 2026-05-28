@@ -10,6 +10,12 @@ fixture, calls a real image-capable endpoint with no fallback, parses a strict
 maintenance JSON evidence contract, then feeds that evidence into the OPEA
 Manufacturing Megaservice.
 
+This is an external model-adapter benchmark, not a replacement for the local
+WearEdge-Pro VLM product path. WearEdge-Pro has already validated a Jetson
+deployment with local Gemma 4 E2B + `mmproj-F16`; this benchmark proves the
+same manufacturing agent architecture can also attach to Gemini or any
+OpenAI/OPEA-compatible image model API through the LMM adapter boundary.
+
 Fixture:
 
 ```text
@@ -77,6 +83,9 @@ We ran a strict image-to-action benchmark on a public oil-leak maintenance
 fixture. A real image-capable endpoint extracted maintenance evidence, and the
 OPEA Manufacturing Megaservice converted it into a guarded maintenance work
 order action card with RAG source IDs and blocked restart/release claims.
+Together with the Jetson/Gemma 4 E2B source evidence, this shows that WearEdge
+can run with local edge VLMs or external production LMM APIs without changing
+the five-agent OPEA pipeline.
 ```
 
 Do not use this wording before a passing run:
@@ -103,6 +112,10 @@ The LMM parsed the oil-leak fixture as `maintenance` for
 `PKG-L3-GBX-03`. The OPEA pipeline then returned a guarded
 `maintenance_work_order` action card with RAG source IDs and blocked
 `restart_permission` / `maintenance_release` claims.
+
+Submission wording should call this a model-flexibility result: Gemini was used
+as one production-grade external endpoint, while the architecture also supports
+local llama.cpp/Gemma 4 E2B and OpenAI/OPEA-compatible image endpoints.
 
 Artifact:
 

@@ -59,6 +59,10 @@ The current repository is production-endpoint-ready, not production-endpoint
 benchmarked. That boundary is intentional and protects the submission from
 over-claiming.
 
+This statement applies to the text-only LLM explanation adapter. The
+multimodal image path now also has a separate strict LMM benchmark harness and
+a passing external endpoint artifact for the public oil-leak fixture.
+
 ## Production Endpoint Benchmark
 
 Use this only when an OpenAI-compatible OPEA LLM endpoint, vLLM proxy, or other
@@ -104,6 +108,14 @@ this OPEA challenge package, visual evidence is represented through structured
 detector fields, observations, source IDs, and guarded action cards so the
 package stays runnable without private images or a large vision model.
 
+The model strategy is intentionally modular:
+
+- local Jetson/Gemma 4 E2B proves WearEdge is not a cloud-wrapper demo;
+- external LMM endpoints such as Gemini prove the same agent pipeline can use
+  enterprise-hosted or cloud-hosted vision models;
+- OpenAI/OPEA-compatible adapters keep the Gateway, Megaservice, RAG,
+  evaluator, guardrail, and action-card layers unchanged when the model changes.
+
 A true production LMM/VLM full-chain benchmark would require:
 
 - an image-capable endpoint;
@@ -119,13 +131,16 @@ docs/lmm-machine-oil-leak-benchmark-report.md
 evidence/images/machine_oil_leak.png
 ```
 
-Until those are available, the honest claim is:
+With the source Jetson/Gemma evidence and the strict public oil-leak LMM run,
+the honest claim is:
 
 ```text
-WearEdge-Pro has a real edge VLM product path and visual-evidence lineage.
-The public OPEA submission benchmarks the OPEA TEI/RAG/action-card path with
-official TEI and Qdrant, while preserving strict benchmark harnesses for real
-LLM/LMM endpoints.
+WearEdge-Pro has a real edge VLM product path and visual-evidence lineage, and
+the OPEA submission is model-flexible by design. The same five-agent
+manufacturing pipeline can run with a local Jetson/Gemma 4 E2B VLM or attach
+to external production LMM APIs through a strict adapter boundary, while the
+OPEA-native package remains reproducible with TEI, Qdrant, guardrails, and
+scorecards.
 ```
 
 ## Why This Matters For Scoring
