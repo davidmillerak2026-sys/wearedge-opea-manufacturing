@@ -6,8 +6,13 @@ Target issue:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-Status: prepared for posting after the PR-ready package is pushed to the public
-submission repository.
+Status: prepared for manual posting.
+
+The PR-ready package has been pushed to the public submission repository. A
+GitHub App attempt to post this update directly to
+`opea-project/GenAIExamples#2461` on 2026-05-27 returned
+`403 Resource not accessible by integration`, so the comment body below is the
+manual paste source.
 
 ## Comment Body
 
