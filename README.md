@@ -141,6 +141,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
+| [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
 | [`docs/submission-url-dry-run.md`](docs/submission-url-dry-run.md) | Public URL dry run for challenge form fields |
 | [`docs/local-docker-desktop-final-validation.md`](docs/local-docker-desktop-final-validation.md) | Final local Docker Desktop runtime validation |
 | [`docs/official-opea-profile.md`](docs/official-opea-profile.md) | OPEA-compatible embedding microservice profile |

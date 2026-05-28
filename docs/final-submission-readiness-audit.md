@@ -44,6 +44,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Public project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | OPEA TEI update comment | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | OPEA PR-ready package | `docs/opea-upstream/pr-ready/` |
+| Final form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
@@ -94,7 +95,7 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 | Item | Why it matters | Next action |
 | --- | --- | --- |
 | Minimal upstream PR | Could improve open-source contribution bonus | PR-ready package is prepared; open a small docs/example PR once a fork/write path is available |
-| Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; paste fields from `submission-fields.draft.json`, visually review the challenge form, then submit |
+| Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; use `docs/final-submission-form-fill-guide.md`, visually review the challenge form, then submit |
 
 ## Current Verdict
 

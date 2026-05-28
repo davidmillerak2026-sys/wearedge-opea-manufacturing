@@ -13,6 +13,7 @@ Result: pass. All extracted public URLs returned HTTP 200 with `curl -I -L`.
 | 200 | https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submission |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md |
+| 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/final-submission-form-fill-guide.md |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-profile-e2e-report.md |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md |

@@ -24,6 +24,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Demo video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video |
 | Demo video | Published as public MP4 asset page | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
 | Demo video render report | Local MP4 rendered; public URL verified | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md |
+| Final form fill guide | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/final-submission-form-fill-guide.md |
 | Official OPEA TEI profile note | Published; local E2E passed | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md |
 | Local OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-opea-tei-profile-e2e-report.md |
 | GCP C3 OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md |
