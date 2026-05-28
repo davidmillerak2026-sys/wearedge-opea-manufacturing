@@ -14,7 +14,7 @@ form submission.
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r3` |
+| Final tag | `final-submission-2026-05-28-r4` |
 
 ## Verification Already Passed
 
@@ -31,6 +31,7 @@ form submission.
 | GCP C3 official OPEA TEI | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
 | Xeon AVX-512/AMX evidence | `docs/intel-avx512-amx-benchmark-report.md` |
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
+| OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462` |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 
 ## Live Runtime State

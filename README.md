@@ -17,6 +17,15 @@ Five manufacturing agents + official OPEA TEI embeddings + Qdrant RAG +
 Gateway/Megaservice orchestration + guardrails + scorecard + GCP C3 evidence.
 ```
 
+Single-node challenge compliance:
+
+```text
+Google Cloud C3 c3-standard-4
+4 vCPU, 16 GiB RAM, no GPU
+Intel Xeon Platinum 8481C with AVX-512 and AMX flags detected
+Within the challenge limit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
+```
+
 ## Submission Product Shape
 
 This repository is the challenge-facing product package. It is not submitted as an Android-only app. The submitted deliverable is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console, public API, five route demos, and scorecard.
@@ -175,7 +184,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/official-opea-tei-profile.md`](docs/official-opea-tei-profile.md) | Official OPEA TEI embedding profile and C3 rerun instructions |
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue draft, blueprint feedback, and PR plan |
-| [`docs/opea-upstream/pr-ready/`](docs/opea-upstream/pr-ready/) | Copyable OPEA `GenAIExamples` PR-ready package |
+| [`docs/opea-upstream/pr-ready/`](docs/opea-upstream/pr-ready/) | Copyable OPEA `GenAIExamples` contribution package |
+| [`docs/upstream-pr-attempt-2026-05-28.md`](docs/upstream-pr-attempt-2026-05-28.md) | Direct upstream PR attempt, fork push, and opened PR record |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
@@ -225,8 +235,10 @@ OPEA open-source contribution package:
 
 ```text
 https://github.com/opea-project/GenAIExamples/issues/2461
+https://github.com/opea-project/GenAIExamples/pull/2462
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2
 https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
+docs/upstream-pr-attempt-2026-05-28.md
 docs/opea-upstream/rfc-issue-draft.md
 docs/opea-upstream/blueprint-feedback.md
 docs/opea-upstream/implementation-feedback-comment.md
@@ -274,7 +286,12 @@ Official OPEA TEI rerun script:
 scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh
 ```
 
-The Xeon run was captured on Google Cloud C3 `c3-standard-4` with Intel Xeon Platinum 8481C, `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`, scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic route calls.
+The Xeon run was captured on Google Cloud C3 `c3-standard-4`, a single-node
+4-vCPU / 16-GiB-RAM / no-GPU profile that is inside the challenge limit of
+single node, <=64GB RAM, and 4-core CPU. The CPU was Intel Xeon Platinum 8481C
+with `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`,
+scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic
+route calls.
 
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
 

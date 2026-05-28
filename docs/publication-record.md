@@ -11,8 +11,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Official TEI update comment | Posted upstream | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | GCP C3 official TEI update | Posted to project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045 |
 | Public OPEA tracker | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
-| PR-ready upstream package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
-| Upstream PR | Not opened; PR-ready package is available while fork/write path or maintainer feedback is pending | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
+| Upstream contribution package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
+| Upstream PR | Open against `opea-project/GenAIExamples:main`; not merged yet | https://github.com/opea-project/GenAIExamples/pull/2462 |
+| Upstream PR attempt log | Direct upstream push failed with GitHub 403, then fork push succeeded and PR #2462 was opened | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md |
 
 ## Knowledge Sharing
 
@@ -34,10 +35,11 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 
 - The article URL is a public GitHub page in the submitted project repository.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.
-- The official TEI update is posted directly in `opea-project/GenAIExamples#2461`. The GitHub App still cannot write to the upstream repository, so the browser-authenticated comment is the authoritative upstream evidence.
+- The official TEI update is posted directly in `opea-project/GenAIExamples#2461`; it was verified through the GitHub API as comment `4554039017` by `Ryanhuii`.
+- A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
 - The demo video has a rendered local MP4, committed HyperFrames source package, and public GitHub asset page on the `codex/video-assets` branch.
-- The first PR scope is intentionally small: route registry, Docker Compose,
+- The first upstream PR scope is intentionally small: route registry, Docker Compose,
   Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard,
-  and docs. A copyable PR-ready package is included under
+  and docs. A copyable contribution package is included under
   `docs/opea-upstream/pr-ready/`.

@@ -2,6 +2,9 @@
 
 Date: 2026-05-27
 
+Incremental update: 2026-05-28. The real upstream OPEA PR URL was verified
+after it opened.
+
 Source of truth: `submission-fields.draft.json`
 
 Result: pass. All extracted public URLs returned HTTP 200 with `curl -I -L`.
@@ -34,6 +37,7 @@ Result: pass. All extracted public URLs returned HTTP 200 with `curl -I -L`.
 | 200 | https://github.com/davidmillerak2026-sys/WearEdge-Pro |
 | 200 | https://github.com/opea-project/GenAIExamples/issues/2461 |
 | 200 | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
+| 200 | https://github.com/opea-project/GenAIExamples/pull/2462 |
 
 ## Notes
 

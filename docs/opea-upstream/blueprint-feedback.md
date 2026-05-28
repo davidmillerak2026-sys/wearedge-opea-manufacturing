@@ -56,7 +56,7 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 | Minimal PR scope | Prepared in `docs/opea-upstream/minimal-pr-scope.md` |
 | PR-ready update comment | Prepared in `docs/opea-upstream/pr-ready-update-comment.md` |
 | PR-ready package | Prepared and smoke-tested in `docs/opea-upstream/pr-ready/ManufacturingAgentSuite/` |
-| Upstream PR URL | Pending fork/write path or maintainer direction |
+| Upstream PR URL | Open at `https://github.com/opea-project/GenAIExamples/pull/2462` |
 
 ## Posted Issue Link
 
@@ -66,10 +66,15 @@ The RFC issue has been posted to OPEA GenAIExamples:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-## Current Publishing Boundary
+## Current Publishing Status
 
-The GitHub App available in this environment has read-only access to
-`opea-project/GenAIExamples`, so upstream PR creation still needs an
-authenticated fork/write path. To avoid waiting on that external step, a
-copyable PR-ready package is now included in this repository under
-`docs/opea-upstream/pr-ready/`.
+The first direct push to `opea-project/GenAIExamples` was rejected with GitHub
+403, as expected for a fork-based contribution. After the fork was created, the
+prepared branch was pushed to `Ryanhuii/GenAIExamples` and upstream PR #2462
+was opened against `opea-project:main`.
+
+```text
+https://github.com/opea-project/GenAIExamples/pull/2462
+```
+
+The PR is open but not merged yet.

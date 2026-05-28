@@ -25,6 +25,7 @@ REQUIRED_LOCAL_FILES = [
     "docs/production-llm-benchmark-path.md",
     "docs/data-provenance-and-field-validation.md",
     "docs/telecom-scope-and-manufacturing-positioning.md",
+    "docs/upstream-pr-attempt-2026-05-28.md",
     "docs/opea-component-evidence.md",
     "docs/official-opea-profile.md",
     "docs/official-opea-tei-profile.md",

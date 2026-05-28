@@ -6,7 +6,12 @@ Target issue:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-Status: prepared for manual posting.
+Status: historical manual-post draft. The package described below was later
+opened as upstream PR #2462:
+
+```text
+https://github.com/opea-project/GenAIExamples/pull/2462
+```
 
 The PR-ready package and a generated `git format-patch` artifact have been
 pushed to the public submission repository. A GitHub App attempt to post this update directly to

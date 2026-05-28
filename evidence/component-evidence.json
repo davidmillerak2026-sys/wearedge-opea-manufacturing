@@ -44,22 +44,24 @@
   "bonus_evidence": [
     {
       "category": "OPEA open-source contribution",
-      "status": "public_rfc_issue_posted",
+      "status": "upstream_pr_opened",
       "local_paths": [
         "docs/opea-upstream/rfc-issue-draft.md",
         "docs/opea-upstream/blueprint-feedback.md",
         "docs/opea-upstream/implementation-feedback-comment.md",
         "docs/opea-upstream/minimal-pr-scope.md",
         "docs/opea-upstream/tei-update-comment.md",
+        "docs/upstream-pr-attempt-2026-05-28.md",
         "docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch",
         "docs/publication-record.md"
       ],
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+      "pull_request_url": "https://github.com/opea-project/GenAIExamples/pull/2462",
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
       "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
-      "claim_boundary": "Public RFC issue is posted; official TEI update is posted to the project tracker. Posting the TEI update directly to the upstream OPEA issue through the GitHub App was blocked by integration permissions; PR remains pending maintainer feedback."
+      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open at opea-project/GenAIExamples#2462. The PR is not merged yet."
     },
     {
       "category": "Knowledge sharing",
@@ -85,7 +87,7 @@
         "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
         "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json"
       ],
-      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, Intel Xeon Platinum 8481C, temporary VM deleted after run",
+      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, single node, 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, temporary VM deleted after run",
       "claim_boundary": "AVX-512/AMX flags were detected for the deterministic route pipeline. Do not claim production LLM acceleration unless a real embedding/LLM service path is benchmarked on the same host."
     },
     {
@@ -96,7 +98,7 @@
         "docs/gcp-c3-docker-qdrant-e2e-report.md",
         "evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json"
       ],
-      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, temporary VM wearedge-docker-e2e-0527082214 deleted after run",
+      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, single node, 4 vCPU, 16 GiB RAM, no GPU, temporary VM wearedge-docker-e2e-0527082214 deleted after run",
       "validated_surface": [
         "/demo",
         "/healthz",
@@ -118,7 +120,7 @@
         "docs/gcp-c3-opea-profile-e2e-report.md",
         "evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json"
       ],
-      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, temporary VM wearedge-opea-profile-0527085558 deleted after run",
+      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, single node, 4 vCPU, 16 GiB RAM, no GPU, temporary VM wearedge-opea-profile-0527085558 deleted after run",
       "validated_surface": [
         "/v1/embeddings",
         "/healthz",
@@ -141,7 +143,7 @@
         "evidence/benchmarks/local_opea_tei_profile_e2e.summary.json",
         "evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json"
       ],
-      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, temporary VM wearedge-opea-tei-0527103938 deleted after run",
+      "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, single node, 4 vCPU, 16 GiB RAM, no GPU, temporary VM wearedge-opea-tei-0527103938 deleted after run",
       "validated_surface": [
         "OPEA /v1/embeddings via TEI",
         "/healthz",

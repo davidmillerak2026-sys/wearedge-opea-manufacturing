@@ -33,7 +33,7 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 | Evaluation | Five-route scorecard checks contract, guardrail, RAG source, target, isolation, latency | `src/wear_edge_opea/scorecard.py`, `/v1/scorecard` | Strong |
 | Docker Compose | One-command base profile plus official OPEA TEI profile | README run commands, C3 fresh-clone evidence | Strong |
 | Helm/GMC | Not implemented in this submission package | Documented as follow-up in upstream blueprint | Do not claim |
-| Upstream example | GenAIExamples first-PR package prepared under `docs/opea-upstream/pr-ready/` | Smoke-tested local package and public RFC issue | Strong, but weaker than merged PR |
+| Upstream example | GenAIExamples first PR opened from the prepared `docs/opea-upstream/pr-ready/` package | Smoke-tested local package, public RFC issue, and upstream PR #2462 | Strong, but weaker than merged PR |
 
 ## Why This Is OPEA-Native Enough For The Challenge
 
@@ -44,7 +44,7 @@ The project adopts OPEA's enterprise application shape:
 - a vector database-backed RAG profile;
 - a megaservice that composes route-specific services;
 - an API and Docker Compose profile that can be evaluated from a fresh clone;
-- a PR-ready GenAIExamples package for upstream discussion.
+- an opened GenAIExamples PR for upstream discussion.
 
 The deliberately conservative boundary is LLM serving. The default submission
 does not download or require a large model, so judges can evaluate it quickly.

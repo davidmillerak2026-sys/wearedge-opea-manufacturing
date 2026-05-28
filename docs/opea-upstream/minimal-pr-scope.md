@@ -1,11 +1,10 @@
 # Minimal OPEA PR Scope
 
-This is the proposed first PR shape for `opea-project/GenAIExamples` once
-maintainers confirm the preferred location and naming from RFC issue #2461.
+This is the proposed first PR shape for `opea-project/GenAIExamples`.
 
-Status: PR-ready package prepared and locally smoke-tested in
-`docs/opea-upstream/pr-ready/ManufacturingAgentSuite/`. A `git format-patch`
-artifact is also prepared at
+Status: package prepared, locally smoke-tested, and opened upstream as
+`https://github.com/opea-project/GenAIExamples/pull/2462`. A
+`git format-patch` artifact is also prepared at
 `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch`.
 
 ## Proposed Path

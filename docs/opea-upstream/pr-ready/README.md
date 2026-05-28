@@ -1,7 +1,13 @@
-# PR-Ready OPEA Contribution Package
+# OPEA Contribution Package
 
 This directory contains a minimal, docs-first contribution package prepared for
 `opea-project/GenAIExamples`.
+
+The prepared package has been opened upstream:
+
+```text
+https://github.com/opea-project/GenAIExamples/pull/2462
+```
 
 It is not a replacement for the full WearEdge competition repository. It is a
 small first-PR candidate that maintainers can review quickly:
@@ -30,14 +36,14 @@ branch `codex/wear-edge-manufacturing-suite-pr-ready` with commit
 
 ## Intended Upstream Use
 
-Copy `ManufacturingAgentSuite/` to the root of a fork of
-`opea-project/GenAIExamples`, then open a PR that references:
+The opened PR references:
 
 - RFC issue: https://github.com/opea-project/GenAIExamples/issues/2461
 - TEI update comment: https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
 - Reference implementation: https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 
-Alternatively, from a fork/clone of `opea-project/GenAIExamples`:
+The patch remains useful as a fallback artifact. From a fork/clone of
+`opea-project/GenAIExamples`:
 
 ```bash
 git am /path/to/0001-add-manufacturing-agent-suite.patch

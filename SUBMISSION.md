@@ -22,6 +22,16 @@ http://127.0.0.1:8088/demo
 
 The Vuzix M400 / Android client is the real deployment front end and field-evidence source from the full WearEdge-Pro product. The Web Demo Console is the reproducible evaluation surface for judges who do not have M400 hardware.
 
+Single-node hardware proof:
+
+```text
+Google Cloud C3 c3-standard-4, us-central1-a
+4 vCPU, 16 GiB RAM, no GPU
+Intel Xeon Platinum 8481C
+AVX-512 and AMX flags detected
+Challenge fit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
+```
+
 ## Why This Fits Manufacturing
 
 Manufacturing losses rarely live in one silo. A frontline operator may see a gearbox vibration issue, a machined-part defect, a changeover mismatch, a work-instruction question, or an unsafe walkway. WearEdge Pro uses one OPEA-style Gateway and Manufacturing Megaservice to convert those observations into auditable action cards for plant systems.
@@ -118,28 +128,30 @@ Key archived evidence already mapped into this submission package:
 
 ## Remaining Champion Bonus Work
 
-- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; copyable PR-ready package prepared under `docs/opea-upstream/pr-ready/`; upstream PR awaits fork/write path or maintainer feedback.
-- Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR limitations, and telecom-vs-manufacturing positioning.
+- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; real upstream PR opened at `https://github.com/opea-project/GenAIExamples/pull/2462`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`. The prepared contribution package and `git format-patch` artifact remain under `docs/opea-upstream/pr-ready/`.
+- Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR status, and telecom-vs-manufacturing positioning.
 - LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default judge run deterministic and reproducible.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, local MP4 render report, and public GitHub MP4 asset page are ready.
-- Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` run captured on Intel Xeon Platinum 8481C with `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed.
-- Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
-- OPEA profile E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
+- Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed.
+- Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
+- OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
 - Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five demos reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
-- GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
+- GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
 
 ## Bonus URLs And Artifacts
 
 - `publication_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md`
 - `publication_record_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`
 - OPEA RFC issue: `https://github.com/opea-project/GenAIExamples/issues/2461`
+- OPEA upstream PR: `https://github.com/opea-project/GenAIExamples/pull/2462`
 - OPEA TEI update comment: `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017`
 - OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
+- Upstream PR record: `docs/upstream-pr-attempt-2026-05-28.md`
 - OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
-- OPEA PR-ready package: `docs/opea-upstream/pr-ready/`
+- OPEA contribution package used for PR #2462: `docs/opea-upstream/pr-ready/`
 - OPEA PR patch artifact: `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch`
 - Champion risk burn-down: `docs/champion-risk-burn-down.md`
 - OPEA native depth matrix: `docs/opea-native-depth-matrix.md`

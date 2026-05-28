@@ -1,9 +1,10 @@
 # Final Submission Readiness Audit
 
 Status: strong technical package; public demo video URL verified; OPEA
-PR-ready package and patch artifact prepared; local Docker Desktop validation
-passed; submission URL dry run passed; champion risk burn-down completed;
-optional upstream PR and final visual form review remain.
+upstream RFC/comment posted; real upstream PR #2462 opened; contribution package
+and patch artifact prepared; local Docker Desktop validation passed; submission
+URL dry run passed; champion risk burn-down completed; final visual form review
+remains.
 
 ## Product Decision
 
@@ -32,7 +33,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Prototype quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
-| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; PR-ready package prepared and smoke-tested; `git format-patch` artifact generated; PR pending fork/write path or maintainer feedback | Strong |
+| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is open but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, demo skim risk, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | Public article ready; demo video script/captions, renderable HyperFrames source, local MP4 render, and public video URL ready | Ready |
 
@@ -45,8 +46,10 @@ with Docker, Web UI, API routes, and scorecard only.
 | OPEA RFC issue | https://github.com/opea-project/GenAIExamples/issues/2461 |
 | Public project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | OPEA TEI update comment | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
-| OPEA PR-ready package | `docs/opea-upstream/pr-ready/` |
+| OPEA contribution package | `docs/opea-upstream/pr-ready/` |
 | OPEA PR patch artifact | `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch` |
+| OPEA upstream PR | https://github.com/opea-project/GenAIExamples/pull/2462 |
+| Direct upstream PR attempt and fork push log | `docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
 | Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
@@ -105,11 +108,11 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 
 | Item | Why it matters | Next action |
 | --- | --- | --- |
-| Minimal upstream PR | Could improve open-source contribution bonus | PR-ready package is prepared; open a small docs/example PR once a fork/write path is available |
+| Upstream PR review follow-up | Could improve open-source contribution bonus | Monitor `https://github.com/opea-project/GenAIExamples/pull/2462` and respond quickly if maintainers request scope, naming, or CI changes |
 | Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; use `docs/final-submission-form-fill-guide.md`, visually review the challenge form, then submit |
 
 ## Current Verdict
 
 The core technical package is now champion-ready for submission. The remaining
-high-return work is pressing the final challenge form submit button and,
-optionally, opening the already-prepared upstream PR from a fork/write path.
+high-return work is pressing the final challenge form submit button and watching
+the opened upstream PR for review feedback.
