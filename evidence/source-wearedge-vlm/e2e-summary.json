@@ -1,0 +1,94 @@
+{
+  "schema_version": "2026-05-28",
+  "source_repository": "https://github.com/davidmillerak2026-sys/WearEdge-Pro",
+  "source_commit_inspected": "1abc65333e877b4206bdd4f7af5de71f9e97b061",
+  "claim_status": "source_project_real_edge_vlm_e2e_evidence_mapped",
+  "runtime_chain": [
+    "Vuzix M400 or browser image",
+    "WearEdge-Pro FastAPI Gateway /v1/infer",
+    "OpenAI-compatible multimodal payload with image_url",
+    "llama.cpp llama-server /v1/chat/completions",
+    "Gemma 4 E2B Q4_K_S GGUF",
+    "mmproj-F16 vision projector",
+    "route-specific output contract",
+    "agent loop and guardrails",
+    "action card and integration event"
+  ],
+  "source_code_paths": {
+    "gateway": "jetson/app.py",
+    "multimodal_client": "jetson/llama_client.py",
+    "agent_orchestrator": "jetson/agently_orchestrator.py",
+    "output_contracts": "jetson/output_contract.py",
+    "m400_client": "clients/m400/android/",
+    "smoke_test": "scripts/smoke_test.sh"
+  },
+  "archived_evidence_paths": {
+    "safety_sample": "docs/poc-results/gemma4-e2b-safety-sample-result.json",
+    "autostart_browser": "docs/poc-results/gemma4-e2b-autostart-browser-result.json",
+    "full_agent_gateway": "docs/poc-results/full-agent-gateway-poc-summary.json",
+    "maintenance_poc": "docs/poc-results/lao-shi-fu-maintenance-poc-summary.json",
+    "m400_audit_recent": "docs/poc-results/m400-hotspot-audit-recent.json",
+    "m400_agent_runs_recent": "docs/poc-results/m400-hotspot-agent-runs-recent.json",
+    "technical_evidence": "docs/technical-evidence.md",
+    "edge_runtime_benchmark": "docs/edge-runtime-benchmark.md"
+  },
+  "hardware": {
+    "edge_device": "Jetson Orin Nano 8GB",
+    "os_stack": "JetPack 6.2.1 / L4T R36.4.4 / Ubuntu 22.04 / aarch64"
+  },
+  "model": {
+    "vlm": "Gemma 4 E2B IT Q4_K_S GGUF",
+    "vision_projector": "mmproj-F16.gguf",
+    "serving_runtime": "llama.cpp llama-server",
+    "serving_api": "OpenAI-compatible /v1/chat/completions"
+  },
+  "metrics": {
+    "safety_sample": {
+      "image_bytes": 3170693,
+      "latency_ms": 5824,
+      "ok": true
+    },
+    "autostart_browser": {
+      "image_bytes": 3170693,
+      "latency_ms": 8734,
+      "ok": true
+    },
+    "full_agent_gateway": {
+      "case_count": 6,
+      "passed_cases": 6,
+      "modes": [
+        "maintenance",
+        "hazard",
+        "iqc",
+        "wi",
+        "changeover"
+      ]
+    },
+    "maintenance_hero_case": {
+      "integration_target": "maintenance_work_order",
+      "maintenance_eval_status": "breach_detected",
+      "breach_count": 5,
+      "action_channel": "maintenance_report",
+      "pass": true
+    },
+    "lao_shi_fu_oil_sensory_step": {
+      "step": 6,
+      "evidence": [
+        "oil leakage",
+        "burnt-oil smell",
+        "visible shaking",
+        "high-frequency gearbox noise"
+      ],
+      "channel": "maintenance_stop",
+      "priority": "critical",
+      "integration_target": "maintenance_work_order",
+      "pass": true
+    }
+  },
+  "submission_boundary": {
+    "wear_edge_pro_role": "real industrial product and edge VLM evidence source",
+    "opea_repo_role": "runnable OPEA-aligned challenge package with TEI, Qdrant, guardrails, scorecard, and Docker",
+    "default_opea_docker_claim": "does not require Gemma 4 E2B weights or private images",
+    "strict_vlm_benchmark_next_step": "call an image-capable endpoint with a public redacted oil-leak fixture and no fallback"
+  }
+}

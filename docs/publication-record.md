@@ -22,6 +22,8 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | External technical article | Published on Dev.to | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
 | Technical article backup | Published in public GitHub repository | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md |
 | External-platform article package | Published via Dev.to; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
+| OPEA practical article | Published as a public GitHub issue; source retained in repo | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/3 |
+| OPEA practical article source | Ready in public repository as the source copy | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-opea-tei-qdrant-guardrails-lessons.md |
 | External-platform publishing handoff | Ready; manual publish selected | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
@@ -43,9 +45,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - The Dev.to article is a technical article, not only a marketing post: it
   covers the five-agent route registry, OPEA architecture, Qdrant RAG, official
   TEI profile, guardrails, evaluation, and Intel evidence.
-- Optional additional knowledge-sharing posts, if time allows: OPEA TEI + Qdrant
-  integration lessons, five-route industrial guardrail design, and GCP C3
-  AVX-512/AMX hardware evidence.
+- The additional OPEA practical article is published as public issue #3 and
+  covers OPEA TEI, Qdrant, five-agent guardrails, source VLM evidence, and
+  recommendations back to OPEA.
 - `docs/public-platform-publishing-handoff.md` records the exact remaining
   non-GitHub publication task for manual posting.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.

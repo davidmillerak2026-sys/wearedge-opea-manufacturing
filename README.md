@@ -162,6 +162,21 @@ To benchmark a real OpenAI/OPEA-compatible LLM endpoint, set
 `WEAREDGE_LLM_STRICT=true`. See
 [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md).
 
+Strict LMM oil-leak image benchmark:
+
+```powershell
+$env:PYTHONPATH="src"
+$env:WEAREDGE_LMM_PROVIDER="gemini"
+$env:GEMINI_MODEL="gemini-2.5-flash"
+python scripts\lmm_image_benchmark.py --image evidence\images\machine_oil_leak.png `
+  --output evidence\benchmarks\lmm_machine_oil_leak.strict.json --strict
+```
+
+Only cite this as production LMM evidence when the output reports
+`claim_status=strict_production_lmm_endpoint_benchmarked` and
+`all_checks_pass=true`. See
+[`docs/lmm-machine-oil-leak-benchmark-report.md`](docs/lmm-machine-oil-leak-benchmark-report.md).
+
 GenAIEval-compatible route evaluation:
 
 ```powershell
@@ -205,6 +220,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/full-mark-gap-closure-plan.md`](docs/full-mark-gap-closure-plan.md) | Point-by-point follow-up plan for OPEA, LLM, code quality, UI, and bonus gaps |
 | [`docs/local-ui-full-mark-follow-up-validation.md`](docs/local-ui-full-mark-follow-up-validation.md) | Local Docker/UI validation after the full-mark follow-up changes |
 | [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md) | Direct mapping to the official Challenge Task requirements |
+| [`docs/source-vlm-e2e-evidence-map.md`](docs/source-vlm-e2e-evidence-map.md) | WearEdge-Pro real Jetson/Gemma 4 E2B VLM E2E evidence map and OPEA repo boundary |
+| [`docs/lmm-machine-oil-leak-benchmark-report.md`](docs/lmm-machine-oil-leak-benchmark-report.md) | Strict public oil-leak image benchmark protocol for real LMM endpoints |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
 | [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |
 | [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
@@ -226,8 +243,10 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
 | [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
 | [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
+| [`docs/gcp-c3-tei-onednn-verbose-runbook.md`](docs/gcp-c3-tei-onednn-verbose-runbook.md) | GCP C3 TEI oneDNN/ISA verbose capture runbook |
 | [Dev.to external article](https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh) | Published public knowledge-sharing article |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public GitHub article backup |
+| [`public/article-opea-tei-qdrant-guardrails-lessons.md`](public/article-opea-tei-qdrant-guardrails-lessons.md) | OPEA practical technical article: TEI, Qdrant, guardrails, hardware, and feedback |
 | [`public/external-platform-article.md`](public/external-platform-article.md) | Source article package published via Dev.to |
 | [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Remaining public video publication steps and claim boundary |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
@@ -237,6 +256,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/demo-video-render-report.md`](docs/demo-video-render-report.md) | Local demo video render and validation evidence |
 | [`evals/genaieval/`](evals/genaieval/) | GenAIEval-compatible evaluation pack |
 | [`evidence/genaieval/`](evidence/genaieval/) | Generated route evaluation, benchmark JSON, and summary |
+| [`evidence/source-wearedge-vlm/e2e-summary.json`](evidence/source-wearedge-vlm/e2e-summary.json) | Machine-readable source-project VLM evidence summary |
+| [`evidence/images/machine_oil_leak.png`](evidence/images/machine_oil_leak.png) | Public redacted maintenance image fixture for strict LMM benchmark |
 | [`data/sample_requests/`](data/sample_requests/) | Five agent demo inputs |
 | [`data/agent_kb/`](data/agent_kb/) | IQC, changeover, WI, and hazard knowledge sources |
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |

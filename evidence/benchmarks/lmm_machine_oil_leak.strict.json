@@ -1,0 +1,268 @@
+{
+  "benchmark": "WearEdge oil-leak strict LMM image benchmark",
+  "schema_version": "2026-05-28",
+  "claim_status": "strict_production_lmm_endpoint_benchmarked",
+  "provider": "gemini",
+  "model": "gemini-2.5-flash",
+  "strict": true,
+  "image": {
+    "path": "C:\\Users\\ryan hui\\Documents\\New project\\wearedge-opea-manufacturing\\evidence\\images\\machine_oil_leak.png",
+    "filename": "machine_oil_leak.png",
+    "bytes": 2665413,
+    "sha256": "f26291a01678fb0f375c11753ab55b2888d0b372ffb194da0d69c861e2f3861a",
+    "mime_type": "image/png"
+  },
+  "endpoint": {
+    "used": true,
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/<model>:generateContent",
+    "latency_ms": 6280.96,
+    "usage": {
+      "promptTokenCount": 693,
+      "candidatesTokenCount": 143,
+      "totalTokenCount": 836,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 435
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 258
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "response_text": "{\"recommended_agent_mode\":\"maintenance\",\"asset_id\":\"PKG-L3-GBX-03\",\"operator_observation\":\"Oil leakage, gearbox 82C, bearing 69C, vibration 7.8 mm/s trend rising, warning light on, drive station running.\",\"visible_evidence\":[\"oil leakage\",\"gearbox 82C\",\"bearing 69C\",\"vibration 7.8 mm/s\",\"warning light\",\"running\"],\"signals\":{\"vibration_rms_mm_s\":\"7.8\"\n    }\n  ,\"risk_level\":\"high\",\"blocked_claims\":[\"final_root_cause\",\"restart_permission\",\"maintenance_release\"]}"
+  },
+  "lmm_parsed": {
+    "recommended_agent_mode": "maintenance",
+    "asset_id": "PKG-L3-GBX-03",
+    "operator_observation": "Oil leakage, gearbox 82C, bearing 69C, vibration 7.8 mm/s trend rising, warning light on, drive station running.",
+    "visible_evidence": [
+      "oil leakage",
+      "gearbox 82C",
+      "bearing 69C",
+      "vibration 7.8 mm/s",
+      "warning light",
+      "running"
+    ],
+    "signals": {
+      "vibration_rms_mm_s": "7.8"
+    },
+    "risk_level": "high",
+    "blocked_claims": [
+      "final_root_cause",
+      "restart_permission",
+      "maintenance_release"
+    ]
+  },
+  "parse_error": null,
+  "opea_pipeline_result": {
+    "ok": true,
+    "mode": "maintenance",
+    "request": {
+      "mode": "maintenance",
+      "asset_id": "PKG-L3-GBX-03",
+      "operator_observation": "Oil leakage, gearbox 82C, bearing 69C, vibration 7.8 mm/s trend rising, warning light on, drive station running.",
+      "signals": {
+        "vibration_rms_mm_s": 7.8,
+        "gearbox_temperature_c": 82.0,
+        "bearing_temperature_c": 69.0,
+        "lubrication_interval_days": 18,
+        "plc_alarm": "GBX-VIB-HI"
+      },
+      "vision_evidence": {
+        "recommended_agent_mode": "maintenance",
+        "visible_evidence": [
+          "oil leakage",
+          "gearbox 82C",
+          "bearing 69C",
+          "vibration 7.8 mm/s",
+          "warning light",
+          "running"
+        ],
+        "risk_level": "high"
+      }
+    },
+    "agent": {
+      "name": "lao-shi-fu predictive maintenance",
+      "business_value": "Reduce downtime by converting M400 evidence into CMMS-ready maintenance work-order drafts.",
+      "integration_target": "maintenance_work_order"
+    },
+    "architecture": "OPEA-style Gateway -> Manufacturing Megaservice -> Dataprep -> RAG -> LLM -> Evaluator -> Guardrails",
+    "opea_components": [
+      "Gateway",
+      "Megaservice",
+      "Dataprep",
+      "Retriever/RAG",
+      "Vector DB profile",
+      "LLM service",
+      "Guardrails",
+      "Evaluation"
+    ],
+    "entity_id": "PKG-L3-GBX-03",
+    "rag": {
+      "mode": "maintenance",
+      "entity_id": "PKG-L3-GBX-03",
+      "revision": "manufacturing-demo-kb-2026-05-26",
+      "thresholds": {
+        "vibration_rms_mm_s_high": 7.0,
+        "gearbox_temperature_c_high": 75.0,
+        "bearing_temperature_c_high": 70.0,
+        "lubrication_interval_days_max": 14
+      },
+      "vector_store": "in-memory-hashing-vector-store",
+      "hits": [
+        {
+          "score": 0.1565,
+          "payload": {
+            "id": "GBX-HUMAN-01",
+            "title": "Operator sensory observation",
+            "content": "High-pitched noise, burnt-oil smell, abnormal heat, visible shaking, or fresh oil leakage are valid operator sensory evidence. They should escalate the action card only when paired with accepted machine identity and condition evidence.",
+            "asset_id": "PKG-L3-GBX-03",
+            "revision": "manufacturing-demo-kb-2026-05-26",
+            "mode": "maintenance"
+          }
+        },
+        {
+          "score": 0.0976,
+          "payload": {
+            "id": "GBX-VIB-01",
+            "title": "Gearbox vibration escalation",
+            "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order draft for technician confirmation.",
+            "asset_id": "PKG-L3-GBX-03",
+            "revision": "manufacturing-demo-kb-2026-05-26",
+            "mode": "maintenance"
+          }
+        },
+        {
+          "score": 0.0802,
+          "payload": {
+            "id": "GBX-LUBE-01",
+            "title": "Lubrication record cross-check",
+            "content": "If lubrication interval exceeds 14 days or oil leakage is visible, request lubrication record evidence and recent work-order history before recommending restart or maintenance release.",
+            "asset_id": "PKG-L3-GBX-03",
+            "revision": "manufacturing-demo-kb-2026-05-26",
+            "mode": "maintenance"
+          }
+        }
+      ]
+    },
+    "agent_evaluation": {
+      "status": "breach_detected",
+      "risk_level": "high",
+      "breach_count": 4,
+      "breaches": [
+        {
+          "signal": "vibration_rms_mm_s",
+          "value": 7.8,
+          "threshold": 7.0,
+          "unit": "mm/s"
+        },
+        {
+          "signal": "gearbox_temperature_c",
+          "value": 82.0,
+          "threshold": 75.0,
+          "unit": "C"
+        },
+        {
+          "signal": "lubrication_interval_days",
+          "value": 18,
+          "threshold": 14,
+          "unit": "days"
+        },
+        {
+          "signal": "plc_alarm",
+          "value": "GBX-VIB-HI",
+          "threshold": "no active gearbox vibration alarm",
+          "unit": "alarm"
+        }
+      ]
+    },
+    "llm_explanation": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 4 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-VIB-01, GBX-LUBE-01. Operator observation: Oil leakage, gearbox 82C, bearing 69C, vibration 7.8 mm/s trend rising, warning light on, drive station running.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+    "llm_runtime": {
+      "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 4 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-VIB-01, GBX-LUBE-01. Operator observation: Oil leakage, gearbox 82C, bearing 69C, vibration 7.8 mm/s trend rising, warning light on, drive station running.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+      "backend": "deterministic",
+      "model": "deterministic-action-card-template",
+      "latency_ms": 0.01,
+      "service_url": "in-process",
+      "fallback_used": false,
+      "claim_status": "deterministic_llm_adapter_contract",
+      "error": null
+    },
+    "action_card": {
+      "mode": "maintenance",
+      "channel": "maintenance_report",
+      "priority": "high",
+      "owner": "maintenance_engineer",
+      "requires_human_confirmation": true,
+      "integration_target": "maintenance_work_order",
+      "action": "Report a high-risk gearbox condition and prepare a human-confirmed maintenance work-order draft.",
+      "source_ids": [
+        "GBX-HUMAN-01",
+        "GBX-VIB-01",
+        "GBX-LUBE-01"
+      ],
+      "blocked_claims": [
+        "final_root_cause",
+        "remaining_useful_life",
+        "restart_permission",
+        "maintenance_release"
+      ]
+    },
+    "timing": {
+      "pipeline_latency_ms": 1.08,
+      "note": "Deterministic demo-path timing; production embedding and LLM service latency should be measured separately.",
+      "strict_lmm_to_opea_pipeline_ms": 1.09
+    },
+    "asset_id": "PKG-L3-GBX-03",
+    "maintenance_evaluation": {
+      "status": "breach_detected",
+      "risk_level": "high",
+      "breach_count": 4,
+      "breaches": [
+        {
+          "signal": "vibration_rms_mm_s",
+          "value": 7.8,
+          "threshold": 7.0,
+          "unit": "mm/s"
+        },
+        {
+          "signal": "gearbox_temperature_c",
+          "value": 82.0,
+          "threshold": 75.0,
+          "unit": "C"
+        },
+        {
+          "signal": "lubrication_interval_days",
+          "value": 18,
+          "threshold": 14,
+          "unit": "days"
+        },
+        {
+          "signal": "plc_alarm",
+          "value": "GBX-VIB-HI",
+          "threshold": "no active gearbox vibration alarm",
+          "unit": "alarm"
+        }
+      ]
+    }
+  },
+  "total_seconds": 6.338,
+  "validation": {
+    "endpoint_used": true,
+    "parsed_json": true,
+    "recommended_agent_mode_maintenance": true,
+    "asset_id_correct": true,
+    "pipeline_ok": true,
+    "action_target_maintenance_work_order": true,
+    "restart_permission_blocked": true,
+    "maintenance_release_blocked": true,
+    "rag_sources_present": true,
+    "human_confirmation_required": true,
+    "all_checks_pass": true
+  },
+  "all_checks_pass": true
+}

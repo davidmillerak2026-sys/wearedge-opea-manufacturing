@@ -21,6 +21,7 @@ Runtime files:
 ```text
 src/wear_edge_opea/llm_adapter.py
 scripts/llm_adapter_benchmark.py
+scripts/lmm_image_benchmark.py
 evidence/benchmarks/llm_adapter_contract.local-smoke.json
 ```
 
@@ -86,10 +87,22 @@ all_contracts_pass=true
 ## Multimodal LMM/VLM Benchmark Boundary
 
 The real WearEdge product uses M400 visual evidence and private
-quality-inspection lineage. In this OPEA challenge package, visual evidence is
-represented through structured detector fields, observations, source IDs, and
-guarded action cards so the package stays runnable without private images or a
-large vision model.
+quality-inspection lineage. The mother repository has already run a real edge
+VLM path on Jetson:
+
+```text
+WearEdge-Pro /v1/infer
+  -> llama.cpp /v1/chat/completions
+  -> Gemma 4 E2B Q4_K_S + mmproj-F16
+  -> route-specific contract validation
+  -> action cards and audit logs
+```
+
+Source evidence is mapped in
+[`docs/source-vlm-e2e-evidence-map.md`](source-vlm-e2e-evidence-map.md). In
+this OPEA challenge package, visual evidence is represented through structured
+detector fields, observations, source IDs, and guarded action cards so the
+package stays runnable without private images or a large vision model.
 
 A true production LMM/VLM full-chain benchmark would require:
 
@@ -98,13 +111,21 @@ A true production LMM/VLM full-chain benchmark would require:
 - strict no-fallback execution;
 - route-level pass/fail metrics for IQC, hazard, and maintenance observations.
 
+The strict public oil-leak benchmark harness is now included:
+
+```text
+scripts/lmm_image_benchmark.py
+docs/lmm-machine-oil-leak-benchmark-report.md
+evidence/images/machine_oil_leak.png
+```
+
 Until those are available, the honest claim is:
 
 ```text
-WearEdge has a production LLM/LMM integration path and visual-evidence lineage.
-The public OPEA submission benchmarks the deterministic action-card path and
-official TEI/RAG path, while preserving a strict benchmark harness for real
-LLM endpoints.
+WearEdge-Pro has a real edge VLM product path and visual-evidence lineage.
+The public OPEA submission benchmarks the OPEA TEI/RAG/action-card path with
+official TEI and Qdrant, while preserving strict benchmark harnesses for real
+LLM/LMM endpoints.
 ```
 
 ## Why This Matters For Scoring

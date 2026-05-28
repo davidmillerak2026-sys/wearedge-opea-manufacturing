@@ -14,6 +14,8 @@ reported AVX-512 and AMX feature flags, and the same project package passed:
 - OPEA-compatible `/v1/embeddings` profile E2E;
 - official OPEA TEI embedding profile E2E with Hugging Face TEI,
   `opea/embedding:latest`, Qdrant, and five route demos.
+- optional follow-up TEI/oneDNN verbose capture script for lower-level dispatch
+  evidence when Google Cloud access is available.
 
 This is the right claim boundary for the competition bonus:
 
@@ -27,6 +29,8 @@ evidence recorded.
 
 Do not claim that the benchmark proves TEI or oneDNN microkernels dispatched
 AMX/AVX-512 instructions internally. Do not claim production LLM acceleration.
+Only claim oneDNN, DNNL, AMX, or AVX kernel dispatch if the verbose artifact
+actually contains matching marker lines.
 
 ## Hardware
 
@@ -60,6 +64,7 @@ Detected feature flags from `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.js
 | Docker/Qdrant fresh-clone E2E | `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json` | `/demo`, `/healthz`, five demo routes, five infer routes, Qdrant, `/v1/scorecard`, Docker stats |
 | OPEA-compatible embedding profile | `evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json` | `/v1/embeddings`, Qdrant route collections, all five demos, scorecard routes pass |
 | Official OPEA TEI profile | `evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json` | Hugging Face TEI, `opea/embedding:latest`, 768-dimensional embeddings, Qdrant TEI vector-store markers, five routes, scorecard pass |
+| TEI/oneDNN verbose capture path | `scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh` | Re-runs official TEI profile with `ONEDNN_VERBOSE`, `DNNL_VERBOSE`, and `MKLDNN_VERBOSE`; captures CPU flags, TEI/OPEA logs, Docker stats, and dispatch marker grep |
 
 ## Official OPEA TEI Profile Runtime
 
@@ -120,7 +125,8 @@ The current record is strong enough to show application-level effective use of
 Intel Xeon hardware. To make the hardware bonus even harder to dispute, add one
 of the following if time and platform access allow:
 
-- TEI/oneDNN verbose log showing the backend kernel dispatch path;
+- Run `scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh` and attach
+  `~/gcp_c3_tei_onednn_verbose.json`;
 - side-by-side latency comparison against a non-AMX CPU instance;
 - production LLM endpoint benchmark on the same C3 host with strict fallback
   disabled.
