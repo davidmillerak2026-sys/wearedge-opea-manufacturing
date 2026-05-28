@@ -58,7 +58,7 @@ flowchart LR
 | Embedding microservice | OPEA-compatible profile implemented; official TEI profile passed local and C3 E2E | `docker-compose.opea.yml`, `docker-compose.opea-tei.yml`, `src/wear_edge_opea/opea_embedding_service.py`, `src/wear_edge_opea/embedding.py` | Optional `/v1/embeddings` service boundary plus OPEA TEI path for Qdrant RAG |
 | Retriever / RAG | Implemented | `src/wear_edge_opea/retriever.py` | Route-specific retrieval before explanation |
 | Vector DB | Implemented profile | `docker-compose.yml`, `src/wear_edge_opea/vector_store.py` | Qdrant collections per route, in-memory fallback |
-| LLM Service | Adapter-ready | `src/wear_edge_opea/llm_stub.py`, source `jetson/llama_client.py` | Deterministic no-model demo, OpenAI-compatible source path |
+| LLM Service | OpenAI/OPEA-compatible adapter and benchmark-ready path | `src/wear_edge_opea/llm_stub.py`, `src/wear_edge_opea/llm_adapter.py`, `scripts/llm_adapter_benchmark.py`, `evidence/benchmarks/llm_adapter_contract.local-smoke.json`, source `jetson/llama_client.py` | Deterministic no-model demo by default; configured endpoint benchmark path for production LLM evidence |
 | Guardrails | Implemented | `src/wear_edge_opea/guardrails.py` | Blocked claims and human gates per route |
 | Evaluation | Implemented scorecard | `src/wear_edge_opea/evaluator.py`, `src/wear_edge_opea/scorecard.py` | Latency, contract, guardrail, RAG, target, isolation checks |
 
@@ -77,7 +77,7 @@ Implemented now:
 Still required for maximum bonus:
 
 - OPEA PR URL. Public RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`.
-- Official OPEA component hardening: add a production LLM service profile and benchmark it separately.
+- Official OPEA component hardening: production LLM adapter is implemented; benchmark a real endpoint separately before claiming production LLM acceleration.
 - External 1-3 minute demo video URL. Article, script, and captions are ready in `public/`.
 
 ## Cloud Runtime Evidence

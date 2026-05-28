@@ -4,7 +4,9 @@ This is the proposed first PR shape for `opea-project/GenAIExamples` once
 maintainers confirm the preferred location and naming from RFC issue #2461.
 
 Status: PR-ready package prepared and locally smoke-tested in
-`docs/opea-upstream/pr-ready/ManufacturingAgentSuite/`.
+`docs/opea-upstream/pr-ready/ManufacturingAgentSuite/`. A `git format-patch`
+artifact is also prepared at
+`docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch`.
 
 ## Proposed Path
 
@@ -46,6 +48,7 @@ The current repository includes a copyable upstream artifact at:
 
 ```text
 docs/opea-upstream/pr-ready/ManufacturingAgentSuite/
+docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch
 ```
 
 It has been validated locally with:
@@ -55,6 +58,7 @@ Python syntax parse: pass
 HTTP smoke: /healthz, five agents, five demos, five infers, scorecard pass
 docker-compose base config: pass
 docker-compose official TEI config: pass
+git format-patch artifact: generated from local GenAIExamples branch
 ```
 
 The package is intentionally smaller than the competition repository so OPEA

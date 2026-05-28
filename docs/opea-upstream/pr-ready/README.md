@@ -18,6 +18,16 @@ ManufacturingAgentSuite/
   assets/flow.md
 ```
 
+It also includes a generated `git format-patch` artifact:
+
+```text
+0001-add-manufacturing-agent-suite.patch
+```
+
+This patch was generated from a local `opea-project/GenAIExamples` clone on
+branch `codex/wear-edge-manufacturing-suite-pr-ready` with commit
+`f5ea17a Add ManufacturingAgentSuite example`.
+
 ## Intended Upstream Use
 
 Copy `ManufacturingAgentSuite/` to the root of a fork of
@@ -26,6 +36,12 @@ Copy `ManufacturingAgentSuite/` to the root of a fork of
 - RFC issue: https://github.com/opea-project/GenAIExamples/issues/2461
 - TEI update comment: https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
 - Reference implementation: https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
+
+Alternatively, from a fork/clone of `opea-project/GenAIExamples`:
+
+```bash
+git am /path/to/0001-add-manufacturing-agent-suite.patch
+```
 
 ## Boundary
 

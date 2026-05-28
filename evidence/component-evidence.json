@@ -51,6 +51,7 @@
         "docs/opea-upstream/implementation-feedback-comment.md",
         "docs/opea-upstream/minimal-pr-scope.md",
         "docs/opea-upstream/tei-update-comment.md",
+        "docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch",
         "docs/publication-record.md"
       ],
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
@@ -150,6 +151,18 @@
         "Docker stats"
       ],
       "claim_boundary": "Official OPEA TEI embedding path passed local Docker Desktop and Google Cloud C3 fresh-clone E2E. This does not claim production LLM acceleration."
+    },
+    {
+      "category": "Champion risk burn-down",
+      "status": "risk_mitigations_documented",
+      "local_paths": [
+        "docs/champion-risk-burn-down.md",
+        "docs/opea-native-depth-matrix.md",
+        "docs/production-llm-benchmark-path.md",
+        "docs/data-provenance-and-field-validation.md",
+        "docs/telecom-scope-and-manufacturing-positioning.md"
+      ],
+      "claim_boundary": "Known competitive risks are mitigated and documented. This does not guarantee a prize, but it gives judges direct evidence for OPEA depth, LLM readiness, data provenance, upstream contribution readiness, and Manufacturing scope."
     }
   ],
   "component_map": [
@@ -275,17 +288,21 @@
     },
     {
       "opea_layer": "LLM Service",
-      "wear_edge_component": "No-model explanation stub plus source OpenAI-compatible edge LLM",
-      "status": "adapter_ready_in_submission",
+      "wear_edge_component": "Deterministic no-model path plus OpenAI/OPEA-compatible LLM adapter and benchmark harness",
+      "status": "openai_compatible_adapter_benchmark_ready",
       "local_paths": [
-        "src/wear_edge_opea/llm_stub.py"
+        "src/wear_edge_opea/llm_stub.py",
+        "src/wear_edge_opea/llm_adapter.py",
+        "scripts/llm_adapter_benchmark.py",
+        "docs/production-llm-benchmark-path.md",
+        "evidence/benchmarks/llm_adapter_contract.local-smoke.json"
       ],
       "source_paths": [
         "jetson/llama_client.py",
         "scripts/run_llama_server.sh",
         "docs/edge-runtime-benchmark.md"
       ],
-      "submission_claim": "Local demo is deterministic; source project has OpenAI-compatible edge LLM service"
+      "submission_claim": "Local demo is deterministic by default; the submitted runtime can call an OpenAI/OPEA-compatible chat-completions endpoint and benchmark endpoint latency/fallback status when configured"
     },
     {
       "opea_layer": "Guardrails",

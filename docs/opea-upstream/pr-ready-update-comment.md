@@ -8,8 +8,8 @@ https://github.com/opea-project/GenAIExamples/issues/2461
 
 Status: prepared for manual posting.
 
-The PR-ready package has been pushed to the public submission repository. A
-GitHub App attempt to post this update directly to
+The PR-ready package and a generated `git format-patch` artifact have been
+pushed to the public submission repository. A GitHub App attempt to post this update directly to
 `opea-project/GenAIExamples#2461` on 2026-05-27 returned
 `403 Resource not accessible by integration`, so the comment body below is the
 manual paste source.
@@ -25,6 +25,12 @@ Package URL:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready
 ```
 
+Patch artifact:
+
+```text
+docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch
+```
+
 The package is intentionally smaller than the full competition repository so it
 can be reviewed as a first OPEA `GenAIExamples` contribution:
 
@@ -38,6 +44,7 @@ ManufacturingAgentSuite/
   benchmark/README.md
   tests/test_compose_on_xeon.sh
   assets/flow.md
+  0001-add-manufacturing-agent-suite.patch
 ```
 
 Validated locally on 2026-05-27:
@@ -49,6 +56,8 @@ Validated locally on 2026-05-27:
 - Base Docker Compose config passed.
 - Official OPEA TEI Compose config passed with Hugging Face TEI,
   `opea/embedding:latest`, Qdrant, and the same manufacturing gateway.
+- `git format-patch` artifact generated from a local `GenAIExamples` branch
+  named `codex/wear-edge-manufacturing-suite-pr-ready`.
 
 The first PR boundary remains deliberately small: route registry, Qdrant
 profile, official OPEA TEI embedding profile, deterministic demo path,

@@ -10,17 +10,18 @@ form submission.
 | Check | Result |
 | --- | --- |
 | Local branch | `main` |
-| Local/remote sync | clean at `a2e9786f6b14d4cb168920fd09a9c784e8a73305` before final tag anchoring |
+| Local/remote sync | clean on `main` before final tag anchoring |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r2` |
+| Final tag | `final-submission-2026-05-28-r3` |
 
 ## Verification Already Passed
 
 | Gate | Evidence |
 | --- | --- |
-| Unit tests | `python -m unittest discover -s tests` passed 11 tests |
+| Unit tests | `python -m unittest discover -s tests` passed 14 tests |
+| LLM adapter benchmark | `python scripts\llm_adapter_benchmark.py --iterations 1 --output evidence\benchmarks\llm_adapter_contract.local-smoke.json` passed |
 | Evidence manifest | `python scripts/evidence_check.py` passed |
 | Submission JSON | `python -m json.tool submission-fields.draft.json` passed |
 | Public URL dry run | `docs/submission-url-dry-run.md` |
@@ -30,6 +31,7 @@ form submission.
 | GCP C3 official OPEA TEI | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
 | Xeon AVX-512/AMX evidence | `docs/intel-avx512-amx-benchmark-report.md` |
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
+| Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 
 ## Live Runtime State
 
@@ -75,4 +77,5 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 
 Do not change the project URL away from the OPEA competition repository, and do
 not add claims for autonomous restart, quality release, maintenance release,
-safety clearance, final root cause, or production LLM acceleration.
+safety clearance, final root cause, or production LLM acceleration unless a
+real endpoint benchmark is attached with `production_llm_endpoint_benchmarked`.

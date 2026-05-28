@@ -8,7 +8,14 @@ Project URL:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-WearEdge OPEA Manufacturing is a five-agent, OPEA-aligned manufacturing suite. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
+WearEdge OPEA Manufacturing is a five-agent, OPEA-aligned manufacturing suite. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, an optional OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
+
+Champion submission headline:
+
+```text
+Five manufacturing agents + official OPEA TEI embeddings + Qdrant RAG +
+Gateway/Megaservice orchestration + guardrails + scorecard + GCP C3 evidence.
+```
 
 ## Submission Product Shape
 
@@ -47,7 +54,7 @@ Vuzix M400 / API request
   -> Retriever / RAG
   -> Qdrant Vector DB profile, with in-memory fallback
   -> optional OPEA-compatible Embedding Microservice /v1/embeddings
-  -> LLM service adapter, deterministic no-model demo path
+  -> LLM service adapter, deterministic no-model demo path or OpenAI/OPEA-compatible endpoint
   -> route-specific evaluator
   -> Guardrails and blocked claims
   -> CMMS / QMS / MES / WI / EHS action card
@@ -115,6 +122,20 @@ the embedding model, the OPEA embedding microservice connects through
 `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and the Manufacturing Gateway
 uses `/v1/embeddings` for Qdrant indexing and retrieval.
 
+LLM adapter contract benchmark:
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts\llm_adapter_benchmark.py --iterations 1 `
+  --output evidence\benchmarks\llm_adapter_contract.local-smoke.json
+```
+
+To benchmark a real OpenAI/OPEA-compatible LLM endpoint, set
+`WEAREDGE_LLM_BACKEND=openai-compatible`, `WEAREDGE_LLM_URL` or
+`WEAREDGE_LLM_BASE_URL`, `WEAREDGE_LLM_MODEL`, and
+`WEAREDGE_LLM_STRICT=true`. See
+[`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md).
+
 The legacy maintenance endpoints remain available:
 
 ```bash
@@ -143,6 +164,11 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
+| [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |
+| [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
+| [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md) | Optional production LLM endpoint benchmark path |
+| [`docs/data-provenance-and-field-validation.md`](docs/data-provenance-and-field-validation.md) | Real-vs-demo data provenance and field validation boundary |
+| [`docs/telecom-scope-and-manufacturing-positioning.md`](docs/telecom-scope-and-manufacturing-positioning.md) | Manufacturing positioning if judges compare telecom/network projects |
 | [`docs/submission-url-dry-run.md`](docs/submission-url-dry-run.md) | Public URL dry run for challenge form fields |
 | [`docs/local-docker-desktop-final-validation.md`](docs/local-docker-desktop-final-validation.md) | Final local Docker Desktop runtime validation |
 | [`docs/official-opea-profile.md`](docs/official-opea-profile.md) | OPEA-compatible embedding microservice profile |
@@ -164,6 +190,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`data/maintenance_kb/`](data/maintenance_kb/) | Lao-shi-fu maintenance KB |
 | [`src/wear_edge_opea/agents.py`](src/wear_edge_opea/agents.py) | Unified route registry |
 | [`src/wear_edge_opea/demo_console.py`](src/wear_edge_opea/demo_console.py) | Judge-facing browser product console |
+| [`src/wear_edge_opea/llm_adapter.py`](src/wear_edge_opea/llm_adapter.py) | Deterministic and OpenAI/OPEA-compatible LLM adapter |
 | [`src/wear_edge_opea/scorecard.py`](src/wear_edge_opea/scorecard.py) | Five-agent evaluation scorecard |
 | [`docker-compose.yml`](docker-compose.yml) | Qdrant + Manufacturing Gateway runnable profile |
 | [`docker-compose.opea.yml`](docker-compose.opea.yml) | Optional OPEA-compatible embedding microservice override |
@@ -206,6 +233,7 @@ docs/opea-upstream/implementation-feedback-comment.md
 docs/opea-upstream/minimal-pr-scope.md
 docs/opea-upstream/pr-ready-update-comment.md
 docs/opea-upstream/pr-ready/
+docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch
 ```
 
 Knowledge-sharing package:
@@ -237,6 +265,7 @@ evidence/benchmarks/local_opea_profile_e2e.summary.json
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
+evidence/benchmarks/llm_adapter_contract.local-smoke.json
 ```
 
 Official OPEA TEI rerun script:

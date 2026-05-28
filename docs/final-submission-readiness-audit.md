@@ -1,8 +1,9 @@
 # Final Submission Readiness Audit
 
 Status: strong technical package; public demo video URL verified; OPEA
-PR-ready package prepared; local Docker Desktop validation passed; submission
-URL dry run passed; optional upstream PR and final visual form review remain.
+PR-ready package and patch artifact prepared; local Docker Desktop validation
+passed; submission URL dry run passed; champion risk burn-down completed;
+optional upstream PR and final visual form review remain.
 
 ## Product Decision
 
@@ -27,11 +28,12 @@ with Docker, Web UI, API routes, and scorecard only.
 | Criterion | Evidence | Status |
 | --- | --- | --- |
 | Creativity and business value | Five manufacturing agents cover maintenance, IQC, changeover, WI, and hazard workflows instead of a single demo | Ready |
-| Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, guardrails, scorecard | Ready |
+| Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, OpenAI/OPEA-compatible LLM adapter, guardrails, scorecard | Ready |
 | Prototype quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
-| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; PR-ready package prepared and smoke-tested; PR pending fork/write path or maintainer feedback | Strong |
+| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; PR-ready package prepared and smoke-tested; `git format-patch` artifact generated; PR pending fork/write path or maintainer feedback | Strong |
+| Champion risk burn-down | OPEA depth, LLM benchmark path, demo skim risk, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | Public article ready; demo video script/captions, renderable HyperFrames source, local MP4 render, and public video URL ready | Ready |
 
 ## Hard Evidence
@@ -44,6 +46,11 @@ with Docker, Web UI, API routes, and scorecard only.
 | Public project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | OPEA TEI update comment | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
 | OPEA PR-ready package | `docs/opea-upstream/pr-ready/` |
+| OPEA PR patch artifact | `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch` |
+| Champion risk burn-down | `docs/champion-risk-burn-down.md` |
+| OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
+| Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
+| LLM adapter smoke JSON | `evidence/benchmarks/llm_adapter_contract.local-smoke.json` |
 | Final form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Final pre-submit audit | `docs/final-pre-submit-audit-2026-05-28.md` |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
@@ -85,8 +92,11 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 - Do not claim the project is a certified safety controller.
 - Do not claim autonomous restart, quality release, maintenance release, final
   root cause, remaining useful life, or safety clearance.
-- Do not claim production LLM acceleration. Current production-component
-  evidence is for the official OPEA TEI embedding path, not a production LLM.
+- Do not claim production LLM acceleration unless a configured endpoint
+  benchmark reports `production_llm_endpoint_benchmarked`, `fallback_count=0`,
+  and `production_endpoint_used=true`. Current committed production-component
+  evidence is for the official OPEA TEI embedding path plus an LLM adapter
+  contract smoke test.
 - Do not imply all five routes have equal field maturity. Maintenance is the
   strongest hero route; the other four prove platform breadth with runnable
   prototypes and route-specific guardrails.
@@ -100,6 +110,6 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 
 ## Current Verdict
 
-The core technical package is now competition-ready. The highest-return final
-work is performing the final submission form dry run and optionally opening the
-already-prepared upstream PR package, not more architecture code.
+The core technical package is now champion-ready for submission. The remaining
+high-return work is pressing the final challenge form submit button and,
+optionally, opening the already-prepared upstream PR from a fork/write path.

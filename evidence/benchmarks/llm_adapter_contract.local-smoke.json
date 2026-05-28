@@ -1,0 +1,104 @@
+{
+  "benchmark": "WearEdge OPEA Manufacturing LLM adapter benchmark",
+  "schema_version": "2026-05-28",
+  "claim_status": "deterministic_llm_adapter_contract_smoke_test",
+  "configuration": {
+    "WEAREDGE_LLM_BACKEND": "deterministic",
+    "WEAREDGE_LLM_URL_CONFIGURED": false,
+    "WEAREDGE_LLM_MODEL": "manufacturing-action-card-adapter",
+    "WEAREDGE_LLM_STRICT": "false"
+  },
+  "iterations_per_route": 1,
+  "total_calls": 5,
+  "total_seconds": 0.0135,
+  "llm_latency": {
+    "count": 5,
+    "min_ms": 0.01,
+    "mean_ms": 0.02,
+    "p50_ms": 0.02,
+    "p95_ms": 0.02,
+    "max_ms": 0.02
+  },
+  "pipeline_latency": {
+    "count": 5,
+    "min_ms": 1.48,
+    "mean_ms": 1.97,
+    "p50_ms": 1.76,
+    "p95_ms": 3.21,
+    "max_ms": 3.21
+  },
+  "backend_names": [
+    "deterministic"
+  ],
+  "fallback_count": 0,
+  "all_contracts_pass": true,
+  "production_endpoint_used": false,
+  "sample_calls": [
+    {
+      "mode": "maintenance",
+      "ok": true,
+      "integration_target": "maintenance_work_order",
+      "expected_integration_target": "maintenance_work_order",
+      "guardrail_pass": true,
+      "rag_source_match": true,
+      "llm_backend": "deterministic",
+      "llm_fallback_used": false,
+      "llm_claim_status": "deterministic_llm_adapter_contract",
+      "llm_latency_ms": 0.02,
+      "pipeline_latency_ms": 3.21
+    },
+    {
+      "mode": "iqc",
+      "ok": true,
+      "integration_target": "qms_quality_event",
+      "expected_integration_target": "qms_quality_event",
+      "guardrail_pass": true,
+      "rag_source_match": true,
+      "llm_backend": "deterministic",
+      "llm_fallback_used": false,
+      "llm_claim_status": "deterministic_llm_adapter_contract",
+      "llm_latency_ms": 0.02,
+      "pipeline_latency_ms": 1.76
+    },
+    {
+      "mode": "changeover",
+      "ok": true,
+      "integration_target": "changeover_checklist",
+      "expected_integration_target": "changeover_checklist",
+      "guardrail_pass": true,
+      "rag_source_match": true,
+      "llm_backend": "deterministic",
+      "llm_fallback_used": false,
+      "llm_claim_status": "deterministic_llm_adapter_contract",
+      "llm_latency_ms": 0.02,
+      "pipeline_latency_ms": 1.78
+    },
+    {
+      "mode": "wi",
+      "ok": true,
+      "integration_target": "wi_reference",
+      "expected_integration_target": "wi_reference",
+      "guardrail_pass": true,
+      "rag_source_match": true,
+      "llm_backend": "deterministic",
+      "llm_fallback_used": false,
+      "llm_claim_status": "deterministic_llm_adapter_contract",
+      "llm_latency_ms": 0.02,
+      "pipeline_latency_ms": 1.62
+    },
+    {
+      "mode": "hazard",
+      "ok": true,
+      "integration_target": "ehs_case",
+      "expected_integration_target": "ehs_case",
+      "guardrail_pass": true,
+      "rag_source_match": true,
+      "llm_backend": "deterministic",
+      "llm_fallback_used": false,
+      "llm_claim_status": "deterministic_llm_adapter_contract",
+      "llm_latency_ms": 0.01,
+      "pipeline_latency_ms": 1.48
+    }
+  ],
+  "claim_boundary": "Use production_llm_endpoint_benchmarked only when the endpoint is configured and fallback_count is zero. Otherwise this is a deterministic adapter contract smoke test."
+}

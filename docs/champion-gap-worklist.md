@@ -18,9 +18,10 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Work item | Reason | Done when |
 | --- | --- | --- |
 | Replace hashing embeddings with production embedding service | Improves RAG quality and technical credibility | Official TEI/GenAIComps profile is implemented and passed both local Docker Desktop and Google Cloud C3 fresh-clone E2E |
+| Add production LLM adapter benchmark path | Prevents the LLM component claim from looking like a pure stub | OpenAI/OPEA-compatible adapter, benchmark script, local contract smoke JSON, and strict production endpoint claim boundary are included |
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Current `/v1/scorecard` exists; add throughput, memory, and setup-time logs |
 | Add Intel hardware optimization path | Up to 15 bonus points | Harness and local smoke test are ready; Xeon AVX-512/AMX JSON captured |
-| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue, implementation update, and TEI update are posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR-ready package is prepared under `docs/opea-upstream/pr-ready/`; upstream PR awaits fork/write path or maintainer direction |
+| Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue, implementation update, and TEI update are posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; PR-ready package and `git format-patch` artifact are prepared under `docs/opea-upstream/pr-ready/`; upstream PR awaits fork/write path or maintainer direction |
 | Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Article is public and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video source, local render, render report, and public GitHub video asset page are ready |
 
 ## P2
@@ -30,3 +31,4 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Add challenge-specific screenshots | Judges skim quickly | README includes architecture + real prototype image |
 | Add public dataset/source statement | Compliance and reproducibility | Data sources and generated sample evidence are listed |
 | Add short FAQ | Reduces judge confusion | README answers "Why OPEA?", "Why Manufacturing?", "What is real?" |
+| Add champion risk burn-down | Makes final review explicit | Six non-winning risks are tracked in `docs/champion-risk-burn-down.md` with artifacts and claim boundaries |

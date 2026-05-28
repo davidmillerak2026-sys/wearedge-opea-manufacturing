@@ -454,6 +454,7 @@ _HTML = """<!doctype html>
                 <div class="fact"><b>Channel</b><span id="cardChannel">-</span></div>
                 <div class="fact"><b>Priority</b><span id="cardPriority">-</span></div>
                 <div class="fact"><b>Integration</b><span id="cardIntegration">-</span></div>
+                <div class="fact"><b>LLM runtime</b><span id="cardLlmRuntime">-</span></div>
                 <div class="fact"><b>Source IDs</b><span id="cardSources">-</span></div>
               </div>
               <div class="chips" id="blockedClaims"></div>
@@ -530,6 +531,7 @@ _HTML = """<!doctype html>
       el("cardChannel").textContent = card.channel;
       el("cardPriority").textContent = card.priority;
       el("cardIntegration").textContent = card.integration_target;
+      el("cardLlmRuntime").textContent = `${result.llm_runtime.backend} / ${result.llm_runtime.claim_status}`;
       el("cardSources").textContent = card.source_ids.join(", ");
       el("blockedClaims").innerHTML = card.blocked_claims.map((claim) => `<span class="chip">${claim}</span>`).join("");
       el("rawJson").textContent = pretty(result);

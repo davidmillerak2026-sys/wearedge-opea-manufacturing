@@ -17,6 +17,7 @@ from wear_edge_opea.scorecard import build_scorecard
 from wear_edge_opea.vector_store import QdrantVectorStore
 from wear_edge_opea.demo_console import build_demo_console_html
 from wear_edge_opea.embedding import _coerce_dimensions, _extract_embedding, embedding_profile_name
+from wear_edge_opea.llm_adapter import build_prompt
 from scripts.intel_cpu_benchmark import claim_status
 
 
@@ -157,6 +158,58 @@ class PipelineTest(unittest.TestCase):
     def test_strict_embedding_dimensions_reject_mismatch(self) -> None:
         with self.assertRaises(ValueError):
             _coerce_dimensions([1.0, 2.0], 3, strict=True)
+
+    def test_llm_runtime_defaults_to_deterministic_contract(self) -> None:
+        with patch.dict("os.environ", {}, clear=True):
+            result = run_pipeline(load_sample_request("maintenance"), mode="maintenance")
+
+        self.assertEqual(result["llm_runtime"]["backend"], "deterministic")
+        self.assertEqual(result["llm_runtime"]["claim_status"], "deterministic_llm_adapter_contract")
+        self.assertFalse(result["llm_runtime"]["fallback_used"])
+
+    def test_openai_compatible_llm_adapter_can_be_benchmarked(self) -> None:
+        def fake_post_json(url: str, payload: dict, timeout: float) -> dict:
+            self.assertEqual(url, "http://llm-service:9000/v1/chat/completions")
+            self.assertEqual(payload["model"], "test-model")
+            return {
+                "choices": [
+                    {
+                        "message": {
+                            "content": "LLM-backed bounded action-card explanation with preserved source IDs."
+                        }
+                    }
+                ]
+            }
+
+        env = {
+            "WEAREDGE_LLM_BACKEND": "openai-compatible",
+            "WEAREDGE_LLM_URL": "http://llm-service:9000/v1/chat/completions",
+            "WEAREDGE_LLM_MODEL": "test-model",
+            "WEAREDGE_LLM_STRICT": "true",
+        }
+        with patch.dict("os.environ", env, clear=True):
+            with patch("wear_edge_opea.llm_adapter._post_json", side_effect=fake_post_json):
+                result = run_pipeline(load_sample_request("hazard"), mode="hazard")
+
+        self.assertEqual(result["llm_runtime"]["backend"], "openai-compatible")
+        self.assertEqual(result["llm_runtime"]["model"], "test-model")
+        self.assertEqual(result["llm_runtime"]["claim_status"], "production_llm_endpoint_used")
+        self.assertFalse(result["llm_runtime"]["fallback_used"])
+        self.assertIn("LLM-backed", result["llm_explanation"])
+
+    def test_llm_prompt_preserves_route_sources_and_claim_boundary(self) -> None:
+        result = run_pipeline(load_sample_request("iqc"), mode="iqc")
+        prompt = build_prompt(
+            ROUTES["iqc"],
+            result["entity_id"],
+            result["request"]["operator_observation"],
+            result["rag"]["hits"],
+            result["agent_evaluation"],
+        )
+
+        self.assertIn("Agent mode: iqc", prompt)
+        self.assertIn("Integration target: qms_quality_event", prompt)
+        self.assertIn("Preserve source IDs", prompt)
 
 
 if __name__ == "__main__":

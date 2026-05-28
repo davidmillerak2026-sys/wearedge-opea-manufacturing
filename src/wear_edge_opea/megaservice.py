@@ -6,7 +6,7 @@ from .agents import entity_id_for, get_route, load_sample_request
 from .dataprep import load_kb_for_route
 from .evaluator import evaluate_request
 from .guardrails import build_action_card
-from .llm_stub import explain
+from .llm_adapter import generate_explanation
 from .retriever import retrieve_context
 
 
@@ -20,7 +20,8 @@ def run_pipeline(request: dict, mode: str | None = None) -> dict:
 
     rag = retrieve_context(route.mode, query)
     evaluation = evaluate_request(route.mode, request, rag["thresholds"])
-    explanation = explain(route, entity_id, observation, rag["hits"], evaluation)
+    llm_result = generate_explanation(route, entity_id, observation, rag["hits"], evaluation)
+    explanation = llm_result.text
     action_card = build_action_card(route, entity_id, evaluation, rag["hits"])
 
     elapsed_ms = round((time.perf_counter() - start) * 1000, 2)
@@ -48,6 +49,7 @@ def run_pipeline(request: dict, mode: str | None = None) -> dict:
         "rag": rag,
         "agent_evaluation": evaluation,
         "llm_explanation": explanation,
+        "llm_runtime": llm_result.to_metadata(),
         "action_card": action_card,
         "timing": {
             "pipeline_latency_ms": elapsed_ms,

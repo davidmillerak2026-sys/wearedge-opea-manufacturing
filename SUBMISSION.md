@@ -74,6 +74,12 @@ production embedding evidence.
 
 The FastAPI gateway also serves a browser Manufacturing Demo Console at `/demo`, so reviewers can inspect requests, RAG evidence, action cards, guardrails, and scorecard results without writing curl commands.
 
+The LLM adapter now supports both the deterministic no-secret path and an
+OpenAI/OPEA-compatible chat-completions endpoint. The submitted evidence
+includes a local adapter contract benchmark; production LLM wording should only
+be used after a configured endpoint benchmark reports
+`production_llm_endpoint_benchmarked`.
+
 ## Runnable Evidence
 
 ```bash
@@ -113,6 +119,8 @@ Key archived evidence already mapped into this submission package:
 ## Remaining Champion Bonus Work
 
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; copyable PR-ready package prepared under `docs/opea-upstream/pr-ready/`; upstream PR awaits fork/write path or maintainer feedback.
+- Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR limitations, and telecom-vs-manufacturing positioning.
+- LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default judge run deterministic and reproducible.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
 - Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; video script, captions, renderable HyperFrames source, local MP4 render report, and public GitHub MP4 asset page are ready.
@@ -132,6 +140,10 @@ Key archived evidence already mapped into this submission package:
 - OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
 - OPEA PR-ready package: `docs/opea-upstream/pr-ready/`
+- OPEA PR patch artifact: `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch`
+- Champion risk burn-down: `docs/champion-risk-burn-down.md`
+- OPEA native depth matrix: `docs/opea-native-depth-matrix.md`
+- Production LLM benchmark path: `docs/production-llm-benchmark-path.md`
 - Official OPEA profile: `docs/official-opea-profile.md`
 - Official OPEA TEI profile: `docs/official-opea-tei-profile.md`
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`

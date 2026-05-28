@@ -11,6 +11,7 @@ except ImportError as exc:  # pragma: no cover - import guard for local no-deps 
 
 from .agents import list_agents, load_sample_request
 from .demo_console import build_demo_console_html
+from .llm_adapter import configured_backend, configured_model, configured_url
 from .megaservice import run_agent_demo, run_all_agent_demos, run_pipeline
 from .scorecard import build_scorecard
 
@@ -37,6 +38,9 @@ def healthz() -> dict:
         "qdrant_url": os.getenv("WEAREDGE_QDRANT_URL", "not-set"),
         "embedding_backend": os.getenv("WEAREDGE_EMBEDDING_BACKEND", "hashing"),
         "embedding_url": os.getenv("WEAREDGE_EMBEDDING_URL", "in-process"),
+        "llm_backend": configured_backend(),
+        "llm_model": configured_model(),
+        "llm_url": configured_url() or "in-process",
         "agents": ["maintenance", "iqc", "changeover", "wi", "hazard"],
     }
 

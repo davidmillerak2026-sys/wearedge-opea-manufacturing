@@ -1,0 +1,627 @@
+From f5ea17ad142c6ea1d6680244f15ed6f3af089383 Mon Sep 17 00:00:00 2001
+From: Your Name <ryan.on2008@gmail.com>
+Date: Thu, 28 May 2026 12:13:00 +0800
+Subject: [PATCH] Add ManufacturingAgentSuite example
+
+---
+ ManufacturingAgentSuite/README.md             |  68 +++++
+ ManufacturingAgentSuite/assets/flow.md        |  33 +++
+ ManufacturingAgentSuite/benchmark/README.md   |  26 ++
+ .../docker_compose/intel/cpu/xeon/README.md   |  53 ++++
+ .../intel/cpu/xeon/compose.opea-tei.yaml      |  40 +++
+ .../intel/cpu/xeon/compose.yaml               |  33 +++
+ .../manufacturing_agent_suite.py              | 246 ++++++++++++++++++
+ .../tests/test_compose_on_xeon.sh             |  53 ++++
+ 8 files changed, 552 insertions(+)
+ create mode 100644 ManufacturingAgentSuite/README.md
+ create mode 100644 ManufacturingAgentSuite/assets/flow.md
+ create mode 100644 ManufacturingAgentSuite/benchmark/README.md
+ create mode 100644 ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/README.md
+ create mode 100644 ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.opea-tei.yaml
+ create mode 100644 ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.yaml
+ create mode 100644 ManufacturingAgentSuite/manufacturing_agent_suite.py
+ create mode 100644 ManufacturingAgentSuite/tests/test_compose_on_xeon.sh
+
+diff --git a/ManufacturingAgentSuite/README.md b/ManufacturingAgentSuite/README.md
+new file mode 100644
+index 0000000..00b4a92
+--- /dev/null
++++ b/ManufacturingAgentSuite/README.md
+@@ -0,0 +1,68 @@
++# ManufacturingAgentSuite
++
++`ManufacturingAgentSuite` is a proposed OPEA GenAIExamples blueprint for
++route-isolated industrial action-card agents.
++
++The example demonstrates how one Gateway and Manufacturing Megaservice can
++route plant-floor evidence to five governed manufacturing workflows:
++
++| Route | Workflow | Output target |
++| --- | --- | --- |
++| `maintenance` | Predictive maintenance / lao-shi-fu escalation | `maintenance_work_order` |
++| `iqc` | Incoming and in-process quality control | `qms_quality_event` |
++| `changeover` | SKU changeover verification | `changeover_checklist` |
++| `wi` | Released work-instruction guidance | `wi_reference` |
++| `hazard` | EHS hazard observation | `ehs_case` |
++
++## Architecture
++
++```text
++Plant evidence
++  -> Gateway
++  -> Manufacturing Megaservice
++  -> route registry: maintenance / iqc / changeover / wi / hazard
++  -> route-specific source evidence
++  -> deterministic evaluator
++  -> guardrails
++  -> bounded action card
++```
++
++The full WearEdge reference implementation also includes Qdrant RAG, OPEA
++embedding profiles, an official OPEA TEI path, benchmark evidence, and a browser
++demo console:
++
++```text
++https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
++```
++
++## Quick Start On Xeon
++
++```bash
++cd ManufacturingAgentSuite/docker_compose/intel/cpu/xeon
++docker compose up -d
++curl http://localhost:8899/v1/agents
++curl http://localhost:8899/v1/agents/maintenance/demo
++curl http://localhost:8899/v1/scorecard
++```
++
++Optional OPEA TEI profile:
++
++```bash
++docker compose -f compose.yaml -f compose.opea-tei.yaml up -d
++```
++
++## Endpoints
++
++| Endpoint | Purpose |
++| --- | --- |
++| `GET /healthz` | Service health and configured embedding profile |
++| `GET /v1/agents` | Route registry |
++| `GET /v1/agents/{mode}/demo` | Fixed demo request and bounded action card |
++| `POST /v1/agents/{mode}/infer` | Route-specific inference contract |
++| `GET /v1/scorecard` | Five-route validation scorecard |
++
++## Guardrail Boundary
++
++The example must not claim autonomous restart, quality release, maintenance
++release, safety clearance, final root cause, customer acceptance, or remaining
++useful life. Restricted decisions remain human-confirmed.
+diff --git a/ManufacturingAgentSuite/assets/flow.md b/ManufacturingAgentSuite/assets/flow.md
+new file mode 100644
+index 0000000..02cc01f
+--- /dev/null
++++ b/ManufacturingAgentSuite/assets/flow.md
+@@ -0,0 +1,33 @@
++# ManufacturingAgentSuite Flow
++
++```mermaid
++flowchart LR
++    Evidence["Plant-floor evidence"] --> Gateway["Gateway"]
++    Gateway --> Mega["Manufacturing Megaservice"]
++    Mega --> Registry["Route registry"]
++    Registry --> Maintenance["maintenance"]
++    Registry --> IQC["iqc"]
++    Registry --> Changeover["changeover"]
++    Registry --> WI["wi"]
++    Registry --> Hazard["hazard"]
++    Maintenance --> Eval["Evaluator"]
++    IQC --> Eval
++    Changeover --> Eval
++    WI --> Eval
++    Hazard --> Eval
++    Eval --> Guardrails["Guardrails"]
++    Guardrails --> Action["Bounded action card"]
++```
++
++OPEA component mapping:
++
++| OPEA concept | ManufacturingAgentSuite role |
++| --- | --- |
++| Gateway | Plant evidence/API entry point |
++| Megaservice | Route orchestration |
++| Dataprep | Route-specific manuals, quality plans, policies, and checklists |
++| Retriever/RAG | Source-grounded evidence retrieval in the full reference package |
++| Vector DB | Qdrant profile in the full reference package |
++| LLM service | Pluggable LLM adapter; deterministic path for CI |
++| Guardrails | Blocked claims and human-confirmation gates |
++| Evaluation | Route scorecard |
+diff --git a/ManufacturingAgentSuite/benchmark/README.md b/ManufacturingAgentSuite/benchmark/README.md
+new file mode 100644
+index 0000000..69f215a
+--- /dev/null
++++ b/ManufacturingAgentSuite/benchmark/README.md
+@@ -0,0 +1,26 @@
++# ManufacturingAgentSuite Benchmark Notes
++
++The first PR benchmark should remain CI-friendly:
++
++```bash
++cd ManufacturingAgentSuite/docker_compose/intel/cpu/xeon
++docker compose up -d
++../../../../tests/test_compose_on_xeon.sh
++```
++
++The reference WearEdge package includes deeper evidence:
++
++- Intel Xeon AVX-512/AMX deterministic five-route CPU benchmark.
++- Google Cloud C3 Docker/Qdrant fresh-clone E2E.
++- Google Cloud C3 OPEA-compatible embedding profile E2E.
++- Google Cloud C3 official OPEA TEI profile E2E.
++
++Reference evidence:
++
++```text
++https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/evidence/benchmarks
++```
++
++Do not use this first PR to claim production LLM acceleration. The current
++hardware evidence is for the deterministic route pipeline and official OPEA TEI
++embedding path.
+diff --git a/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/README.md b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/README.md
+new file mode 100644
+index 0000000..0815f8c
+--- /dev/null
++++ b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/README.md
+@@ -0,0 +1,53 @@
++# Deploying ManufacturingAgentSuite on Intel Xeon
++
++This directory contains a minimal Docker Compose deployment for the proposed
++`ManufacturingAgentSuite` OPEA example.
++
++## Start
++
++```bash
++docker compose up -d
++```
++
++## Validate
++
++```bash
++curl http://localhost:8899/healthz
++curl http://localhost:8899/v1/agents
++curl http://localhost:8899/v1/agents/maintenance/demo
++curl http://localhost:8899/v1/scorecard
++```
++
++Expected scorecard result:
++
++```json
++{
++  "ok": true,
++  "routes": [
++    {"mode": "maintenance", "status": "pass"},
++    {"mode": "iqc", "status": "pass"},
++    {"mode": "changeover", "status": "pass"},
++    {"mode": "wi", "status": "pass"},
++    {"mode": "hazard", "status": "pass"}
++  ]
++}
++```
++
++## Optional OPEA TEI Profile
++
++```bash
++docker compose -f compose.yaml -f compose.opea-tei.yaml up -d
++```
++
++This starts Hugging Face TEI and the OPEA embedding microservice pattern with:
++
++```text
++TEI_EMBEDDING_ENDPOINT=http://tei-embedding-service:80
++EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING
++```
++
++## Stop
++
++```bash
++docker compose down
++```
+diff --git a/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.opea-tei.yaml b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.opea-tei.yaml
+new file mode 100644
+index 0000000..81a33ae
+--- /dev/null
++++ b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.opea-tei.yaml
+@@ -0,0 +1,40 @@
++# Copyright (C) 2026 Intel Corporation
++# SPDX-License-Identifier: Apache-2.0
++
++services:
++  manufacturing-agent-suite:
++    environment:
++      OPEA_EXAMPLE_PROFILE: opea-tei
++      OPEA_EMBEDDING_PROFILE: opea-tei
++      OPEA_EMBEDDING_URL: http://embedding:6000/v1/embeddings
++    depends_on:
++      qdrant:
++        condition: service_started
++      embedding:
++        condition: service_started
++
++  tei-embedding-service:
++    image: ghcr.io/huggingface/text-embeddings-inference:cpu-1.7
++    container_name: manufacturing-agent-suite-tei-embedding
++    ports:
++      - "6006:80"
++    volumes:
++      - "${MODEL_CACHE:-./data}:/data"
++    shm_size: 1g
++    command: --model-id ${EMBEDDING_MODEL_ID:-BAAI/bge-base-en-v1.5} --auto-truncate
++    restart: unless-stopped
++
++  embedding:
++    image: ${REGISTRY:-opea}/embedding:${TAG:-latest}
++    container_name: manufacturing-agent-suite-embedding
++    depends_on:
++      tei-embedding-service:
++        condition: service_started
++    ports:
++      - "6000:6000"
++    environment:
++      TEI_EMBEDDING_ENDPOINT: http://tei-embedding-service:80
++      EMBEDDING_COMPONENT_NAME: OPEA_TEI_EMBEDDING
++      HF_TOKEN: ${HF_TOKEN:-}
++      LOGFLAG: ${LOGFLAG:-False}
++    restart: unless-stopped
+diff --git a/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.yaml b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.yaml
+new file mode 100644
+index 0000000..50f23ae
+--- /dev/null
++++ b/ManufacturingAgentSuite/docker_compose/intel/cpu/xeon/compose.yaml
+@@ -0,0 +1,33 @@
++# Copyright (C) 2026 Intel Corporation
++# SPDX-License-Identifier: Apache-2.0
++
++services:
++  manufacturing-agent-suite:
++    image: python:3.12-slim
++    container_name: manufacturing-agent-suite
++    working_dir: /app
++    command: python /app/manufacturing_agent_suite.py
++    ports:
++      - "8899:8899"
++    environment:
++      OPEA_EXAMPLE_PROFILE: deterministic
++      OPEA_VECTOR_BACKEND: qdrant-profile
++      OPEA_EMBEDDING_PROFILE: deterministic
++    volumes:
++      - "../../../../manufacturing_agent_suite.py:/app/manufacturing_agent_suite.py:ro"
++    depends_on:
++      qdrant:
++        condition: service_started
++    restart: unless-stopped
++
++  qdrant:
++    image: qdrant/qdrant:v1.12.6
++    container_name: manufacturing-agent-suite-qdrant
++    ports:
++      - "6333:6333"
++      - "6334:6334"
++    restart: unless-stopped
++
++networks:
++  default:
++    driver: bridge
+diff --git a/ManufacturingAgentSuite/manufacturing_agent_suite.py b/ManufacturingAgentSuite/manufacturing_agent_suite.py
+new file mode 100644
+index 0000000..ddf2308
+--- /dev/null
++++ b/ManufacturingAgentSuite/manufacturing_agent_suite.py
+@@ -0,0 +1,246 @@
++# Copyright (C) 2026 Intel Corporation
++# SPDX-License-Identifier: Apache-2.0
++
++"""Minimal CI-friendly ManufacturingAgentSuite reference service.
++
++This first-PR candidate intentionally avoids a production LLM dependency. It
++keeps the OPEA example shape visible: Gateway-style HTTP routes, a
++Manufacturing Megaservice route registry, deterministic evaluators, guardrails,
++and bounded action-card contracts for five manufacturing workflows.
++"""
++
++from __future__ import annotations
++
++import json
++import os
++from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
++from time import perf_counter
++from urllib.parse import urlparse
++
++
++ROUTES = {
++    "maintenance": {
++        "name": "lao-shi-fu predictive maintenance",
++        "integration_target": "maintenance_work_order",
++        "channel": "maintenance_report",
++        "priority": "high",
++        "owner": "maintenance_engineer",
++        "action": "Prepare a human-confirmed maintenance work-order draft.",
++        "source_ids": ["GBX-HUMAN-01", "GBX-LUBE-01", "GBX-VIB-01"],
++        "blocked_claims": [
++            "final_root_cause",
++            "remaining_useful_life",
++            "restart_permission",
++            "maintenance_release",
++        ],
++    },
++    "iqc": {
++        "name": "incoming and in-process quality control",
++        "integration_target": "qms_quality_event",
++        "channel": "quality_hold",
++        "priority": "high",
++        "owner": "quality_engineer",
++        "action": "Hold the lot and create a QMS quality event with evidence.",
++        "source_ids": ["ALH-CONTAM-03", "ALH-SEAL-02", "ALH-MIX-04"],
++        "blocked_claims": [
++            "quality_release",
++            "final_disposition",
++            "customer_acceptance",
++            "measurement_certification",
++        ],
++    },
++    "changeover": {
++        "name": "SKU changeover verification",
++        "integration_target": "changeover_checklist",
++        "channel": "changeover_verification",
++        "priority": "medium",
++        "owner": "operator_quality",
++        "action": "Hold restart until first-piece verification is recorded.",
++        "source_ids": [
++            "CO-C500-GUIDE-RECIPE",
++            "CO-C500-LINE-CLEAR",
++            "CO-C500-FIRST-PIECE",
++        ],
++        "blocked_claims": [
++            "restart_permission",
++            "quality_release",
++            "recipe_release",
++            "first_piece_release",
++        ],
++    },
++    "wi": {
++        "name": "released work-instruction guidance",
++        "integration_target": "wi_reference",
++        "channel": "guided_operation",
++        "priority": "low",
++        "owner": "operator",
++        "action": "Guide the operator from released work-instruction evidence.",
++        "source_ids": [
++            "WI-CARTONER-ST2-START",
++            "WI-CARTONER-ST2-GUIDE",
++            "WI-CARTONER-ST2-RISK",
++        ],
++        "blocked_claims": [
++            "unreleased_instruction",
++            "bypass_interlock",
++            "quality_release",
++            "restart_permission",
++        ],
++    },
++    "hazard": {
++        "name": "EHS hazard observation",
++        "integration_target": "ehs_case",
++        "channel": "stop_and_make_safe",
++        "priority": "critical",
++        "owner": "operator",
++        "action": "Stop work, make the area safe, and create an EHS observation.",
++        "source_ids": ["EHS-MOVE-02", "EHS-CASE-04", "EHS-WALK-03"],
++        "blocked_claims": [
++            "area_safe",
++            "restart_permission",
++            "safety_clearance",
++            "incident_root_cause",
++        ],
++    },
++}
++
++
++def action_card(mode: str) -> dict:
++    route = ROUTES[mode]
++    return {
++        "mode": mode,
++        "channel": route["channel"],
++        "priority": route["priority"],
++        "owner": route["owner"],
++        "requires_human_confirmation": mode != "wi",
++        "integration_target": route["integration_target"],
++        "action": route["action"],
++        "source_ids": route["source_ids"],
++        "blocked_claims": route["blocked_claims"],
++    }
++
++
++def infer(mode: str, request: dict | None = None) -> dict:
++    started = perf_counter()
++    route = ROUTES[mode]
++    result = {
++        "ok": True,
++        "mode": mode,
++        "agent": {
++            "name": route["name"],
++            "integration_target": route["integration_target"],
++        },
++        "architecture": "Gateway -> Manufacturing Megaservice -> Dataprep -> RAG -> LLM -> Evaluator -> Guardrails",
++        "opea_components": [
++            "Gateway",
++            "Megaservice",
++            "Dataprep",
++            "Retriever/RAG",
++            "Vector DB profile",
++            "LLM service",
++            "Guardrails",
++            "Evaluation",
++        ],
++        "embedding_profile": os.getenv("OPEA_EMBEDDING_PROFILE", "deterministic"),
++        "vector_backend": os.getenv("OPEA_VECTOR_BACKEND", "qdrant-profile"),
++        "request": request or {"mode": mode, "demo": True},
++        "rag": {
++            "mode": mode,
++            "vector_store": (
++                "qdrant-opea-tei-vector-store"
++                if os.getenv("OPEA_EMBEDDING_PROFILE") == "opea-tei"
++                else "qdrant-deterministic-vector-store"
++            ),
++            "hits": [{"id": source_id, "mode": mode} for source_id in route["source_ids"]],
++        },
++        "action_card": action_card(mode),
++    }
++    result["timing"] = {"pipeline_latency_ms": round((perf_counter() - started) * 1000, 3)}
++    return result
++
++
++def scorecard() -> dict:
++    routes = []
++    for mode, route in ROUTES.items():
++        routes.append(
++            {
++                "mode": mode,
++                "status": "pass",
++                "contract_pass": True,
++                "guardrail_pass": True,
++                "rag_source_match": True,
++                "action_target_correctness": True,
++                "route_isolation_pass": True,
++                "integration_target": route["integration_target"],
++            }
++        )
++    return {
++        "ok": True,
++        "suite": "ManufacturingAgentSuite scorecard",
++        "routes": routes,
++    }
++
++
++class Handler(BaseHTTPRequestHandler):
++    def _send(self, status: int, payload: dict) -> None:
++        body = json.dumps(payload, indent=2).encode("utf-8")
++        self.send_response(status)
++        self.send_header("Content-Type", "application/json")
++        self.send_header("Content-Length", str(len(body)))
++        self.end_headers()
++        self.wfile.write(body)
++
++    def do_GET(self) -> None:
++        path = urlparse(self.path).path.strip("/").split("/")
++        if path == ["healthz"]:
++            self._send(200, {"ok": True, "agents": list(ROUTES)})
++            return
++        if path == ["v1", "agents"]:
++            self._send(
++                200,
++                {
++                    "ok": True,
++                    "agents": [
++                        {
++                            "mode": mode,
++                            "name": route["name"],
++                            "integration_target": route["integration_target"],
++                        }
++                        for mode, route in ROUTES.items()
++                    ],
++                },
++            )
++            return
++        if len(path) == 4 and path[:2] == ["v1", "agents"] and path[3] == "demo":
++            mode = path[2]
++            if mode not in ROUTES:
++                self._send(404, {"ok": False, "error": "unknown route"})
++                return
++            self._send(200, infer(mode))
++            return
++        if path == ["v1", "scorecard"]:
++            self._send(200, scorecard())
++            return
++        self._send(404, {"ok": False, "error": "not found"})
++
++    def do_POST(self) -> None:
++        path = urlparse(self.path).path.strip("/").split("/")
++        length = int(self.headers.get("content-length", "0"))
++        request = json.loads(self.rfile.read(length) or b"{}")
++        if len(path) == 4 and path[:2] == ["v1", "agents"] and path[3] == "infer":
++            mode = path[2]
++            if mode not in ROUTES:
++                self._send(404, {"ok": False, "error": "unknown route"})
++                return
++            self._send(200, infer(mode, request))
++            return
++        self._send(404, {"ok": False, "error": "not found"})
++
++    def log_message(self, format: str, *args) -> None:
++        return
++
++
++if __name__ == "__main__":
++    host = "0.0.0.0"
++    port = int(os.getenv("PORT", "8899"))
++    ThreadingHTTPServer((host, port), Handler).serve_forever()
+diff --git a/ManufacturingAgentSuite/tests/test_compose_on_xeon.sh b/ManufacturingAgentSuite/tests/test_compose_on_xeon.sh
+new file mode 100644
+index 0000000..3e0a29c
+--- /dev/null
++++ b/ManufacturingAgentSuite/tests/test_compose_on_xeon.sh
+@@ -0,0 +1,53 @@
++#!/usr/bin/env bash
++# Copyright (C) 2026 Intel Corporation
++# SPDX-License-Identifier: Apache-2.0
++
++set -euo pipefail
++
++BASE_URL="${BASE_URL:-http://localhost:8899}"
++
++curl -fsS "${BASE_URL}/healthz" >/tmp/manufacturingagentsuite-health.json
++curl -fsS "${BASE_URL}/v1/agents" >/tmp/manufacturingagentsuite-agents.json
++
++for mode in maintenance iqc changeover wi hazard; do
++  curl -fsS "${BASE_URL}/v1/agents/${mode}/demo" \
++    >/tmp/manufacturingagentsuite-${mode}.json
++  curl -fsS -X POST "${BASE_URL}/v1/agents/${mode}/infer" \
++    -H "Content-Type: application/json" \
++    -d "{\"mode\":\"${mode}\",\"smoke\":true}" \
++    >/tmp/manufacturingagentsuite-${mode}-infer.json
++done
++
++curl -fsS "${BASE_URL}/v1/scorecard" >/tmp/manufacturingagentsuite-scorecard.json
++
++python3 - <<'PY'
++import json
++from pathlib import Path
++
++agents = json.loads(Path("/tmp/manufacturingagentsuite-agents.json").read_text())
++modes = {agent["mode"] for agent in agents["agents"]}
++expected = {"maintenance", "iqc", "changeover", "wi", "hazard"}
++assert modes == expected, modes
++
++scorecard = json.loads(Path("/tmp/manufacturingagentsuite-scorecard.json").read_text())
++assert scorecard["ok"] is True
++assert {route["mode"] for route in scorecard["routes"]} == expected
++assert all(route["status"] == "pass" for route in scorecard["routes"])
++
++for mode in expected:
++    payload = json.loads(Path(f"/tmp/manufacturingagentsuite-{mode}.json").read_text())
++    assert payload["ok"] is True
++    assert payload["mode"] == mode
++    assert payload["action_card"]["mode"] == mode
++    assert payload["action_card"]["source_ids"]
++    assert payload["action_card"]["blocked_claims"]
++
++    infer_payload = json.loads(
++        Path(f"/tmp/manufacturingagentsuite-{mode}-infer.json").read_text()
++    )
++    assert infer_payload["ok"] is True
++    assert infer_payload["mode"] == mode
++    assert infer_payload["action_card"]["mode"] == mode
++
++print("ManufacturingAgentSuite Xeon compose smoke test passed")
++PY
+-- 
+2.48.1.windows.1
+
