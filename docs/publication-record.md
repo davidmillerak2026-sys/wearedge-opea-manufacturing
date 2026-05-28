@@ -19,8 +19,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 
 | Item | Status | URL |
 | --- | --- | --- |
-| Technical article | Published in public GitHub repository | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md |
-| External-platform article package | Copy-ready; external publication URL pending | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
+| External technical article | Published on Dev.to | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
+| Technical article backup | Published in public GitHub repository | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md |
+| External-platform article package | Published via Dev.to; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
 | External-platform publishing handoff | Ready; manual publish selected | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
@@ -36,9 +37,8 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 
 ## Publication Notes
 
-- The article URL is a public GitHub page in the submitted project repository.
-- A copy-ready external-platform article is included for Medium, LinkedIn, Dev.to,
-  or another public blog platform; add the published URL here after posting.
+- The primary article URL is now the public Dev.to article; the GitHub article
+  remains as repository backup evidence.
 - `docs/public-platform-publishing-handoff.md` records the exact remaining
   non-GitHub publication task for manual posting.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.

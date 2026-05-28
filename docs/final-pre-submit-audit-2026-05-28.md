@@ -14,7 +14,7 @@ form submission.
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r9` |
+| Final tag | `final-submission-2026-05-28-r10` |
 
 ## Verification Already Passed
 
@@ -35,7 +35,7 @@ form submission.
 | Intel effective-use evidence | `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` |
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
 | OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462`, CI-green on head `0c149a06` |
-| Knowledge-sharing package | GitHub article/video evidence plus copy-ready external article and public video metadata; external Medium/LinkedIn/Dev.to/YouTube/Bilibili URL still pending |
+| Knowledge-sharing package | External Dev.to article published; GitHub article/video evidence plus copy-ready public video metadata remain available; public video-platform URL still pending |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 
 ## Live Runtime State
@@ -74,10 +74,9 @@ platform article/video publishing package.
 The only required remaining action for challenge submission is to open the
 challenge submission page, paste the values from
 `docs/final-submission-form-fill-guide.md`, visually confirm the fields, and
-press submit. To maximize the knowledge-sharing bonus, also publish
-`public/external-platform-article.md` on a public blog/article platform and
-upload the demo video using `public/video-platform-description.md`, then add the
-resulting external URLs back into the submission notes if time allows.
+press submit. To further strengthen the knowledge-sharing bonus, upload the
+demo video using `public/video-platform-description.md`, then add the resulting
+public video URL back into the submission notes if time allows.
 
 Submission page:
 
@@ -88,5 +87,5 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 Do not change the project URL away from the OPEA competition repository, and do
 not add claims for autonomous restart, quality release, maintenance release,
 safety clearance, final root cause, production LLM acceleration, TEI/oneDNN
-microkernel dispatch proof, or external public-platform publication unless the
-corresponding URL or benchmark artifact is attached.
+microkernel dispatch proof, or external public-platform video publication
+unless the corresponding URL or benchmark artifact is attached.

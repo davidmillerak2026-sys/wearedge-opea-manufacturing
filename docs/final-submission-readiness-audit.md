@@ -36,7 +36,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
 | Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is CI-green but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, demo skim risk, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
-| Knowledge sharing bonus | GitHub article/video evidence is public; copy-ready external-platform article and video metadata are prepared | Good; external Medium/LinkedIn/Dev.to/YouTube/Bilibili URL still pending for maximum score |
+| Knowledge sharing bonus | External Dev.to article is published; GitHub article/video evidence is public; copy-ready public video metadata is prepared | Stronger; public video-platform URL still pending for maximum score |
 
 ## Hard Evidence
 
@@ -60,6 +60,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | GenAIEval-compatible benchmark JSON | `evidence/genaieval/benchmark_results.json` |
 | Final form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Final pre-submit audit | `docs/final-pre-submit-audit-2026-05-28.md` |
+| External technical article | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
@@ -94,7 +95,7 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 Primary publication URL:
 
 ```text
-https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md
+https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh
 ```
 
 ## Do Not Overclaim
@@ -112,8 +113,8 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
   prototypes and route-specific guardrails.
 - Do not claim oneDNN/TEI microkernel dispatch proof from the Intel C3 record;
   current evidence is application-level effective use of C3 Xeon hardware.
-- Do not claim external public-platform article/video publication until a
-  non-GitHub public URL is posted and recorded.
+- Do not claim external public-platform video publication until a non-GitHub
+  public video URL is posted and recorded.
 
 ## Remaining Work
 

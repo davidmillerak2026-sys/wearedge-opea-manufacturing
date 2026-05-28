@@ -207,9 +207,10 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
 | [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
 | [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
-| [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
-| [`public/external-platform-article.md`](public/external-platform-article.md) | Copy-ready article for Medium, LinkedIn, Dev.to, or another public platform |
-| [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Remaining external article/video publication steps and claim boundary |
+| [Dev.to external article](https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh) | Published public knowledge-sharing article |
+| [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public GitHub article backup |
+| [`public/external-platform-article.md`](public/external-platform-article.md) | Source article package published via Dev.to |
+| [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Remaining public video publication steps and claim boundary |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`public/video-platform-description.md`](public/video-platform-description.md) | Copy-ready public video platform title, description, and tags |
 | [`public/demo-video/`](public/demo-video/) | Renderable HyperFrames demo video source package |
@@ -272,6 +273,7 @@ docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch
 Knowledge-sharing package:
 
 ```text
+https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
 public/external-platform-article.md

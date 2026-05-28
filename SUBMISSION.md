@@ -144,7 +144,7 @@ Key archived evidence already mapped into this submission package:
 - GenAIEval-compatible evaluation: `evals/genaieval/` and `evidence/genaieval/` provide a dataset, benchmark config, runner, 15-case route evaluation JSON, throughput/latency benchmark JSON, and summary.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
-- Knowledge sharing: public article is published at `public/article-wear-edge-opea-manufacturing.md` and recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; copy-ready external-platform article and public-video metadata are included; video script, captions, renderable HyperFrames source, local MP4 render report, and public GitHub MP4 asset page are ready.
+- Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the GitHub article backup is recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`; copy-ready public-video metadata is included; video script, captions, renderable HyperFrames source, local MP4 render report, and public GitHub MP4 asset page are ready.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI workloads.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
@@ -153,7 +153,7 @@ Key archived evidence already mapped into this submission package:
 
 ## Bonus URLs And Artifacts
 
-- `publication_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md`
+- `publication_url`: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`
 - `publication_record_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`
 - OPEA RFC issue: `https://github.com/opea-project/GenAIExamples/issues/2461`
 - OPEA upstream PR: `https://github.com/opea-project/GenAIExamples/pull/2462`
