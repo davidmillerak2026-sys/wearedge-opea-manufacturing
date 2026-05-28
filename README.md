@@ -199,6 +199,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
+| [`docs/evaluation-criteria-scorecard.md`](docs/evaluation-criteria-scorecard.md) | 100 base + 40 bonus official rubric score defense |
 | [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md) | Direct mapping to the official Challenge Task requirements |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
 | [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |

@@ -20,6 +20,7 @@ REQUIRED_LOCAL_FILES = [
     "docs/technical-report.draft.md",
     "docs/submission-product-shape.md",
     "docs/final-submission-readiness-audit.md",
+    "docs/evaluation-criteria-scorecard.md",
     "docs/challenge-task-compliance.md",
     "docs/champion-risk-burn-down.md",
     "docs/opea-native-depth-matrix.md",

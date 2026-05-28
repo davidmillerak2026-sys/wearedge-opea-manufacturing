@@ -107,6 +107,21 @@ be used after a configured endpoint benchmark reports
 
 Detailed mapping: `docs/challenge-task-compliance.md`.
 
+## Evaluation Criteria Defense
+
+WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
+
+| Rubric area | Submission defense |
+| --- | --- |
+| Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, not a single chatbot |
+| Technical Implementation, 40 pts | OPEA-style Gateway/Megaservice/RAG/Qdrant/TEI/LLM-adapter/guardrail/evaluation architecture with local and GCP evidence |
+| Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
+| Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork |
+| Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article and YouTube demo video |
+| Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence plus application-level OPEA TEI/Qdrant workload records |
+
+Detailed score defense: `docs/evaluation-criteria-scorecard.md`.
+
 ## Runnable Evidence
 
 ```bash

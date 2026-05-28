@@ -6,7 +6,7 @@
   },
   "github": {
     "target_submission_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
-    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r14",
+    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r15",
     "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
   },
   "submission_meta_attributes": {
@@ -36,6 +36,7 @@
     "opea_pr_ready_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready",
     "upstream_pr_attempt_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md",
     "champion_risk_burn_down_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/champion-risk-burn-down.md",
+    "evaluation_criteria_scorecard_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/evaluation-criteria-scorecard.md",
     "challenge_task_compliance_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/challenge-task-compliance.md",
     "opea_native_depth_matrix_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-native-depth-matrix.md",
     "production_llm_benchmark_path_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/production-llm-benchmark-path.md",

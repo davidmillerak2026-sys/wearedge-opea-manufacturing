@@ -38,6 +38,9 @@ with Docker, Web UI, API routes, and scorecard only.
 | Champion risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; GitHub article/video backup evidence remains public | Ready |
 
+Detailed 100 base + 40 bonus score defense:
+`docs/evaluation-criteria-scorecard.md`.
+
 ## Challenge Task Mapping
 
 | Official task | Evidence | Status |
@@ -62,6 +65,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Direct upstream PR attempt and fork push log | `docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
+| Evaluation criteria scorecard | `docs/evaluation-criteria-scorecard.md` |
 | Challenge task compliance | `docs/challenge-task-compliance.md` |
 | Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
 | LLM adapter smoke JSON | `evidence/benchmarks/llm_adapter_contract.local-smoke.json` |

@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r14` |
+| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r15` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
@@ -56,6 +56,7 @@ Paste these into any optional links, supporting materials, or notes fields:
 | OPEA contribution package | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready` |
 | Direct upstream PR attempt | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/champion-risk-burn-down.md` |
+| Evaluation criteria scorecard | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/evaluation-criteria-scorecard.md` |
 | Challenge task compliance | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/challenge-task-compliance.md` |
 | OPEA native depth matrix | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-native-depth-matrix.md` |
 | Production LLM benchmark path | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/production-llm-benchmark-path.md` |

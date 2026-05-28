@@ -1,0 +1,175 @@
+# Evaluation Criteria Full-Mark Audit
+
+Date: 2026-05-28
+
+This document audits the official rubric point by point. It is not a guaranteed
+self-awarded score. It is a full-mark defense plan: what WearEdge Pro can
+defend now, where judges could still deduct points, and what follow-up evidence
+should be used to close each gap before final submission.
+
+Status language:
+
+- `Full-mark defendable`: current evidence is strong enough to argue for full
+  points under the stated rubric.
+- `Full-mark vulnerable`: current evidence is strong, but a strict judge could
+  still deduct points unless the listed follow-up is emphasized or completed.
+- `Not full-mark safe`: this area needs additional work before we should claim a
+  full-mark position.
+
+## Executive Full-Mark Position
+
+| Rubric area | Max points | Current full-mark status | Main reason |
+| --- | ---: | --- | --- |
+| Originality | 15 | Full-mark defendable | Wearable frontline evidence is routed into five manufacturing agents, not a generic chatbot. |
+| Business Relevance | 15 | Full-mark defendable | Each agent closes into a real enterprise target: CMMS, QMS, changeover checklist, WI reference, or EHS case. |
+| Use of OPEA | 20 | Full-mark vulnerable | Official OPEA TEI and OPEA-style components are implemented, but no Helm/GMC deployment or merged upstream PR should be claimed. |
+| System Efficiency | 20 | Full-mark defendable, with one LLM caveat | Single-node 4-vCPU / 16-GiB / no-GPU local and GCP C3 evidence is strong; production LLM serving latency is intentionally not over-claimed. |
+| Code Quality | 15 | Full-mark defendable | Self-contained source, tests, Docker profiles, evidence checker, and signed commits are present. |
+| Functional Completeness | 15 | Full-mark defendable | Web UI, API, five demos, five infer routes, Qdrant RAG, TEI profile, scorecard, and GenAIEval-compatible pack all run. |
+| Open-source bonus | 15 | Full-mark vulnerable | Public RFC, comments, and PR exist; full marks are stronger if maintainers engage, merge, or request changes that we address. |
+| Knowledge-sharing bonus | 10 | Full-mark defendable | Public Dev.to article and YouTube demo are live and linked. |
+| Hardware optimization bonus | 15 | Full-mark vulnerable | AVX-512/AMX C3 evidence is real and connected to WearEdge workloads; full marks would be stronger with low-level kernel dispatch logs. |
+
+Target position: defend `100/100` base points and pursue the full `40/40`
+bonus. The main remaining exposure is not missing product function; it is judge
+interpretation around OPEA-native depth, upstream contribution maturity, and
+low-level Intel optimization proof.
+
+## Base Score Audit: 100 Points
+
+### Originality: 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Yes. `Full-mark defendable`. |
+| Why full marks are defensible | WearEdge Pro is a real wearable edge industrial AI agent system packaged for the challenge as a five-agent OPEA Manufacturing suite. The five routes cover predictive maintenance, IQC, SKU changeover, released work instruction guidance, and EHS hazard observation from one shared architecture. |
+| What could cause lost points | If the submission is perceived as a collection of small demos instead of one industrial agent system, or if the M400 / frontline evidence lineage is not visible in the first minute. |
+| Follow-up to protect full marks | In the final form and video, lead with "real industrial AI agent system" and "five manufacturing value pools"; avoid calling the product a demo except for the judge-facing demo console. |
+| Evidence | `README.md`, `SUBMISSION.md`, `docs/submission-product-shape.md`, `docs/source-project-map.md`, `docs/data-provenance-and-field-validation.md`. |
+
+### Business Relevance: 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Yes. `Full-mark defendable`. |
+| Why full marks are defensible | Every route maps to a concrete manufacturing workflow and system of record: maintenance work order, QMS quality event, changeover checklist, WI reference, or EHS case. This covers downtime, scrap, changeover loss, training drift, and safety risk. |
+| What could cause lost points | Judges may prefer submissions with proprietary customer production data or live enterprise integration credentials. |
+| Follow-up to protect full marks | Emphasize integration targets and guarded action cards. Keep claim boundaries clear: runnable product package plus real WearEdge lineage, not certified automatic plant release. |
+| Evidence | `docs/challenge-task-compliance.md`, `docs/data-provenance-and-field-validation.md`, `data/sample_requests/`, `data/agent_kb/`. |
+
+### Use of OPEA: 20 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Mostly yes, but `Full-mark vulnerable`. |
+| Why full marks are defensible | The package implements an OPEA-aligned Gateway -> Manufacturing Megaservice -> Dataprep -> Retriever/RAG -> LLM adapter -> Evaluator -> Guardrails architecture. It includes Qdrant, an OPEA-compatible embedding service, and an official OPEA TEI profile using `opea/embedding:latest` plus Hugging Face TEI. It also includes GenAIEval-compatible evaluation artifacts. |
+| What could cause lost points | A strict OPEA judge could reward teams that use more official GenAIComps microservices, Helm/GMC/Kubernetes deployment, production LLM serving, or merged upstream OPEA code. We must not overstate "OPEA native" beyond what is implemented. |
+| Follow-up to close the gap | First: make PR #2462 and OPEA RFC/comment evidence prominent. Second: keep the official TEI profile as the default champion proof. Stretch: add optional Kubernetes/Helm or GMC notes if time allows, and respond quickly to any upstream review. |
+| Evidence | `docker-compose.opea-tei.yml`, `docs/official-opea-tei-profile.md`, `docs/opea-native-depth-matrix.md`, `docs/opea-component-evidence.md`, `evals/genaieval/`, OPEA issue #2461, OPEA PR #2462. |
+
+### System Efficiency: 20 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Yes, with one clear boundary. `Full-mark defendable, with production LLM caveat`. |
+| Why full marks are defensible | The official challenge calls out typical enterprise hardware such as 64GB RAM, 4-core CPU, GPU optional. WearEdge has GCP C3 `c3-standard-4` single-node evidence with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, AVX-512 and AMX flags. It also has local Docker Desktop TEI evidence, Docker memory stats, route latency, 8-worker route concurrency, and all five routes passing. |
+| What could cause lost points | Production LLM latency/quality is not benchmarked end to end. Current latency numbers are route/evaluator/RAG/embedding-focused, with deterministic LLM-adapter behavior unless an external LLM is configured. |
+| Follow-up to protect full marks | In final submission, state the boundary exactly. Do not claim production LLM acceleration. If extra time/cloud budget exists, run one optional external LLM adapter benchmark and attach it as supplemental evidence, but the current no-GPU 4-core TEI/Qdrant evidence already fits the official hardware requirement. |
+| Evidence | `docs/gcp-c3-opea-tei-profile-e2e-report.md`, `docs/local-opea-tei-profile-e2e-report.md`, `evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json`, `evidence/benchmarks/local_opea_tei_profile_e2e.summary.json`, `evidence/benchmarks/route_concurrency.local-smoke.json`. |
+
+### Code Quality: 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Yes. `Full-mark defendable`. |
+| Why full marks are defensible | The repo is self-contained, Docker-runnable, dependency-light for the core app, test-covered, signed, and organized around clear route registry, megaservice, embedding, LLM adapter, evaluator, guardrail, scorecard, and UI boundaries. |
+| What could cause lost points | The challenge package is intentionally smaller than the broader WearEdge-Pro engineering repo, so judges could miss the source-system lineage if they only inspect this repo. |
+| Follow-up to protect full marks | Keep `source-project-map` visible and make the challenge package read as a clean productization layer, not a stripped toy repo. Before final submit, run fresh-clone validation and avoid any unpushed evidence commits. |
+| Evidence | `src/wear_edge_opea/`, `tests/`, `scripts/evidence_check.py`, `pyproject.toml`, `docs/source-project-map.md`. |
+
+### Functional Completeness: 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full marks now? | Yes. `Full-mark defendable`. |
+| Why full marks are defensible | The package exposes `/demo`, `/healthz`, `/v1/agents`, five `GET /v1/agents/{mode}/demo` routes, five `POST /v1/agents/{mode}/infer` routes, `/v1/scorecard`, Qdrant-backed RAG, official TEI embeddings, action-card contracts, and guardrails. |
+| What could cause lost points | A visually flashier UI could impress judges faster, even if it is less technically grounded. |
+| Follow-up to protect full marks | Use the YouTube video and final README opening to show the browser console quickly, then immediately show five agents, RAG source IDs, blocked claims, and scorecard pass state. |
+| Evidence | `README.md`, `SUBMISSION.md`, `docs/local-docker-desktop-final-validation.md`, `public/demo-video/`, `evidence/benchmarks/`. |
+
+## Bonus Score Audit: 40 Points
+
+### Open-Source: Up To 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full bonus now? | Strong, but `Full-mark vulnerable`. |
+| Why full marks are defensible | We have a public OPEA RFC issue, blueprint/implementation/TEI feedback, an upstream PR from the fork, signed commits, and a local PR-ready package. This directly matches "bug reports, PRs, or blueprint feedback". |
+| What could cause lost points | PR #2462 may remain unmerged, or maintainers may not review it before judging. Some judges may value merged code more than an open PR and comments. |
+| Follow-up to close the gap | Monitor PR #2462 daily, respond to review within hours, keep CI green, and add final comments linking the official TEI evidence and full-mark audit. If maintainers request a smaller scope, split the PR rather than arguing scope. |
+| Evidence | `https://github.com/opea-project/GenAIExamples/issues/2461`, `https://github.com/opea-project/GenAIExamples/pull/2462`, `docs/upstream-pr-attempt-2026-05-28.md`, `docs/opea-upstream/`. |
+
+### Knowledge Sharing: Up To 10 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full bonus now? | Yes. `Full-mark defendable`. |
+| Why full marks are defensible | A public technical article and a public demo video are published on external platforms, and the repo includes publication records and backup copies. |
+| What could cause lost points | If judges do not click external links, or if the article/video framing sounds like a demo instead of a real industrial AI agent system. |
+| Follow-up to protect full marks | In the final form, include both links near the top and use language that says WearEdge Pro is a real industrial AI agent system, with this repo as the OPEA challenge package. Optional: cross-post the article/video to LinkedIn or another public platform, but this is not required for the stated rubric. |
+| Evidence | Dev.to article: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; YouTube video: `https://www.youtube.com/watch?v=dd9k8m6PDco`; `docs/publication-record.md`; `public/external-platform-article.md`; `public/video-platform-description.md`. |
+
+### Hardware Optimization: Up To 15 Points
+
+| Question | Audit |
+| --- | --- |
+| Can we defend full bonus now? | Strong, but `Full-mark vulnerable`. |
+| Why full marks are defensible | GCP C3 `c3-standard-4` runs on Intel Xeon Platinum 8481C and detects `avx512f`, `avx512_bf16`, `avx512_vnni`, `amx_tile`, `amx_int8`, and `amx_bf16`. WearEdge then validates five-agent scorecards, Docker/Qdrant, OPEA-compatible embeddings, and official OPEA TEI on that hardware profile. |
+| What could cause lost points | The evidence proves effective use of Intel-capable hardware and successful OPEA TEI workload execution, but it does not include low-level oneDNN/TEI kernel dispatch logs proving that a specific AMX or AVX-512 instruction path was selected inside the model server. |
+| Follow-up to close the gap | If GCP is available again, run a supplemental TEI/oneDNN verbose or perf evidence script on C3 and attach logs showing CPU model, ISA flags, workload, route pass state, and any kernel-dispatch indicators. If that is not feasible, keep the current claim as "effective use evidence", not "instruction-level proof". |
+| Evidence | `docs/intel-effective-use-evidence.md`, `docs/intel-avx512-amx-benchmark-report.md`, `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`, `evidence/benchmarks/intel_effective_use.summary.json`, `docs/gcp-c3-opea-tei-profile-e2e-report.md`. |
+
+## Highest-Impact Follow-Up List
+
+| Priority | Action | Score area protected | Why it matters |
+| --- | --- | --- | --- |
+| P0 | Push the latest local commit/tag so GitHub reflects this full-mark audit. | All categories | Judges should see the final evidence map, not the older r14 package only. |
+| P0 | In the submission form, lead with "real industrial AI agent system" and "OPEA challenge package", not "demo project". | Originality, Business Relevance, Functional Completeness | This prevents the biggest framing error. |
+| P0 | Make the official TEI profile the primary technical proof. | Use of OPEA, System Efficiency | `opea/embedding:latest` plus TEI plus Qdrant is the strongest OPEA-native evidence. |
+| P1 | Monitor and respond to OPEA PR #2462 and issue #2461. | Open-source bonus, Use of OPEA | Merge is not required by the wording, but maintainers' engagement makes the bonus much harder to discount. |
+| P1 | Add a short final PR/issue comment linking the GCP C3 official OPEA TEI evidence and Dev.to/YouTube materials. | Open-source, Knowledge Sharing, Hardware Optimization | It ties all bonus evidence into the upstream OPEA conversation. |
+| P1 | If cloud budget/time allows, run supplemental TEI/oneDNN verbose evidence on C3. | Hardware Optimization | This is the clearest remaining path from "strong" to "very hard to challenge" for the Intel bonus. |
+| P2 | Optional Kubernetes/Helm/GMC deployment note or manifest. | Use of OPEA | Helpful if judges strongly favor cloud-native OPEA deployment, but not necessary for the required Docker one-click path. |
+| P2 | Optional external LLM adapter benchmark. | System Efficiency | Useful only if we can run it cleanly without over-claiming production LLM quality. |
+
+## Claim Boundaries To Keep Us Safe
+
+Use these boundaries in the final form and any judge Q&A:
+
+- WearEdge Pro is a real industrial AI agent system; this repository is the
+  OPEA challenge-facing runnable package.
+- The Vuzix M400 / Android path is the frontline evidence source and real
+  deployment context; the submitted judge experience is Docker + Web UI + API.
+- High-risk decisions remain human-confirmed. The system drafts action cards
+  and blocks unsupported claims such as restart permission, quality release,
+  final root cause, and safety clearance.
+- The official TEI profile proves OPEA embedding integration and Qdrant RAG on
+  4-vCPU / 16-GiB / no-GPU hardware; production LLM endpoint performance is not
+  claimed unless separately configured and benchmarked.
+- AVX-512/AMX evidence is currently effective-use evidence on Intel C3 hardware,
+  not a low-level instruction-dispatch certification.
+
+## Judge-Facing One-Paragraph Defense
+
+```text
+WearEdge Pro is a real wearable edge industrial AI agent system packaged for
+this OPEA challenge as a Docker-runnable Manufacturing Agent Suite. It targets
+Manufacturing with five executable agents for maintenance, IQC, changeover,
+released work instructions, and EHS hazard observation. The system uses an
+OPEA-aligned Gateway, Manufacturing Megaservice, Dataprep, Qdrant RAG, official
+OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic
+evaluators, guardrails, scorecards, and GenAIEval-compatible artifacts. It has
+local Docker Desktop and Google Cloud C3 single-node 4-vCPU / 16-GiB / no-GPU
+evidence, public OPEA RFC/PR/feedback, a public technical article, a public demo
+video, and Intel AVX-512/AMX effective-use evidence.
+```
