@@ -21,7 +21,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | --- | --- | --- |
 | Technical article | Published in public GitHub repository | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md |
 | External-platform article package | Copy-ready; external publication URL pending | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
-| External-platform publishing handoff | Ready; manual publish or repaired Chrome connector required | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
+| External-platform publishing handoff | Ready; manual publish selected | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
 | Demo video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video |
@@ -40,7 +40,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - A copy-ready external-platform article is included for Medium, LinkedIn, Dev.to,
   or another public blog platform; add the published URL here after posting.
 - `docs/public-platform-publishing-handoff.md` records the exact remaining
-  non-GitHub publication task and the current Chrome automation limitation.
+  non-GitHub publication task for manual posting.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.
 - The official TEI update is posted directly in `opea-project/GenAIExamples#2461`; it was verified through the GitHub API as comment `4554039017` by `Ryanhuii`.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.

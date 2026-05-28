@@ -1,11 +1,12 @@
 # Public Platform Publishing Handoff
 
-Status: external public-platform URLs are still pending.
+Status: manual external publication selected; public-platform URLs are still
+pending.
 
-The repository now contains copy-ready materials for the knowledge-sharing
-bonus, but a true external platform post still needs to be published on a
-non-GitHub public platform such as LinkedIn Articles, Medium, Dev.to, YouTube,
-Bilibili, or a public project blog.
+The repository contains copy-ready materials for the knowledge-sharing bonus,
+but a true external platform post still needs to be published on a non-GitHub
+public platform such as LinkedIn Articles, Medium, Dev.to, YouTube, Bilibili,
+or a public project blog.
 
 ## Why This Matters
 
@@ -25,19 +26,36 @@ and/or video URL that judges can open directly outside the repository.
 | --- | --- | --- |
 | External article | `public/external-platform-article.md` | LinkedIn Articles, Medium, Dev.to, public blog |
 | Video title/description/tags | `public/video-platform-description.md` | YouTube, Bilibili, LinkedIn video |
-| Rendered demo video asset | `renders/wearedge-opea-manufacturing-demo.mp4` | Upload as the public video |
+| Rendered demo video asset | `renders/wearedge-opea-manufacturing-demo.mp4` | Upload as the public video if present locally |
 | GitHub video asset page | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` | Fallback public video evidence |
 
-## Recommended Fastest Path
+## Manual Publishing Steps
 
-1. Publish `public/external-platform-article.md` as a LinkedIn Article.
-2. Upload `renders/wearedge-opea-manufacturing-demo.mp4` to YouTube or Bilibili
-   using `public/video-platform-description.md`.
-3. Add the resulting public URLs to:
-   - `docs/publication-record.md`
-   - `submission-fields.draft.json`
-   - `docs/final-submission-form-fill-guide.md`
-4. Re-run:
+1. Open one article platform manually:
+   LinkedIn Articles, Medium, Dev.to, or a public project blog.
+2. Copy the title, subtitle, tags, and article body from
+   `public/external-platform-article.md`.
+3. Publish the article publicly and copy the final public URL.
+4. Open one video platform manually:
+   YouTube, Bilibili, or LinkedIn video.
+5. Upload `renders/wearedge-opea-manufacturing-demo.mp4` if it is available on
+   your machine. If it is not available locally, use the GitHub MP4 asset page
+   above as fallback video evidence.
+6. Copy the title, description, and tags from
+   `public/video-platform-description.md`.
+7. Publish the video publicly and copy the final public URL.
+8. Send the article URL and video URL back to Codex for repository and form
+   backfill.
+
+## After URLs Are Available
+
+Add the resulting public URLs to:
+
+- `docs/publication-record.md`;
+- `submission-fields.draft.json`;
+- `docs/final-submission-form-fill-guide.md`.
+
+Then re-run:
 
 ```powershell
 python scripts\evidence_check.py
@@ -45,16 +63,10 @@ python -m json.tool submission-fields.draft.json
 git diff --check
 ```
 
-## Current Browser Automation Status
+## Browser Automation Status
 
-Chrome automation was attempted for this publishing step, but the local Codex
-Chrome connector failed before it could list or control tabs. The failure is in
-the local browser automation layer, not in the WearEdge repository or the
-submission evidence.
-
-Until the Chrome connector is repaired, publication should be done manually in
-Chrome, or retried after reinstalling or repairing the Codex Chrome plugin from
-the Codex plugin UI.
+Manual mode is selected. Chrome automation should not be used for the external
+publishing step unless the user explicitly switches back to automation.
 
 ## Claim Boundary
 
