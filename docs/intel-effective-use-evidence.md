@@ -1,7 +1,8 @@
 # Intel Effective-Use Evidence
 
-Status: application-level effective-use evidence captured; low-level kernel
-dispatch evidence remains the main optional hardening item.
+Status: application-level effective-use evidence captured; supplemental
+TEI/oneDNN verbose attempt captured; low-level kernel dispatch markers were not
+emitted by the TEI build used in the run.
 
 ## What We Can Claim
 
@@ -14,8 +15,8 @@ reported AVX-512 and AMX feature flags, and the same project package passed:
 - OPEA-compatible `/v1/embeddings` profile E2E;
 - official OPEA TEI embedding profile E2E with Hugging Face TEI,
   `opea/embedding:latest`, Qdrant, and five route demos.
-- optional follow-up TEI/oneDNN verbose capture script for lower-level dispatch
-  evidence when Google Cloud access is available.
+- supplemental TEI/oneDNN verbose capture on the same C3 profile, with Gateway,
+  five demos, scorecard, Docker stats, CPU flags, and TEI logs captured.
 
 This is the right claim boundary for the competition bonus:
 
@@ -64,7 +65,7 @@ Detected feature flags from `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.js
 | Docker/Qdrant fresh-clone E2E | `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json` | `/demo`, `/healthz`, five demo routes, five infer routes, Qdrant, `/v1/scorecard`, Docker stats |
 | OPEA-compatible embedding profile | `evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json` | `/v1/embeddings`, Qdrant route collections, all five demos, scorecard routes pass |
 | Official OPEA TEI profile | `evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json` | Hugging Face TEI, `opea/embedding:latest`, 768-dimensional embeddings, Qdrant TEI vector-store markers, five routes, scorecard pass |
-| TEI/oneDNN verbose capture path | `scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh` | Re-runs official TEI profile with `ONEDNN_VERBOSE`, `DNNL_VERBOSE`, and `MKLDNN_VERBOSE`; captures CPU flags, TEI/OPEA logs, Docker stats, and dispatch marker grep |
+| TEI/oneDNN verbose capture | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` | Re-ran official TEI profile with verbose env enabled; Gateway, scorecard, five demos, Docker stats, AVX-512/AMX CPU flag checks, and TEI logs passed; dispatch marker grep returned zero lines |
 
 ## Official OPEA TEI Profile Runtime
 
@@ -117,7 +118,31 @@ evidence/benchmarks/intel_effective_use.summary.json
 
 The summary combines the CPU feature evidence, deterministic route benchmark,
 Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E
-into one competition-facing artifact.
+plus the supplemental TEI/oneDNN verbose attempt into one competition-facing
+artifact.
+
+## Supplemental TEI/oneDNN Verbose Result
+
+The supplemental run is recorded in:
+
+```text
+docs/gcp-c3-tei-onednn-verbose-report.md
+evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json
+```
+
+Result:
+
+```text
+all_checks_pass=true
+c3_cpu_flags_include_avx512=true
+c3_cpu_flags_include_amx=true
+dispatch_markers_captured=false
+```
+
+This strengthens the hardware bonus by proving the official OPEA TEI + Qdrant
++ five-agent scorecard workload ran on the C3 profile while verbose capture was
+enabled. It still must not be described as AMX or AVX-512 microkernel dispatch
+proof, because the TEI logs did not emit matching dispatch marker lines.
 
 ## Remaining Optional Upgrade
 
@@ -125,8 +150,8 @@ The current record is strong enough to show application-level effective use of
 Intel Xeon hardware. To make the hardware bonus even harder to dispute, add one
 of the following if time and platform access allow:
 
-- Run `scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh` and attach
-  `~/gcp_c3_tei_onednn_verbose.json`;
+- collect lower-level `perf` counters or a TEI build that emits oneDNN/DNNL
+  dispatch lines;
 - side-by-side latency comparison against a non-AMX CPU instance;
 - production LLM endpoint benchmark on the same C3 host with strict fallback
   disabled.
@@ -135,7 +160,7 @@ of the following if time and platform access allow:
 
 | Resource | Current status | Best next use |
 | --- | --- | --- |
-| Google Cloud C3 `c3-standard-4` | Previously available and already validated | Rerun a supplemental TEI/oneDNN verbose capture if cloud access is still open |
+| Google Cloud C3 `c3-standard-4` | Available and validated, including supplemental TEI/oneDNN verbose attempt | Optional perf or non-AMX comparison only if more hardening is worth the cloud time |
 | Local Docker Desktop | Available, but Docker Engine access may require local permission from Codex sandbox | Rerun official OPEA TEI profile and UI validation locally |
 | GPU | Not required by challenge and not used in current proof | Do not introduce unless it clearly improves LMM benchmarking |
 | Production LLM endpoint | Not currently configured in the public repo | Only benchmark if a real endpoint is available with strict fallback disabled |

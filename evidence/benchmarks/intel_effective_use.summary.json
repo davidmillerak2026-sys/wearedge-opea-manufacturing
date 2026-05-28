@@ -1,9 +1,9 @@
 {
   "evidence": "WearEdge Intel effective-use evidence for OPEA Manufacturing",
   "schema_version": "2026-05-28",
-  "generated_at_utc": "2026-05-28T07:03:36+00:00",
+  "generated_at_utc": "2026-05-28T11:27:50+00:00",
   "claim_status": "intel_xeon_avx512_amx_hosted_opea_workloads_passed",
-  "claim_boundary": "This evidence proves that WearEdge OPEA Manufacturing workloads were run and validated on a Google Cloud C3 Intel Xeon host exposing AVX-512 and AMX flags. It does not prove oneDNN/TEI microkernel dispatch and does not claim production LLM acceleration.",
+  "claim_boundary": "This evidence proves that WearEdge OPEA Manufacturing workloads were run and validated on a Google Cloud C3 Intel Xeon host exposing AVX-512 and AMX flags. The supplemental TEI/oneDNN verbose attempt captured TEI logs but did not emit dispatch marker lines. This does not prove oneDNN/TEI microkernel dispatch and does not claim production LLM acceleration.",
   "single_node_challenge_fit": {
     "machine_type": "c3-standard-4",
     "zone": "us-central1-a",
@@ -379,16 +379,48 @@
         }
       ],
       "all_checks_pass": true
+    },
+    {
+      "name": "supplemental official OPEA TEI oneDNN verbose attempt",
+      "source": "evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json",
+      "runtime_profile": {
+        "cloud": "Google Cloud",
+        "machine_type": "c3-standard-4",
+        "single_node": true,
+        "vcpus": 4,
+        "memory_gib_observed_by_docker": 15.61,
+        "gpu": "none",
+        "within_challenge_limit": true
+      },
+      "validation": {
+        "gateway_ok": true,
+        "scorecard_ok": true,
+        "five_demos_ok": true,
+        "docker_stats_captured": true,
+        "compose_ps_captured": true,
+        "c3_cpu_flags_include_avx512": true,
+        "c3_cpu_flags_include_amx": true,
+        "tei_logs_present": true,
+        "dispatch_markers_captured": false
+      },
+      "dispatch_evidence": {
+        "marker_count": 0,
+        "marker_lines": [],
+        "note": "The run enabled oneDNN/DNNL/MKLDNN verbose capture and searched TEI/OPEA logs for oneDNN, DNNL, MKLDNN, AVX, AMX, BF16, VNNI, BRGEMM, and matmul markers. This TEI build did not emit matching dispatch lines in the captured logs."
+      },
+      "claim_status": "tei_verbose_not_emitted_cpu_feature_evidence_only",
+      "all_checks_pass": true
     }
   ],
   "effective_use_interpretation": [
     "The same single-node C3 class is used for CPU feature detection, route benchmark, Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E.",
     "The official TEI profile validates a real embedding workload through Hugging Face TEI, opea/embedding:latest, /v1/embeddings, Qdrant, and all five route demos.",
     "The Docker evidence stays inside the challenge envelope: single node, 4 vCPU, 16 GiB RAM, no GPU.",
-    "The benchmark is an application-level effective-use record, not a low-level AMX/AVX-512 kernel dispatch proof."
+    "The benchmark is an application-level effective-use record, not a low-level AMX/AVX-512 kernel dispatch proof.",
+    "The r20 TEI/oneDNN verbose attempt passed application checks but recorded dispatch_markers_captured=false."
   ],
   "next_stronger_optional_evidence": [
-    "Run TEI with oneDNN or backend verbose logging enabled if the image exposes it.",
+    "Collect perf counters or use a TEI build that emits oneDNN/DNNL dispatch marker lines.",
     "Add a non-C3 baseline on a CPU without AMX for direct comparative latency.",
     "Benchmark a production LLM endpoint on the same C3 host only if the endpoint is configured and strict fallback is disabled."
   ]

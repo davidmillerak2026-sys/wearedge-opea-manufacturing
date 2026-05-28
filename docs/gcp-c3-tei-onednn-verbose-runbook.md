@@ -74,3 +74,31 @@ TEI/OPEA logs searched for oneDNN/ISA dispatch markers.
 
 Do not claim oneDNN or AMX kernel dispatch unless the artifact actually
 contains matching marker lines.
+
+## Captured Result
+
+The 2026-05-28 Cloud Shell run on
+`final-submission-2026-05-28-r20` completed successfully:
+
+```text
+VM: wearedge-tei-onednn-0528111751
+all_checks_pass=true
+gateway_ok=true
+scorecard_ok=true
+five_demos_ok=true
+c3_cpu_flags_include_avx512=true
+c3_cpu_flags_include_amx=true
+tei_logs_present=true
+dispatch_markers_captured=false
+```
+
+Artifacts:
+
+```text
+docs/gcp-c3-tei-onednn-verbose-report.md
+evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json
+```
+
+Interpretation: this passed as application-level Intel C3 effective-use
+evidence. The run did not capture oneDNN/TEI dispatch marker lines, so it must
+not be described as instruction-level AMX or AVX-512 proof.

@@ -28,7 +28,7 @@ Status language:
 | Functional Completeness | 15 | Full-mark defendable | Web UI, API, five demos, five infer routes, Qdrant RAG, TEI profile, scorecard, and GenAIEval-compatible pack all run. |
 | Open-source bonus | 15 | Full-mark vulnerable | Public RFC, comments, and PR exist; full marks are stronger if maintainers engage, merge, or request changes that we address. |
 | Knowledge-sharing bonus | 10 | Full-mark defendable | Public Dev.to article and YouTube demo are live and linked. |
-| Hardware optimization bonus | 15 | Full-mark vulnerable | AVX-512/AMX C3 evidence is real and connected to WearEdge workloads; full marks would be stronger with low-level kernel dispatch logs. |
+| Hardware optimization bonus | 15 | Full-mark vulnerable but stronger after r20 | AVX-512/AMX C3 evidence is real and connected to WearEdge workloads; supplemental TEI/oneDNN verbose attempt passed the application checks but did not emit dispatch marker lines. |
 
 Target position: defend `100/100` base points and pursue the full `40/40`
 bonus. The main remaining exposure is not missing product function; it is judge
@@ -124,10 +124,10 @@ low-level Intel optimization proof.
 | Question | Audit |
 | --- | --- |
 | Can we defend full bonus now? | Strong, but `Full-mark vulnerable`. |
-| Why full marks are defensible | GCP C3 `c3-standard-4` runs on Intel Xeon Platinum 8481C and detects `avx512f`, `avx512_bf16`, `avx512_vnni`, `amx_tile`, `amx_int8`, and `amx_bf16`. WearEdge then validates five-agent scorecards, Docker/Qdrant, OPEA-compatible embeddings, and official OPEA TEI on that hardware profile. |
-| What could cause lost points | The evidence proves effective use of Intel-capable hardware and successful OPEA TEI workload execution, but it does not include low-level oneDNN/TEI kernel dispatch logs proving that a specific AMX or AVX-512 instruction path was selected inside the model server. |
-| Follow-up to close the gap | If GCP is available again, run a supplemental TEI/oneDNN verbose or perf evidence script on C3 and attach logs showing CPU model, ISA flags, workload, route pass state, and any kernel-dispatch indicators. If that is not feasible, keep the current claim as "effective use evidence", not "instruction-level proof". |
-| Evidence | `docs/intel-effective-use-evidence.md`, `docs/intel-avx512-amx-benchmark-report.md`, `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`, `evidence/benchmarks/intel_effective_use.summary.json`, `docs/gcp-c3-opea-tei-profile-e2e-report.md`. |
+| Why full marks are defensible | GCP C3 `c3-standard-4` runs on Intel Xeon Platinum 8481C and detects `avx512f`, `avx512_bf16`, `avx512_vnni`, `amx_tile`, `amx_int8`, and `amx_bf16`. WearEdge then validates five-agent scorecards, Docker/Qdrant, OPEA-compatible embeddings, official OPEA TEI, and a supplemental TEI/oneDNN verbose attempt on that hardware profile. |
+| What could cause lost points | The evidence proves effective use of Intel-capable hardware and successful OPEA TEI workload execution, but the supplemental verbose run returned `dispatch_markers_captured=false`; it does not prove that a specific AMX or AVX-512 instruction path was selected inside the model server. |
+| Follow-up to close the gap | Keep the current claim as "application-level effective use of Intel C3 hardware". If more hardening is needed, collect `perf` counters, compare against a non-AMX CPU, or run a TEI build that emits oneDNN/DNNL dispatch lines. |
+| Evidence | `docs/intel-effective-use-evidence.md`, `docs/intel-avx512-amx-benchmark-report.md`, `docs/gcp-c3-tei-onednn-verbose-report.md`, `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`, `evidence/benchmarks/intel_effective_use.summary.json`, `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json`, `docs/gcp-c3-opea-tei-profile-e2e-report.md`. |
 
 ## Highest-Impact Follow-Up List
 
@@ -139,7 +139,7 @@ low-level Intel optimization proof.
 | P0 | Make the official TEI profile the primary technical proof. | Use of OPEA, System Efficiency | `opea/embedding:latest` plus TEI plus Qdrant is the strongest OPEA-native evidence. |
 | P1 | Monitor and respond to OPEA PR #2462 and issue #2461. | Open-source bonus, Use of OPEA | Merge is not required by the wording, but maintainers' engagement makes the bonus much harder to discount. |
 | P1 | Add a short final PR/issue comment linking the GCP C3 official OPEA TEI evidence and Dev.to/YouTube materials. | Open-source, Knowledge Sharing, Hardware Optimization | It ties all bonus evidence into the upstream OPEA conversation. |
-| P1 | If cloud budget/time allows, run supplemental TEI/oneDNN verbose evidence on C3. | Hardware Optimization | This is the clearest remaining path from "strong" to "very hard to challenge" for the Intel bonus. |
+| P1 | Optional: collect perf counters, non-AMX comparison, or TEI build logs that emit oneDNN/DNNL dispatch lines. | Hardware Optimization | The r20 verbose attempt passed application checks but did not emit dispatch markers; these are the remaining paths from "strong" to "very hard to challenge". |
 | P2 | Optional Kubernetes/Helm/GMC deployment note or manifest. | Use of OPEA | Helpful if judges strongly favor cloud-native OPEA deployment, but not necessary for the required Docker one-click path. |
 | P2 | Optional external LLM adapter benchmark. | System Efficiency | Useful only if we can run it cleanly without over-claiming production LLM quality. |
 
@@ -157,8 +157,9 @@ Use these boundaries in the final form and any judge Q&A:
 - The official TEI profile proves OPEA embedding integration and Qdrant RAG on
   4-vCPU / 16-GiB / no-GPU hardware; production LLM endpoint performance is not
   claimed unless separately configured and benchmarked.
-- AVX-512/AMX evidence is currently effective-use evidence on Intel C3 hardware,
-  not a low-level instruction-dispatch certification.
+- AVX-512/AMX evidence is effective-use evidence on Intel C3 hardware. The r20
+  TEI/oneDNN verbose attempt passed application checks but did not emit dispatch
+  markers, so it is not a low-level instruction-dispatch certification.
 
 ## Judge-Facing One-Paragraph Defense
 

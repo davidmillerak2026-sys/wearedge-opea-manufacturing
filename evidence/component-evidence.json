@@ -92,15 +92,19 @@
         "scripts/intel_cpu_benchmark.py",
         "scripts/build_intel_effective_use_summary.py",
         "scripts/xeon_amx_benchmark_remote.sh",
+        "scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh",
         "docs/intel-avx512-amx-benchmark-report.md",
         "docs/intel-effective-use-evidence.md",
         "docs/xeon-amx-benchmark-runbook.md",
+        "docs/gcp-c3-tei-onednn-verbose-runbook.md",
+        "docs/gcp-c3-tei-onednn-verbose-report.md",
         "evidence/benchmarks/intel_cpu_benchmark.local-smoke.json",
         "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
-        "evidence/benchmarks/intel_effective_use.summary.json"
+        "evidence/benchmarks/intel_effective_use.summary.json",
+        "evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json"
       ],
       "cloud_run": "Google Cloud C3 c3-standard-4 in us-central1-a, single node, 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, temporary VM deleted after run",
-      "claim_boundary": "AVX-512/AMX flags were detected on the C3 Xeon host, and WearEdge route, Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI workloads passed on that host class. This is application-level effective-use evidence, not oneDNN/TEI microkernel dispatch proof or production LLM acceleration."
+      "claim_boundary": "AVX-512/AMX flags were detected on the C3 Xeon host, and WearEdge route, Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, and supplemental TEI/oneDNN verbose-attempt workloads passed on that host class. The r20 verbose attempt captured TEI logs but dispatch_markers_captured=false, so this is application-level effective-use evidence, not oneDNN/TEI microkernel dispatch proof or production LLM acceleration."
     },
     {
       "category": "GCP C3 Docker/Qdrant fresh-clone E2E",

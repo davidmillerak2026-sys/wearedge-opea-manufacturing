@@ -104,7 +104,7 @@ Can we run a production full-chain benchmark now?
 | Real OpenAI/OPEA-compatible LLM endpoint | Not currently configured in repo | Needed for honest production LLM claim |
 | Multimodal LMM endpoint for image evidence | Not currently configured in OPEA package | Needed for honest production LMM/VLM claim |
 | Local Docker Desktop | Available, but Docker Engine access needs approval from Codex sandbox | Can rerun Compose/TEI if approved |
-| GCP C3 CPU host | Previously available and validated | Can rerun CPU/TEI; small LLM on CPU is possible but may be slow |
+| GCP C3 CPU host | Available and validated, including supplemental TEI/oneDNN verbose attempt | Additional perf/non-AMX comparison is possible but optional |
 
 Recommendation:
 
@@ -197,8 +197,9 @@ allows. The existing Dev.to + YouTube evidence already satisfies the rubric.
 
 ### Hardware Optimization Bonus
 
-Current state: strong application-level evidence, still vulnerable on
-instruction-level proof.
+Current state: strong application-level evidence; supplemental TEI/oneDNN
+verbose attempt captured; still vulnerable only on instruction-level dispatch
+proof.
 
 What we already have:
 
@@ -209,16 +210,19 @@ What we already have:
 - Docker/Qdrant E2E;
 - OPEA-compatible embedding E2E;
 - official OPEA TEI E2E;
+- supplemental TEI/oneDNN verbose attempt with Gateway, scorecard, five demos,
+  Docker stats, CPU flags, and TEI logs captured;
 - route, scorecard, memory, and cleanup evidence.
 
 What would make it harder to dispute:
 
-- TEI or oneDNN verbose logs showing CPU backend/kernel dispatch;
+- TEI or oneDNN verbose logs showing CPU backend/kernel dispatch. The r20
+  attempt enabled verbose capture but returned `dispatch_markers_captured=false`;
 - side-by-side comparison against a non-AMX CPU instance;
 - production LLM endpoint benchmark on the same C3 host with strict fallback
   disabled.
 
-Recommendation: if GCP access is still available, run a supplemental
-TEI/oneDNN-verbose capture on C3. If not, keep the current claim as
-"effective use of Intel hardware features", which is exactly the wording of the
-bonus category.
+Recommendation: keep the current claim as "effective use of Intel hardware
+features", which is exactly the wording of the bonus category. Only add more
+hardware work if we can collect perf counters, a non-AMX comparison, or a TEI
+build that emits oneDNN/DNNL dispatch marker lines.

@@ -181,11 +181,12 @@ Key archived evidence already mapped into this submission package:
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
 - Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the demo video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; the GitHub article/video backups remain public evidence.
-- Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI workloads.
+- Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, and supplemental TEI/oneDNN verbose-attempt workloads.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
 - Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five demos reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
 - GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
+- Supplemental C3 TEI/oneDNN verbose attempt: Google Cloud C3 `c3-standard-4` single-node run from tag `final-submission-2026-05-28-r20` passed Gateway health, `/v1/scorecard`, five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, and TEI log capture; temporary VM `wearedge-tei-onednn-0528111751` was deleted after the run. The captured TEI build did not emit dispatch marker lines, so this is application-level Intel effective-use evidence, not instruction-level AMX/AVX-512 proof.
 
 ## Bonus URLs And Artifacts
 
@@ -210,12 +211,14 @@ Key archived evidence already mapped into this submission package:
 - Official OPEA TEI profile: `docs/official-opea-tei-profile.md`
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`
 - GCP C3 OPEA TEI report: `docs/gcp-c3-opea-tei-profile-e2e-report.md`
+- GCP C3 TEI/oneDNN verbose report: `docs/gcp-c3-tei-onednn-verbose-report.md`
 - Submission URL dry run report: `docs/submission-url-dry-run.md`
 - Local Docker Desktop final validation: `docs/local-docker-desktop-final-validation.md`
 - GCP OPEA profile report: `docs/gcp-c3-opea-profile-e2e-report.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
 - Intel effective-use evidence: `docs/intel-effective-use-evidence.md`
 - Intel effective-use summary JSON: `evidence/benchmarks/intel_effective_use.summary.json`
+- GCP C3 TEI/oneDNN verbose summary JSON: `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json`
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
 - Demo video source package: `public/demo-video/`
 - Demo video render report: `docs/demo-video-render-report.md`

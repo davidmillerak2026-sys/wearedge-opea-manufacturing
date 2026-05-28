@@ -3,8 +3,9 @@
 Status: strong technical package; public demo video URL verified; OPEA
 upstream RFC/comment posted; real upstream PR #2462 opened and CI-green;
 contribution package and patch artifact prepared; local Docker Desktop
-validation passed; GenAIEval-compatible route evaluation passed; submission URL
-dry run passed; champion risk burn-down completed; final visual form review
+validation passed; GenAIEval-compatible route evaluation passed; supplemental
+GCP C3 TEI/oneDNN verbose attempt passed application checks; submission URL dry
+run passed; champion risk burn-down completed; final visual form review
 remains.
 
 ## Product Decision
@@ -38,7 +39,7 @@ detection. Raw customer plant data is intentionally not published.
 | Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, OpenAI/OPEA-compatible LLM adapter, guardrails, scorecard, GenAIEval-compatible evaluation pack | Ready |
 | Product quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
-| Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
+| Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI fresh-clone E2E, and supplemental TEI/oneDNN verbose attempt evidence | Ready |
 | Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is CI-green but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; GitHub article/video backup evidence remains public | Ready |
@@ -97,9 +98,11 @@ Full-mark gap closure plan:
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
+| Supplemental C3 TEI/oneDNN verbose report | `docs/gcp-c3-tei-onednn-verbose-report.md` |
 | Xeon AVX-512/AMX benchmark | `docs/intel-avx512-amx-benchmark-report.md` |
 | Intel effective-use evidence | `docs/intel-effective-use-evidence.md` |
 | Intel effective-use summary JSON | `evidence/benchmarks/intel_effective_use.summary.json` |
+| Supplemental C3 TEI/oneDNN verbose summary JSON | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` |
 | Component manifest | `evidence/component-evidence.json` |
 
 ## Submission Fields
@@ -137,8 +140,10 @@ https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-s
 - Do not imply all five routes have equal field maturity. Maintenance is the
   strongest hero route; the other four prove platform breadth with runnable
   route fixtures and route-specific guardrails.
-- Do not claim oneDNN/TEI microkernel dispatch proof from the Intel C3 record;
-  current evidence is application-level effective use of C3 Xeon hardware.
+- Do not claim oneDNN/TEI microkernel dispatch proof from the Intel C3 record.
+  The r20 verbose attempt passed application checks, but
+  `dispatch_markers_captured=false`, so current evidence is application-level
+  effective use of C3 Xeon hardware.
 - Do not claim additional external public-platform publication beyond Dev.to
   and YouTube unless those URLs are also posted and recorded.
 

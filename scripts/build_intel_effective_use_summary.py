@@ -27,6 +27,7 @@ def main() -> int:
     docker_qdrant = load_json(BENCHMARKS / "gcp_c3_docker_qdrant_e2e.summary.json")
     opea_profile = load_json(BENCHMARKS / "gcp_c3_opea_profile_e2e.summary.json")
     opea_tei = load_json(BENCHMARKS / "gcp_c3_opea_tei_profile_e2e.summary.json")
+    tei_verbose = load_json(BENCHMARKS / "gcp_c3_tei_onednn_verbose.summary.json")
 
     feature_detection = cpu["cpu"]["feature_detection"]
     route_pipeline = cpu["pipeline"]
@@ -39,8 +40,10 @@ def main() -> int:
         "claim_boundary": (
             "This evidence proves that WearEdge OPEA Manufacturing workloads were "
             "run and validated on a Google Cloud C3 Intel Xeon host exposing "
-            "AVX-512 and AMX flags. It does not prove oneDNN/TEI microkernel "
-            "dispatch and does not claim production LLM acceleration."
+            "AVX-512 and AMX flags. The supplemental TEI/oneDNN verbose attempt "
+            "captured TEI logs but did not emit dispatch marker lines. This does "
+            "not prove oneDNN/TEI microkernel dispatch and does not claim "
+            "production LLM acceleration."
         ),
         "single_node_challenge_fit": {
             "machine_type": "c3-standard-4",
@@ -108,15 +111,25 @@ def main() -> int:
                 "docker_stats": opea_tei["docker_stats"],
                 "all_checks_pass": opea_tei["all_checks_pass"],
             },
+            {
+                "name": "supplemental official OPEA TEI oneDNN verbose attempt",
+                "source": "evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json",
+                "runtime_profile": tei_verbose["runtime_profile"],
+                "validation": tei_verbose["validation"],
+                "dispatch_evidence": tei_verbose["dispatch_evidence"],
+                "claim_status": tei_verbose["claim_status"],
+                "all_checks_pass": tei_verbose["all_checks_pass"],
+            },
         ],
         "effective_use_interpretation": [
             "The same single-node C3 class is used for CPU feature detection, route benchmark, Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E.",
             "The official TEI profile validates a real embedding workload through Hugging Face TEI, opea/embedding:latest, /v1/embeddings, Qdrant, and all five route demos.",
             "The Docker evidence stays inside the challenge envelope: single node, 4 vCPU, 16 GiB RAM, no GPU.",
             "The benchmark is an application-level effective-use record, not a low-level AMX/AVX-512 kernel dispatch proof.",
+            "The r20 TEI/oneDNN verbose attempt passed application checks but recorded dispatch_markers_captured=false.",
         ],
         "next_stronger_optional_evidence": [
-            "Run TEI with oneDNN or backend verbose logging enabled if the image exposes it.",
+            "Collect perf counters or use a TEI build that emits oneDNN/DNNL dispatch marker lines.",
             "Add a non-C3 baseline on a CPU without AMX for direct comparative latency.",
             "Benchmark a production LLM endpoint on the same C3 host only if the endpoint is configured and strict fallback is disabled.",
         ],

@@ -264,6 +264,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
 | [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
 | [`docs/gcp-c3-tei-onednn-verbose-runbook.md`](docs/gcp-c3-tei-onednn-verbose-runbook.md) | GCP C3 TEI oneDNN/ISA verbose capture runbook |
+| [`docs/gcp-c3-tei-onednn-verbose-report.md`](docs/gcp-c3-tei-onednn-verbose-report.md) | Captured C3 TEI/oneDNN verbose attempt result and claim boundary |
 | [Dev.to external article](https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh) | Published public knowledge-sharing article |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public GitHub article backup |
 | [`public/article-opea-tei-qdrant-guardrails-lessons.md`](public/article-opea-tei-qdrant-guardrails-lessons.md) | OPEA practical technical article: TEI, Qdrant, guardrails, hardware, and feedback |
@@ -366,6 +367,7 @@ evidence/benchmarks/local_opea_profile_e2e.summary.json
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
+evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json
 evidence/benchmarks/llm_adapter_contract.local-smoke.json
 evidence/benchmarks/route_concurrency.local-smoke.json
 ```
@@ -407,6 +409,16 @@ acceleration.
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
 
 The official OPEA TEI E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway, verified 768-dimensional TEI embeddings, passed all five route demos with `qdrant-opea-tei-vector-store`, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-opea-tei-0527103938` after the run.
+
+The supplemental TEI/oneDNN verbose run was captured on Google Cloud C3
+`c3-standard-4` in `us-central1-a` from tag
+`final-submission-2026-05-28-r20`. It started the same official OPEA TEI
+profile plus verbose env capture, passed Gateway health, `/v1/scorecard`, all
+five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, and
+TEI log capture, then deleted temporary VM `wearedge-tei-onednn-0528111751`.
+The captured TEI build did not emit oneDNN dispatch marker lines, so this is
+application-level Intel C3 effective-use evidence, not instruction-level
+AMX/AVX-512 kernel dispatch proof.
 
 Xeon AMX runbook:
 

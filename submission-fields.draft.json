@@ -6,7 +6,7 @@
   },
   "github": {
     "target_submission_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
-    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r18",
+    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r21",
     "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
   },
   "submission_meta_attributes": {
@@ -65,6 +65,8 @@
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "intel_effective_use_evidence_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/intel-effective-use-evidence.md",
     "intel_effective_use_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_effective_use.summary.json",
+    "gcp_c3_tei_onednn_verbose_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-tei-onednn-verbose-report.md",
+    "gcp_c3_tei_onednn_verbose_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json",
     "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
     "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
     "official_opea_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md",
@@ -79,7 +81,7 @@
   "do_not_claim_until_implemented": {
     "full official GenAIEval": "The repository includes a lightweight GenAIEval-compatible dataset, config, runner, metrics, route evaluation JSON, benchmark JSON, and summary. Do not claim full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.",
     "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. The runtime now includes an OpenAI/OPEA-compatible LLM adapter and benchmark harness. Do not claim production LLM acceleration until a real endpoint benchmark records production_llm_endpoint_benchmarked with fallback_count=0.",
-    "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible and official OPEA TEI embedding E2E runs validate the submission package. The Intel effective-use summary connects those workloads into an application-level effective-use record. Do not claim oneDNN/TEI microkernel dispatch proof or production LLM acceleration until those are separately benchmarked.",
+    "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible, official OPEA TEI embedding, and supplemental TEI/oneDNN verbose-attempt E2E runs validate the submission package. The Intel effective-use summary connects those workloads into an application-level effective-use record. The r20 verbose attempt passed application checks but recorded dispatch_markers_captured=false, so do not claim oneDNN/TEI microkernel dispatch proof or production LLM acceleration.",
     "OPEA public contribution": "Public RFC issue, implementation comment, and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. A real upstream PR is open and CI-green at https://github.com/opea-project/GenAIExamples/pull/2462 from Ryanhuii:codex/wear-edge-manufacturing-suite-pr-ready to opea-project:main. DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test all passed on head 0c149a06. A contribution package and git format-patch artifact are included at docs/opea-upstream/pr-ready.",
     "external public platform publication": "The technical article is published on Dev.to at https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh and the demo video is published on YouTube at https://www.youtube.com/watch?v=dd9k8m6PDco. GitHub article/video backups remain in the repository."
   }
