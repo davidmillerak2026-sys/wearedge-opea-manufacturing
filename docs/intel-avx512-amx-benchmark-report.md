@@ -2,6 +2,11 @@
 
 Status: benchmark harness implemented; local smoke test captured; Google Cloud C3 Xeon AVX-512/AMX run captured.
 
+See also `docs/intel-effective-use-evidence.md` and
+`evidence/benchmarks/intel_effective_use.summary.json`, which connect this CPU
+feature benchmark to the Docker/Qdrant, OPEA-compatible embedding, and official
+OPEA TEI workloads that ran on the C3 Xeon profile.
+
 ## Objective
 
 The OPEA challenge gives bonus credit for demonstrating Intel AVX-512/AMX optimization. WearEdge OPEA Manufacturing now includes a repeatable benchmark harness that measures the five-agent route pipeline and records CPU feature detection.
@@ -154,6 +159,11 @@ WearEdge OPEA Manufacturing includes an Intel CPU benchmark harness and was prof
 ```
 
 Do not claim production LLM acceleration unless a real embedding/LLM service path is benchmarked on the same host.
+
+Also do not claim low-level TEI/oneDNN AMX or AVX-512 microkernel dispatch from
+this artifact alone. The current evidence is application-level effective use of
+an Intel Xeon C3 host exposing AVX-512 and AMX while running the WearEdge OPEA
+route, Qdrant, embedding, and TEI workloads.
 
 ## Current Machine Search Result
 

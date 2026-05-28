@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r6` |
+| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r7` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Publication URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
@@ -64,12 +64,16 @@ Paste these into any optional links, supporting materials, or notes fields:
 | Data provenance and field validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/data-provenance-and-field-validation.md` |
 | Telecom/manufacturing positioning | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/telecom-scope-and-manufacturing-positioning.md` |
 | Technical article | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md` |
+| External-platform article package | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md` |
 | Demo video | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` |
+| Public video platform metadata | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md` |
 | Demo video source | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video` |
 | Demo video render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md` |
 | Submission URL dry run | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-url-dry-run.md` |
 | Local Docker Desktop final validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md` |
 | Xeon AVX-512/AMX benchmark JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` |
+| Intel effective-use evidence | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/intel-effective-use-evidence.md` |
+| Intel effective-use summary JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_effective_use.summary.json` |
 | GCP C3 Docker/Qdrant E2E report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | GCP C3 Docker/Qdrant E2E JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json` |
 | Official OPEA profile | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md` |
@@ -95,6 +99,10 @@ Before pressing submit, verify:
 - GenAIEval wording says compatible/lightweight evidence, not full official
   GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.
 - The demo video URL opens as a GitHub asset page.
+- Do not claim an external Medium/LinkedIn/Dev.to/YouTube/Bilibili URL until
+  that URL is actually published.
+- Hardware wording says application-level Intel effective-use evidence, not
+  oneDNN/TEI microkernel dispatch proof.
 - The safety wording does not claim autonomous restart, quality release,
   maintenance release, safety clearance, final root cause, or production LLM
   acceleration.

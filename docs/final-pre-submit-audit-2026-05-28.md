@@ -14,7 +14,7 @@ form submission.
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r6` |
+| Final tag | `final-submission-2026-05-28-r7` |
 
 ## Verification Already Passed
 
@@ -32,8 +32,10 @@ form submission.
 | GCP C3 OPEA-compatible embedding | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | GCP C3 official OPEA TEI | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
 | Xeon AVX-512/AMX evidence | `docs/intel-avx512-amx-benchmark-report.md` |
+| Intel effective-use evidence | `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` |
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
 | OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462`, CI-green on head `0c149a06` |
+| Knowledge-sharing package | GitHub article/video evidence plus copy-ready external article and public video metadata; external Medium/LinkedIn/Dev.to/YouTube/Bilibili URL still pending |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 
 ## Live Runtime State
@@ -64,13 +66,18 @@ confirmed the key files exist on `origin/main`, including:
 - `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`
 
 This is treated as transient local network instability, not missing submission
-material.
+material. New r7 evidence adds the Intel effective-use summary and external
+platform article/video publishing package.
 
 ## Remaining Human Action
 
-The only required remaining action is to open the challenge submission page,
-paste the values from `docs/final-submission-form-fill-guide.md`, visually
-confirm the fields, and press submit.
+The only required remaining action for challenge submission is to open the
+challenge submission page, paste the values from
+`docs/final-submission-form-fill-guide.md`, visually confirm the fields, and
+press submit. To maximize the knowledge-sharing bonus, also publish
+`public/external-platform-article.md` on a public blog/article platform and
+upload the demo video using `public/video-platform-description.md`, then add the
+resulting external URLs back into the submission notes if time allows.
 
 Submission page:
 
@@ -80,5 +87,6 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 
 Do not change the project URL away from the OPEA competition repository, and do
 not add claims for autonomous restart, quality release, maintenance release,
-safety clearance, final root cause, or production LLM acceleration unless a
-real endpoint benchmark is attached with `production_llm_endpoint_benchmarked`.
+safety clearance, final root cause, production LLM acceleration, TEI/oneDNN
+microkernel dispatch proof, or external public-platform publication unless the
+corresponding URL or benchmark artifact is attached.

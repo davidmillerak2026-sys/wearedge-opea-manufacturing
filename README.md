@@ -202,12 +202,15 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/opea-upstream/pr-ready/`](docs/opea-upstream/pr-ready/) | Copyable OPEA `GenAIExamples` contribution package |
 | [`docs/upstream-pr-attempt-2026-05-28.md`](docs/upstream-pr-attempt-2026-05-28.md) | Direct upstream PR attempt, fork push, opened PR record, and CI-green status |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
+| [`docs/intel-effective-use-evidence.md`](docs/intel-effective-use-evidence.md) | Intel effective-use evidence across route, Qdrant, embedding, and official OPEA TEI workloads |
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
 | [`docs/gcp-c3-opea-profile-e2e-report.md`](docs/gcp-c3-opea-profile-e2e-report.md) | Google Cloud C3 OPEA-compatible embedding profile E2E evidence |
 | [`docs/local-opea-tei-profile-e2e-report.md`](docs/local-opea-tei-profile-e2e-report.md) | Local official OPEA TEI embedding profile E2E evidence |
 | [`docs/gcp-c3-opea-tei-profile-e2e-report.md`](docs/gcp-c3-opea-tei-profile-e2e-report.md) | Google Cloud C3 official OPEA TEI embedding profile E2E evidence |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public knowledge-sharing article draft |
+| [`public/external-platform-article.md`](public/external-platform-article.md) | Copy-ready article for Medium, LinkedIn, Dev.to, or another public platform |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
+| [`public/video-platform-description.md`](public/video-platform-description.md) | Copy-ready public video platform title, description, and tags |
 | [`public/demo-video/`](public/demo-video/) | Renderable HyperFrames demo video source package |
 | [`docs/demo-video-render-report.md`](docs/demo-video-render-report.md) | Local demo video render and validation evidence |
 | [`evals/genaieval/`](evals/genaieval/) | GenAIEval-compatible evaluation pack |
@@ -270,8 +273,10 @@ Knowledge-sharing package:
 ```text
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
+public/external-platform-article.md
 public/demo-video-script.md
 public/demo-video-captions.srt
+public/video-platform-description.md
 public/demo-video/
 docs/demo-video-render-report.md
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
@@ -289,6 +294,7 @@ The committed benchmark evidence includes:
 ```text
 evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
+evidence/benchmarks/intel_effective_use.summary.json
 evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
 evidence/benchmarks/local_opea_profile_e2e.summary.json
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
@@ -323,6 +329,13 @@ single node, <=64GB RAM, and 4-core CPU. The CPU was Intel Xeon Platinum 8481C
 with `avx512f=true`, `amx_tile=true`, `amx_int8=true`, `amx_bf16=true`,
 scorecard `ok=true`, and 4,581.4536 calls/second across 5,000 deterministic
 route calls.
+
+The Intel effective-use summary combines that CPU feature run with C3
+Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E.
+It shows the WearEdge OPEA TEI embedding/RAG profile and five-agent suite
+running inside the single-node 4-vCPU / 16-GiB-RAM / no-GPU challenge envelope.
+It does not claim oneDNN/TEI microkernel dispatch proof or production LLM
+acceleration.
 
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
 

@@ -36,7 +36,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
 | Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is CI-green but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, demo skim risk, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
-| Knowledge sharing bonus | Public article ready; demo video script/captions, renderable HyperFrames source, local MP4 render, and public video URL ready | Ready |
+| Knowledge sharing bonus | GitHub article/video evidence is public; copy-ready external-platform article and video metadata are prepared | Good; external Medium/LinkedIn/Dev.to/YouTube/Bilibili URL still pending for maximum score |
 
 ## Hard Evidence
 
@@ -70,6 +70,8 @@ with Docker, Web UI, API routes, and scorecard only.
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
 | Xeon AVX-512/AMX benchmark | `docs/intel-avx512-amx-benchmark-report.md` |
+| Intel effective-use evidence | `docs/intel-effective-use-evidence.md` |
+| Intel effective-use summary JSON | `evidence/benchmarks/intel_effective_use.summary.json` |
 | Component manifest | `evidence/component-evidence.json` |
 
 ## Submission Fields
@@ -107,12 +109,17 @@ https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/p
 - Do not imply all five routes have equal field maturity. Maintenance is the
   strongest hero route; the other four prove platform breadth with runnable
   prototypes and route-specific guardrails.
+- Do not claim oneDNN/TEI microkernel dispatch proof from the Intel C3 record;
+  current evidence is application-level effective use of C3 Xeon hardware.
+- Do not claim external public-platform article/video publication until a
+  non-GitHub public URL is posted and recorded.
 
 ## Remaining Work
 
 | Item | Why it matters | Next action |
 | --- | --- | --- |
 | Upstream PR review follow-up | Could improve open-source contribution bonus | Monitor `https://github.com/opea-project/GenAIExamples/pull/2462` and respond quickly if maintainers request scope, naming, or CI changes |
+| External public platform posting | Could improve knowledge-sharing bonus from good to harder-to-dispute | Use `public/external-platform-article.md` and `public/video-platform-description.md` to publish on Medium/LinkedIn/Dev.to and YouTube/Bilibili/LinkedIn, then record URLs in `docs/publication-record.md` |
 | Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; use `docs/final-submission-form-fill-guide.md`, visually review the challenge form, then submit |
 
 ## Current Verdict
