@@ -29,7 +29,7 @@ M400 / API request
   -> Retriever / RAG + Qdrant Vector DB profile
   -> optional OPEA-compatible Embedding Microservice /v1/embeddings
   -> optional official OPEA TEI Embedding Microservice profile
-  -> OpenAI/OPEA-compatible LLM service adapter or deterministic no-model demo
+  -> OpenAI/OPEA-compatible LLM service adapter or deterministic no-model evaluation path
   -> route-specific evaluator
   -> Guardrails and blocked claims
   -> CMMS / QMS / MES / WI / EHS action card
@@ -37,7 +37,7 @@ M400 / API request
 
 Current component claim: `LLM`, `RAG`, `Vector DB`, `Orchestration`, `Guardrails`.
 
-The submitted Docker Compose profile starts Qdrant and a FastAPI Manufacturing Gateway. The local demo can also run without dependencies through an in-memory vector fallback. This keeps the prototype reproducible while preserving the OPEA component boundaries. An optional `docker-compose.opea.yml` profile adds a separate OPEA-compatible `/v1/embeddings` microservice and configures the Gateway to call it during Qdrant indexing and retrieval. A second optional `docker-compose.opea-tei.yml` profile follows the official OPEA TEI embedding pattern by connecting Hugging Face TEI to the OPEA embedding microservice through `TEI_EMBEDDING_ENDPOINT` and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; that profile has local Docker Desktop and Google Cloud C3 fresh-clone E2E evidence. The LLM boundary is implemented through an OpenAI/OPEA-compatible adapter with a benchmark harness; the submitted default remains deterministic unless a real endpoint is configured.
+The submitted Docker Compose profile starts Qdrant and a FastAPI Manufacturing Gateway. The local runtime can also run without dependencies through an in-memory vector fallback. This keeps the evaluation package reproducible while preserving the OPEA component boundaries. An optional `docker-compose.opea.yml` profile adds a separate OPEA-compatible `/v1/embeddings` microservice and configures the Gateway to call it during Qdrant indexing and retrieval. A second optional `docker-compose.opea-tei.yml` profile follows the official OPEA TEI embedding pattern by connecting Hugging Face TEI to the OPEA embedding microservice through `TEI_EMBEDDING_ENDPOINT` and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; that profile has local Docker Desktop and Google Cloud C3 fresh-clone E2E evidence. The LLM boundary is implemented through an OpenAI/OPEA-compatible adapter with a benchmark harness; the submitted default remains deterministic unless a real endpoint is configured.
 
 ## 3. Implementation
 
@@ -53,7 +53,7 @@ Examples:
 
 The full engineering project also contains the M400 Android client, Jetson FastAPI gateway, local edge LLM path, audit logs, runtime stream, and more than 120 local tests. This OPEA repository packages the judge-facing runnable path.
 
-## 4. Prototype Evidence And Evaluation
+## 4. Product Evidence And Evaluation
 
 Runnable commands:
 
@@ -83,10 +83,10 @@ route-isolation metrics, plus a 300-call route benchmark. This is intentionally
 claimed as GenAIEval-compatible evidence, not full official GenAIEval/RAGAS/
 AutoRAG/LLM-as-judge execution.
 
-Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance POC, five-agent POC validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`.
+Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance validation, five-agent validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`.
 
 ## 5. Safety, Licensing, And Limits
 
-WearEdge Pro is MIT licensed. It is an assistive decision-support prototype, not a certified industrial safety controller or autonomous maintenance-release system. Guardrails block unsupported claims including final root cause, remaining useful life, restart permission, quality release, safety clearance, incident root cause, and maintenance release. High-risk outputs require human confirmation.
+WearEdge Pro is MIT licensed. It is an assistive industrial AI decision-support system, not a certified industrial safety controller or autonomous maintenance-release system. Guardrails block unsupported claims including final root cause, remaining useful life, restart permission, quality release, safety clearance, incident root cause, and maintenance release. High-risk outputs require human confirmation.
 
 Bonus evidence package: the OPEA RFC issue is posted at `https://github.com/opea-project/GenAIExamples/issues/2461`, the upstream implementation and official TEI update comments are posted in that issue, upstream PR #2462 is open at `https://github.com/opea-project/GenAIExamples/pull/2462`, the public OPEA tracker is posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`, the technical article is recorded at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`, and the Intel benchmark harness plus Google Cloud C3 Xeon AVX-512/AMX JSON are in `scripts/intel_cpu_benchmark.py` and `evidence/benchmarks/`. The Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, local Docker Desktop, submission URL dry-run, upstream PR evidence and patch, LLM adapter benchmark path, champion risk burn-down, and public demo video evidence are all linked from `docs/final-submission-readiness-audit.md`.

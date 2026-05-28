@@ -36,7 +36,7 @@ Current validation status:
 - `GET /v1/agents` returns `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`.
 - `GET /v1/agents/{mode}/demo` returns a route-specific action card for every mode.
 - `GET /v1/scorecard` reports five passing route checks covering contract, guardrail, RAG/source match, action target correctness, and route isolation.
-- The Docker profile starts a Qdrant-backed gateway, with a deterministic no-model demo path for CI/reviewer reproducibility.
+- The Docker profile starts a Qdrant-backed gateway, with a deterministic no-model evaluation path for CI/reviewer reproducibility.
 - `docker-compose.opea.yml` adds an OPEA-compatible `/v1/embeddings` microservice boundary for Qdrant RAG.
 - `docker-compose.opea-tei.yml` adds the official OPEA TEI embedding pattern with Hugging Face TEI, `TEI_EMBEDDING_ENDPOINT`, and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; local E2E passed with 768-dimensional embeddings and all five demos using `qdrant-opea-tei-vector-store`.
 

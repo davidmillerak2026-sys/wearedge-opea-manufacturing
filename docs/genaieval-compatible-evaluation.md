@@ -10,8 +10,8 @@ full official GenAIEval, RAGAS, AutoRAG, or LLM-as-judge execution.
 ## Why It Exists
 
 The challenge asks teams to show OPEA-style technical implementation,
-efficiency, and prototype quality. OPEA also highlights standardized evaluation
-as part of the ecosystem. The existing `/v1/scorecard` is useful for live API
+efficiency, and product quality. OPEA also highlights standardized
+evaluation as part of the ecosystem. The existing `/v1/scorecard` is useful for live API
 verification; this package makes that evaluation reproducible as committed
 artifacts that judges can rerun from a fresh clone.
 

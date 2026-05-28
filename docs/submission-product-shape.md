@@ -24,7 +24,7 @@ Then open:
 http://127.0.0.1:8088/demo
 ```
 
-The browser console is the product experience for evaluation. It lets reviewers switch between `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`, run route demos, inspect the sample request, see retrieved source evidence, review guardrails, and verify the action-card output.
+The browser console is the judge-facing product experience for evaluation. It lets reviewers switch between `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`, run route scenarios, inspect the sample request, see retrieved source evidence, review guardrails, and verify the action-card output.
 
 ## Product Architecture
 
@@ -50,7 +50,7 @@ Use Android/M400 as proof that WearEdge Pro is grounded in a real wearable workf
 
 - Captures first-person plant-floor evidence.
 - Shows the edge inference result back to the operator.
-- Anchors the maintenance hero demo in a realistic deployment pattern.
+- Anchors the maintenance hero route in a realistic deployment pattern.
 - Differentiates the product from a generic browser chatbot.
 
 Use the Web Demo Console as the judge-friendly substitute when reviewers do not have M400 hardware.
@@ -61,7 +61,7 @@ Use the Web Demo Console as the judge-friendly substitute when reviewers do not 
 | --- | --- |
 | One-click deployment | `docker-compose.yml`, `deploy.sh`, README commands |
 | OPEA implementation | Gateway, Megaservice, Dataprep, RAG, Qdrant, LLM adapter, Guardrails |
-| Prototype quality | `/demo`, `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/scorecard` |
+| Product quality | `/demo`, `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/scorecard` |
 | Manufacturing value | Five route suite: maintenance, IQC, changeover, WI, hazard |
 | Safety and trust | Route-specific blocked claims and human confirmation gates |
 | Open-source contribution | OPEA RFC issue `https://github.com/opea-project/GenAIExamples/issues/2461` |
@@ -72,7 +72,7 @@ Use the Web Demo Console as the judge-friendly substitute when reviewers do not 
 Use this wording in the challenge form:
 
 ```text
-WearEdge Pro is a wearable edge AI product packaged for the OPEA challenge as a runnable Manufacturing Agent Suite. The submitted GitHub repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, route-specific evaluators, guardrails, browser demo console, and five action-card agents. The M400 Android client is the real deployment front end and evidence source; the Web Console is the judge-facing experience for reproducible evaluation.
+WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a runnable Manufacturing Agent Suite. The submitted GitHub repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, route-specific evaluators, guardrails, browser demo console, and five action-card agents. The M400 Android client is the real deployment front end and evidence source; the Web Console is the judge-facing experience for reproducible evaluation.
 ```
 
 ## Do Not Claim

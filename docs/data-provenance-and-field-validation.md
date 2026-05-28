@@ -27,17 +27,19 @@ This OPEA repository is the self-contained challenge package. It includes:
 - Docker/Qdrant/OPEA TEI runtime evidence;
 - a browser console and API scorecard so judges do not need M400 hardware.
 
-## What Is Prototype Data
+## What Is Competition-Scale Evaluation Data
 
-The IQC, changeover, WI, and hazard data are demo-scale manufacturing scenarios.
-They are intentionally transparent and committed as JSON so judges can inspect
-every source and reproduce every action card.
+The IQC, changeover, WI, and hazard records in this repository are
+competition-scale evaluation fixtures for the real WearEdge industrial agent
+system. They are intentionally transparent and committed as JSON so judges can
+inspect every source and reproduce every action card without access to private
+factory data or M400 hardware.
 
 The submission should claim:
 
 ```text
-runnable prototype + field-evidence lineage + route-specific released-source
-controls + guardrails
+runnable industrial AI agent system package + field-evidence lineage +
+route-specific released-source controls + guardrails
 ```
 
 The submission should not claim:
@@ -47,10 +49,10 @@ large proprietary factory dataset, certified safety controller, autonomous
 release authority, customer production rollout, or final root-cause authority
 ```
 
-## How This Still Competes
+## How This Competes
 
-Many enterprise GenAI demos stop at one chatbot. WearEdge shows a platform
-pattern across five plant workflows:
+Many enterprise GenAI submissions stop at one chatbot. WearEdge shows a
+platform pattern across five plant workflows:
 
 | Route | Value pool | Human-safe boundary |
 | --- | --- | --- |
@@ -60,6 +62,6 @@ pattern across five plant workflows:
 | WI | Training and procedure drift | Released guidance, no bypass/interlock instruction |
 | Hazard | Near-miss capture and corrective action | EHS observation, no safety clearance |
 
-This is a stronger business story than a single dataset demo because it proves
-route isolation, integration targets, and guardrails across multiple factory
-systems.
+This is a stronger business story than a single dataset submission because it
+proves route isolation, integration targets, and guardrails across multiple
+factory systems.

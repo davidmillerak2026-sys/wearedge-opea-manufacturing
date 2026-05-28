@@ -8,7 +8,7 @@ Project URL:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-WearEdge OPEA Manufacturing is a five-agent, OPEA-aligned manufacturing suite. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, an optional OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
+WearEdge OPEA Manufacturing is the OPEA-aligned delivery package for WearEdge Pro, a real industrial AI agent system for frontline manufacturing operations. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, an optional OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
 
 Champion submission headline:
 
@@ -51,7 +51,7 @@ The M400 evidence is a product differentiator, but judges do not need M400 hardw
 | `wi` | Released work-instruction guidance for `CARTONER-ST2` | `wi_reference` | Reduce training time and procedure drift |
 | `hazard` | PPE, moving-parts, and blocked-walkway EHS observation | `ehs_case` | Improve near-miss capture and corrective action routing |
 
-The maintenance route remains the hero demo because it has the strongest archived M400/Jetson field evidence, but all five agents are runnable through the same OPEA-style API.
+The maintenance route remains the hero route because it has the strongest archived M400/Jetson field evidence, but all five agents are runnable through the same OPEA-style API.
 
 ## OPEA Architecture
 
@@ -64,7 +64,7 @@ Vuzix M400 / API request
   -> Retriever / RAG
   -> Qdrant Vector DB profile, with in-memory fallback
   -> optional OPEA-compatible Embedding Microservice /v1/embeddings
-  -> LLM service adapter, deterministic no-model demo path or OpenAI/OPEA-compatible endpoint
+  -> LLM service adapter, deterministic no-model evaluation path or OpenAI/OPEA-compatible endpoint
   -> route-specific evaluator
   -> Guardrails and blocked claims
   -> CMMS / QMS / MES / WI / EHS action card
@@ -75,7 +75,7 @@ Official component evidence is in [`evidence/component-evidence.json`](evidence/
 
 ## Run Locally
 
-Dependency-free local demo:
+Dependency-free local runtime:
 
 ```powershell
 .\scripts\run_demo.ps1
@@ -191,7 +191,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
 | [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md) | Optional production LLM endpoint benchmark path |
 | [`docs/genaieval-compatible-evaluation.md`](docs/genaieval-compatible-evaluation.md) | Lightweight GenAIEval-compatible dataset, runner, metrics, and evidence |
-| [`docs/data-provenance-and-field-validation.md`](docs/data-provenance-and-field-validation.md) | Real-vs-demo data provenance and field validation boundary |
+| [`docs/data-provenance-and-field-validation.md`](docs/data-provenance-and-field-validation.md) | Real system lineage, competition data scope, and field validation boundary |
 | [`docs/telecom-scope-and-manufacturing-positioning.md`](docs/telecom-scope-and-manufacturing-positioning.md) | Manufacturing positioning if judges compare telecom/network projects |
 | [`docs/submission-url-dry-run.md`](docs/submission-url-dry-run.md) | Public URL dry run for challenge form fields |
 | [`docs/local-docker-desktop-final-validation.md`](docs/local-docker-desktop-final-validation.md) | Final local Docker Desktop runtime validation |
@@ -362,4 +362,4 @@ This repository is the self-contained OPEA competition package. The full enginee
 https://github.com/davidmillerak2026-sys/WearEdge-Pro
 ```
 
-The submitted system is an assistive industrial decision-support prototype, not a certified safety or maintenance-release controller. High-risk outputs remain human-confirmed, and guardrails block unsupported claims such as final root cause, restart permission, quality release, safety clearance, and maintenance release.
+The submitted system is an assistive industrial AI decision-support system, not a certified safety or maintenance-release controller. High-risk outputs remain human-confirmed, and guardrails block unsupported claims such as final root cause, restart permission, quality release, safety clearance, and maintenance release.

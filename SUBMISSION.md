@@ -8,11 +8,11 @@ Application name: WearEdge Pro
 
 ## One-Sentence Summary
 
-WearEdge Pro is an OPEA-aligned wearable edge AI suite for Manufacturing that routes first-person M400 evidence into five bounded agents: maintenance, IQC, changeover, work instruction, and hazard observation.
+WearEdge Pro is a real OPEA-aligned wearable edge industrial AI agent system for Manufacturing that routes first-person M400 evidence into five bounded agents: maintenance, IQC, changeover, work instruction, and hazard observation.
 
 ## Final Product Shape
 
-The competition deliverable is not an Android-only APK. It is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console and API surface.
+The competition deliverable is not an Android-only APK and not an ephemeral contest artifact. It is the Docker-runnable OPEA Manufacturing Agent Suite package for the WearEdge Pro industrial AI agent system, with a browser evaluation console and API surface.
 
 Judge-facing entry point:
 
