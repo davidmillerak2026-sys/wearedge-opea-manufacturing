@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r10` |
+| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r11` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
@@ -67,7 +67,8 @@ Paste these into any optional links, supporting materials, or notes fields:
 | GitHub article backup | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md` |
 | External-platform article package | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md` |
 | External-platform publishing handoff | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md` |
-| Demo video | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` |
+| YouTube demo video | `https://www.youtube.com/watch?v=dd9k8m6PDco` |
+| GitHub demo video backup | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` |
 | Public video platform metadata | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md` |
 | Demo video source | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video` |
 | Demo video render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md` |
@@ -101,9 +102,8 @@ Before pressing submit, verify:
 - GenAIEval wording says compatible/lightweight evidence, not full official
   GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.
 - The demo video URL opens as a GitHub asset page.
-- The external article URL is published on Dev.to. Do not claim an external
-  YouTube/Bilibili/LinkedIn video URL until that video URL is actually
-  published.
+- The external article URL is published on Dev.to, and the external demo video
+  URL is published on YouTube.
 - Hardware wording says application-level Intel effective-use evidence, not
   oneDNN/TEI microkernel dispatch proof.
 - The safety wording does not claim autonomous restart, quality release,

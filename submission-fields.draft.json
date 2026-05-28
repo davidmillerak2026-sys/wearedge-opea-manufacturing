@@ -6,7 +6,7 @@
   },
   "github": {
     "target_submission_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
-    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r10",
+    "final_submission_tag": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r11",
     "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
   },
   "submission_meta_attributes": {
@@ -47,7 +47,9 @@
     "external_platform_article_url": "https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh",
     "external_platform_article_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md",
     "external_platform_publishing_handoff_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md",
-    "demo_video_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4",
+    "demo_video_url": "https://www.youtube.com/watch?v=dd9k8m6PDco",
+    "youtube_demo_video_url": "https://www.youtube.com/watch?v=dd9k8m6PDco",
+    "github_demo_video_asset_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4",
     "video_platform_description_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md",
     "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
     "demo_video_render_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md",
@@ -74,6 +76,6 @@
     "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. The runtime now includes an OpenAI/OPEA-compatible LLM adapter and benchmark harness. Do not claim production LLM acceleration until a real endpoint benchmark records production_llm_endpoint_benchmarked with fallback_count=0.",
     "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible and official OPEA TEI embedding E2E runs validate the submission package. The Intel effective-use summary connects those workloads into an application-level effective-use record. Do not claim oneDNN/TEI microkernel dispatch proof or production LLM acceleration until those are separately benchmarked.",
     "OPEA public contribution": "Public RFC issue, implementation comment, and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. A real upstream PR is open and CI-green at https://github.com/opea-project/GenAIExamples/pull/2462 from Ryanhuii:codex/wear-edge-manufacturing-suite-pr-ready to opea-project:main. DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test all passed on head 0c149a06. A contribution package and git format-patch artifact are included at docs/opea-upstream/pr-ready.",
-    "external public platform publication": "The technical article is now published on Dev.to at https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh. The repository also includes public GitHub video evidence plus copy-ready public video metadata. Do not claim a YouTube/Bilibili/LinkedIn video URL until that video URL is actually published."
+    "external public platform publication": "The technical article is published on Dev.to at https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh and the demo video is published on YouTube at https://www.youtube.com/watch?v=dd9k8m6PDco. GitHub article/video backups remain in the repository."
   }
 }

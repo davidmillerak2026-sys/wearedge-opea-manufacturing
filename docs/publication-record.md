@@ -26,8 +26,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
 | Demo video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video |
-| Demo video | Published as public MP4 asset page | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
-| Public video platform metadata | Copy-ready; YouTube/Bilibili/LinkedIn URL pending | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md |
+| YouTube demo video | Published on YouTube | https://www.youtube.com/watch?v=dd9k8m6PDco |
+| Demo video backup | Published as public MP4 asset page | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| Public video platform metadata | Published via YouTube; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md |
 | Demo video render report | Local MP4 rendered; public URL verified | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md |
 | Final form fill guide | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/final-submission-form-fill-guide.md |
 | Official OPEA TEI profile note | Published; local E2E passed | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md |
@@ -46,9 +47,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
 - The PR is CI-green on head `0c149a06`: DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
-- The demo video has a rendered local MP4, committed HyperFrames source package, and public GitHub asset page on the `codex/video-assets` branch.
-- A copy-ready public video platform title, description, and tag set is included
-  for YouTube, Bilibili, LinkedIn, or another public video platform.
+- The demo video is published on YouTube; the rendered MP4, committed
+  HyperFrames source package, and public GitHub asset page remain as backup
+  evidence.
 - The first upstream PR scope is intentionally small: route registry, Docker Compose,
   Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard,
   and docs. A copyable contribution package is included under

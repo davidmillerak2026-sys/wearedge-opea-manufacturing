@@ -22,7 +22,7 @@ The current WearEdge Pro source is strong, but first-prize positioning requires 
 | Add deeper GenAIEval-style benchmark report | Strengthens System Efficiency | Done: `evals/genaieval/` and `evidence/genaieval/` include a 15-case route dataset, metrics runner, summary, and 300-call throughput/latency benchmark |
 | Add Intel hardware optimization path | Up to 15 bonus points | Done: Xeon AVX-512/AMX JSON, C3 Docker/Qdrant E2E, OPEA-compatible embedding E2E, official OPEA TEI E2E, and `docs/intel-effective-use-evidence.md` are captured with application-level claim boundaries |
 | Publish OPEA issue/PR/blueprint feedback | Up to 15 open-source bonus points | RFC issue, implementation update, and TEI update are posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`; upstream PR #2462 is open at `https://github.com/opea-project/GenAIExamples/pull/2462`; contribution package and `git format-patch` artifact are prepared under `docs/opea-upstream/pr-ready/` |
-| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | External Dev.to article is published; GitHub article/video evidence and public video metadata are ready; non-GitHub public video URL remains pending and is tracked in `docs/public-platform-publishing-handoff.md` |
+| Publish technical article/video walkthrough | Up to 10 knowledge-sharing bonus points | Done: external Dev.to article and YouTube demo video are published; GitHub article/video backups remain public and are tracked in `docs/publication-record.md` |
 
 ## P2
 

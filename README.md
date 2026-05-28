@@ -213,6 +213,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Remaining public video publication steps and claim boundary |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`public/video-platform-description.md`](public/video-platform-description.md) | Copy-ready public video platform title, description, and tags |
+| [YouTube demo video](https://www.youtube.com/watch?v=dd9k8m6PDco) | Published public demo video |
 | [`public/demo-video/`](public/demo-video/) | Renderable HyperFrames demo video source package |
 | [`docs/demo-video-render-report.md`](docs/demo-video-render-report.md) | Local demo video render and validation evidence |
 | [`evals/genaieval/`](evals/genaieval/) | GenAIEval-compatible evaluation pack |
@@ -274,6 +275,7 @@ Knowledge-sharing package:
 
 ```text
 https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh
+https://www.youtube.com/watch?v=dd9k8m6PDco
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
 public/external-platform-article.md
