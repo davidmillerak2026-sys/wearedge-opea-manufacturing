@@ -14,7 +14,7 @@ form submission.
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
-| Final tag | `final-submission-2026-05-28-r11` |
+| Final tag | `final-submission-2026-05-28-r13` |
 
 ## Verification Already Passed
 
@@ -23,6 +23,7 @@ form submission.
 | Unit tests | `python -m unittest discover -s tests` passed 15 tests |
 | GenAIEval-compatible evaluation | `python evals\genaieval\run_wear_edge_eval.py --output evidence\genaieval\route_eval_results.json --summary-output evidence\genaieval\summary.md` passed 15/15 route cases |
 | GenAIEval-compatible benchmark | `python evals\genaieval\run_wear_edge_benchmark.py --iterations 20 --output evidence\genaieval\benchmark_results.json` passed 300 route evaluations |
+| Route concurrency benchmark | `python scripts\route_concurrency_benchmark.py --concurrency 8 --requests-per-route 20` passed 100 concurrent route requests with all action targets correct |
 | LLM adapter benchmark | `python scripts\llm_adapter_benchmark.py --iterations 1 --output evidence\benchmarks\llm_adapter_contract.local-smoke.json` passed |
 | Evidence manifest | `python scripts/evidence_check.py` passed |
 | Submission JSON | `python -m json.tool submission-fields.draft.json` passed |

@@ -1,0 +1,84 @@
+{
+  "suite": "WearEdge OPEA Manufacturing concurrent route benchmark",
+  "schema_version": "2026-05-28",
+  "generated_at_utc": "2026-05-28T08:31:53+00:00",
+  "claim_boundary": "This is a local deterministic route-concurrency benchmark for the WearEdge Manufacturing megaservice. It validates concurrent request handling for the submitted route pipeline, not production LLM serving or certified plant control.",
+  "config": {
+    "concurrency": 8,
+    "requests_per_route": 20,
+    "warmup_per_route": 1,
+    "total_requests": 100,
+    "routes": [
+      "maintenance",
+      "iqc",
+      "changeover",
+      "wi",
+      "hazard"
+    ]
+  },
+  "summary": {
+    "ok": true,
+    "wall_seconds": 0.1348,
+    "requests_per_second": 741.848,
+    "latency_ms": {
+      "count": 100,
+      "min_ms": 2.5753,
+      "mean_ms": 10.0536,
+      "p50_ms": 9.9452,
+      "p95_ms": 14.1949,
+      "max_ms": 15.6225
+    },
+    "python_tracemalloc": {
+      "current_mb": 0.2653,
+      "peak_mb": 0.3689
+    }
+  },
+  "routes": {
+    "maintenance": {
+      "count": 20,
+      "min_ms": 2.5753,
+      "mean_ms": 9.8021,
+      "p50_ms": 10.5834,
+      "p95_ms": 14.1949,
+      "max_ms": 14.2918
+    },
+    "iqc": {
+      "count": 20,
+      "min_ms": 4.1723,
+      "mean_ms": 9.5619,
+      "p50_ms": 9.4382,
+      "p95_ms": 12.5907,
+      "max_ms": 13.4503
+    },
+    "changeover": {
+      "count": 20,
+      "min_ms": 6.0377,
+      "mean_ms": 9.5779,
+      "p50_ms": 9.6502,
+      "p95_ms": 12.3419,
+      "max_ms": 12.4134
+    },
+    "wi": {
+      "count": 20,
+      "min_ms": 6.2078,
+      "mean_ms": 11.1339,
+      "p50_ms": 11.7829,
+      "p95_ms": 14.9576,
+      "max_ms": 15.1887
+    },
+    "hazard": {
+      "count": 20,
+      "min_ms": 6.7675,
+      "mean_ms": 10.1921,
+      "p50_ms": 9.6318,
+      "p95_ms": 14.9264,
+      "max_ms": 15.6225
+    }
+  },
+  "validation": {
+    "all_requests_ok": true,
+    "all_routes_covered": true,
+    "all_action_targets_correct": true,
+    "failures": []
+  }
+}

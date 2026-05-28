@@ -38,6 +38,15 @@ with Docker, Web UI, API routes, and scorecard only.
 | Champion risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; GitHub article/video backup evidence remains public | Ready |
 
+## Challenge Task Mapping
+
+| Official task | Evidence | Status |
+| --- | --- | --- |
+| Domain-specific GenAI application | OPEA-style manufacturing pipeline with LLM adapter, TEI embeddings, RAG, Qdrant, orchestration, guardrails, and evaluation | Ready |
+| Concrete industry scenario | Manufacturing vertical; five real plant workflows mapped to CMMS, QMS, changeover checklist, WI, and EHS targets | Ready |
+| Working prototype with documentation | Docker Compose, `deploy.sh`, README, technical report, Web/API surface, and `docs/challenge-task-compliance.md` | Ready |
+| Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, YouTube video | Ready |
+
 ## Hard Evidence
 
 | Evidence | Path or URL |
@@ -53,8 +62,10 @@ with Docker, Web UI, API routes, and scorecard only.
 | Direct upstream PR attempt and fork push log | `docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
+| Challenge task compliance | `docs/challenge-task-compliance.md` |
 | Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
 | LLM adapter smoke JSON | `evidence/benchmarks/llm_adapter_contract.local-smoke.json` |
+| Route concurrency benchmark | `evidence/benchmarks/route_concurrency.local-smoke.json` |
 | GenAIEval-compatible evaluation | `docs/genaieval-compatible-evaluation.md` |
 | GenAIEval-compatible route eval JSON | `evidence/genaieval/route_eval_results.json` |
 | GenAIEval-compatible benchmark JSON | `evidence/genaieval/benchmark_results.json` |

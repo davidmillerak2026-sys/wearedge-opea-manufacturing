@@ -41,6 +41,19 @@ Product front ends:
 
 The M400 evidence is a product differentiator, but judges do not need M400 hardware to evaluate the submission.
 
+## Challenge Task Fit
+
+WearEdge Pro maps directly to the four official challenge tasks:
+
+| Challenge task | WearEdge answer |
+| --- | --- |
+| Domain-specific GenAI application | Manufacturing AI agent suite using OPEA-style Gateway, Megaservice, LLM adapter, TEI embeddings, Qdrant RAG, guardrails, and evaluation |
+| Concrete industry scenario | Manufacturing, with maintenance, IQC, changeover, work-instruction, and hazard workflows |
+| Working prototype with documentation | Docker-runnable OPEA package, README, technical report, `deploy.sh`, Compose profiles, and one-command smoke path |
+| Performance and usability | GCP C3 4-vCPU / 16-GiB / no-GPU evidence, latency JSON, Docker memory stats, 8-worker route concurrency benchmark, 300-call GenAIEval-compatible benchmark, and `/demo` browser console |
+
+See [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md).
+
 ## Five Manufacturing Agents
 
 | Mode | Scenario | Integration target | Business value |
@@ -186,6 +199,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
+| [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md) | Direct mapping to the official Challenge Task requirements |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
 | [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |
 | [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
@@ -307,6 +321,7 @@ evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/llm_adapter_contract.local-smoke.json
+evidence/benchmarks/route_concurrency.local-smoke.json
 ```
 
 Official OPEA TEI rerun script:

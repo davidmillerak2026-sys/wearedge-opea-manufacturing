@@ -96,6 +96,17 @@ includes a local adapter contract benchmark; production LLM wording should only
 be used after a configured endpoint benchmark reports
 `production_llm_endpoint_benchmarked`.
 
+## Challenge Task Compliance
+
+| Official task | WearEdge Pro submission |
+| --- | --- |
+| Design and build a domain-specific GenAI application | OPEA-style Manufacturing suite with Gateway, Megaservice, LLM adapter, official TEI embedding profile, Qdrant RAG, route evaluators, guardrails, and scorecard |
+| Select a concrete industry scenario | Manufacturing, covering maintenance, IQC, changeover, work instruction, and EHS hazard observation |
+| Deliver a working prototype with documentation | Docker-runnable WearEdge Pro OPEA package with `README.md`, `docs/technical-report.draft.md`, `deploy.sh`, Compose profiles, and Web/API evaluation surface |
+| Demonstrate performance and usability | GCP C3 4-vCPU / 16-GiB / no-GPU runs, latency JSON, Docker memory stats, 8-worker route concurrency benchmark, GenAIEval-compatible 300-call benchmark, and browser console at `/demo` |
+
+Detailed mapping: `docs/challenge-task-compliance.md`.
+
 ## Runnable Evidence
 
 ```bash

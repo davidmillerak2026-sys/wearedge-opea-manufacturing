@@ -347,8 +347,10 @@
         "evals/genaieval/wear_edge_eval.py",
         "evals/genaieval/run_wear_edge_eval.py",
         "evals/genaieval/run_wear_edge_benchmark.py",
+        "scripts/route_concurrency_benchmark.py",
         "evidence/genaieval/route_eval_results.json",
         "evidence/genaieval/benchmark_results.json",
+        "evidence/benchmarks/route_concurrency.local-smoke.json",
         "evidence/genaieval/summary.md",
         "scripts/evidence_check.py",
         "tests/test_genaieval_pack.py",
@@ -359,7 +361,7 @@
         "docs/test-log-history.md",
         "tests/test_agent_poc_validation.py"
       ],
-      "submission_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, and a 15-case GenAIEval-compatible evaluation/benchmark artifact set"
+      "submission_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, a 15-case GenAIEval-compatible evaluation/benchmark artifact set, and an 8-worker concurrent route benchmark"
     }
   ]
 }

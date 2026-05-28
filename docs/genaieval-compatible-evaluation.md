@@ -58,6 +58,12 @@ The committed local evidence reports:
 | Route evaluation | 15/15 cases passed |
 | Routes covered | maintenance, IQC, changeover, WI, hazard |
 | Metrics | contract, target, channel, risk, human gate, guardrail, RAG source, route isolation |
+
+Companion concurrency evidence is stored in
+`evidence/benchmarks/route_concurrency.local-smoke.json`. It records an
+8-worker, 100-request local route benchmark with all requests and action targets
+passing. This complements the 300-call GenAIEval-compatible benchmark by
+addressing the challenge's concurrent-request usability/performance prompt.
 | Benchmark calls | 300 route evaluations |
 | Benchmark validation | all cases pass, all routes covered |
 

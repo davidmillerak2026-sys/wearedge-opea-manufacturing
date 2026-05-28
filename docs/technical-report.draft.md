@@ -83,7 +83,7 @@ route-isolation metrics, plus a 300-call route benchmark. This is intentionally
 claimed as GenAIEval-compatible evidence, not full official GenAIEval/RAGAS/
 AutoRAG/LLM-as-judge execution.
 
-Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance validation, five-agent validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`.
+Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance validation, five-agent validation, power/runtime notes, and edge-runtime benchmark records. The OPEA submission package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, and passed `/v1/scorecard`. Performance evidence includes C3 latency and Docker memory JSON, a 300-call GenAIEval-compatible route benchmark, and a local 8-worker / 100-request concurrency benchmark with all action targets correct.
 
 ## 5. Safety, Licensing, And Limits
 
