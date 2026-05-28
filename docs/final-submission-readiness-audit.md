@@ -47,7 +47,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Demo video source package | `public/demo-video/` |
 | Demo video render report | `docs/demo-video-render-report.md` |
-| Public demo video URL | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| Public demo video URL | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
 | Submission URL dry run | `docs/submission-url-dry-run.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |

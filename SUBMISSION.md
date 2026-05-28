@@ -142,7 +142,7 @@ Key archived evidence already mapped into this submission package:
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
 - Demo video source package: `public/demo-video/`
 - Demo video render report: `docs/demo-video-render-report.md`
-- Demo video URL: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4`
+- Demo video URL: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4`
 - Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`
 - Xeon AVX-512/AMX benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`
 - GCP Docker/Qdrant E2E summary JSON: `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json`

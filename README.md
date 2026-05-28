@@ -214,7 +214,7 @@ public/demo-video-script.md
 public/demo-video-captions.srt
 public/demo-video/
 docs/demo-video-render-report.md
-https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
+https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
 ```
 
 Intel CPU benchmark evidence:

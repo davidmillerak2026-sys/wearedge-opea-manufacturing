@@ -27,7 +27,7 @@ Result: pass. All extracted public URLs returned HTTP 200 with `curl -I -L`.
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
-| 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/raw/refs/heads/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video |
 | 200 | https://github.com/davidmillerak2026-sys/WearEdge-Pro |
@@ -37,8 +37,9 @@ Result: pass. All extracted public URLs returned HTTP 200 with `curl -I -L`.
 ## Notes
 
 - The demo video URL was changed from the `raw.githubusercontent.com` form to a
-  `github.com/.../raw/refs/heads/...` URL after a local DNS lookup for
+  GitHub `blob` asset page after local DNS/connectivity to
   `raw.githubusercontent.com` failed during the dry run. The replacement URL
-  returned HTTP 200.
+  returned HTTP 200 and avoids requiring the challenge form to resolve the raw
+  asset domain.
 - This verifies link availability. The final challenge form should still be
   reviewed visually before pressing submit.
