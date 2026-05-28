@@ -12,9 +12,10 @@ WearEdge Pro OPEA Manufacturing Demo: Five Agents, Qdrant RAG, TEI, Guardrails
 ## Short Description
 
 ```text
-WearEdge Pro is an OPEA-aligned Manufacturing Agent Suite. This demo shows five
-frontline routes: maintenance, IQC, changeover, work-instruction guidance, and
-hazard observation. The challenge package uses a Gateway, Manufacturing
+WearEdge Pro is a real industrial AI agent system packaged as an OPEA-aligned
+Manufacturing Agent Suite. This demo shows five frontline routes: maintenance,
+IQC, changeover, work-instruction guidance, and hazard observation. The
+challenge package uses a Gateway, Manufacturing
 Megaservice, Qdrant RAG, OPEA-compatible embeddings, official OPEA TEI profile,
 guardrails, and GenAIEval-compatible route evidence.
 ```
@@ -22,8 +23,8 @@ guardrails, and GenAIEval-compatible route evidence.
 ## Full Description
 
 ```text
-WearEdge Pro packages wearable frontline manufacturing evidence into an
-OPEA-aligned five-agent suite.
+WearEdge Pro packages wearable frontline manufacturing evidence and
+privacy-safe production-data lineage into an OPEA-aligned five-agent suite.
 
 Routes shown:
 - maintenance -> CMMS work-order draft
@@ -40,6 +41,8 @@ https://github.com/opea-project/GenAIExamples/pull/2462
 
 Evidence highlights:
 - Docker-runnable Web/API demo console
+- Real industrial system lineage with M400/Jetson evidence
+- Private enterprise quality-inspection lineage, with public sanitized fixtures
 - Qdrant RAG and route-specific knowledge sources
 - OPEA-compatible /v1/embeddings profile
 - Official OPEA TEI profile with Hugging Face TEI and opea/embedding

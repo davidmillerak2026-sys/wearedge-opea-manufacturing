@@ -8,7 +8,7 @@ The judge-facing product entry point is the browser Manufacturing Demo Console:
 http://127.0.0.1:8088/demo
 ```
 
-The M400 Android client is the real deployment front end and field-evidence source; the Web Console is the reproducible evaluation surface in this OPEA package.
+The M400 Android client is the real deployment front end and field-evidence source; the Web Console is the reproducible evaluation surface in this OPEA package. Private customer production-data lineage exists outside this public repository, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection.
 
 ## Official OPEA References
 
@@ -43,7 +43,7 @@ flowchart LR
 | Mode | Knowledge source | Evaluator | Guarded target |
 | --- | --- | --- | --- |
 | `maintenance` | Gearbox KB and thresholds | vibration, temperature, lubrication, PLC alarm | `maintenance_work_order` |
-| `iqc` | Aluminum housing quality plan | detector confidence and defect severity | `qms_quality_event` |
+| `iqc` | Sanitized quality plan, backed by private IQC/OQC production-data lineage | detector confidence and defect severity | `qms_quality_event` |
 | `changeover` | SKU-C500 changeover checklist | line clearance, label, recipe, first-piece | `changeover_checklist` |
 | `wi` | Cartoner released work instruction | identity, released revision, guard, alarm | `wi_reference` |
 | `hazard` | PPE, moving-parts, walkway policy | active hazard flags | `ehs_case` |

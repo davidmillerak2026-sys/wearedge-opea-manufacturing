@@ -25,11 +25,16 @@ The Vuzix M400 / Android client remains deployment-front-end evidence from the
 source WearEdge-Pro project, but judges can evaluate this challenge package
 with Docker, Web UI, API routes, and scorecard only.
 
+The public package uses sanitized route fixtures. The broader WearEdge program
+has private enterprise production-data lineage, including quality-inspection
+work such as toothbrush workshop visual inspection for IQC/OQC-style defect
+detection. Raw customer plant data is intentionally not published.
+
 ## Evaluation Criteria Mapping
 
 | Criterion | Evidence | Status |
 | --- | --- | --- |
-| Creativity and business value | Five manufacturing agents cover maintenance, IQC, changeover, WI, and hazard workflows instead of a single chatbot scenario | Ready |
+| Creativity and business value | Five manufacturing agents cover maintenance, IQC/OQC, changeover, WI, and hazard workflows, with field evidence and private production-data lineage instead of a single chatbot scenario | Ready |
 | Technical implementation | Gateway, Manufacturing Megaservice, Qdrant RAG, OPEA-compatible embedding profile, official OPEA TEI profile, OpenAI/OPEA-compatible LLM adapter, guardrails, scorecard, GenAIEval-compatible evaluation pack | Ready |
 | Product quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
@@ -40,6 +45,9 @@ with Docker, Web UI, API routes, and scorecard only.
 
 Detailed 100 base + 40 bonus score defense:
 `docs/evaluation-criteria-scorecard.md`.
+
+Full-mark gap closure plan:
+`docs/full-mark-gap-closure-plan.md`.
 
 ## Challenge Task Mapping
 
@@ -66,6 +74,7 @@ Detailed 100 base + 40 bonus score defense:
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
 | Evaluation criteria scorecard | `docs/evaluation-criteria-scorecard.md` |
+| Full-mark gap closure plan | `docs/full-mark-gap-closure-plan.md` |
 | Challenge task compliance | `docs/challenge-task-compliance.md` |
 | Production LLM benchmark path | `docs/production-llm-benchmark-path.md` |
 | LLM adapter smoke JSON | `evidence/benchmarks/llm_adapter_contract.local-smoke.json` |
@@ -84,6 +93,7 @@ Detailed 100 base + 40 bonus score defense:
 | External platform publishing handoff | `docs/public-platform-publishing-handoff.md` |
 | Submission URL dry run | `docs/submission-url-dry-run.md` |
 | Local Docker Desktop final validation | `docs/local-docker-desktop-final-validation.md` |
+| Local UI/full-mark follow-up validation | `docs/local-ui-full-mark-follow-up-validation.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |

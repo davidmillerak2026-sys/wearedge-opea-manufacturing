@@ -4,7 +4,7 @@ This repository is the judge-facing OPEA Manufacturing submission product.
 
 ## Final Deliverable
 
-WearEdge Pro should be submitted as a self-contained OPEA-aligned Manufacturing Agent Suite, not as an Android-only application.
+WearEdge Pro should be submitted as a self-contained OPEA-aligned Manufacturing Agent Suite, not as an Android-only application and not as a demo-only project. The system is a real industrial AI agent system; this repository is the reproducible challenge package.
 
 The official `project_url` points to this repository:
 
@@ -24,7 +24,7 @@ Then open:
 http://127.0.0.1:8088/demo
 ```
 
-The browser console is the judge-facing product experience for evaluation. It lets reviewers switch between `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`, run route scenarios, inspect the sample request, see retrieved source evidence, review guardrails, and verify the action-card output.
+The browser console is the judge-facing product experience for evaluation. It lets reviewers switch between `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`, run route scenarios, inspect the sample request, see retrieved source evidence, review guardrails, and verify the action-card output. The console now presents the five-agent suite as an industrial command console with OPEA pipeline stages, RAG source evidence, scorecard state, and private production-data boundary.
 
 ## Product Architecture
 
@@ -63,6 +63,7 @@ Use the Web Demo Console as the judge-friendly substitute when reviewers do not 
 | OPEA implementation | Gateway, Megaservice, Dataprep, RAG, Qdrant, LLM adapter, Guardrails |
 | Product quality | `/demo`, `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/scorecard` |
 | Manufacturing value | Five route suite: maintenance, IQC, changeover, WI, hazard |
+| Production-data lineage | Private enterprise quality-inspection lineage, including toothbrush workshop IQC/OQC visual inspection, represented publicly through sanitized fixtures |
 | Safety and trust | Route-specific blocked claims and human confirmation gates |
 | Open-source contribution | OPEA RFC issue `https://github.com/opea-project/GenAIExamples/issues/2461` |
 | Intel bonus readiness | Google Cloud C3 Xeon AVX-512/AMX benchmark JSON, runbook, and harness |
@@ -72,7 +73,7 @@ Use the Web Demo Console as the judge-friendly substitute when reviewers do not 
 Use this wording in the challenge form:
 
 ```text
-WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a runnable Manufacturing Agent Suite. The submitted GitHub repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, route-specific evaluators, guardrails, browser demo console, and five action-card agents. The M400 Android client is the real deployment front end and evidence source; the Web Console is the judge-facing experience for reproducible evaluation.
+WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a runnable Manufacturing Agent Suite. The submitted GitHub repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, route-specific evaluators, guardrails, browser demo console, and five action-card agents. The M400 Android client is the real deployment front end and evidence source; the Web Console is the judge-facing experience for reproducible evaluation. Private customer production-data lineage, including toothbrush workshop IQC/OQC visual inspection, is represented through sanitized public fixtures without exposing customer data.
 ```
 
 ## Do Not Claim
@@ -81,3 +82,4 @@ WearEdge Pro is a real wearable edge industrial AI agent system packaged for the
 - Do not require judges to own a Vuzix M400.
 - Do not claim certified safety release, quality release, restart permission, or autonomous maintenance release.
 - Do not claim production LLM acceleration from the AVX-512/AMX benchmark; the captured JSON measures the deterministic five-agent route pipeline.
+- Do not publish raw customer plant images, labels, lot identifiers, or production records.

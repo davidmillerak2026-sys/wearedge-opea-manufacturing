@@ -1,6 +1,12 @@
 # Source Project Map
 
-This repository is the dedicated OPEA Manufacturing submission package. The current full engineering source is in:
+This repository is the dedicated OPEA Manufacturing submission package. It
+contains the complete runnable OPEA challenge product: Gateway, five-agent
+route registry, Manufacturing Megaservice, RAG, Qdrant/TEI profiles, LLM
+adapter, guardrails, scorecard, browser console, evaluation pack, tests, and
+evidence scripts.
+
+The broader WearEdge-Pro engineering source tree is in:
 
 ```text
 https://github.com/davidmillerak2026-sys/WearEdge-Pro
@@ -29,12 +35,31 @@ https://github.com/davidmillerak2026-sys/WearEdge-Pro
 | ROI | `docs/impact-and-roi.md` |
 | Evidence logs | `docs/poc-results/` |
 
-## Publication Strategy
+## Code Quality Position
 
-Preferred final strategy:
+Do not frame the challenge repository as "only docs" or "only a wrapper." The
+correct position is:
+
+```text
+wearedge-opea-manufacturing is the full runnable OPEA challenge product
+package. WearEdge-Pro is the broader industrial engineering repository for
+M400 Android, Jetson edge runtime, field evidence, and larger product history.
+```
+
+Why not move every WearEdge-Pro file here?
+
+- The OPEA challenge asks for a working prototype with documentation and
+  one-click setup, not a full monorepo dump.
+- Customer/private production data and plant-specific artifacts must not be
+  published.
+- Keeping the OPEA package focused improves judge reproducibility and code
+  review.
+
+Optional final hardening:
 
 1. Keep `WearEdge-Pro` as the full engineering repository.
 2. Keep `wearedge-opea-manufacturing` as the competition landing repository.
-3. Before final submission, either mirror selected source directories into this repository or add a clear source release package so judges can reproduce from one place.
+3. If judges need deeper code review, add a source-release snapshot or mirror
+   selected M400/Jetson directories with private data removed.
 
 The safest official `project_url` is this OPEA submission repository because it contains the reproducible Docker/Web/API evaluation path. The full WearEdge-Pro repository remains the engineering source for the M400 Android client, Jetson edge gateway, and field evidence.

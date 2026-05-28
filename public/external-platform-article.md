@@ -28,6 +28,7 @@ OPEA, Manufacturing AI, RAG, Edge AI, Intel Xeon, GenAI
 
 ## Article Body
 
+WearEdge Pro is a real industrial AI agent system, not a demo-only chatbot.
 Manufacturing operators often see early warning signs before enterprise systems
 do: an unusual gearbox sound, a quality defect, a label changeover mismatch, a
 work-instruction question, missing PPE, or a blocked walkway. These observations
@@ -38,6 +39,12 @@ Manufacturing Agent Suite. The submitted competition artifact is not an
 Android-only application. It is a Docker-runnable Web/API package with a
 browser demo console, five agent routes, Qdrant-backed RAG, official OPEA TEI
 embedding profile, guardrails, and evaluation evidence.
+
+The public repository uses sanitized fixtures. The broader WearEdge program has
+private enterprise production-data lineage, including quality-inspection work
+such as toothbrush workshop visual inspection for IQC/OQC-style defect
+detection. Raw customer plant images, labels, lot IDs, and production records
+are not published.
 
 The five agent routes are:
 

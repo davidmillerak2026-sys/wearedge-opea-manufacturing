@@ -14,6 +14,8 @@ WearEdge Pro is a real OPEA-aligned wearable edge industrial AI agent system for
 
 The competition deliverable is not an Android-only APK and not an ephemeral contest artifact. It is the Docker-runnable OPEA Manufacturing Agent Suite package for the WearEdge Pro industrial AI agent system, with a browser evaluation console and API surface.
 
+The public repository contains sanitized, reproducible route fixtures. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection. Raw customer plant images, labels, lot identifiers, and customer-specific production records are intentionally not published.
+
 Judge-facing entry point:
 
 ```text
@@ -39,7 +41,7 @@ Manufacturing losses rarely live in one silo. A frontline operator may see a gea
 | Agent | Manufacturing decision | Integration target |
 | --- | --- | --- |
 | `maintenance` | Is this machine condition ready for CMMS escalation? | `maintenance_work_order` |
-| `iqc` | Should this part or lot be held for quality review? | `qms_quality_event` |
+| `iqc` | Should this part or lot be held for quality review, including IQC/OQC visual-inspection patterns from private production lineage? | `qms_quality_event` |
 | `changeover` | Is the SKU changeover evidence ready for first-piece sign-off? | `changeover_checklist` |
 | `wi` | What released work instruction should guide the operator? | `wi_reference` |
 | `hazard` | Does the scene require stop, report, or EHS correction? | `ehs_case` |
@@ -113,14 +115,14 @@ WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
 
 | Rubric area | Submission defense |
 | --- | --- |
-| Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, not a single chatbot |
+| Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, private production-data lineage, and field evidence, not a single chatbot |
 | Technical Implementation, 40 pts | OPEA-style Gateway/Megaservice/RAG/Qdrant/TEI/LLM-adapter/guardrail/evaluation architecture with local and GCP evidence |
 | Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
 | Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork |
 | Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article and YouTube demo video |
 | Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence plus application-level OPEA TEI/Qdrant workload records |
 
-Detailed score defense: `docs/evaluation-criteria-scorecard.md`.
+Detailed score defense: `docs/evaluation-criteria-scorecard.md`. Full-mark gap closure plan: `docs/full-mark-gap-closure-plan.md`.
 
 ## Runnable Evidence
 

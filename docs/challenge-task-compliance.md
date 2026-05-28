@@ -25,12 +25,15 @@ modular components:
 ## 2. Concrete Industry Scenario
 
 The selected vertical is Manufacturing. The submitted package covers five
-frontline enterprise workflows instead of a single chatbot:
+frontline enterprise workflows instead of a single chatbot. The real product
+has private enterprise production-data lineage; the public challenge package
+uses sanitized fixtures so customer images, labels, lot IDs, and plant records
+are not exposed.
 
 | Agent | Enterprise workflow | Integration target |
 | --- | --- | --- |
 | `maintenance` | Lao-shi-fu predictive maintenance from M400/edge evidence | `maintenance_work_order` |
-| `iqc` | Incoming and in-process quality control | `qms_quality_event` |
+| `iqc` | IQC/OQC quality inspection, including private lineage such as toothbrush workshop visual inspection | `qms_quality_event` |
 | `changeover` | SKU changeover and first-piece verification | `changeover_checklist` |
 | `wi` | Released work-instruction guidance | `wi_reference` |
 | `hazard` | EHS hazard observation and stop-and-make-safe escalation | `ehs_case` |
@@ -70,7 +73,7 @@ explicit response-time, memory-footprint, and user-experience evidence.
 | System response time | C3 Docker/Qdrant E2E latency JSON and official OPEA TEI E2E route timings |
 | Memory footprint | Docker stats for Gateway, Qdrant, `opea/embedding:latest`, and TEI serving containers |
 | Scalability under requests | Local concurrent route benchmark with 8 workers / 100 total requests passing, GenAIEval-compatible benchmark with 300 route evaluations, plus endpoint benchmark harnesses for route and LLM adapter paths |
-| User experience clarity | Browser console at `/demo`, public YouTube walkthrough, public Dev.to article, route-specific action cards and source evidence |
+| User experience clarity | Upgraded browser command console at `/demo`, public YouTube walkthrough, public Dev.to article, route-specific action cards, RAG source evidence, OPEA pipeline rail, and scorecard state |
 
 Key evidence files:
 

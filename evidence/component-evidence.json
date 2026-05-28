@@ -5,7 +5,7 @@
     "source_project_url": "https://github.com/davidmillerak2026-sys/WearEdge-Pro",
     "vertical": "Manufacturing",
     "judge_entrypoint": "http://127.0.0.1:8088/demo",
-    "product_shape": "Docker-runnable OPEA Manufacturing Agent Suite with Web Demo Console, API, scorecard, and M400/Android deployment-front-end evidence",
+    "product_shape": "Real industrial AI agent system packaged as a Docker-runnable OPEA Manufacturing Agent Suite with Web Demo Console, API, scorecard, M400/Android deployment-front-end evidence, and private production-data lineage represented through sanitized fixtures",
     "agents": [
       "maintenance",
       "iqc",
@@ -72,7 +72,7 @@
     },
     {
       "category": "Knowledge sharing",
-      "status": "article_published_video_script_ready",
+      "status": "article_and_video_published",
       "local_paths": [
         "public/article-wear-edge-opea-manufacturing.md",
         "public/external-platform-article.md",
@@ -83,7 +83,7 @@
       ],
       "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
       "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1",
-      "claim_boundary": "The external technical article is published on Dev.to, the demo video is published on YouTube, and GitHub article/video backups remain public. Do not claim additional platforms unless their URLs are recorded."
+      "claim_boundary": "The external technical article is published on Dev.to, the demo video is published on YouTube, and GitHub article/video backups remain public. The article is technical: it covers route registry, OPEA architecture, Qdrant RAG, TEI embeddings, guardrails, evaluation, and Intel evidence. Do not claim additional platforms unless their URLs are recorded."
     },
     {
       "category": "Intel AVX-512/AMX benchmark",
@@ -174,9 +174,11 @@
         "docs/opea-native-depth-matrix.md",
         "docs/production-llm-benchmark-path.md",
         "docs/data-provenance-and-field-validation.md",
+        "docs/full-mark-gap-closure-plan.md",
+        "docs/local-ui-full-mark-follow-up-validation.md",
         "docs/telecom-scope-and-manufacturing-positioning.md"
       ],
-      "claim_boundary": "Known competitive risks are mitigated and documented. This does not guarantee a prize, but it gives judges direct evidence for OPEA depth, LLM readiness, data provenance, upstream contribution readiness, and Manufacturing scope."
+      "claim_boundary": "Known competitive risks are mitigated and documented, including real industrial-system framing, private production-data lineage, OPEA depth, LLM/LMM benchmark boundary, code quality, UI completeness, upstream contribution readiness, knowledge sharing, and Intel hardware evidence. This does not guarantee a prize."
     }
   ],
   "component_map": [
@@ -195,7 +197,7 @@
         "scripts/run_fastapi.sh",
         "docs/m400-inference-contract.md"
       ],
-      "submission_claim": "Five-agent browser/API entry point with Web Demo Console, health, demo, infer, suite, and scorecard routes"
+      "submission_claim": "Five-agent browser/API entry point with industrial Web Demo Console, health, demo, infer, suite, scorecard routes, OPEA pipeline rail, RAG evidence, action cards, and private data boundary"
     },
     {
       "opea_layer": "Megaservice",

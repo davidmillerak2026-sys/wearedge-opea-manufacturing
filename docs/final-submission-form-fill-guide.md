@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r15` |
+| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r16` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
@@ -40,7 +40,7 @@ Guardrails
 Paste this text if the form provides a project description field:
 
 ```text
-WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser demo console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The five runnable agents cover maintenance / CMMS work order, IQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the challenge limit of single node, <=64GB RAM, and 4-core CPU. The final package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a champion risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, contribution patch, public article, and demo video evidence.
+WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Qdrant RAG profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser demo console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer plant images, labels, lot identifiers, and production records are intentionally not published. The five runnable agents cover maintenance / CMMS work order, IQC-OQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the challenge limit of single node, <=64GB RAM, and 4-core CPU. The final package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a champion risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, contribution patch, public article, and demo video evidence.
 ```
 
 ## Bonus Evidence URLs
@@ -57,6 +57,7 @@ Paste these into any optional links, supporting materials, or notes fields:
 | Direct upstream PR attempt | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/champion-risk-burn-down.md` |
 | Evaluation criteria scorecard | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/evaluation-criteria-scorecard.md` |
+| Full-mark gap closure plan | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/full-mark-gap-closure-plan.md` |
 | Challenge task compliance | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/challenge-task-compliance.md` |
 | OPEA native depth matrix | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-native-depth-matrix.md` |
 | Production LLM benchmark path | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/production-llm-benchmark-path.md` |
@@ -77,6 +78,7 @@ Paste these into any optional links, supporting materials, or notes fields:
 | Demo video render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md` |
 | Submission URL dry run | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-url-dry-run.md` |
 | Local Docker Desktop final validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md` |
+| Local UI/full-mark follow-up validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-ui-full-mark-follow-up-validation.md` |
 | Xeon AVX-512/AMX benchmark JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` |
 | Intel effective-use evidence | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/intel-effective-use-evidence.md` |
 | Intel effective-use summary JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_effective_use.summary.json` |

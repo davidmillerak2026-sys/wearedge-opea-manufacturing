@@ -1,8 +1,8 @@
 # WearEdge Pro: Five Manufacturing Agents On One OPEA-Aligned Architecture
 
-WearEdge Pro started from a simple manufacturing question: what if the most useful AI assistant on a factory floor is not a generic chatbot, but a governed action-card system that understands which workflow it is helping?
+WearEdge Pro is a real industrial AI agent system, not a demo-only chatbot. It started from a simple manufacturing question: what if the most useful AI assistant on a factory floor is a governed action-card system that understands which workflow it is helping?
 
-In a real plant, the same first-person evidence can mean very different things. A gearbox vibration observation belongs to maintenance. A scratch on an aluminum housing belongs to quality. A label-roll mismatch during SKU changeover belongs to MES or a changeover checklist. A question about a cartoner guide rail belongs to a released work instruction. A blocked walkway or exposed moving part belongs to EHS.
+In a real plant, the same first-person evidence can mean very different things. A gearbox vibration observation belongs to maintenance. A visual defect on a customer product belongs to IQC/OQC quality. A label-roll mismatch during SKU changeover belongs to MES or a changeover checklist. A question about a cartoner guide rail belongs to a released work instruction. A blocked walkway or exposed moving part belongs to EHS.
 
 That is why the OPEA Manufacturing version of WearEdge Pro is built as a five-agent suite:
 
@@ -42,6 +42,12 @@ The challenge package is not an Android-only APK. It is a Docker-runnable OPEA M
 ```text
 http://127.0.0.1:8088/demo
 ```
+
+The public repository uses sanitized fixtures. The broader WearEdge program has
+private enterprise production-data lineage, including quality-inspection work
+such as toothbrush workshop visual inspection for IQC/OQC-style defect
+detection. Raw customer images, labels, lot IDs, and plant records are not
+published.
 
 ## Why Five Agents Matter
 

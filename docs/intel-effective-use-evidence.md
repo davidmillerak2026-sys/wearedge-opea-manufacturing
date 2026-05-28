@@ -1,7 +1,7 @@
 # Intel Effective-Use Evidence
 
 Status: application-level effective-use evidence captured; low-level kernel
-dispatch evidence remains optional.
+dispatch evidence remains the main optional hardening item.
 
 ## What We Can Claim
 
@@ -124,3 +124,17 @@ of the following if time and platform access allow:
 - side-by-side latency comparison against a non-AMX CPU instance;
 - production LLM endpoint benchmark on the same C3 host with strict fallback
   disabled.
+
+## Resource Audit
+
+| Resource | Current status | Best next use |
+| --- | --- | --- |
+| Google Cloud C3 `c3-standard-4` | Previously available and already validated | Rerun a supplemental TEI/oneDNN verbose capture if cloud access is still open |
+| Local Docker Desktop | Available, but Docker Engine access may require local permission from Codex sandbox | Rerun official OPEA TEI profile and UI validation locally |
+| GPU | Not required by challenge and not used in current proof | Do not introduce unless it clearly improves LMM benchmarking |
+| Production LLM endpoint | Not currently configured in the public repo | Only benchmark if a real endpoint is available with strict fallback disabled |
+
+Decision: the existing hardware package is strong for the rubric wording
+"effective use of Intel hardware features (AMX, AVX-512)." The only missing
+piece for an even harder full-score defense is instruction/backend dispatch
+evidence, not another ordinary route benchmark.

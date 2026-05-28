@@ -6,14 +6,14 @@ Manufacturing operators see early evidence before enterprise systems do: abnorma
 
 WearEdge Pro addresses this "last ten meters" problem with a wearable edge AI workflow. A Vuzix M400 captures first-person evidence, an edge gateway runs OPEA-style orchestration, route-specific RAG retrieves the released knowledge source, deterministic evaluators check thresholds or confirmations, and guardrails produce bounded action cards for human-confirmed plant workflows.
 
-The challenge submission packages this product as a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console at `/demo`. The M400 Android client remains the real deployment front end and field-evidence source, but the judge-facing artifact is the reproducible Web/API package in this repository.
+The challenge submission packages this product as a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console at `/demo`. The M400 Android client remains the real deployment front end and field-evidence source, but the judge-facing artifact is the reproducible Web/API package in this repository. Private enterprise production-data lineage exists outside the public repository, including customer quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer data is not published in the challenge package.
 
 The submission covers five Manufacturing agents:
 
 | Agent | Target workflow | Action target |
 | --- | --- | --- |
 | `maintenance` | Lao-shi-fu predictive maintenance for `PKG-L3-GBX-03` | `maintenance_work_order` |
-| `iqc` | Machined aluminum housing quality inspection | `qms_quality_event` |
+| `iqc` | IQC/OQC quality inspection with private customer production-data lineage | `qms_quality_event` |
 | `changeover` | Labeler SKU-C500 changeover verification | `changeover_checklist` |
 | `wi` | Released work-instruction guidance for `CARTONER-ST2` | `wi_reference` |
 | `hazard` | PPE, moving-parts, and walkway hazard observation | `ehs_case` |
@@ -46,12 +46,12 @@ The route registry defines each agent's business value, entity key, sample reque
 Examples:
 
 - Maintenance evaluates vibration, gearbox temperature, bearing temperature, lubrication interval, and PLC alarm before creating a CMMS work-order draft.
-- IQC evaluates detector confidence against a released quality plan before holding a lot in QMS.
+- IQC evaluates detector confidence against a released quality plan before holding a lot in QMS; the public fixture is sanitized, while the real product lineage includes private customer inspection data such as toothbrush workshop visual inspection.
 - Changeover checks line clearance, label roll, recipe, and first-piece verification before restart sign-off.
 - WI uses released work-instruction evidence and blocks guidance when identity, revision, guard, or alarm context is unsafe.
 - Hazard converts PPE, moving-parts, and blocked-walkway evidence into EHS action cards without granting safety clearance.
 
-The full engineering project also contains the M400 Android client, Jetson FastAPI gateway, local edge LLM path, audit logs, runtime stream, and more than 120 local tests. This OPEA repository packages the judge-facing runnable path.
+The full engineering project also contains the M400 Android client, Jetson FastAPI gateway, local edge LLM path, audit logs, runtime stream, and more than 120 local tests. This OPEA repository contains the complete runnable challenge product package, while the broader WearEdge-Pro repository remains the engineering source tree for M400/Jetson deployment and archived field evidence.
 
 ## 4. Product Evidence And Evaluation
 

@@ -53,3 +53,21 @@ does not download or require a large model, so judges can evaluate it quickly.
 The production LLM adapter and benchmark harness are included so the same
 pipeline can be rerun against a real OpenAI/OPEA-compatible endpoint without
 changing the route logic.
+
+## Remaining OPEA Depth Options
+
+The current implementation is strong because it includes the official OPEA TEI
+embedding profile and a real upstream PR. If additional hardening time is
+available, prioritize:
+
+| Option | Why it helps | Risk |
+| --- | --- | --- |
+| Keep PR #2462 green and answer maintainer review | Converts OPEA alignment into public OPEA collaboration | Depends on upstream timing |
+| Add a final PR/issue comment linking official TEI, GCP C3, article, and video evidence | Makes bonus evidence easy for OPEA reviewers to see | Low |
+| Add optional Kubernetes/Helm/GMC notes | Supports OPEA cloud-native deployment narrative | Medium; may distract from Docker one-click path |
+| Add more official GenAIComps services | Deepens OPEA-native component count | Medium; could destabilize a working submission if rushed |
+| Run a real production LLM endpoint benchmark | Strengthens the LLM service claim | Requires model endpoint and strict no-fallback proof |
+
+Champion recommendation: protect the current runnable official TEI profile first.
+Do not add a heavier OPEA integration unless it can pass fresh-clone validation
+without weakening the one-click judge experience.

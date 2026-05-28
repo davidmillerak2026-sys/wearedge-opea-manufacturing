@@ -40,6 +40,12 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 
 - The primary article URL is now the public Dev.to article; the GitHub article
   remains as repository backup evidence.
+- The Dev.to article is a technical article, not only a marketing post: it
+  covers the five-agent route registry, OPEA architecture, Qdrant RAG, official
+  TEI profile, guardrails, evaluation, and Intel evidence.
+- Optional additional knowledge-sharing posts, if time allows: OPEA TEI + Qdrant
+  integration lessons, five-route industrial guardrail design, and GCP C3
+  AVX-512/AMX hardware evidence.
 - `docs/public-platform-publishing-handoff.md` records the exact remaining
   non-GitHub publication task for manual posting.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.

@@ -8,7 +8,9 @@ Project URL:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-WearEdge OPEA Manufacturing is the OPEA-aligned delivery package for WearEdge Pro, a real industrial AI agent system for frontline manufacturing operations. A single Gateway and Manufacturing Megaservice route first-person M400 evidence through Dataprep, RAG, Vector DB, an optional OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
+WearEdge OPEA Manufacturing is the OPEA-aligned delivery package for WearEdge Pro, a real industrial AI agent system for frontline manufacturing operations. A single Gateway and Manufacturing Megaservice route first-person M400 evidence, sanitized customer-production-derived quality evidence, and route-specific plant context through Dataprep, RAG, Vector DB, an optional OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, and guardrails before producing bounded action cards for plant systems.
+
+This is not a demo-only repository. The Web Console is the judge-facing demo surface; the product being submitted is a real five-agent industrial system packaged so reviewers can run and inspect it without private plant data or M400 hardware.
 
 Champion submission headline:
 
@@ -59,7 +61,7 @@ See [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md).
 | Mode | Scenario | Integration target | Business value |
 | --- | --- | --- | --- |
 | `maintenance` | Lao-shi-fu predictive maintenance for `PKG-L3-GBX-03` | `maintenance_work_order` | Reduce downtime and preserve expert troubleshooting patterns |
-| `iqc` | Machined aluminum housing quality inspection | `qms_quality_event` | Reduce scrap, rework, and customer escape risk |
+| `iqc` | IQC/OQC quality inspection, with private customer lineage including toothbrush workshop visual inspection | `qms_quality_event` | Reduce scrap, rework, and customer escape risk |
 | `changeover` | Labeler SKU-C500 changeover verification | `changeover_checklist` | Reduce restart errors, mix-up risk, and changeover loss |
 | `wi` | Released work-instruction guidance for `CARTONER-ST2` | `wi_reference` | Reduce training time and procedure drift |
 | `hazard` | PPE, moving-parts, and blocked-walkway EHS observation | `ehs_case` | Improve near-miss capture and corrective action routing |
@@ -199,7 +201,9 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
-| [`docs/evaluation-criteria-scorecard.md`](docs/evaluation-criteria-scorecard.md) | 100 base + 40 bonus official rubric score defense |
+| [`docs/evaluation-criteria-scorecard.md`](docs/evaluation-criteria-scorecard.md) | 100 base + 40 bonus official rubric full-mark audit |
+| [`docs/full-mark-gap-closure-plan.md`](docs/full-mark-gap-closure-plan.md) | Point-by-point follow-up plan for OPEA, LLM, code quality, UI, and bonus gaps |
+| [`docs/local-ui-full-mark-follow-up-validation.md`](docs/local-ui-full-mark-follow-up-validation.md) | Local Docker/UI validation after the full-mark follow-up changes |
 | [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md) | Direct mapping to the official Challenge Task requirements |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
 | [`docs/champion-risk-burn-down.md`](docs/champion-risk-burn-down.md) | One-by-one mitigation for the six known champion risks |

@@ -21,7 +21,7 @@ Status language:
 | Rubric area | Max points | Current full-mark status | Main reason |
 | --- | ---: | --- | --- |
 | Originality | 15 | Full-mark defendable | Wearable frontline evidence is routed into five manufacturing agents, not a generic chatbot. |
-| Business Relevance | 15 | Full-mark defendable | Each agent closes into a real enterprise target: CMMS, QMS, changeover checklist, WI reference, or EHS case. |
+| Business Relevance | 15 | Full-mark defendable | Each agent closes into a real enterprise target: CMMS, QMS, changeover checklist, WI reference, or EHS case, with private production-data lineage behind the public package. |
 | Use of OPEA | 20 | Full-mark vulnerable | Official OPEA TEI and OPEA-style components are implemented, but no Helm/GMC deployment or merged upstream PR should be claimed. |
 | System Efficiency | 20 | Full-mark defendable, with one LLM caveat | Single-node 4-vCPU / 16-GiB / no-GPU local and GCP C3 evidence is strong; production LLM serving latency is intentionally not over-claimed. |
 | Code Quality | 15 | Full-mark defendable | Self-contained source, tests, Docker profiles, evidence checker, and signed commits are present. |
@@ -52,10 +52,10 @@ low-level Intel optimization proof.
 | Question | Audit |
 | --- | --- |
 | Can we defend full marks now? | Yes. `Full-mark defendable`. |
-| Why full marks are defensible | Every route maps to a concrete manufacturing workflow and system of record: maintenance work order, QMS quality event, changeover checklist, WI reference, or EHS case. This covers downtime, scrap, changeover loss, training drift, and safety risk. |
-| What could cause lost points | Judges may prefer submissions with proprietary customer production data or live enterprise integration credentials. |
-| Follow-up to protect full marks | Emphasize integration targets and guarded action cards. Keep claim boundaries clear: runnable product package plus real WearEdge lineage, not certified automatic plant release. |
-| Evidence | `docs/challenge-task-compliance.md`, `docs/data-provenance-and-field-validation.md`, `data/sample_requests/`, `data/agent_kb/`. |
+| Why full marks are defensible | Every route maps to a concrete manufacturing workflow and system of record: maintenance work order, QMS quality event, changeover checklist, WI reference, or EHS case. This covers downtime, scrap, changeover loss, training drift, and safety risk. The broader WearEdge program also has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection. |
+| What could cause lost points | Judges may ask why raw customer production data is not committed. |
+| Follow-up to protect full marks | Emphasize integration targets, guarded action cards, and privacy-safe customer-data boundary. Keep claim boundaries clear: real product plus private production-data lineage, public sanitized package, not certified automatic plant release. |
+| Evidence | `docs/challenge-task-compliance.md`, `docs/data-provenance-and-field-validation.md`, `docs/full-mark-gap-closure-plan.md`, `data/sample_requests/`, `data/agent_kb/`. |
 
 ### Use of OPEA: 20 Points
 
@@ -93,9 +93,9 @@ low-level Intel optimization proof.
 | --- | --- |
 | Can we defend full marks now? | Yes. `Full-mark defendable`. |
 | Why full marks are defensible | The package exposes `/demo`, `/healthz`, `/v1/agents`, five `GET /v1/agents/{mode}/demo` routes, five `POST /v1/agents/{mode}/infer` routes, `/v1/scorecard`, Qdrant-backed RAG, official TEI embeddings, action-card contracts, and guardrails. |
-| What could cause lost points | A visually flashier UI could impress judges faster, even if it is less technically grounded. |
-| Follow-up to protect full marks | Use the YouTube video and final README opening to show the browser console quickly, then immediately show five agents, RAG source IDs, blocked claims, and scorecard pass state. |
-| Evidence | `README.md`, `SUBMISSION.md`, `docs/local-docker-desktop-final-validation.md`, `public/demo-video/`, `evidence/benchmarks/`. |
+| What could cause lost points | Only if judges do not run the Web Console or miss the five-route system shape. |
+| Follow-up to protect full marks | The Web Console has been upgraded into a five-agent industrial command console. Use the YouTube video and final README opening to show the console quickly, then immediately show five agents, RAG source IDs, blocked claims, and scorecard pass state. |
+| Evidence | `src/wear_edge_opea/demo_console.py`, `README.md`, `SUBMISSION.md`, `docs/local-docker-desktop-final-validation.md`, `public/demo-video/`, `evidence/benchmarks/`. |
 
 ## Bonus Score Audit: 40 Points
 
@@ -135,6 +135,7 @@ low-level Intel optimization proof.
 | --- | --- | --- | --- |
 | P0 | Push the latest local commit/tag so GitHub reflects this full-mark audit. | All categories | Judges should see the final evidence map, not the older r14 package only. |
 | P0 | In the submission form, lead with "real industrial AI agent system" and "OPEA challenge package", not "demo project". | Originality, Business Relevance, Functional Completeness | This prevents the biggest framing error. |
+| P0 | State the private customer production-data boundary, including toothbrush workshop IQC/OQC lineage, without leaking raw data. | Business Relevance, Code Quality | This proves enterprise relevance while respecting confidentiality. |
 | P0 | Make the official TEI profile the primary technical proof. | Use of OPEA, System Efficiency | `opea/embedding:latest` plus TEI plus Qdrant is the strongest OPEA-native evidence. |
 | P1 | Monitor and respond to OPEA PR #2462 and issue #2461. | Open-source bonus, Use of OPEA | Merge is not required by the wording, but maintainers' engagement makes the bonus much harder to discount. |
 | P1 | Add a short final PR/issue comment linking the GCP C3 official OPEA TEI evidence and Dev.to/YouTube materials. | Open-source, Knowledge Sharing, Hardware Optimization | It ties all bonus evidence into the upstream OPEA conversation. |
