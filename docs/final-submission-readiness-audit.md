@@ -1,10 +1,10 @@
 # Final Submission Readiness Audit
 
 Status: strong technical package; public demo video URL verified; OPEA
-upstream RFC/comment posted; real upstream PR #2462 opened; contribution package
-and patch artifact prepared; local Docker Desktop validation passed; submission
-URL dry run passed; champion risk burn-down completed; final visual form review
-remains.
+upstream RFC/comment posted; real upstream PR #2462 opened and CI-green;
+contribution package and patch artifact prepared; local Docker Desktop
+validation passed; submission URL dry run passed; champion risk burn-down
+completed; final visual form review remains.
 
 ## Product Decision
 
@@ -33,7 +33,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Prototype quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, and official OPEA TEI fresh-clone E2E evidence | Ready |
-| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is open but not merged yet |
+| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is CI-green but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, demo skim risk, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | Public article ready; demo video script/captions, renderable HyperFrames source, local MP4 render, and public video URL ready | Ready |
 

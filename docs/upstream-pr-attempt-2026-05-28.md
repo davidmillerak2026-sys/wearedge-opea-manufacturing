@@ -10,6 +10,10 @@ A real upstream PR is now open:
 https://github.com/opea-project/GenAIExamples/pull/2462
 ```
 
+The PR is CI-green on head `0c149a06eab8b53713e0bd208c5caa1ed58ee7a4`.
+DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and
+compose-test all passed on 2026-05-28.
+
 The first direct push to `opea-project/GenAIExamples` failed because the current
 GitHub account did not have write permission. After the fork was created under
 `Ryanhuii/GenAIExamples`, the prepared branch was pushed to the fork and PR
@@ -66,9 +70,18 @@ Opened PR:
 number=2462
 state=open
 head=Ryanhuii:codex/wear-edge-manufacturing-suite-pr-ready
+head_sha=0c149a06eab8b53713e0bd208c5caa1ed58ee7a4
 base=opea-project:main
 title=Add ManufacturingAgentSuite example
 url=https://github.com/opea-project/GenAIExamples/pull/2462
+```
+
+CI repair:
+
+```text
+DCO: success after adding Signed-off-by: Ryan Hui <ryan.on2008@gmail.com>
+compose-test: success after the test script was changed to start Docker Compose
+pre-commit.ci: success after docformatter was pinned to Python 3.12 and pre-commit.ci applied autofixes
 ```
 
 ## Current Upstream Evidence
@@ -91,8 +104,8 @@ created_at=2026-05-27T11:18:57Z
 
 ## Remaining Status
 
-The PR is open, not merged. Do not claim it has been accepted upstream until
-OPEA maintainers merge it.
+The PR is open and CI-green, but not merged. Do not claim it has been accepted
+upstream until OPEA maintainers merge it.
 
 The generated patch remains available as a fallback artifact:
 

@@ -44,7 +44,7 @@
   "bonus_evidence": [
     {
       "category": "OPEA open-source contribution",
-      "status": "upstream_pr_opened",
+      "status": "upstream_pr_opened_ci_green",
       "local_paths": [
         "docs/opea-upstream/rfc-issue-draft.md",
         "docs/opea-upstream/blueprint-feedback.md",
@@ -58,10 +58,12 @@
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
       "pull_request_url": "https://github.com/opea-project/GenAIExamples/pull/2462",
+      "pull_request_head_sha": "0c149a06eab8b53713e0bd208c5caa1ed58ee7a4",
+      "pull_request_checks": "DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed on 2026-05-28.",
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
       "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
-      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open at opea-project/GenAIExamples#2462. The PR is not merged yet."
+      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462. The PR is not merged yet."
     },
     {
       "category": "Knowledge sharing",
