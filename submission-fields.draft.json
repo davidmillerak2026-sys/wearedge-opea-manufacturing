@@ -56,6 +56,6 @@
     "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
     "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible and official OPEA TEI embedding E2E runs validate the submission package. Do not claim production LLM acceleration until a real LLM service path is benchmarked.",
     "OPEA public contribution": "Public RFC issue, implementation comment, and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. A copyable PR-ready upstream package is included at docs/opea-upstream/pr-ready; the actual upstream PR remains pending fork/write path or maintainer feedback.",
-    "external video publication": "Demo script, captions, HyperFrames source, render report, and public raw MP4 URL are included."
+    "external video publication": "Demo script, captions, HyperFrames source, render report, and public GitHub MP4 asset page are included."
   }
 }

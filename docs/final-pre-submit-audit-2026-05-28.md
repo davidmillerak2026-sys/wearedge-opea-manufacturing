@@ -10,10 +10,11 @@ form submission.
 | Check | Result |
 | --- | --- |
 | Local branch | `main` |
-| Local/remote sync | clean at `f9bc2bffc272e6412c71a8e5975d8868510155e7` |
+| Local/remote sync | clean at `a2e9786f6b14d4cb168920fd09a9c784e8a73305` before final tag anchoring |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
+| Planned final tag | `final-submission-2026-05-28` |
 
 ## Verification Already Passed
 

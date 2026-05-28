@@ -36,7 +36,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.
 - The official TEI update is posted directly in `opea-project/GenAIExamples#2461`. The GitHub App still cannot write to the upstream repository, so the browser-authenticated comment is the authoritative upstream evidence.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
-- The demo video has a rendered local MP4, committed HyperFrames source package, and public raw GitHub URL on the `codex/video-assets` branch.
+- The demo video has a rendered local MP4, committed HyperFrames source package, and public GitHub asset page on the `codex/video-assets` branch.
 - The first PR scope is intentionally small: route registry, Docker Compose,
   Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard,
   and docs. A copyable PR-ready package is included under
