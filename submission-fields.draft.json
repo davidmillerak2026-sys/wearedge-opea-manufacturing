@@ -37,6 +37,7 @@
     "demo_video_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video",
     "demo_video_render_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md",
     "submission_url_dry_run_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-url-dry-run.md",
+    "local_docker_desktop_final_validation_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md",
     "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
     "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",

@@ -27,6 +27,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Official OPEA TEI profile note | Published; local E2E passed | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md |
 | Local OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-opea-tei-profile-e2e-report.md |
 | GCP C3 OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md |
+| Local Docker Desktop final validation | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md |
 
 ## Publication Notes
 

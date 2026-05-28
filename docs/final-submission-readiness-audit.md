@@ -1,8 +1,8 @@
 # Final Submission Readiness Audit
 
 Status: strong technical package; public demo video URL verified; OPEA
-PR-ready package prepared; submission URL dry run passed; optional upstream PR
-and final visual form review remain.
+PR-ready package prepared; local Docker Desktop validation passed; submission
+URL dry run passed; optional upstream PR and final visual form review remain.
 
 ## Product Decision
 
@@ -49,6 +49,7 @@ with Docker, Web UI, API routes, and scorecard only.
 | Demo video render report | `docs/demo-video-render-report.md` |
 | Public demo video URL | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
 | Submission URL dry run | `docs/submission-url-dry-run.md` |
+| Local Docker Desktop final validation | `docs/local-docker-desktop-final-validation.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |

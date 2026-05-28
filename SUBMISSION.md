@@ -137,6 +137,7 @@ Key archived evidence already mapped into this submission package:
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`
 - GCP C3 OPEA TEI report: `docs/gcp-c3-opea-tei-profile-e2e-report.md`
 - Submission URL dry run report: `docs/submission-url-dry-run.md`
+- Local Docker Desktop final validation: `docs/local-docker-desktop-final-validation.md`
 - GCP OPEA profile report: `docs/gcp-c3-opea-profile-e2e-report.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
