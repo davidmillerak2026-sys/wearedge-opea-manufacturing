@@ -84,24 +84,85 @@ YAML
 
 sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml up -d --build
 
-for _ in {1..90}; do
-  if curl -fsS http://127.0.0.1:8088/healthz >/tmp/healthz.json 2>/dev/null; then
-    break
-  fi
-  sleep 3
-done
+http_json_error() {
+  local output="\$1"
+  local name="\$2"
+  local status="\$3"
+  local body="\$4"
+  python3 - "\$output" "\$name" "\$status" "\$body" <<'PY'
+import json
+import pathlib
+import sys
 
-curl -fsS http://127.0.0.1:8088/healthz > /tmp/healthz.json
-curl -fsS http://127.0.0.1:6000/v1/health_check > /tmp/embedding_health.json || true
-curl -fsS http://127.0.0.1:8088/v1/scorecard > /tmp/scorecard.json
+output, name, status, body = sys.argv[1:5]
+path = pathlib.Path(output)
+path.write_text(json.dumps({
+    "ok": False,
+    "endpoint": name,
+    "http_status": status,
+    "raw": body[-2000:],
+}, indent=2))
+PY
+}
+
+curl_get_json_retry() {
+  local url="\$1"
+  local output="\$2"
+  local name="\$3"
+  local attempts="\${4:-120}"
+  local tmp="\${output}.tmp"
+  local status="000"
+  for i in \$(seq 1 "\$attempts"); do
+    status=\$(curl -sS -w "%{http_code}" -o "\$tmp" "\$url" || true)
+    if [[ "\$status" == "200" ]]; then
+      mv "\$tmp" "\$output"
+      echo "\$name OK on attempt \$i" | tee -a /tmp/http-status.log
+      return 0
+    fi
+    echo "\$name waiting: status=\$status attempt=\$i/\$attempts" | tee -a /tmp/http-status.log
+    sleep 5
+  done
+  http_json_error "\$output" "\$name" "\$status" "\$(cat "\$tmp" 2>/dev/null || true)"
+  return 1
+}
+
+curl_post_json_retry() {
+  local url="\$1"
+  local output="\$2"
+  local name="\$3"
+  local body="\$4"
+  local attempts="\${5:-120}"
+  local tmp="\${output}.tmp"
+  local status="000"
+  for i in \$(seq 1 "\$attempts"); do
+    status=\$(curl -sS -w "%{http_code}" -o "\$tmp" "\$url" \
+      -H 'Content-Type: application/json' \
+      -d "\$body" || true)
+    if [[ "\$status" == "200" ]]; then
+      mv "\$tmp" "\$output"
+      echo "\$name OK on attempt \$i" | tee -a /tmp/http-status.log
+      return 0
+    fi
+    echo "\$name waiting: status=\$status attempt=\$i/\$attempts" | tee -a /tmp/http-status.log
+    sleep 5
+  done
+  http_json_error "\$output" "\$name" "\$status" "\$(cat "\$tmp" 2>/dev/null || true)"
+  return 1
+}
+
+curl_get_json_retry http://127.0.0.1:8088/healthz /tmp/healthz.json gateway_healthz 120 || true
+curl_get_json_retry http://127.0.0.1:6000/v1/health_check /tmp/embedding_health.json embedding_health 120 || true
+curl_post_json_retry http://127.0.0.1:6000/v1/embeddings /tmp/embedding-warmup.json embedding_warmup '{"input":"WearEdge TEI warmup for oneDNN verbose evidence"}' 120 || true
+curl_get_json_retry http://127.0.0.1:8088/v1/scorecard /tmp/scorecard.json scorecard 60 || true
 for mode in maintenance iqc changeover wi hazard; do
-  curl -fsS "http://127.0.0.1:8088/v1/agents/\${mode}/demo" >"/tmp/demo-\${mode}.json"
+  curl_get_json_retry "http://127.0.0.1:8088/v1/agents/\${mode}/demo" "/tmp/demo-\${mode}.json" "demo_\${mode}" 30 || true
 done
 for i in \$(seq 1 10); do
-  curl -fsS http://127.0.0.1:6000/v1/embeddings \
-    -H 'Content-Type: application/json' \
-    -d "{\"model\":\"BAAI/bge-base-en-v1.5\",\"input\":\"WearEdge TEI oneDNN verbose smoke \${i}\"}" \
-    >"/tmp/embedding-\${i}.json" || true
+  curl_post_json_retry http://127.0.0.1:6000/v1/embeddings \
+    "/tmp/embedding-\${i}.json" \
+    "embedding_\${i}" \
+    "{\"input\":\"WearEdge TEI oneDNN verbose smoke \${i}\"}" \
+    3 || true
 done
 
 sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml logs --no-color > /tmp/compose.logs.txt || true
@@ -196,6 +257,8 @@ artifact = {
         "embedding_health": embedding_health,
         "scorecard": scorecard,
         "demo_modes": demo_modes,
+        "http_status_log": read("http-status.log"),
+        "embedding_warmup": read_json("embedding-warmup.json", {}),
     },
     "dispatch_evidence": {
         "marker_count": len(dispatch_marker_lines),
