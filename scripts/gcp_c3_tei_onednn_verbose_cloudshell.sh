@@ -60,6 +60,7 @@ ARTIFACT="\$HOME/gcp_c3_tei_onednn_verbose.json"
 sudo apt-get update -y
 sudo apt-get install -y ca-certificates curl git jq python3 docker.io docker-compose-v2
 sudo systemctl enable --now docker
+sudo docker version >/tmp/docker.version.txt
 
 rm -rf "\$WORKDIR"
 git clone --depth 1 --branch "$BRANCH" "$REPO_URL" "\$WORKDIR"
@@ -81,7 +82,7 @@ services:
       RUST_LOG: "info"
 YAML
 
-docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml up -d --build
+sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml up -d --build
 
 for _ in {1..90}; do
   if curl -fsS http://127.0.0.1:8088/healthz >/tmp/healthz.json 2>/dev/null; then
@@ -103,9 +104,9 @@ for i in \$(seq 1 10); do
     >"/tmp/embedding-\${i}.json" || true
 done
 
-docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml logs --no-color > /tmp/compose.logs.txt || true
-docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml ps --format json > /tmp/compose.ps.json || true
-docker stats --no-stream --format '{{json .}}' | jq -s . > /tmp/docker.stats.json || true
+sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml logs --no-color > /tmp/compose.logs.txt || true
+sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml ps --format json > /tmp/compose.ps.json || true
+sudo docker stats --no-stream --format '{{json .}}' | jq -s . > /tmp/docker.stats.json || true
 lscpu > /tmp/lscpu.txt
 grep -m1 '^flags' /proc/cpuinfo > /tmp/cpu.flags.txt || true
 grep -Ei 'onednn|dnnl|mkldnn|avx|amx|bf16|vnni|brgemm|matmul|isa' /tmp/compose.logs.txt > /tmp/dispatch.markers.txt || true
