@@ -1,11 +1,11 @@
 {
   "benchmark": "WearEdge OPEA TEI oneDNN verbose / Intel ISA evidence on GCP C3",
-  "capture_source": "Cloud Shell pasted transcript from final-submission-2026-05-28-r20",
-  "captured_at_utc": "2026-05-28T11:19:45Z",
+  "capture_source": "Cloud Shell pasted transcript from final-submission-2026-05-29-r23",
+  "captured_at_utc": "2026-05-29T02:43:59Z",
   "project_id": "gen-lang-client-0555254036",
   "zone": "us-central1-a",
-  "vm": "wearedge-tei-onednn-0528111751",
-  "branch_or_tag": "final-submission-2026-05-28-r20",
+  "vm": "wearedge-tei-onednn-0529024359",
+  "branch_or_tag": "final-submission-2026-05-29-r23",
   "artifact_copied_to_cloud_shell": "/home/ryan_on2008/gcp_c3_tei_onednn_verbose.json",
   "runtime_profile": {
     "cloud": "Google Cloud",
@@ -25,26 +25,22 @@
     {
       "name": "manufacturing-gateway",
       "image": "wearedge-opea-tei-onednn-manufacturing-gateway",
-      "status": "running",
-      "memory": "36.36MiB / 15.61GiB"
+      "status": "running"
     },
     {
       "name": "opea-embedding-tei",
       "image": "opea/embedding:latest",
-      "status": "running",
-      "memory": "93.68MiB / 15.61GiB"
+      "status": "running"
     },
     {
       "name": "qdrant",
       "image": "qdrant/qdrant:v1.12.6",
-      "status": "running",
-      "memory": "57.57MiB / 15.61GiB"
+      "status": "running"
     },
     {
       "name": "tei-embedding-serving",
       "image": "ghcr.io/huggingface/text-embeddings-inference:cpu-latest",
-      "status": "running",
-      "memory": "879.5MiB / 15.61GiB"
+      "status": "running"
     }
   ],
   "embedding_endpoint": {
@@ -61,14 +57,23 @@
     "c3_cpu_flags_include_avx512": true,
     "c3_cpu_flags_include_amx": true,
     "tei_logs_present": true,
-    "dispatch_markers_captured": false
+    "dispatch_markers_captured": false,
+    "onednn_probe_compiled": true,
+    "onednn_probe_executed": true,
+    "probe_dispatch_markers_captured": true
   },
   "dispatch_evidence": {
     "marker_count": 0,
     "marker_lines": [],
     "note": "The run enabled oneDNN/DNNL/MKLDNN verbose capture and searched TEI/OPEA logs for oneDNN, DNNL, MKLDNN, AVX, AMX, BF16, VNNI, BRGEMM, and matmul markers. This TEI build did not emit matching dispatch lines in the captured logs."
   },
+  "probe_dispatch_evidence": {
+    "probe": "same-host oneDNN BF16 matmul probe",
+    "probe_workload": "oneDNN bf16 matmul 1024x1024x1024 repeat=5",
+    "marker_lines_captured_in_full_artifact": true,
+    "note": "The supplemental probe ran on the same GCP C3 VM as the WearEdge OPEA TEI scorecard path and captured oneDNN BF16/AMX/AVX512 dispatch markers. This proves host-level oneDNN dispatch evidence and is separate from the TEI container log result."
+  },
   "all_checks_pass": true,
-  "claim_status": "tei_verbose_not_emitted_cpu_feature_evidence_only",
-  "claim_boundary": "This artifact proves that the official OPEA TEI + Qdrant + five-agent WearEdge scorecard ran successfully on a single-node GCP C3 c3-standard-4 profile with AVX-512 and AMX CPU flags detected. It does not prove oneDNN/TEI AMX or AVX-512 microkernel dispatch."
+  "claim_status": "wear_edge_opea_workload_passed_with_same_host_onednn_bf16_amx_probe_dispatch",
+  "claim_boundary": "This artifact proves that the official OPEA TEI + Qdrant + five-agent WearEdge scorecard ran successfully on a single-node GCP C3 c3-standard-4 profile with AVX-512 and AMX CPU flags detected, and that a same-host oneDNN BF16/AMX probe captured dispatch markers. It does not prove that the TEI model server itself emitted AMX or AVX-512 oneDNN dispatch markers."
 }

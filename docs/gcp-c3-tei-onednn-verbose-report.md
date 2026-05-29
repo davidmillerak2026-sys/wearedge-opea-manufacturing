@@ -1,20 +1,20 @@
 # GCP C3 TEI oneDNN Verbose Report
 
-Date: 2026-05-28
+Date: 2026-05-29
 
 ## Result
 
-The supplemental GCP C3 TEI/oneDNN verbose run passed the WearEdge OPEA
-Manufacturing application checks.
+The supplemental GCP C3 TEI/oneDNN run passed the WearEdge OPEA Manufacturing
+application checks and the same-host oneDNN BF16/AMX probe.
 
 | Field | Value |
 | --- | --- |
 | Project | `gen-lang-client-0555254036` |
 | Zone | `us-central1-a` |
-| VM | `wearedge-tei-onednn-0528111751` |
+| VM | `wearedge-tei-onednn-0529024359` |
 | Machine | `c3-standard-4` |
 | Challenge profile | single node, 4 vCPU, 15.61 GiB observed RAM, no GPU |
-| Branch/tag | `final-submission-2026-05-28-r20` |
+| Branch/tag | `final-submission-2026-05-29-r23` |
 | Full artifact in Cloud Shell | `/home/ryan_on2008/gcp_c3_tei_onednn_verbose.json` |
 | Summary artifact | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` |
 | Overall result | `all_checks_pass=true` |
@@ -31,20 +31,26 @@ Manufacturing application checks.
 | C3 CPU flags include AVX-512 | true |
 | C3 CPU flags include AMX | true |
 | TEI logs present | true |
-| oneDNN/ISA dispatch markers captured | false |
+| TEI container oneDNN/ISA dispatch markers captured | false |
+| Same-host oneDNN BF16/AMX probe compiled | true |
+| Same-host oneDNN BF16/AMX probe executed | true |
+| Same-host oneDNN BF16/AMX probe dispatch markers captured | true |
 
-The run started the official OPEA TEI profile:
+The run started the official OPEA TEI profile and captured Docker Compose
+service evidence:
 
-| Service | Image | Memory snapshot |
-| --- | --- | ---: |
-| Manufacturing Gateway | `wearedge-opea-tei-onednn-manufacturing-gateway` | 36.36 MiB / 15.61 GiB |
-| OPEA embedding TEI wrapper | `opea/embedding:latest` | 93.68 MiB / 15.61 GiB |
-| Qdrant | `qdrant/qdrant:v1.12.6` | 57.57 MiB / 15.61 GiB |
-| Hugging Face TEI | `ghcr.io/huggingface/text-embeddings-inference:cpu-latest` | 879.5 MiB / 15.61 GiB |
+| Service | Image / role | Evidence |
+| --- | --- | --- |
+| Manufacturing Gateway | `wearedge-opea-tei-onednn-manufacturing-gateway` | running in Compose |
+| OPEA embedding TEI wrapper | `opea/embedding:latest` | running in Compose |
+| Qdrant | `qdrant/qdrant:v1.12.6` | running in Compose |
+| Hugging Face TEI | `ghcr.io/huggingface/text-embeddings-inference:cpu-latest` | running in Compose |
 
-The pasted artifact also shows an OpenAI-compatible embedding response with
+The artifact also shows an OpenAI-compatible embedding response with
 `data[0].object=embedding`, proving that the OPEA embedding wrapper and TEI
-serving path responded during the run.
+serving path responded during the run. The compact summary records the
+validation booleans from the pasted Cloud Shell result; the full 80 KB artifact
+remains in Cloud Shell at the path above.
 
 ## Why Scorecard Was Included
 
@@ -59,17 +65,18 @@ smoke test.
 
 This is strong hardware bonus evidence for the rubric phrase "effective use of
 Intel hardware features (AMX, AVX-512)" because the same OPEA TEI + Qdrant +
-five-agent scorecard workload ran on a single-node C3 Xeon profile and detected
-AVX-512 and AMX CPU flags.
+five-agent scorecard workload ran on a single-node C3 Xeon profile, detected
+AVX-512 and AMX CPU flags, and a same-host oneDNN BF16/AMX probe emitted
+dispatch markers.
 
-It is not low-level microkernel-dispatch proof. The run enabled verbose capture
-and searched TEI/OPEA logs for oneDNN, DNNL, MKLDNN, AVX, AMX, BF16, VNNI,
-BRGEMM, and matmul markers, but the captured TEI build did not emit matching
-dispatch lines:
+The boundary is TEI-specific. The run enabled verbose capture and searched
+TEI/OPEA logs for oneDNN, DNNL, MKLDNN, AVX, AMX, BF16, VNNI, BRGEMM, and
+matmul markers, but the captured TEI build did not emit matching dispatch
+lines:
 
 ```text
 dispatch_markers_captured=false
-marker_count=0
+probe_dispatch_markers_captured=true
 ```
 
 Use the following wording in the final submission:
@@ -79,7 +86,8 @@ We validated the official OPEA TEI embedding profile on a Google Cloud C3
 c3-standard-4 single-node host with 4 vCPU, about 16 GiB RAM, no GPU, and
 AVX-512/AMX CPU flags detected. The run passed Gateway health, the five-agent
 scorecard, five demo routes, Docker stats capture, and TEI log capture. The
-verbose attempt did not emit oneDNN dispatch marker lines, so we claim
-application-level effective use of Intel C3 hardware, not instruction-level
-AMX/AVX-512 kernel dispatch proof.
+same-host oneDNN BF16/AMX probe captured dispatch markers on that host. The TEI
+container logs themselves did not emit oneDNN dispatch marker lines, so we
+claim application-level OPEA workload validation plus same-host oneDNN BF16/AMX
+dispatch evidence, not TEI-internal AMX dispatch proof.
 ```

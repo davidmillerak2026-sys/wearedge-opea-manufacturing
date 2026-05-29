@@ -1,8 +1,9 @@
 # Intel Effective-Use Evidence
 
 Status: application-level effective-use evidence captured; supplemental
-TEI/oneDNN verbose attempt captured; low-level kernel dispatch markers were not
-emitted by the TEI build used in the run.
+TEI/oneDNN run captured; same-host oneDNN BF16/AMX probe dispatch markers were
+captured. The TEI container logs themselves did not emit oneDNN dispatch
+markers.
 
 ## What We Can Claim
 
@@ -17,6 +18,8 @@ reported AVX-512 and AMX feature flags, and the same project package passed:
   `opea/embedding:latest`, Qdrant, and five route demos.
 - supplemental TEI/oneDNN verbose capture on the same C3 profile, with Gateway,
   five demos, scorecard, Docker stats, CPU flags, and TEI logs captured.
+- same-host oneDNN BF16/AMX probe on that C3 VM, with probe dispatch markers
+  captured.
 
 This is the right claim boundary for the competition bonus:
 
@@ -24,14 +27,14 @@ This is the right claim boundary for the competition bonus:
 WearEdge demonstrates effective application-level use of Intel Xeon hardware by
 running its OPEA TEI embedding/RAG profile and five-agent Manufacturing route
 suite on a single-node Google Cloud C3 Xeon host exposing AVX-512 and AMX
-features, with route, embedding, Qdrant, scorecard, latency, memory, and cleanup
-evidence recorded.
+features, with route, embedding, Qdrant, scorecard, latency, memory, cleanup,
+and same-host oneDNN BF16/AMX probe dispatch evidence recorded.
 ```
 
-Do not claim that the benchmark proves TEI or oneDNN microkernels dispatched
-AMX/AVX-512 instructions internally. Do not claim production LLM acceleration.
-Only claim oneDNN, DNNL, AMX, or AVX kernel dispatch if the verbose artifact
-actually contains matching marker lines.
+Do not claim that the TEI model server itself emitted AMX/AVX-512 oneDNN
+dispatch markers. Do not claim production LLM acceleration. It is now valid to
+claim same-host oneDNN BF16/AMX probe dispatch evidence, because the r23
+artifact reports `probe_dispatch_markers_captured=true`.
 
 ## Hardware
 
@@ -65,7 +68,7 @@ Detected feature flags from `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.js
 | Docker/Qdrant fresh-clone E2E | `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json` | `/demo`, `/healthz`, five demo routes, five infer routes, Qdrant, `/v1/scorecard`, Docker stats |
 | OPEA-compatible embedding profile | `evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json` | `/v1/embeddings`, Qdrant route collections, all five demos, scorecard routes pass |
 | Official OPEA TEI profile | `evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json` | Hugging Face TEI, `opea/embedding:latest`, 768-dimensional embeddings, Qdrant TEI vector-store markers, five routes, scorecard pass |
-| TEI/oneDNN verbose capture | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` | Re-ran official TEI profile with verbose env enabled; Gateway, scorecard, five demos, Docker stats, AVX-512/AMX CPU flag checks, and TEI logs passed; dispatch marker grep returned zero lines |
+| TEI/oneDNN verbose + probe capture | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` | Re-ran official TEI profile with verbose env enabled; Gateway, scorecard, five demos, Docker stats, AVX-512/AMX CPU flag checks, and TEI logs passed; TEI container dispatch marker grep returned zero lines; same-host oneDNN BF16/AMX probe executed and captured dispatch markers |
 
 ## Official OPEA TEI Profile Runtime
 
@@ -118,7 +121,7 @@ evidence/benchmarks/intel_effective_use.summary.json
 
 The summary combines the CPU feature evidence, deterministic route benchmark,
 Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E
-plus the supplemental TEI/oneDNN verbose attempt into one competition-facing
+plus the supplemental TEI/oneDNN run and same-host probe into one competition-facing
 artifact.
 
 ## Supplemental TEI/oneDNN Verbose Result
@@ -137,18 +140,21 @@ all_checks_pass=true
 c3_cpu_flags_include_avx512=true
 c3_cpu_flags_include_amx=true
 dispatch_markers_captured=false
+onednn_probe_executed=true
+probe_dispatch_markers_captured=true
 ```
 
 This strengthens the hardware bonus by proving the official OPEA TEI + Qdrant
 + five-agent scorecard workload ran on the C3 profile while verbose capture was
-enabled. It still must not be described as AMX or AVX-512 microkernel dispatch
-proof, because the TEI logs did not emit matching dispatch marker lines.
+enabled, and by proving same-host oneDNN BF16/AMX dispatch evidence. It still
+must not be described as TEI-internal AMX dispatch proof, because the TEI logs
+did not emit matching dispatch marker lines.
 
 ## Remaining Optional Upgrade
 
-The current record is strong enough to show application-level effective use of
-Intel Xeon hardware. To make the hardware bonus even harder to dispute, add one
-of the following if time and platform access allow:
+The current record is strong enough to defend full hardware bonus under the
+rubric wording. To make the hardware story even harder to dispute, add one of
+the following only if time and platform access allow:
 
 - collect lower-level `perf` counters or a TEI build that emits oneDNN/DNNL
   dispatch lines;
@@ -160,12 +166,12 @@ of the following if time and platform access allow:
 
 | Resource | Current status | Best next use |
 | --- | --- | --- |
-| Google Cloud C3 `c3-standard-4` | Available and validated, including supplemental TEI/oneDNN verbose attempt | Optional perf or non-AMX comparison only if more hardening is worth the cloud time |
+| Google Cloud C3 `c3-standard-4` | Available and validated, including supplemental TEI/oneDNN verbose attempt plus same-host BF16/AMX probe dispatch evidence | Optional perf or non-AMX comparison only if more hardening is worth the cloud time |
 | Local Docker Desktop | Available, but Docker Engine access may require local permission from Codex sandbox | Rerun official OPEA TEI profile and UI validation locally |
 | GPU | Not required by challenge and not used in current proof | Do not introduce unless it clearly improves LMM benchmarking |
 | Production LLM endpoint | Not currently configured in the public repo | Only benchmark if a real endpoint is available with strict fallback disabled |
 
-Decision: the existing hardware package is strong for the rubric wording
-"effective use of Intel hardware features (AMX, AVX-512)." The only missing
-piece for an even harder full-score defense is instruction/backend dispatch
-evidence, not another ordinary route benchmark.
+Decision: the existing hardware package is full-mark defendable for the rubric
+wording "effective use of Intel hardware features (AMX, AVX-512)." The only
+remaining optional upgrade is TEI-specific instruction/backend dispatch
+evidence or a non-AMX comparison, not another ordinary route benchmark.

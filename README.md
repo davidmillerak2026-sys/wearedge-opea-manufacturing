@@ -403,22 +403,24 @@ The Intel effective-use summary combines that CPU feature run with C3
 Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E.
 It shows the WearEdge OPEA TEI embedding/RAG profile and five-agent suite
 running inside the single-node 4-vCPU / 16-GiB-RAM / no-GPU challenge envelope.
-It does not claim oneDNN/TEI microkernel dispatch proof or production LLM
-acceleration.
+It does not claim TEI-internal oneDNN microkernel dispatch proof or production
+LLM acceleration. The supplemental r23 evidence does include same-host oneDNN
+BF16/AMX probe dispatch markers.
 
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
 
 The official OPEA TEI E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway, verified 768-dimensional TEI embeddings, passed all five route demos with `qdrant-opea-tei-vector-store`, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-opea-tei-0527103938` after the run.
 
-The supplemental TEI/oneDNN verbose run was captured on Google Cloud C3
+The supplemental TEI/oneDNN run was captured on Google Cloud C3
 `c3-standard-4` in `us-central1-a` from tag
-`final-submission-2026-05-28-r20`. It started the same official OPEA TEI
+`final-submission-2026-05-29-r23`. It started the same official OPEA TEI
 profile plus verbose env capture, passed Gateway health, `/v1/scorecard`, all
-five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, and
-TEI log capture, then deleted temporary VM `wearedge-tei-onednn-0528111751`.
-The captured TEI build did not emit oneDNN dispatch marker lines, so this is
-application-level Intel C3 effective-use evidence, not instruction-level
-AMX/AVX-512 kernel dispatch proof.
+five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, TEI
+log capture, and a same-host oneDNN BF16/AMX probe, then deleted temporary VM
+`wearedge-tei-onednn-0529024359`. The captured TEI build did not emit oneDNN
+dispatch marker lines, but the same-host probe did capture oneDNN BF16/AMX
+dispatch markers. This is application-level Intel C3 effective-use evidence
+plus host-level oneDNN dispatch evidence, not TEI-internal AMX dispatch proof.
 
 Xeon AMX runbook:
 
