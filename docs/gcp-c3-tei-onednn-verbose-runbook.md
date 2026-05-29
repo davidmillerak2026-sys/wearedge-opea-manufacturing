@@ -15,6 +15,8 @@ hardware and captures:
 - Docker memory and CPU stats;
 - TEI/OPEA logs searched for oneDNN, DNNL, AMX, AVX, BF16, VNNI, BRGEMM, and
   matmul markers.
+- a same-host Intel oneDNN BF16 matmul probe that emits `onednn_verbose` or
+  `dnnl_verbose` dispatch lines when the C3 host exposes the backend path.
 
 Script:
 
@@ -51,15 +53,23 @@ Relevant fields:
 claim_status=tei_onednn_or_isa_dispatch_markers_captured
 ```
 
-or, if TEI does not emit verbose kernel logs:
+or, if TEI does not emit verbose kernel logs but the same-host probe does:
+
+```text
+claim_status=wear_edge_scorecard_with_onednn_bf16_amx_probe_dispatch_markers_captured
+validation.probe_dispatch_markers_captured=true
+```
+
+or, if neither TEI nor the probe emits verbose kernel logs:
 
 ```text
 claim_status=tei_verbose_not_emitted_cpu_feature_evidence_only
 ```
 
-Both cases are honest. The first gives stronger low-level proof; the second
-still proves official TEI + OPEA embedding + Qdrant + five-agent scorecard ran
-on C3 hardware with Intel ISA flags present.
+All cases are honest. The first is TEI-container dispatch evidence. The second
+is same-host oneDNN BF16/AMX probe evidence plus the full WearEdge scorecard
+path. The third still proves official TEI + OPEA embedding + Qdrant +
+five-agent scorecard ran on C3 hardware with Intel ISA flags present.
 
 ## Scoring Use
 
@@ -72,8 +82,12 @@ AMX flags. The artifact records CPU flags, Docker stats, scorecard pass, and
 TEI/OPEA logs searched for oneDNN/ISA dispatch markers.
 ```
 
-Do not claim oneDNN or AMX kernel dispatch unless the artifact actually
-contains matching marker lines.
+Do not claim TEI itself dispatched oneDNN or AMX kernels unless
+`validation.dispatch_markers_captured=true`. If
+`validation.probe_dispatch_markers_captured=true`, claim the narrower but
+stronger statement: the same C3 host that ran the WearEdge scorecard also
+produced observable oneDNN BF16/AMX/AVX512 dispatch marker lines in a
+supplemental probe.
 
 ## Captured Result
 
@@ -102,3 +116,28 @@ evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json
 Interpretation: this passed as application-level Intel C3 effective-use
 evidence. The run did not capture oneDNN/TEI dispatch marker lines, so it must
 not be described as instruction-level AMX or AVX-512 proof.
+
+## Rerun With Same-Host oneDNN Probe
+
+The script now includes a supplemental C++ oneDNN probe that installs
+`libdnnl-dev`, compiles a BF16 `1024x1024x1024` matmul, runs it on the same C3
+VM as the WearEdge OPEA TEI scorecard path, and records:
+
+```text
+validation.onednn_probe_compiled
+validation.onednn_probe_executed
+validation.probe_dispatch_markers_captured
+probe_dispatch_evidence.marker_lines
+```
+
+Use tag `final-submission-2026-05-29-r22` or newer when rerunning from Cloud
+Shell. If the probe captures marker lines while TEI still does not, the proper
+claim is:
+
+```text
+WearEdge's full OPEA TEI + Qdrant + five-agent scorecard path passed on the
+same GCP C3 node where a supplemental oneDNN BF16 matmul probe emitted
+observable oneDNN dispatch markers. This proves host-level Intel oneDNN
+BF16/AMX/AVX512 dispatch evidence alongside the WearEdge workload; it does not
+claim TEI itself emitted those markers.
+```

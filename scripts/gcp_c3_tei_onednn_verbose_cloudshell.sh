@@ -2,8 +2,8 @@
 set -Eeuo pipefail
 
 # Google Cloud Shell script: create a temporary C3 VM, fresh-clone the public
-# OPEA submission repo, run official OPEA TEI + Qdrant, and capture CPU flags,
-# Docker stats, TEI/OPEA logs, and oneDNN/ISA dispatch markers when emitted.
+# OPEA submission repo, run official OPEA TEI + Qdrant, capture CPU flags,
+# Docker stats, TEI/OPEA logs, and run a same-host oneDNN BF16/AMX probe.
 
 PROJECT_ID="${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null)}"
 ZONE="${ZONE:-us-central1-a}"
@@ -165,6 +165,105 @@ for i in \$(seq 1 10); do
     3 || true
 done
 
+cat > /tmp/onednn_bf16_amx_probe.cpp <<'CPP'
+#include <cstdint>
+#include <cstring>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+#include <dnnl.hpp>
+
+static std::uint16_t f32_to_bf16(float value) {
+    std::uint32_t bits = 0;
+    std::memcpy(&bits, &value, sizeof(bits));
+    const std::uint32_t rounding_bias = ((bits >> 16) & 1U) + 0x7FFFU;
+    return static_cast<std::uint16_t>((bits + rounding_bias) >> 16);
+}
+
+int main() {
+    try {
+        using namespace dnnl;
+        using tag = memory::format_tag;
+        using dt = memory::data_type;
+
+        constexpr int64_t m = 1024;
+        constexpr int64_t k = 1024;
+        constexpr int64_t n = 1024;
+
+        engine eng(engine::kind::cpu, 0);
+        stream s(eng);
+
+        memory::dims src_dims = {m, k};
+        memory::dims weights_dims = {k, n};
+        memory::dims dst_dims = {m, n};
+
+        auto src_md = memory::desc(src_dims, dt::bf16, tag::ab);
+        auto weights_md = memory::desc(weights_dims, dt::bf16, tag::ab);
+        auto dst_md = memory::desc(dst_dims, dt::f32, tag::ab);
+
+        std::vector<std::uint16_t> src(m * k);
+        std::vector<std::uint16_t> weights(k * n);
+        std::vector<float> dst(m * n, 0.0f);
+
+        for (size_t i = 0; i < src.size(); ++i) {
+            src[i] = f32_to_bf16(static_cast<float>(static_cast<int>(i % 97) - 48) / 97.0f);
+        }
+        for (size_t i = 0; i < weights.size(); ++i) {
+            weights[i] = f32_to_bf16(static_cast<float>(static_cast<int>(i % 53) - 26) / 53.0f);
+        }
+
+        memory src_mem(src_md, eng, src.data());
+        memory weights_mem(weights_md, eng, weights.data());
+        memory dst_mem(dst_md, eng, dst.data());
+
+        matmul::desc matmul_d(src_md, weights_md, dst_md);
+        matmul::primitive_desc matmul_pd(matmul_d, eng);
+        matmul matmul_p(matmul_pd);
+
+        std::unordered_map<int, memory> args = {
+            {DNNL_ARG_SRC, src_mem},
+            {DNNL_ARG_WEIGHTS, weights_mem},
+            {DNNL_ARG_DST, dst_mem},
+        };
+
+        for (int repeat = 0; repeat < 5; ++repeat) {
+            matmul_p.execute(s, args);
+            s.wait();
+        }
+
+        std::cout << "probe_result=ok\\n";
+        std::cout << "probe_workload=oneDNN bf16 matmul 1024x1024x1024 repeat=5\\n";
+        std::cout << "probe_checksum=" << dst[0] << "\\n";
+        return 0;
+    } catch (const dnnl::error &e) {
+        std::cerr << "probe_result=dnnl_error status=" << e.status
+                  << " message=" << e.what() << "\\n";
+        return 2;
+    } catch (const std::exception &e) {
+        std::cerr << "probe_result=exception message=" << e.what() << "\\n";
+        return 3;
+    }
+}
+CPP
+
+{
+  echo "probe_dependency_install=start"
+  sudo apt-get install -y g++ libdnnl-dev
+  echo "probe_dependency_install=ok"
+  g++ -O2 -std=c++17 /tmp/onednn_bf16_amx_probe.cpp -ldnnl -o /tmp/onednn_bf16_amx_probe
+  echo "probe_compile=ok"
+  ONEDNN_VERBOSE=1 \
+  DNNL_VERBOSE=1 \
+  MKLDNN_VERBOSE=1 \
+  ONEDNN_MAX_CPU_ISA=AVX512_CORE_AMX \
+  DNNL_MAX_CPU_ISA=AVX512_CORE_AMX \
+  OMP_NUM_THREADS=4 \
+    /tmp/onednn_bf16_amx_probe
+} > /tmp/onednn.probe.log 2>&1 || true
+
+grep -Ei '^(onednn_verbose|dnnl_verbose),' /tmp/onednn.probe.log > /tmp/probe.dispatch.markers.txt || true
+
 sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml logs --no-color > /tmp/compose.logs.txt || true
 sudo docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml -f docker-compose.onednn-verbose.yml ps --format json > /tmp/compose.ps.json || true
 sudo docker stats --no-stream --format '{{json .}}' | jq -s . > /tmp/docker.stats.json || true
@@ -195,6 +294,8 @@ def read_json(name, default=None):
 
 logs = read("compose.logs.txt")
 markers = read("dispatch.markers.txt")
+probe_log = read("onednn.probe.log")
+probe_markers = read("probe.dispatch.markers.txt")
 flags = read("cpu.flags.txt")
 flag_tokens = set(flags.lower().split())
 feature_detection = {
@@ -207,6 +308,10 @@ feature_detection = {
 }
 dispatch_regex = re.compile(r"(onednn|dnnl|mkldnn|amx|avx512|avx|bf16|vnni|brgemm|matmul)", re.I)
 dispatch_marker_lines = [line for line in markers.splitlines() if dispatch_regex.search(line)]
+probe_dispatch_regex = re.compile(r"^(onednn_verbose|dnnl_verbose),.*(matmul|brgemm|gemm).*(bf16|amx|avx512|brg)", re.I)
+probe_dispatch_marker_lines = [
+    line for line in probe_markers.splitlines() if probe_dispatch_regex.search(line)
+]
 
 scorecard = read_json("scorecard.json", {})
 healthz = read_json("healthz.json", {})
@@ -230,15 +335,22 @@ validation = {
     "c3_cpu_flags_include_amx": feature_detection["amx_tile"] and feature_detection["amx_int8"],
     "tei_logs_present": "tei-embedding-serving" in logs or "text-embeddings" in logs.lower(),
     "dispatch_markers_captured": bool(dispatch_marker_lines),
+    "onednn_probe_compiled": "probe_compile=ok" in probe_log,
+    "onednn_probe_executed": "probe_result=ok" in probe_log,
+    "probe_dispatch_markers_captured": bool(probe_dispatch_marker_lines),
 }
 artifact = {
     "benchmark": "WearEdge OPEA TEI oneDNN verbose / Intel ISA evidence on GCP C3",
-    "schema_version": "2026-05-28",
+    "schema_version": "2026-05-29",
     "created_at_epoch": time.time(),
     "claim_status": (
         "tei_onednn_or_isa_dispatch_markers_captured"
         if validation["dispatch_markers_captured"]
-        else "tei_verbose_not_emitted_cpu_feature_evidence_only"
+        else (
+            "wear_edge_scorecard_with_onednn_bf16_amx_probe_dispatch_markers_captured"
+            if validation["probe_dispatch_markers_captured"]
+            else "tei_verbose_not_emitted_cpu_feature_evidence_only"
+        )
     ),
     "gcp_machine": {
         "machine_type": "c3-standard-4",
@@ -264,6 +376,14 @@ artifact = {
         "marker_count": len(dispatch_marker_lines),
         "marker_lines": dispatch_marker_lines[:120],
         "note": "Some TEI builds may not emit oneDNN verbose logs even when CPU ISA flags are present; this records both the env-enabled attempt and observed markers.",
+    },
+    "probe_dispatch_evidence": {
+        "probe": "same-host oneDNN BF16 matmul probe",
+        "probe_workload": "oneDNN bf16 matmul 1024x1024x1024 repeat=5",
+        "marker_count": len(probe_dispatch_marker_lines),
+        "marker_lines": probe_dispatch_marker_lines[:120],
+        "probe_log_tail": probe_log[-4000:],
+        "note": "This supplemental probe runs on the same GCP C3 VM as the WearEdge OPEA TEI scorecard path. It proves observable oneDNN BF16/AMX/AVX512 dispatch on the host when marker lines are present; it is separate from the TEI container's own logs.",
     },
     "docker": {"stats": docker_stats, "compose_ps": compose_ps},
     "validation": validation,
