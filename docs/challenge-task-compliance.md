@@ -73,7 +73,7 @@ explicit response-time, memory-footprint, and user-experience evidence.
 | System response time | C3 Docker/Qdrant E2E latency JSON and official OPEA TEI E2E route timings |
 | Memory footprint | Docker stats for Gateway, Qdrant, `opea/embedding:latest`, and TEI serving containers |
 | Scalability under requests | Local concurrent route benchmark with 8 workers / 100 total requests passing, GenAIEval-compatible benchmark with 300 route evaluations, plus endpoint benchmark harnesses for route and LLM adapter paths |
-| User experience clarity | Upgraded browser command console at `/demo`, public YouTube walkthrough, public Dev.to article, route-specific action cards, RAG source evidence, OPEA pipeline rail, and scorecard state |
+| User experience clarity | Upgraded browser command console at `/demo`, public YouTube walkthrough, public Dev.to article, OPEA docs Publications PR #395, route-specific action cards, RAG source evidence, OPEA pipeline rail, and scorecard state |
 
 Key evidence files:
 

@@ -266,10 +266,11 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-tei-onednn-verbose-runbook.md`](docs/gcp-c3-tei-onednn-verbose-runbook.md) | GCP C3 TEI oneDNN/ISA verbose capture runbook |
 | [`docs/gcp-c3-tei-onednn-verbose-report.md`](docs/gcp-c3-tei-onednn-verbose-report.md) | Captured C3 TEI/oneDNN verbose attempt result and claim boundary |
 | [Dev.to external article](https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh) | Published public knowledge-sharing article |
+| [OPEA docs Publications PR](https://github.com/opea-project/docs/pull/395) | Submitted OPEA Publications / Blogs listing; open and mergeable, not merged yet |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public GitHub article backup |
 | [`public/article-opea-tei-qdrant-guardrails-lessons.md`](public/article-opea-tei-qdrant-guardrails-lessons.md) | OPEA practical technical article: TEI, Qdrant, guardrails, hardware, and feedback |
 | [`public/external-platform-article.md`](public/external-platform-article.md) | Source article package published via Dev.to |
-| [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Remaining public video publication steps and claim boundary |
+| [`docs/public-platform-publishing-handoff.md`](docs/public-platform-publishing-handoff.md) | Public article/video/OPEA Publications PR links and claim boundary |
 | [`public/demo-video-script.md`](public/demo-video-script.md) | 1-3 minute demo video shot list and narration |
 | [`public/video-platform-description.md`](public/video-platform-description.md) | Copy-ready public video platform title, description, and tags |
 | [YouTube demo video](https://www.youtube.com/watch?v=dd9k8m6PDco) | Published public demo video |
@@ -320,6 +321,7 @@ OPEA open-source contribution package:
 ```text
 https://github.com/opea-project/GenAIExamples/issues/2461
 https://github.com/opea-project/GenAIExamples/pull/2462
+https://github.com/opea-project/docs/pull/395
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2
 https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017
 docs/upstream-pr-attempt-2026-05-28.md
@@ -337,6 +339,7 @@ Knowledge-sharing package:
 ```text
 https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh
 https://www.youtube.com/watch?v=dd9k8m6PDco
+https://github.com/opea-project/docs/pull/395
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1
 public/article-wear-edge-opea-manufacturing.md
 public/external-platform-article.md

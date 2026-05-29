@@ -1,7 +1,7 @@
 # Public Platform Publishing Handoff
 
 Status: external article published on Dev.to; external demo video published on
-YouTube.
+YouTube; OPEA docs Publications PR #395 submitted and open/mergeable.
 
 The repository contains copy-ready materials for the knowledge-sharing bonus.
 The external technical article is now published on Dev.to:
@@ -14,6 +14,12 @@ The external demo video is now published on YouTube:
 
 ```text
 https://www.youtube.com/watch?v=dd9k8m6PDco
+```
+
+The article has also been submitted to the OPEA docs Publications / Blogs list:
+
+```text
+https://github.com/opea-project/docs/pull/395
 ```
 
 ## Why This Matters
@@ -43,10 +49,12 @@ and/or video URL that judges can open directly outside the repository.
 | --- | --- |
 | External article | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | External video | `https://www.youtube.com/watch?v=dd9k8m6PDco` |
+| OPEA Publications PR | `https://github.com/opea-project/docs/pull/395` |
 
 ## After URLs Are Available
 
-The public article and video URLs have been backfilled into:
+The public article, video, and OPEA Publications PR URLs have been backfilled
+into:
 
 - `docs/publication-record.md`;
 - `submission-fields.draft.json`;
@@ -71,8 +79,9 @@ Safe to claim now:
 
 ```text
 The repository contains a public Dev.to article, a public YouTube demo video,
-and GitHub article/video backup evidence.
+an open OPEA docs Publications PR, and GitHub article/video backup evidence.
 ```
 
-Do not claim additional public platforms, such as Medium, LinkedIn, or Bilibili,
-unless those URLs are also published and recorded.
+Do not claim official OPEA Publications listing until PR #395 is merged. Do not
+claim additional public platforms, such as Medium, LinkedIn, or Bilibili, unless
+those URLs are also published and recorded.

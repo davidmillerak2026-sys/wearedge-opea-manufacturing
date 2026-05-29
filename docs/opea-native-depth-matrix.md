@@ -35,6 +35,7 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 | Docker Compose | One-command base profile plus official OPEA TEI profile | README run commands, C3 fresh-clone evidence | Strong |
 | Helm/GMC | Not implemented in this submission package | Documented as follow-up in upstream blueprint | Do not claim |
 | Upstream example | GenAIExamples first PR opened from the prepared `docs/opea-upstream/pr-ready/` package | Smoke-tested local package, public RFC issue, and upstream PR #2462 | Strong, but weaker than merged PR |
+| OPEA docs contribution | Publications PR #395 proposes adding the WearEdge technical article to OPEA Publications / Blogs | `https://github.com/opea-project/docs/pull/395` | Strong, but not official publication until merged |
 
 ## Why This Is OPEA-Native Enough For The Challenge
 
@@ -49,7 +50,8 @@ The project adopts OPEA's enterprise application shape:
 - a megaservice that composes route-specific services;
 - a GenAIEval-compatible evaluation artifact set for 15 route cases;
 - an API and Docker Compose profile that can be evaluated from a fresh clone;
-- an opened GenAIExamples PR for upstream discussion.
+- an opened GenAIExamples PR for upstream discussion;
+- an opened OPEA docs Publications PR for public knowledge sharing.
 
 The deliberately conservative boundary is model serving. The default
 submission does not download or require a large model, so judges can evaluate
@@ -61,12 +63,12 @@ grounding, evaluators, guardrails, or action-card contracts.
 ## Remaining OPEA Depth Options
 
 The current implementation is strong because it includes the official OPEA TEI
-embedding profile and a real upstream PR. If additional hardening time is
-available, prioritize:
+embedding profile, a real upstream GenAIExamples PR, and an OPEA docs
+Publications PR. If additional hardening time is available, prioritize:
 
 | Option | Why it helps | Risk |
 | --- | --- | --- |
-| Keep PR #2462 green and answer maintainer review | Converts OPEA alignment into public OPEA collaboration | Depends on upstream timing |
+| Keep PR #2462 and docs PR #395 green/responded | Converts OPEA alignment into public OPEA collaboration | Depends on upstream timing |
 | Add a final PR/issue comment linking official TEI, GCP C3, article, and video evidence | Makes bonus evidence easy for OPEA reviewers to see | Low |
 | Add optional Kubernetes/Helm/GMC notes | Supports OPEA cloud-native deployment narrative | Medium; may distract from Docker one-click path |
 | Add more official GenAIComps services | Deepens OPEA-native component count | Medium; could destabilize a working submission if rushed |

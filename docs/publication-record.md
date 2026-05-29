@@ -13,6 +13,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | Public OPEA tracker | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | Upstream contribution package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
 | Upstream PR | Open and CI-green against `opea-project/GenAIExamples:main`; not merged yet | https://github.com/opea-project/GenAIExamples/pull/2462 |
+| OPEA Publications PR | Open and mergeable against `opea-project/docs:main`; not merged yet | https://github.com/opea-project/docs/pull/395 |
 | Upstream PR attempt log | Direct upstream push failed with GitHub 403, then fork push succeeded and PR #2462 was opened | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md |
 
 ## Knowledge Sharing
@@ -24,6 +25,7 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | External-platform article package | Published via Dev.to; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
 | OPEA practical article | Published as a public GitHub issue; source retained in repo | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/3 |
 | OPEA practical article source | Ready in public repository as the source copy | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-opea-tei-qdrant-guardrails-lessons.md |
+| OPEA Publications blog-listing PR | Submitted to the official OPEA Publications page; open and mergeable, not merged yet | https://github.com/opea-project/docs/pull/395 |
 | External-platform publishing handoff | Ready; manual publish selected | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
@@ -48,6 +50,9 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - The additional OPEA practical article is published as public issue #3 and
   covers OPEA TEI, Qdrant, five-agent guardrails, source VLM evidence, and
   recommendations back to OPEA.
+- OPEA docs PR #395 proposes adding the Dev.to article to the official OPEA
+  Publications / Blogs list. It is open and mergeable, but not merged yet, so
+  do not claim official OPEA publication until the PR is merged.
 - `docs/public-platform-publishing-handoff.md` records the exact remaining
   non-GitHub publication task for manual posting.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.

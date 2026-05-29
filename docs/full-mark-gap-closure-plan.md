@@ -68,13 +68,13 @@ Current strong evidence:
 - official OPEA TEI profile using `opea/embedding:latest`, Hugging Face TEI,
   `TEI_EMBEDDING_ENDPOINT`, and 768-dimensional embeddings;
 - GenAIEval-compatible dataset, runner, metrics, and benchmark outputs;
-- OPEA RFC issue and upstream PR #2462.
+- OPEA RFC issue, upstream PR #2462, and OPEA docs Publications PR #395.
 
 Highest-value remaining upgrades:
 
 | Upgrade | Value | Feasibility | Recommendation |
 | --- | --- | --- | --- |
-| Keep PR #2462 green and respond to review | Directly protects OPEA use and open-source bonus | High | Do daily until judging |
+| Keep PR #2462 and docs PR #395 green/responded | Directly protects OPEA use, open-source bonus, and knowledge-sharing evidence | High | Do daily until judging |
 | Add final upstream comment linking TEI, GCP C3, article, and video | Shows feedback loop, not just code dump | High | Do before final submission |
 | Optional Helm/GMC/Kubernetes note or manifest | Helps if judges expect cloud-native OPEA | Medium | Nice-to-have, not P0 |
 | More official GenAIComps services | Could deepen OPEA-native implementation | Medium/low under time limit | Only if it does not destabilize the runnable package |
@@ -172,14 +172,16 @@ Current state: strong but still vulnerable until maintainers engage.
 
 Follow-up:
 
-- monitor OPEA PR #2462;
+- monitor OPEA PR #2462 and OPEA docs PR #395;
 - respond to any maintainer review quickly;
 - add a final comment with GCP C3 TEI evidence and the public article/video;
 - if maintainers ask for a smaller scope, split the PR.
 
 ### Knowledge-Sharing Bonus
 
-Current state: defendable because Dev.to and YouTube are public.
+Current state: defendable because Dev.to and YouTube are public, and OPEA docs
+PR #395 is open and mergeable to add the article to the official OPEA
+Publications / Blogs list.
 
 Is the article technical enough?
 
@@ -192,8 +194,9 @@ and one video", optional follow-up articles could cover:
 - "Running WearEdge on Google Cloud C3 Xeon with AVX-512/AMX evidence";
 - "Blueprint feedback for OPEA Manufacturing examples".
 
-Recommendation: publish one additional short OPEA lessons article only if time
-allows. The existing Dev.to + YouTube evidence already satisfies the rubric.
+Recommendation: keep PR #395 monitored and do not claim official OPEA
+publication until it merges. The existing Dev.to + YouTube evidence already
+satisfies the rubric; PR #395 makes the knowledge-sharing evidence stronger.
 
 ### Hardware Optimization Bonus
 

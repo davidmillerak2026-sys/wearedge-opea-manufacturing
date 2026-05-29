@@ -2,7 +2,8 @@
 
 Status: strong technical package; public demo video URL verified; OPEA
 upstream RFC/comment posted; real upstream PR #2462 opened and CI-green;
-contribution package and patch artifact prepared; local Docker Desktop
+OPEA docs Publications PR #395 opened and mergeable; contribution package and
+patch artifact prepared; local Docker Desktop
 validation passed; GenAIEval-compatible route evaluation passed; supplemental
 GCP C3 TEI/oneDNN verbose attempt passed application checks; submission URL dry
 run passed; champion risk burn-down completed; final visual form review
@@ -40,9 +41,9 @@ detection. Raw customer plant data is intentionally not published.
 | Product quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI fresh-clone E2E, and supplemental TEI/oneDNN verbose attempt evidence | Ready |
-| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PR is CI-green but not merged yet |
+| Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; OPEA docs Publications PR #395 opened and mergeable; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PRs are open but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
-| Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; GitHub article/video backup evidence remains public | Ready |
+| Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list; GitHub article/video backup evidence remains public | Ready; do not claim official OPEA publication until #395 is merged |
 
 Detailed 100 base + 40 bonus score defense:
 `docs/evaluation-criteria-scorecard.md`.
@@ -57,7 +58,7 @@ Full-mark gap closure plan:
 | Domain-specific GenAI application | OPEA-style manufacturing pipeline with LLM adapter, TEI embeddings, RAG, Qdrant, orchestration, guardrails, and evaluation | Ready |
 | Concrete industry scenario | Manufacturing vertical; five real plant workflows mapped to CMMS, QMS, changeover checklist, WI, and EHS targets | Ready |
 | Working prototype with documentation | Docker Compose, `deploy.sh`, README, technical report, Web/API surface, and `docs/challenge-task-compliance.md` | Ready |
-| Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, YouTube video | Ready |
+| Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, YouTube video, OPEA docs PR #395 | Ready |
 
 ## Hard Evidence
 
@@ -71,6 +72,7 @@ Full-mark gap closure plan:
 | OPEA contribution package | `docs/opea-upstream/pr-ready/` |
 | OPEA PR patch artifact | `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch` |
 | OPEA upstream PR | https://github.com/opea-project/GenAIExamples/pull/2462 |
+| OPEA docs Publications PR | https://github.com/opea-project/docs/pull/395 |
 | Direct upstream PR attempt and fork push log | `docs/upstream-pr-attempt-2026-05-28.md` |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA native depth matrix | `docs/opea-native-depth-matrix.md` |
@@ -144,18 +146,19 @@ https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-s
   The r20 verbose attempt passed application checks, but
   `dispatch_markers_captured=false`, so current evidence is application-level
   effective use of C3 Xeon hardware.
-- Do not claim additional external public-platform publication beyond Dev.to
-  and YouTube unless those URLs are also posted and recorded.
+- Do not claim official OPEA Publications listing until OPEA docs PR #395 is
+  merged. The current claim is submitted/open/mergeable, not official
+  publication by OPEA.
 
 ## Remaining Work
 
 | Item | Why it matters | Next action |
 | --- | --- | --- |
-| Upstream PR review follow-up | Could improve open-source contribution bonus | Monitor `https://github.com/opea-project/GenAIExamples/pull/2462` and respond quickly if maintainers request scope, naming, or CI changes |
+| Upstream PR review follow-up | Could improve open-source contribution bonus | Monitor `https://github.com/opea-project/GenAIExamples/pull/2462` and `https://github.com/opea-project/docs/pull/395`; respond quickly if maintainers request scope, naming, or CI changes |
 | Final visual form review | Prevents field-copy and claim mistakes | URL dry run passed; use `docs/final-submission-form-fill-guide.md`, visually review the challenge form, then submit |
 
 ## Current Verdict
 
 The core technical package is now champion-ready for submission. The remaining
 high-return work is pressing the final challenge form submit button and watching
-the opened upstream PR for review feedback.
+the opened GenAIExamples PR #2462 and OPEA docs PR #395 for review feedback.

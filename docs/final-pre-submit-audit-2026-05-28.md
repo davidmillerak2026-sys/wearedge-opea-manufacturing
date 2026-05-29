@@ -15,7 +15,7 @@ form submission.
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Evaluation criteria scorecard | `docs/evaluation-criteria-scorecard.md` |
-| Final tag | `final-submission-2026-05-28-r18` |
+| Final tag | `final-submission-2026-05-29-r26` |
 
 ## Verification Already Passed
 
@@ -38,7 +38,8 @@ form submission.
 | Intel effective-use evidence | `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` |
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
 | OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462`, CI-green on head `0c149a06` |
-| Knowledge-sharing package | External Dev.to article and YouTube demo video published; GitHub article/video backup evidence remains available |
+| OPEA docs Publications PR | `https://github.com/opea-project/docs/pull/395`, open and mergeable; not merged yet |
+| Knowledge-sharing package | External Dev.to article and YouTube demo video published; OPEA docs Publications PR #395 submitted; GitHub article/video backup evidence remains available |
 | Champion risk burn-down | `docs/champion-risk-burn-down.md` |
 | OPEA modular value framing | README, SUBMISSION, technical report, form guide, scorecard, and public article all state that Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are modular; the model is pluggable |
 
@@ -89,5 +90,5 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 Do not change the project URL away from the OPEA competition repository, and do
 not add claims for autonomous restart, quality release, maintenance release,
 safety clearance, final root cause, production LLM acceleration, TEI/oneDNN
-microkernel dispatch proof, or additional external public-platform publication
-unless the corresponding URL or benchmark artifact is attached.
+microkernel dispatch proof, or official OPEA Publications listing until PR
+#395 is merged.

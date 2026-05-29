@@ -26,8 +26,8 @@ Status language:
 | System Efficiency | 20 | Full-mark defendable, with one LLM caveat | Single-node 4-vCPU / 16-GiB / no-GPU local and GCP C3 evidence is strong; production LLM serving latency is intentionally not over-claimed. |
 | Code Quality | 15 | Full-mark defendable | Self-contained source, tests, Docker profiles, evidence checker, and signed commits are present. |
 | Functional Completeness | 15 | Full-mark defendable | Web UI, API, five demos, five infer routes, Qdrant RAG, TEI profile, scorecard, and GenAIEval-compatible pack all run. |
-| Open-source bonus | 15 | Full-mark vulnerable | Public RFC, comments, and PR exist; full marks are stronger if maintainers engage, merge, or request changes that we address. |
-| Knowledge-sharing bonus | 10 | Full-mark defendable | Public Dev.to article and YouTube demo are live and linked. |
+| Open-source bonus | 15 | Full-mark vulnerable | Public RFC, comments, CI-green GenAIExamples PR #2462, and open/mergeable OPEA docs Publications PR #395 exist; full marks are stronger if maintainers engage, merge, or request changes that we address. |
+| Knowledge-sharing bonus | 10 | Full-mark defendable | Public Dev.to article and YouTube demo are live and linked; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list. |
 | Hardware optimization bonus | 15 | Full-mark defendable, with TEI-specific boundary | AVX-512/AMX C3 evidence is connected to WearEdge workloads; the r23 run passed the OPEA TEI/Qdrant/five-agent scorecard path and captured same-host oneDNN BF16/AMX probe dispatch markers. |
 
 Target position: defend `100/100` base points and pursue the full `40/40`
@@ -104,20 +104,20 @@ low-level Intel optimization proof.
 | Question | Audit |
 | --- | --- |
 | Can we defend full bonus now? | Strong, but `Full-mark vulnerable`. |
-| Why full marks are defensible | We have a public OPEA RFC issue, blueprint/implementation/TEI feedback, an upstream PR from the fork, signed commits, and a local PR-ready package. This directly matches "bug reports, PRs, or blueprint feedback". |
-| What could cause lost points | PR #2462 may remain unmerged, or maintainers may not review it before judging. Some judges may value merged code more than an open PR and comments. |
-| Follow-up to close the gap | Monitor PR #2462 daily, respond to review within hours, keep CI green, and add final comments linking the official TEI evidence and full-mark audit. If maintainers request a smaller scope, split the PR rather than arguing scope. |
-| Evidence | `https://github.com/opea-project/GenAIExamples/issues/2461`, `https://github.com/opea-project/GenAIExamples/pull/2462`, `docs/upstream-pr-attempt-2026-05-28.md`, `docs/opea-upstream/`. |
+| Why full marks are defensible | We have a public OPEA RFC issue, blueprint/implementation/TEI feedback, an upstream PR from the fork, signed commits, a local PR-ready package, and OPEA docs Publications PR #395. This directly matches "bug reports, PRs, or blueprint feedback". |
+| What could cause lost points | PR #2462 or PR #395 may remain unmerged, or maintainers may not review them before judging. Some judges may value merged code more than open PRs and comments. |
+| Follow-up to close the gap | Monitor PR #2462 and docs PR #395 daily, respond to review within hours, keep CI green, and add final comments linking the official TEI evidence and full-mark audit. If maintainers request a smaller scope, split the PR rather than arguing scope. |
+| Evidence | `https://github.com/opea-project/GenAIExamples/issues/2461`, `https://github.com/opea-project/GenAIExamples/pull/2462`, `https://github.com/opea-project/docs/pull/395`, `docs/upstream-pr-attempt-2026-05-28.md`, `docs/opea-upstream/`. |
 
 ### Knowledge Sharing: Up To 10 Points
 
 | Question | Audit |
 | --- | --- |
 | Can we defend full bonus now? | Yes. `Full-mark defendable`. |
-| Why full marks are defensible | A public technical article and a public demo video are published on external platforms, and the repo includes publication records and backup copies. |
-| What could cause lost points | If judges do not click external links, or if the article/video framing sounds like a demo instead of a real industrial AI agent system. |
-| Follow-up to protect full marks | In the final form, include both links near the top and use language that says WearEdge Pro is a real industrial AI agent system, with this repo as the OPEA challenge package. Optional: cross-post the article/video to LinkedIn or another public platform, but this is not required for the stated rubric. |
-| Evidence | Dev.to article: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; YouTube video: `https://www.youtube.com/watch?v=dd9k8m6PDco`; `docs/publication-record.md`; `public/external-platform-article.md`; `public/video-platform-description.md`. |
+| Why full marks are defensible | A public technical article and a public demo video are published on external platforms, the repo includes publication records and backup copies, and OPEA docs PR #395 proposes adding the article to the official OPEA Publications / Blogs list. |
+| What could cause lost points | If judges do not click external links, if the article/video framing sounds like a demo instead of a real industrial AI agent system, or if they expect OPEA official publication and PR #395 remains unmerged. |
+| Follow-up to protect full marks | In the final form, include the Dev.to, YouTube, and OPEA docs PR #395 links near the top and use language that says WearEdge Pro is a real industrial AI agent system, with this repo as the OPEA challenge package. Do not claim official OPEA publication until PR #395 is merged. |
+| Evidence | Dev.to article: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; YouTube video: `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR: `https://github.com/opea-project/docs/pull/395`; `docs/publication-record.md`; `public/external-platform-article.md`; `public/video-platform-description.md`. |
 
 ### Hardware Optimization: Up To 15 Points
 
@@ -137,7 +137,7 @@ low-level Intel optimization proof.
 | P0 | In the submission form, lead with "real industrial AI agent system" and "OPEA challenge package", not "demo project". | Originality, Business Relevance, Functional Completeness | This prevents the biggest framing error. |
 | P0 | State the private customer production-data boundary, including toothbrush workshop IQC/OQC lineage, without leaking raw data. | Business Relevance, Code Quality | This proves enterprise relevance while respecting confidentiality. |
 | P0 | Make the official TEI profile the primary technical proof. | Use of OPEA, System Efficiency | `opea/embedding:latest` plus TEI plus Qdrant is the strongest OPEA-native evidence. |
-| P1 | Monitor and respond to OPEA PR #2462 and issue #2461. | Open-source bonus, Use of OPEA | Merge is not required by the wording, but maintainers' engagement makes the bonus much harder to discount. |
+| P1 | Monitor and respond to OPEA PR #2462, docs PR #395, and issue #2461. | Open-source bonus, Use of OPEA, Knowledge Sharing | Merge is not required by the wording, but maintainers' engagement makes the bonus much harder to discount. |
 | P1 | Add a short final PR/issue comment linking the GCP C3 official OPEA TEI evidence and Dev.to/YouTube materials. | Open-source, Knowledge Sharing, Hardware Optimization | It ties all bonus evidence into the upstream OPEA conversation. |
 | P1 | Optional: collect perf counters, non-AMX comparison, or TEI build logs that emit oneDNN/DNNL dispatch lines. | Hardware Optimization | The r23 same-host oneDNN probe closes the main hardware gap; these are only extra hardening paths if judges ask for TEI-internal dispatch proof. |
 | P2 | Optional Kubernetes/Helm/GMC deployment note or manifest. | Use of OPEA | Helpful if judges strongly favor cloud-native OPEA deployment, but not necessary for the required Docker one-click path. |

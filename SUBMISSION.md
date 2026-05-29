@@ -139,8 +139,8 @@ WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
 | Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, private production-data lineage, and field evidence, not a single chatbot |
 | Technical Implementation, 40 pts | OPEA-style modular Gateway/Megaservice/Retriever-RAG/Qdrant Vector DB/LLM-adapter/Evaluator/Guardrails architecture with local and GCP evidence; model choice is pluggable |
 | Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
-| Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork |
-| Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article and YouTube demo video |
+| Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork, and OPEA docs Publications PR #395 |
+| Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article, YouTube demo video, and submitted OPEA Publications blog-listing PR #395 |
 | Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence, application-level OPEA TEI/Qdrant workload records, and same-host oneDNN BF16/AMX probe dispatch evidence |
 
 Detailed score defense: `docs/evaluation-criteria-scorecard.md`. Full-mark gap closure plan: `docs/full-mark-gap-closure-plan.md`.
@@ -187,13 +187,13 @@ Key archived evidence already mapped into this submission package:
 
 ## Remaining Champion Bonus Work
 
-- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; real upstream PR opened at `https://github.com/opea-project/GenAIExamples/pull/2462`; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`. The prepared contribution package and `git format-patch` artifact remain under `docs/opea-upstream/pr-ready/`.
+- OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; real upstream PR opened at `https://github.com/opea-project/GenAIExamples/pull/2462`; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; OPEA docs Publications PR #395 opened at `https://github.com/opea-project/docs/pull/395`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`. The prepared contribution package and `git format-patch` artifact remain under `docs/opea-upstream/pr-ready/`.
 - Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR status, and telecom-vs-manufacturing positioning.
 - LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default judge run deterministic and reproducible.
 - GenAIEval-compatible evaluation: `evals/genaieval/` and `evidence/genaieval/` provide a dataset, benchmark config, runner, 15-case route evaluation JSON, throughput/latency benchmark JSON, and summary.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
-- Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the demo video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; the GitHub article/video backups remain public evidence.
+- Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the demo video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but is not merged yet; the GitHub article/video backups remain public evidence.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, and supplemental TEI/oneDNN verbose-attempt workloads.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
@@ -207,6 +207,7 @@ Key archived evidence already mapped into this submission package:
 - `publication_record_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`
 - OPEA RFC issue: `https://github.com/opea-project/GenAIExamples/issues/2461`
 - OPEA upstream PR: `https://github.com/opea-project/GenAIExamples/pull/2462`
+- OPEA docs Publications PR: `https://github.com/opea-project/docs/pull/395`
 - OPEA TEI update comment: `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017`
 - OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
 - Upstream PR record: `docs/upstream-pr-attempt-2026-05-28.md`

@@ -63,12 +63,13 @@
       "target_upstream": "https://github.com/opea-project/GenAIExamples/issues",
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
       "pull_request_url": "https://github.com/opea-project/GenAIExamples/pull/2462",
+      "docs_publications_pr_url": "https://github.com/opea-project/docs/pull/395",
       "pull_request_head_sha": "0c149a06eab8b53713e0bd208c5caa1ed58ee7a4",
       "pull_request_checks": "DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed on 2026-05-28.",
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
       "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
-      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462. The PR is not merged yet."
+      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462, and OPEA docs Publications PR #395 is open and mergeable. Neither PR is merged yet."
     },
     {
       "category": "Knowledge sharing",
@@ -83,7 +84,8 @@
       ],
       "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
       "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1",
-      "claim_boundary": "The external technical article is published on Dev.to, the demo video is published on YouTube, and GitHub article/video backups remain public. The article is technical: it covers route registry, OPEA architecture, Qdrant RAG, TEI embeddings, guardrails, evaluation, and Intel evidence. Do not claim additional platforms unless their URLs are recorded."
+      "opea_docs_publications_pr_url": "https://github.com/opea-project/docs/pull/395",
+      "claim_boundary": "The external technical article is published on Dev.to, the demo video is published on YouTube, and GitHub article/video backups remain public. OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but it is not merged yet. The article is technical: it covers route registry, OPEA architecture, Qdrant RAG, TEI embeddings, guardrails, evaluation, and Intel evidence. Do not claim official OPEA publication until that PR is merged."
     },
     {
       "category": "Intel AVX-512/AMX benchmark",
