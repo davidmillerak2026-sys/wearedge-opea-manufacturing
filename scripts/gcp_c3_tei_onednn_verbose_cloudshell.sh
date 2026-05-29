@@ -217,8 +217,7 @@ int main() {
         memory weights_mem(weights_md, eng, weights.data());
         memory dst_mem(dst_md, eng, dst.data());
 
-        matmul::desc matmul_d(src_md, weights_md, dst_md);
-        matmul::primitive_desc matmul_pd(matmul_d, eng);
+        matmul::primitive_desc matmul_pd(eng, src_md, weights_md, dst_md);
         matmul matmul_p(matmul_pd);
 
         std::unordered_map<int, memory> args = {
@@ -252,7 +251,11 @@ CPP
   sudo apt-get install -y g++ libdnnl-dev
   echo "probe_dependency_install=ok"
   g++ -O2 -std=c++17 /tmp/onednn_bf16_amx_probe.cpp -ldnnl -o /tmp/onednn_bf16_amx_probe
-  echo "probe_compile=ok"
+  if [[ -x /tmp/onednn_bf16_amx_probe ]]; then
+    echo "probe_compile=ok"
+  else
+    echo "probe_compile=failed"
+  fi
   ONEDNN_VERBOSE=1 \
   DNNL_VERBOSE=1 \
   MKLDNN_VERBOSE=1 \
