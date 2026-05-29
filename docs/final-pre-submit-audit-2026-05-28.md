@@ -15,7 +15,7 @@ form submission.
 | Form source | `submission-fields.draft.json` |
 | Form fill guide | `docs/final-submission-form-fill-guide.md` |
 | Evaluation criteria scorecard | `docs/evaluation-criteria-scorecard.md` |
-| Final tag | `final-submission-2026-05-29-r26` |
+| Final tag | `final-submission-2026-05-29-r27` |
 
 ## Verification Already Passed
 
