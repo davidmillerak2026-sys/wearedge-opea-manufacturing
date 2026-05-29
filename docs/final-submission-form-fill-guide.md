@@ -1,6 +1,6 @@
 # Final Submission Form Fill Guide
 
-Date: 2026-05-28
+Date: 2026-05-29
 
 Source of truth: `submission-fields.draft.json`
 
@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-28-r18` |
+| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-29-r25` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
@@ -41,6 +41,14 @@ Paste this text if the form provides a project description field:
 
 ```text
 WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Retriever/RAG layer, Qdrant Vector DB profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser demo console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The key OPEA value is modularity: Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are composable platform boundaries, while the model is a pluggable component behind the adapter. WearEdge can therefore run with local Jetson/Gemma 4 E2B, Gemini, or another OpenAI/OPEA-compatible model endpoint without rewriting route isolation, source grounding, deterministic checks, human-confirmation gates, or action-card contracts. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer plant images, labels, lot identifiers, and production records are intentionally not published. The five runnable agents cover maintenance / CMMS work order, IQC-OQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the challenge limit of single node, <=64GB RAM, and 4-core CPU. The final package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a champion risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, contribution patch, public article, and demo video evidence.
+```
+
+## Data Sources
+
+Paste this text if the form asks for data sources:
+
+```text
+WearEdge uses OPEA workloads and GitHub resources from opea.dev and github.com/opea-project for architecture alignment, upstream contribution, and the official OPEA TEI embedding profile. The public challenge repository uses sanitized manufacturing knowledge sources and deterministic/synthetic benchmark fixtures committed under data/, evals/genaieval/, and evidence/ so judges can reproduce the five-agent routes without private plant access. The broader WearEdge program has private enterprise production-data lineage, including toothbrush workshop IQC/OQC visual-inspection work, but raw customer images, labels, lot IDs, and production records are not published. Public/open resources are used only where relevant to the runnable stack, including GitHub-hosted OPEA components, Hugging Face TEI images/models, Qdrant, Docker images, and public documentation. We do not claim use of unrelated public NLP datasets such as THUCTC, CLUE, CSDB, DRCD, Common Crawl, DBpedia, Kaggle, or other public corpora unless they are explicitly added in a future benchmark.
 ```
 
 ## Bonus Evidence URLs
@@ -112,8 +120,13 @@ Before pressing submit, verify:
 - The demo video URL opens as a GitHub asset page.
 - The external article URL is published on Dev.to, and the external demo video
   URL is published on YouTube.
-- Hardware wording says application-level Intel effective-use evidence, not
-  oneDNN/TEI microkernel dispatch proof.
+- Data-source wording maps to OPEA/GitHub resources, sanitized manufacturing
+  fixtures, synthetic benchmark cases, and private production-data lineage; it
+  does not falsely claim unrelated THUCTC/CLUE/CSDB/DRCD/Common Crawl/DBpedia
+  usage.
+- Hardware wording says application-level Intel effective-use evidence plus
+  same-host oneDNN BF16/AMX probe dispatch evidence, not TEI-internal AMX
+  dispatch proof.
 - The safety wording does not claim autonomous restart, quality release,
   maintenance release, safety clearance, final root cause, or production LLM
   acceleration.

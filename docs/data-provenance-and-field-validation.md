@@ -1,6 +1,6 @@
 # Data Provenance And Field Validation Boundary
 
-Date: 2026-05-28
+Date: 2026-05-29
 
 ## What Is Real
 
@@ -71,6 +71,30 @@ The submission should not claim:
 public release of proprietary customer data, certified safety controller,
 autonomous release authority, customer identity disclosure, or final root-cause
 authority
+```
+
+## Challenge Data Source Mapping
+
+The challenge lists several allowable data-source families. WearEdge should map
+to them honestly:
+
+| Official source family | WearEdge usage |
+| --- | --- |
+| OPEA workloads and GitHub resources: `opea.dev`, `github.com/opea-project` | Used for OPEA architecture alignment, upstream RFC/PR work, OPEA TEI embedding profile, `opea/embedding:latest`, and GenAIExamples feedback. |
+| Curated datasets from open AIGC competitions / synthetic data for GenAI benchmarking | Used as the public challenge-package pattern: deterministic/synthetic route fixtures, GenAIEval-compatible JSONL cases, route benchmark records, and scorecard evidence. |
+| Public datasets such as HuggingFace, Kaggle, Common Crawl, DBpedia | Hugging Face is used for TEI images/model serving in the embedding stack. Kaggle, Common Crawl, and DBpedia are not claimed as used in the current manufacturing benchmark. |
+| THUCTC, CLUE, CSDB, DRCD | Not used and not claimed; they are general public dataset examples and are not needed for this manufacturing agent system. |
+| Private enterprise production data | Used only as product lineage outside the public repository, including toothbrush workshop IQC/OQC visual-inspection work; raw customer data is not published. |
+
+Recommended form wording:
+
+```text
+OPEA workloads and GitHub resources from opea.dev and github.com/opea-project;
+sanitized manufacturing knowledge sources and deterministic/synthetic benchmark
+fixtures in this repository; private enterprise production-data lineage for
+WearEdge, including toothbrush workshop IQC/OQC visual-inspection work, with raw
+customer data excluded from the public package; and public/open stack resources
+such as Hugging Face TEI, Qdrant, Docker images, and public documentation.
 ```
 
 ## How This Competes

@@ -90,6 +90,8 @@ docs/intel-effective-use-evidence.md
 
 Claim boundary: these records prove application-level WearEdge OPEA workloads
 running on the target hardware profile. They do not claim certified safety
-release, autonomous maintenance release, oneDNN/TEI microkernel dispatch proof,
-or production LLM acceleration without a separately configured endpoint
-benchmark.
+release, autonomous maintenance release, TEI-internal AMX dispatch proof, or
+production LLM acceleration without a separately configured endpoint benchmark.
+The r23/r24 hardware evidence does include same-host oneDNN BF16/AMX probe
+dispatch markers on the same C3 VM as the OPEA TEI/Qdrant/five-agent scorecard
+path.

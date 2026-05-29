@@ -24,6 +24,19 @@ http://127.0.0.1:8088/demo
 
 The Vuzix M400 / Android client is the real deployment front end and field-evidence source from the full WearEdge-Pro product. The Web Demo Console is the reproducible evaluation surface for judges who do not have M400 hardware.
 
+Data-source boundary:
+
+```text
+OPEA workloads and GitHub resources from opea.dev and github.com/opea-project;
+sanitized manufacturing knowledge sources and deterministic/synthetic benchmark
+fixtures committed in this repository; private enterprise production-data
+lineage for WearEdge, including toothbrush workshop IQC/OQC visual-inspection
+work, with raw customer data excluded from the public package; and public/open
+stack resources such as Hugging Face TEI, Qdrant, Docker images, and public
+documentation. Do not claim unrelated THUCTC, CLUE, CSDB, DRCD, Kaggle, Common
+Crawl, or DBpedia usage unless those datasets are explicitly added later.
+```
+
 Single-node hardware proof:
 
 ```text
@@ -128,7 +141,7 @@ WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
 | Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
 | Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork |
 | Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article and YouTube demo video |
-| Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence plus application-level OPEA TEI/Qdrant workload records |
+| Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence, application-level OPEA TEI/Qdrant workload records, and same-host oneDNN BF16/AMX probe dispatch evidence |
 
 Detailed score defense: `docs/evaluation-criteria-scorecard.md`. Full-mark gap closure plan: `docs/full-mark-gap-closure-plan.md`.
 
@@ -186,7 +199,7 @@ Key archived evidence already mapped into this submission package:
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
 - Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five demos reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
 - GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
-- Supplemental C3 TEI/oneDNN verbose attempt: Google Cloud C3 `c3-standard-4` single-node run from tag `final-submission-2026-05-28-r20` passed Gateway health, `/v1/scorecard`, five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, and TEI log capture; temporary VM `wearedge-tei-onednn-0528111751` was deleted after the run. The captured TEI build did not emit dispatch marker lines, so this is application-level Intel effective-use evidence, not instruction-level AMX/AVX-512 proof.
+- Supplemental C3 TEI/oneDNN run: Google Cloud C3 `c3-standard-4` single-node run from tag `final-submission-2026-05-29-r23` passed Gateway health, `/v1/scorecard`, five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, TEI log capture, and same-host oneDNN BF16/AMX probe dispatch capture; temporary VM `wearedge-tei-onednn-0529024359` was deleted after the run. The captured TEI build did not emit dispatch marker lines, so this is application-level Intel effective-use evidence plus host-level oneDNN dispatch evidence, not TEI-internal AMX dispatch proof.
 
 ## Bonus URLs And Artifacts
 
