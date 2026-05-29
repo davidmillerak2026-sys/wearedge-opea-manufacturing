@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Run a dependency-free Intel CPU benchmark for the WearEdge OPEA suite.
 
 The script is intentionally CI-friendly. It measures the deterministic

@@ -45,6 +45,8 @@ Google Cloud C3 c3-standard-4, us-central1-a
 Intel Xeon Platinum 8481C
 AVX-512 and AMX flags detected
 Challenge fit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
+10-minute clean-run: default Docker/Qdrant C3 timed run passed clean_initial_run_under_10_min=true and all_checks_pass=true
+Measured clean install + initial run: 45 seconds
 ```
 
 ## Why This Fits Manufacturing
@@ -125,7 +127,7 @@ be used after a configured endpoint benchmark reports
 | --- | --- |
 | Design and build a domain-specific GenAI application | OPEA-style Manufacturing suite with Gateway, Megaservice, LLM adapter, official TEI embedding profile, Qdrant RAG, route evaluators, guardrails, and scorecard |
 | Select a concrete industry scenario | Manufacturing, covering maintenance, IQC, changeover, work instruction, and EHS hazard observation |
-| Deliver a working prototype with documentation | Docker-runnable WearEdge Pro OPEA package with `README.md`, `docs/technical-report.draft.md`, `deploy.sh`, Compose profiles, and Web/API evaluation surface |
+| Deliver a working prototype with documentation | Docker-runnable WearEdge Pro OPEA package with `README.md`, `TECHNICAL_REPORT.md`, `deploy.sh`, Compose profiles, and Web/API evaluation surface |
 | Demonstrate performance and usability | GCP C3 4-vCPU / 16-GiB / no-GPU runs, latency JSON, Docker memory stats, 8-worker route concurrency benchmark, GenAIEval-compatible 300-call benchmark, and browser console at `/demo` |
 
 Detailed mapping: `docs/challenge-task-compliance.md`.
@@ -196,6 +198,7 @@ Key archived evidence already mapped into this submission package:
 - Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the demo video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but is not merged yet; the GitHub article/video backups remain public evidence.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, and supplemental TEI/oneDNN verbose-attempt workloads.
 - Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
+- 10-minute clean-run requirement: the default Docker/Qdrant timed C3 run on temporary VM `wearedge-docker-e2e-0529041313` reached `setup_seconds=23`, `clean_initial_run_seconds=45`, `validation.clean_initial_run_under_10_min=true`, and `all_checks_pass=true`.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
 - Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five demos reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
 - GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.

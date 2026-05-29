@@ -41,6 +41,8 @@ detection. Raw customer plant data is intentionally not published.
 | Product quality | `/demo`, `/v1/agents`, five `/demo` routes, five `/infer` routes, `/v1/scorecard`, one-command Docker profiles | Ready |
 | OPEA component use | `docker-compose.opea-tei.yml` with Hugging Face TEI, `opea/embedding:latest`, `TEI_EMBEDDING_ENDPOINT`, `OPEA_TEI_EMBEDDING`, `/v1/embeddings` | Ready |
 | Intel/efficiency bonus | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI fresh-clone E2E, and supplemental TEI/oneDNN verbose attempt evidence | Ready |
+| Hardware constraints | C3 `c3-standard-4` single-node 4-vCPU / 16-GiB / no-GPU evidence is ready; the default Docker/Qdrant timed run completed clean installation and initial run in 45 seconds | Ready |
+| Licensing and originality | MIT root license, SPDX headers, declared third-party components, restrictive-license boundary, private-data exclusion | Ready |
 | Open-source contribution bonus | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; OPEA docs Publications PR #395 opened and mergeable; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PRs are open but not merged yet |
 | Champion risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge sharing bonus | External Dev.to article and YouTube demo video are published; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list; GitHub article/video backup evidence remains public | Ready; do not claim official OPEA publication until #395 is merged |
@@ -57,7 +59,7 @@ Full-mark gap closure plan:
 | --- | --- | --- |
 | Domain-specific GenAI application | OPEA-style manufacturing pipeline with LLM adapter, TEI embeddings, RAG, Qdrant, orchestration, guardrails, and evaluation | Ready |
 | Concrete industry scenario | Manufacturing vertical; five real plant workflows mapped to CMMS, QMS, changeover checklist, WI, and EHS targets | Ready |
-| Working prototype with documentation | Docker Compose, `deploy.sh`, README, technical report, Web/API surface, and `docs/challenge-task-compliance.md` | Ready |
+| Working prototype with documentation | Docker Compose, `deploy.sh`, README, `TECHNICAL_REPORT.md`, Web/API surface, and `docs/challenge-task-compliance.md` | Ready |
 | Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, YouTube video, OPEA docs PR #395 | Ready |
 
 ## Hard Evidence
@@ -86,6 +88,7 @@ Full-mark gap closure plan:
 | GenAIEval-compatible route eval JSON | `evidence/genaieval/route_eval_results.json` |
 | GenAIEval-compatible benchmark JSON | `evidence/genaieval/benchmark_results.json` |
 | Final form fill guide | `docs/final-submission-form-fill-guide.md` |
+| Technical report | `TECHNICAL_REPORT.md` |
 | Final pre-submit audit | `docs/final-pre-submit-audit-2026-05-28.md` |
 | External technical article | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
 | YouTube demo video | https://www.youtube.com/watch?v=dd9k8m6PDco |
@@ -97,7 +100,11 @@ Full-mark gap closure plan:
 | Submission URL dry run | `docs/submission-url-dry-run.md` |
 | Local Docker Desktop final validation | `docs/local-docker-desktop-final-validation.md` |
 | Local UI/full-mark follow-up validation | `docs/local-ui-full-mark-follow-up-validation.md` |
+| Submission guidelines final audit | `docs/submission-guidelines-final-audit.md` |
+| Hardware constraints and clean-run boundary | `docs/hardware-constraints-and-clean-run.md` |
+| License and third-party attribution | `docs/license-and-attribution.md` |
 | Docker/Qdrant C3 report | `docs/gcp-c3-docker-qdrant-e2e-report.md` |
+| Docker/Qdrant C3 timed clean-run JSON | `evidence/benchmarks/gcp_c3_docker_qdrant_e2e_timed.summary.json` |
 | OPEA-compatible C3 report | `docs/gcp-c3-opea-profile-e2e-report.md` |
 | Official OPEA TEI C3 report | `docs/gcp-c3-opea-tei-profile-e2e-report.md` |
 | Supplemental C3 TEI/oneDNN verbose report | `docs/gcp-c3-tei-onednn-verbose-report.md` |

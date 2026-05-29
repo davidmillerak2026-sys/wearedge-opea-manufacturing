@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Build a compact Intel effective-use evidence summary.
 
 The summary deliberately separates proven workload evidence and same-host

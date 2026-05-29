@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+
 set -euo pipefail
 
 # Cloud Shell controller for the judge-facing Docker/Qdrant E2E benchmark.
@@ -110,6 +112,7 @@ OUTPUT="${OUTPUT:-/tmp/gcp_c3_docker_qdrant_e2e.json}"
 WORKDIR="${WORKDIR:-$HOME/wearedge-opea-manufacturing-fresh}"
 BASE_URL="${BASE_URL:-http://127.0.0.1:8088}"
 MODES=(maintenance iqc changeover wi hazard)
+CLEAN_RUN_START="$(date +%s)"
 
 sudo apt-get update
 if ! sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -199,6 +202,9 @@ for mode in "${MODES[@]}"; do
     -d '{}' \
     "$BASE_URL/v1/agents/$mode/infer" > "/tmp/wearedge-e2e/infer_$mode.json"
 done
+
+CLEAN_INITIAL_RUN_SECONDS="$(( $(date +%s) - CLEAN_RUN_START ))"
+printf '%s\n' "$CLEAN_INITIAL_RUN_SECONDS" > /tmp/wearedge-e2e/clean_initial_run_seconds.txt
 
 python3 - <<'PY'
 from __future__ import annotations
@@ -329,6 +335,7 @@ demos = {mode: load_json(f"demo_{mode}.json") for mode in modes}
 infers = {mode: load_json(f"infer_{mode}.json") for mode in modes}
 latency = load_json("latency_summary.json")
 score_routes = scorecard.get("routes", [])
+clean_initial_run_seconds = int(text("clean_initial_run_seconds.txt") or "0")
 
 infer_target_checks = {
     mode: infers[mode].get("action_card", {}).get("integration_target") == expected_targets[mode]
@@ -353,6 +360,7 @@ validation = {
     "scorecard_has_five_routes": sorted(route.get("mode") for route in score_routes) == sorted(modes),
     "scorecard_routes_pass": all(route.get("status") == "pass" for route in score_routes),
     "docker_stats_captured": bool(text("docker_stats.jsonl")),
+    "clean_initial_run_under_10_min": 0 < clean_initial_run_seconds <= 600,
 }
 
 artifact = {
@@ -376,6 +384,8 @@ artifact = {
         "docker_version": text("docker_version.txt"),
         "docker_compose_version": text("docker_compose_version.txt"),
         "setup_seconds": int(text("setup_seconds.txt") or "0"),
+        "clean_initial_run_seconds": clean_initial_run_seconds,
+        "clean_initial_run_under_10_min": 0 < clean_initial_run_seconds <= 600,
         "base_url": "http://127.0.0.1:8088",
     },
     "docker": {
@@ -403,6 +413,7 @@ output.write_text(json.dumps(artifact, indent=2), encoding="utf-8")
 print("Benchmark artifact:", output)
 print("all_checks_pass:", artifact["all_checks_pass"])
 print("setup_seconds:", artifact["runtime"]["setup_seconds"])
+print("clean_initial_run_seconds:", artifact["runtime"]["clean_initial_run_seconds"])
 print("feature_detection:", json.dumps(feature_detection, sort_keys=True))
 for label, item in latency.items():
     print(f"{label}: p50={item['p50_ms']}ms p95={item['p95_ms']}ms statuses={item['status_codes']}")
@@ -457,6 +468,8 @@ print(json.dumps({
     "amx_int8": features.get("amx_int8"),
     "amx_bf16": features.get("amx_bf16"),
     "setup_seconds": artifact["runtime"]["setup_seconds"],
+    "clean_initial_run_seconds": artifact["runtime"]["clean_initial_run_seconds"],
+    "clean_initial_run_under_10_min": artifact["runtime"]["clean_initial_run_under_10_min"],
     "all_checks_pass": artifact["all_checks_pass"],
     "scorecard_ok": artifact["endpoints"]["scorecard"].get("ok"),
     "health_backend": artifact["endpoints"]["healthz"].get("vector_backend"),

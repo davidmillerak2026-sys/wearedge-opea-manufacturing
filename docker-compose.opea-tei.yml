@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 services:
   tei-embedding-serving:
     image: ${TEI_IMAGE:-ghcr.io/huggingface/text-embeddings-inference:cpu-latest}

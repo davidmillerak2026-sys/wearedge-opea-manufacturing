@@ -20,6 +20,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-29-r26` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
+| Technical report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/TECHNICAL_REPORT.md` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
 | Publication record URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1` |
 
@@ -86,13 +87,17 @@ Paste these into any optional links, supporting materials, or notes fields:
 | Demo video source | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video` |
 | Demo video render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md` |
 | Submission URL dry run | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-url-dry-run.md` |
+| Submission guidelines final audit | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-guidelines-final-audit.md` |
 | Local Docker Desktop final validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md` |
 | Local UI/full-mark follow-up validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-ui-full-mark-follow-up-validation.md` |
+| Hardware constraints and clean-run boundary | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/hardware-constraints-and-clean-run.md` |
+| License and third-party attribution | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/license-and-attribution.md` |
 | Xeon AVX-512/AMX benchmark JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` |
 | Intel effective-use evidence | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/intel-effective-use-evidence.md` |
 | Intel effective-use summary JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_effective_use.summary.json` |
 | GCP C3 Docker/Qdrant E2E report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md` |
 | GCP C3 Docker/Qdrant E2E JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json` |
+| GCP C3 Docker/Qdrant timed clean-run JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e_timed.summary.json` |
 | Official OPEA profile | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md` |
 | Official OPEA TEI profile | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md` |
 | GCP C3 OPEA profile E2E report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-profile-e2e-report.md` |

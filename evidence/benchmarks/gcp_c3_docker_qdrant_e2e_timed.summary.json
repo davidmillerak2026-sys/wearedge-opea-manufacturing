@@ -1,0 +1,119 @@
+{
+  "benchmark": "WearEdge OPEA Manufacturing GCP C3 Docker/Qdrant timed clean-run E2E",
+  "schema_version": "2026-05-29",
+  "artifact_status": "summary_from_user_provided_cloud_shell_transcript",
+  "claim_status": "fresh_clone_default_docker_qdrant_clean_initial_run_under_10_min_passed",
+  "repo": {
+    "url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "branch": "main"
+  },
+  "gcp": {
+    "project_id": "gen-lang-client-0555254036",
+    "machine_type": "c3-standard-4",
+    "zone": "us-central1-a",
+    "vm_name": "wearedge-docker-e2e-0529041313",
+    "cleanup": "deleted_after_run"
+  },
+  "runtime_profile": {
+    "container_profile": "docker compose",
+    "compose_files": [
+      "docker-compose.yml"
+    ],
+    "services": [
+      "qdrant",
+      "manufacturing-gateway"
+    ],
+    "vector_backend": "qdrant",
+    "vector_store_reported_by_api": "qdrant-hashing-vector-store",
+    "routes": [
+      "maintenance",
+      "iqc",
+      "changeover",
+      "wi",
+      "hazard"
+    ],
+    "strict_10_minute_profile": true,
+    "note": "This is the default evaluator path. Optional TEI image/model profiles are intentionally not used for the strict 10-minute clean-run claim."
+  },
+  "runtime": {
+    "setup_seconds": 23,
+    "clean_initial_run_seconds": 45,
+    "clean_initial_run_under_10_min": true
+  },
+  "latency_visible_in_transcript": {
+    "GET /healthz": {
+      "p50_ms": 0.9219,
+      "p95_ms": 1.1188,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/agents": {
+      "p50_ms": 1.175,
+      "p95_ms": 1.2435,
+      "status_codes": [
+        200
+      ]
+    },
+    "GET /v1/scorecard": {
+      "p50_ms": 22.2301,
+      "p95_ms": 23.9706,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/maintenance/infer": {
+      "p50_ms": 5.1557,
+      "p95_ms": 6.1266,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/iqc/infer": {
+      "p50_ms": 5.0567,
+      "p95_ms": 6.0238,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/changeover/infer": {
+      "p50_ms": 4.9788,
+      "p95_ms": 5.8279,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/wi/infer": {
+      "p50_ms": 4.9174,
+      "p95_ms": 5.9367,
+      "status_codes": [
+        200
+      ]
+    },
+    "POST /v1/agents/hazard/infer": {
+      "p50_ms": 4.9881,
+      "p95_ms": 5.9944,
+      "status_codes": [
+        200
+      ]
+    }
+  },
+  "validation": {
+    "demo_http_200": true,
+    "health_ok": true,
+    "qdrant_backend": true,
+    "qdrant_endpoint_responds": true,
+    "five_agents": true,
+    "all_demo_ok": true,
+    "all_infer_ok": true,
+    "demo_action_targets_correct": true,
+    "infer_action_targets_correct": true,
+    "scorecard_ok": true,
+    "scorecard_has_five_routes": true,
+    "scorecard_routes_pass": true,
+    "docker_stats_captured": true,
+    "clean_initial_run_under_10_min": true
+  },
+  "all_checks_pass": true,
+  "claim_boundary": "This summary records the Cloud Shell jq output and transcript tail provided by the operator on 2026-05-29. It proves the updated timed runner reached runtime.clean_initial_run_seconds=45, validation.clean_initial_run_under_10_min=true, and all_checks_pass=true on a single-node GCP C3 c3-standard-4 default Docker/Qdrant profile."
+}

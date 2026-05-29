@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot

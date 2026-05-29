@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Strict image-capable LMM benchmark for the WearEdge oil-leak fixture.
 
 The script intentionally has no third-party dependencies. It calls a real

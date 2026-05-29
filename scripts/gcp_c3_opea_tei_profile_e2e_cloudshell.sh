@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+
 set -euo pipefail
 
 # Cloud Shell controller for the official OPEA TEI embedding profile E2E check.

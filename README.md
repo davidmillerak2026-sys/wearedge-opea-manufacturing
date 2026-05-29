@@ -43,6 +43,8 @@ Google Cloud C3 c3-standard-4
 4 vCPU, 16 GiB RAM, no GPU
 Intel Xeon Platinum 8481C with AVX-512 and AMX flags detected
 Within the challenge limit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
+Strict 10-minute path: default Docker/Qdrant profile passed clean_initial_run_under_10_min=true on GCP C3 timed run wearedge-docker-e2e-0529041313
+Measured clean install + initial run: 45 seconds
 ```
 
 ## Submission Product Shape
@@ -232,7 +234,8 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | Path | Purpose |
 | --- | --- |
 | [`SUBMISSION.md`](SUBMISSION.md) | Challenge-facing summary |
-| [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | <=2 page technical report draft |
+| [`TECHNICAL_REPORT.md`](TECHNICAL_REPORT.md) | <=2 page technical report |
+| [`docs/technical-report.draft.md`](docs/technical-report.draft.md) | Source draft retained for traceability |
 | [`docs/submission-product-shape.md`](docs/submission-product-shape.md) | Final product/deliverable definition |
 | [`docs/final-submission-readiness-audit.md`](docs/final-submission-readiness-audit.md) | Evaluation criteria mapping, evidence links, and remaining final tasks |
 | [`docs/final-submission-form-fill-guide.md`](docs/final-submission-form-fill-guide.md) | Copy/paste guide for the challenge submission form |
@@ -240,6 +243,9 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/full-mark-gap-closure-plan.md`](docs/full-mark-gap-closure-plan.md) | Point-by-point follow-up plan for OPEA, LLM, code quality, UI, and bonus gaps |
 | [`docs/local-ui-full-mark-follow-up-validation.md`](docs/local-ui-full-mark-follow-up-validation.md) | Local Docker/UI validation after the full-mark follow-up changes |
 | [`docs/challenge-task-compliance.md`](docs/challenge-task-compliance.md) | Direct mapping to the official Challenge Task requirements |
+| [`docs/submission-guidelines-final-audit.md`](docs/submission-guidelines-final-audit.md) | Final audit against submission format, hardware/runtime, licensing, and originality rules |
+| [`docs/hardware-constraints-and-clean-run.md`](docs/hardware-constraints-and-clean-run.md) | Hardware constraint mapping and 10-minute clean-run claim boundary |
+| [`docs/license-and-attribution.md`](docs/license-and-attribution.md) | Open-source license, third-party attribution, and restrictive-license boundary |
 | [`docs/source-vlm-e2e-evidence-map.md`](docs/source-vlm-e2e-evidence-map.md) | WearEdge-Pro real Jetson/Gemma 4 E2B VLM E2E evidence map and OPEA repo boundary |
 | [`docs/lmm-machine-oil-leak-benchmark-report.md`](docs/lmm-machine-oil-leak-benchmark-report.md) | Strict public oil-leak image benchmark protocol for real LMM endpoints |
 | [`docs/final-pre-submit-audit-2026-05-28.md`](docs/final-pre-submit-audit-2026-05-28.md) | Final pre-submit evidence audit |
@@ -314,6 +320,30 @@ Expected:
 OPEA submission evidence check passed
 ```
 
+## License And Third-Party Attribution
+
+This repository is submitted under the MIT License. The root [`LICENSE`](LICENSE)
+file is authoritative for original WearEdge OPEA Manufacturing source code, and
+source files include SPDX headers.
+
+Declared third-party components:
+
+| Component | License | Purpose |
+| --- | --- | --- |
+| Python standard library | PSF License | Dependency-free local demo, evaluation, and evidence tooling |
+| FastAPI | MIT | Optional HTTP Gateway and embedding microservice API |
+| Uvicorn | BSD-3-Clause | Optional ASGI server for FastAPI services |
+| Qdrant `qdrant/qdrant:v1.12.6` | Apache-2.0 | Optional Vector DB profile for RAG evidence |
+| OPEA `opea/embedding:latest` | Apache-2.0 project family | Optional official OPEA TEI embedding profile |
+| Hugging Face Text Embeddings Inference | Apache-2.0 | Optional TEI embedding model server |
+| BAAI `bge-base-en-v1.5` | MIT model family notice | Optional TEI embedding model for 768-dimensional evidence |
+| External OpenAI/OPEA-compatible or Gemini-compatible model endpoint | Provider terms selected by deployer | Optional LLM/LMM adapter benchmark; not bundled or required by default |
+
+No GPL, LGPL, AGPL, or other restrictive-license package is intentionally
+imported, vendored, or required by the default application source. See
+[`docs/license-and-attribution.md`](docs/license-and-attribution.md) for the
+full attribution boundary.
+
 ## Bonus Evidence
 
 OPEA open-source contribution package:
@@ -366,6 +396,7 @@ evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
 evidence/benchmarks/intel_effective_use.summary.json
 evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json
+evidence/benchmarks/gcp_c3_docker_qdrant_e2e_timed.summary.json
 evidence/benchmarks/local_opea_profile_e2e.summary.json
 evidence/benchmarks/local_opea_tei_profile_e2e.summary.json
 evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json
@@ -411,6 +442,14 @@ LLM acceleration. The supplemental r23 evidence does include same-host oneDNN
 BF16/AMX probe dispatch markers.
 
 The Docker/Qdrant E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five demo and infer routes, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-docker-e2e-0527082214` after the run.
+
+The timed Docker/Qdrant clean-run was captured on Google Cloud C3
+`c3-standard-4` in `us-central1-a` on temporary VM
+`wearedge-docker-e2e-0529041313`. The default `docker-compose.yml` profile
+passed `/demo`, `/healthz`, five demo routes, five infer routes,
+`/v1/scorecard`, Docker stats capture, `clean_initial_run_under_10_min=true`,
+and `all_checks_pass=true`, then deleted the VM after the run. The measured
+clean installation and initial-run time was 45 seconds, with `setup_seconds=23`.
 
 The official OPEA TEI E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway, verified 768-dimensional TEI embeddings, passed all five route demos with `qdrant-opea-tei-vector-store`, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-opea-tei-0527103938` after the run.
 

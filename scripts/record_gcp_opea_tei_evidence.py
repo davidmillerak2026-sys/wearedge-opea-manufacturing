@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Create submission evidence files from a full GCP OPEA TEI E2E artifact."""
 
 from __future__ import annotations

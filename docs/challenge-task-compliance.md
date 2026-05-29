@@ -47,7 +47,7 @@ Agent Suite package for WearEdge Pro.
 | --- | --- |
 | Functioning source code | `src/wear_edge_opea/`, `docker-compose.yml`, `docker-compose.opea-tei.yml` |
 | README | `README.md` |
-| Technical report under 2 pages | `docs/technical-report.draft.md` |
+| Technical report under 2 pages | `TECHNICAL_REPORT.md`; source draft retained at `docs/technical-report.draft.md` |
 | Architecture and component usage | `README.md`, `docs/opea-component-evidence.md`, `docs/opea-native-depth-matrix.md` |
 | Deployment strategy | `README.md`, `deploy.sh`, `docker-compose.yml`, `docker-compose.opea.yml`, `docker-compose.opea-tei.yml` |
 | Use-case alignment | `SUBMISSION.md`, `docs/submission-product-shape.md`, `docs/telecom-scope-and-manufacturing-positioning.md` |
@@ -70,6 +70,7 @@ explicit response-time, memory-footprint, and user-experience evidence.
 | Metric requested by challenge | WearEdge evidence |
 | --- | --- |
 | Typical enterprise hardware | Google Cloud C3 `c3-standard-4`, single node, 4 vCPU, 16 GiB RAM, no GPU |
+| Installation and initial run within 10 minutes | Default Docker/Qdrant C3 timed run on VM `wearedge-docker-e2e-0529041313` reached `setup_seconds=23`, `clean_initial_run_seconds=45`, `validation.clean_initial_run_under_10_min=true`, and `all_checks_pass=true` |
 | System response time | C3 Docker/Qdrant E2E latency JSON and official OPEA TEI E2E route timings |
 | Memory footprint | Docker stats for Gateway, Qdrant, `opea/embedding:latest`, and TEI serving containers |
 | Scalability under requests | Local concurrent route benchmark with 8 workers / 100 total requests passing, GenAIEval-compatible benchmark with 300 route evaluations, plus endpoint benchmark harnesses for route and LLM adapter paths |

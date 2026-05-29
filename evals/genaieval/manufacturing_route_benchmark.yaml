@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 suite: WearEdge GenAIEval-compatible manufacturing route evaluation
 schema_version: "2026-05-28"
 claim_boundary: >

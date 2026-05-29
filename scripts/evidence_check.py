@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Validate the standalone OPEA Manufacturing submission package.
 
 The check is dependency-free. It verifies the local submission files and
@@ -15,14 +17,19 @@ MANIFEST = ROOT / "evidence" / "component-evidence.json"
 REQUIRED_LOCAL_FILES = [
     "README.md",
     "SUBMISSION.md",
+    "TECHNICAL_REPORT.md",
+    "LICENSE",
     "submission-fields.draft.json",
     "pyproject.toml",
     "docs/technical-report.draft.md",
     "docs/submission-product-shape.md",
     "docs/final-submission-readiness-audit.md",
+    "docs/submission-guidelines-final-audit.md",
+    "docs/license-and-attribution.md",
     "docs/evaluation-criteria-scorecard.md",
     "docs/full-mark-gap-closure-plan.md",
     "docs/challenge-task-compliance.md",
+    "docs/hardware-constraints-and-clean-run.md",
     "docs/source-vlm-e2e-evidence-map.md",
     "docs/champion-risk-burn-down.md",
     "docs/opea-native-depth-matrix.md",
@@ -62,6 +69,7 @@ REQUIRED_LOCAL_FILES = [
     "scripts/intel_cpu_benchmark.py",
     "scripts/build_intel_effective_use_summary.py",
     "scripts/xeon_amx_benchmark_remote.sh",
+    "scripts/gcp_c3_docker_qdrant_e2e_cloudshell.sh",
     "scripts/gcp_c3_opea_profile_e2e_cloudshell.sh",
     "scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh",
     "scripts/gcp_c3_tei_onednn_verbose_cloudshell.sh",
@@ -79,6 +87,7 @@ REQUIRED_LOCAL_FILES = [
     "evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
     "evidence/benchmarks/intel_effective_use.summary.json",
     "evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
+    "evidence/benchmarks/gcp_c3_docker_qdrant_e2e_timed.summary.json",
     "evidence/benchmarks/local_opea_profile_e2e.summary.json",
     "evidence/benchmarks/local_opea_tei_profile_e2e.summary.json",
     "evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json",

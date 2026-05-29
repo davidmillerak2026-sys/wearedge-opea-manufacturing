@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 """Benchmark the optional OpenAI/OPEA-compatible LLM adapter path.
 
 The default run is a deterministic contract smoke test. Set

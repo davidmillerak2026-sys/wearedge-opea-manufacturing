@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+
 set -Eeuo pipefail
 
 # Google Cloud Shell script: create a temporary C3 VM, fresh-clone the public
