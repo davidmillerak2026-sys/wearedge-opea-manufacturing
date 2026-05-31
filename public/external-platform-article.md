@@ -1,6 +1,6 @@
 # WearEdge Pro: An OPEA Manufacturing Five-Agent Suite For Frontline Operators
 
-This is the copy-ready external-platform version of the WearEdge OPEA article.
+This is the ready-to-use external-platform version of the WearEdge OPEA article.
 It is suitable for LinkedIn Articles, Medium, Dev.to, or another public
 technical blog platform.
 
@@ -28,16 +28,16 @@ OPEA, Manufacturing AI, RAG, Edge AI, Intel Xeon, GenAI
 
 ## Article Body
 
-WearEdge Pro is a real industrial AI agent system, not a demo-only chatbot.
+WearEdge Pro is a real industrial AI agent system, not a sample-only chatbot.
 Manufacturing operators often see early warning signs before enterprise systems
 do: an unusual gearbox sound, a quality defect, a label changeover mismatch, a
 work-instruction question, missing PPE, or a blocked walkway. These observations
 are valuable, but they often stay trapped in verbal handoffs.
 
 WearEdge Pro packages that frontline evidence into an OPEA-aligned
-Manufacturing Agent Suite. The submitted competition artifact is not an
+Manufacturing Agent Suite. The released public product artifact is not an
 Android-only application. It is a Docker-runnable Web/API package with a
-browser demo console, five agent routes, Qdrant-backed RAG, official OPEA TEI
+browser manufacturing console, five agent routes, Qdrant-backed RAG, official OPEA TEI
 embedding profile, guardrails, and evaluation evidence.
 
 The public repository uses sanitized fixtures. The broader WearEdge program has
@@ -67,7 +67,7 @@ M400 / API evidence
   -> RAG / Retriever
   -> Qdrant Vector DB
   -> OPEA-compatible embedding service or official OPEA TEI profile
-  -> LLM adapter or deterministic demo path
+  -> LLM adapter or deterministic sample path
   -> deterministic evaluator
   -> guardrails
   -> bounded action card

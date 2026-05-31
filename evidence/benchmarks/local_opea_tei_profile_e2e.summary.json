@@ -80,7 +80,7 @@
     "http_concurrency_ok": true,
     "all_checks_pass": true
   },
-  "demos": {
+  "samples": {
     "maintenance": {
       "ok": true,
       "vector_store": "qdrant-opea-tei-vector-store",
@@ -230,5 +230,5 @@
       "pids": "68"
     }
   ],
-  "claim_boundary": "This local Docker Desktop run validates the official OPEA TEI embedding component path with Qdrant, Gateway, demo, infer, scorecard, /demo UI, and HTTP concurrency checks. It does not claim certified plant control, oneDNN/TEI microkernel dispatch proof, or production LLM acceleration."
+  "claim_boundary": "This local Docker Desktop run validates the official OPEA TEI embedding component path with Qdrant, Gateway, sample, infer, scorecard, /demo UI, and HTTP concurrency checks. It does not claim certified plant control, oneDNN/TEI microkernel dispatch proof, or production LLM acceleration."
 }

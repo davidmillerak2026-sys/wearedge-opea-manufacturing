@@ -4,7 +4,7 @@
 set -Eeuo pipefail
 
 # Google Cloud Shell script: create a temporary C3 VM, fresh-clone the public
-# OPEA submission repo, run official OPEA TEI + Qdrant, capture CPU flags,
+# OPEA project repo, run official OPEA TEI + Qdrant, capture CPU flags,
 # Docker stats, TEI/OPEA logs, and run a same-host oneDNN BF16/AMX probe.
 
 PROJECT_ID="${PROJECT_ID:-$(gcloud config get-value project 2>/dev/null)}"
@@ -333,7 +333,7 @@ for line in read("compose.ps.json").splitlines():
 validation = {
     "gateway_ok": healthz.get("ok") is True,
     "scorecard_ok": scorecard.get("ok") is True,
-    "five_demos_ok": all((demo_modes.get(mode) or {}).get("ok") is True for mode in demo_modes),
+    "five_samples_ok": all((demo_modes.get(mode) or {}).get("ok") is True for mode in demo_modes),
     "docker_stats_captured": bool(docker_stats),
     "compose_ps_captured": bool(compose_ps),
     "c3_cpu_flags_include_avx512": feature_detection["avx512f"],
@@ -360,7 +360,7 @@ artifact = {
     "gcp_machine": {
         "machine_type": "c3-standard-4",
         "cpu_profile": "4 vCPU, 16 GiB RAM, no GPU",
-        "single_node_challenge_limit": "<=64GB RAM, 4-core CPU profile, GPU optional",
+        "single_node_runtime_limit": "<=64GB RAM, 4-core CPU profile, GPU optional",
     },
     "cpu": {
         "lscpu": read("lscpu.txt"),

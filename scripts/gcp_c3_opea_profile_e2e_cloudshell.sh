@@ -203,10 +203,10 @@ health = load_json("healthz.json")
 embedding_health = load_json("embedding_healthz.json")
 embedding_response = load_json("embedding_response.json")
 scorecard = load_json("scorecard.json")
-demos = {mode: load_json(f"demo_{mode}.json") for mode in modes}
+samples = {mode: load_json(f"demo_{mode}.json") for mode in modes}
 
 rag_markers = {
-    mode: demos[mode].get("rag", {}).get("vector_store")
+    mode: samples[mode].get("rag", {}).get("vector_store")
     for mode in modes
 }
 
@@ -216,7 +216,7 @@ validation = {
     "gateway_embedding_backend_opea": health.get("embedding_backend") == "opea",
     "embedding_service_ok": embedding_health.get("ok") is True,
     "embedding_endpoint_openai_shape": bool(embedding_response.get("data", [{}])[0].get("embedding")),
-    "all_demos_ok": all(demos[mode].get("ok") is True for mode in modes),
+    "all_samples_ok": all(samples[mode].get("ok") is True for mode in modes),
     "all_rag_uses_opea_embedding_marker": all(
         marker == "qdrant-opea-compatible-embedding-vector-store"
         for marker in rag_markers.values()
@@ -250,7 +250,7 @@ artifact = {
         "embedding_healthz": embedding_health,
         "embedding_response_sample": embedding_response,
         "scorecard": scorecard,
-        "demos": demos,
+        "samples": samples,
     },
     "rag_vector_store_markers": rag_markers,
     "docker": {

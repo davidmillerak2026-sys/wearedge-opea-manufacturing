@@ -1,12 +1,12 @@
 # WearEdge GenAIEval-Compatible Evaluation Pack
 
 This folder adds a lightweight GenAIEval-compatible evaluation layer for the
-WearEdge OPEA Manufacturing submission. It is intentionally dependency-free so
-judges can run it from a fresh clone.
+WearEdge OPEA Manufacturing project. It is intentionally dependency-free so
+evaluators can run it from a fresh clone.
 
 Claim boundary: this package provides a GenAIEval-compatible dataset, benchmark
 config, runner, metrics, and evidence outputs. It does not claim full official
-GenAIEval, RAGAS, AutoRAG, or LLM-as-judge execution.
+GenAIEval, RAGAS, AutoRAG, or LLM-as-evaluator execution.
 
 ## Run
 

@@ -6,7 +6,7 @@ Google Cloud C3 fresh-clone E2E passed.
 ## Why This Exists
 
 The lightweight `docker-compose.opea.yml` profile proves the microservice
-boundary without model downloads. The stronger OPEA championship evidence is an
+boundary without model downloads. The stronger OPEA productship evidence is an
 official TEI path:
 
 ```text
@@ -35,7 +35,7 @@ https://huggingface.co/docs/text-embeddings-inference/index
 
 This profile downloads a production embedding model and is slower than the
 deterministic profile. Use it when the goal is OPEA component proof, not the
-fastest judge smoke test.
+fastest evaluation smoke test.
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.opea-tei.yml up -d
@@ -104,7 +104,7 @@ embedding service, verifies all five agent routes and `/v1/scorecard`, records
 Docker stats, prints JSON evidence, and deletes the VM unless `KEEP_VM=1`.
 
 After the run, copy the printed JSON artifact into a local file and generate the
-submission summary/report with:
+project summary/report with:
 
 ```bash
 python scripts/record_gcp_opea_tei_evidence.py gcp_c3_opea_tei_profile_e2e.json
@@ -141,11 +141,11 @@ The C3 rerun passed, so we can claim:
 
 ```text
 WearEdge OPEA Manufacturing was fresh-clone validated on Google Cloud C3 with
-Qdrant, the OPEA TEI embedding microservice path, five route demos, and the
+Qdrant, the OPEA TEI embedding microservice path, five sample routes, and the
 five-agent scorecard.
 ```
 
 Do not claim production LLM acceleration from this profile. It validates the
 embedding/RAG component path; the LLM service remains adapter-ready and
-deterministic in the submitted demo unless a separate production LLM profile is
+deterministic in the reproducible sample runtime unless a separate production LLM profile is
 added and benchmarked.

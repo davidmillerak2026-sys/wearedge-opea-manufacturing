@@ -25,7 +25,7 @@ ManufacturingAgentSuite/
 The first PR should remain deliberately small:
 
 - Route registry for `maintenance`, `iqc`, `changeover`, `wi`, and `hazard`.
-- Deterministic demo path that does not require downloading an LLM.
+- Deterministic sample path that does not require downloading an LLM.
 - Qdrant vector DB profile, with clear environment variables.
 - Optional official OPEA TEI embedding profile using `TEI_EMBEDDING_ENDPOINT` and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`.
 - `/v1/agents`, `/v1/agents/{mode}/demo`, `/v1/agents/{mode}/infer`, and `/v1/scorecard`.
@@ -54,12 +54,12 @@ It has been validated locally with:
 
 ```text
 Python syntax parse: pass
-HTTP smoke: /healthz, five agents, five demos, five infers, scorecard pass
+HTTP smoke: /healthz, five agents, five samples, five infers, scorecard pass
 docker-compose base config: pass
 docker-compose official TEI config: pass
 git format-patch artifact: generated from local GenAIExamples branch
 ```
 
-The package is intentionally smaller than the competition repository so OPEA
+The package is intentionally smaller than the public repository so OPEA
 maintainers can review the example shape first, then decide whether production
 LLM, Helm/GMC, or reusable GenAIComps pieces should move into later PRs.

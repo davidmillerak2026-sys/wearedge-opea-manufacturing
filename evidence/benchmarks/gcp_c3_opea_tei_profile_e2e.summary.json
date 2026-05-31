@@ -43,7 +43,7 @@
     "embedding_health_endpoint_responds": true,
     "embedding_endpoint_openai_shape": true,
     "embedding_dimensions_768": true,
-    "all_demos_ok": true,
+    "all_samples_ok": true,
     "all_rag_uses_opea_tei_marker": true,
     "scorecard_ok": true,
     "scorecard_routes_pass": true

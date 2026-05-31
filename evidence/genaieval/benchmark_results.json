@@ -4,7 +4,7 @@
   "generated_at_utc": "2026-05-28T06:39:24+00:00",
   "compatibility": {
     "official_genaieval_runner_used": false,
-    "claim_boundary": "Benchmark uses the local deterministic WearEdge route runner and GenAIEval-compatible metric schema. It is not a full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge run."
+    "claim_boundary": "Benchmark uses the local deterministic WearEdge route runner and GenAIEval-compatible metric schema. It is not a official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluation run."
   },
   "benchmark_config": {
     "dataset": "evals/genaieval/manufacturing_route_eval.dataset.jsonl",

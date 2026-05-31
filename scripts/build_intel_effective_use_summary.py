@@ -48,7 +48,7 @@ def main() -> int:
             "so this does not claim TEI-internal AMX dispatch or production LLM "
             "acceleration."
         ),
-        "single_node_challenge_fit": {
+        "single_node_runtime_fit": {
             "machine_type": "c3-standard-4",
             "zone": "us-central1-a",
             "vcpus": 4,
@@ -127,8 +127,8 @@ def main() -> int:
         ],
         "effective_use_interpretation": [
             "The same single-node C3 class is used for CPU feature detection, route benchmark, Docker/Qdrant E2E, OPEA-compatible embedding E2E, and official OPEA TEI E2E.",
-            "The official TEI profile validates a real embedding workload through Hugging Face TEI, opea/embedding:latest, /v1/embeddings, Qdrant, and all five route demos.",
-            "The Docker evidence stays inside the challenge envelope: single node, 4 vCPU, 16 GiB RAM, no GPU.",
+            "The official TEI profile validates a real embedding workload through Hugging Face TEI, opea/embedding:latest, /v1/embeddings, Qdrant, and all five sample routes.",
+            "The Docker evidence stays inside the target runtime envelope: single node, 4 vCPU, 16 GiB RAM, no GPU.",
             "The benchmark is an application-level effective-use record plus same-host oneDNN BF16/AMX probe dispatch evidence.",
             "The r23 TEI/oneDNN run passed application checks and recorded probe_dispatch_markers_captured=true while TEI container dispatch_markers_captured=false.",
         ],

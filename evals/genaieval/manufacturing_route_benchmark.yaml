@@ -5,7 +5,7 @@ schema_version: "2026-05-28"
 claim_boundary: >
   Lightweight GenAIEval-compatible package only. This maps WearEdge route
   contracts into dataset, runner, metrics, benchmark, and evidence artifacts.
-  It does not claim full official GenAIEval, RAGAS, AutoRAG, or LLM-as-judge execution.
+  It does not claim official GenAIEval, RAGAS, AutoRAG, or LLM-as-evaluator execution.
 dataset: evals/genaieval/manufacturing_route_eval.dataset.jsonl
 runners:
   route_eval:

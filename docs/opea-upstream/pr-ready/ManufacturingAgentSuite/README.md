@@ -29,7 +29,7 @@ Plant evidence
 
 The full WearEdge reference implementation also includes Qdrant RAG, OPEA
 embedding profiles, an official OPEA TEI path, benchmark evidence, and a browser
-demo console:
+manufacturing console:
 
 ```text
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
@@ -57,7 +57,7 @@ docker compose -f compose.yaml -f compose.opea-tei.yaml up -d
 | --- | --- |
 | `GET /healthz` | Service health and configured embedding profile |
 | `GET /v1/agents` | Route registry |
-| `GET /v1/agents/{mode}/demo` | Fixed demo request and bounded action card |
+| `GET /v1/agents/{mode}/demo` | Fixed sample request and bounded action card |
 | `POST /v1/agents/{mode}/infer` | Route-specific inference contract |
 | `GET /v1/scorecard` | Five-route validation scorecard |
 

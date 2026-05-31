@@ -1,13 +1,13 @@
-# Final Submission Form Fill Guide
+# Release Form Fill Guide
 
 Date: 2026-05-29
 
-Source of truth: `submission-fields.draft.json`
+Source of truth: `project-profile.json`
 
-Submission page:
+Platform page:
 
 ```text
-https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submission
+https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/project
 ```
 
 ## Required Identity Fields
@@ -18,7 +18,7 @@ https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/submissi
 | Industry vertical | `Manufacturing` |
 | Method name / project title | `WearEdge Pro: OPEA Manufacturing Five-Agent Suite` |
 | Project URL | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Frozen submission tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-05-29-r27` |
+| Frozen project tag | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-release-2026-05-29-r27` |
 | Source engineering URL | `https://github.com/davidmillerak2026-sys/WearEdge-Pro` |
 | Technical report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/TECHNICAL_REPORT.md` |
 | Publication URL | `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh` |
@@ -41,7 +41,7 @@ Guardrails
 Paste this text if the form provides a project description field:
 
 ```text
-WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA challenge as a Docker-runnable Manufacturing Agent Suite. The submitted repository starts an OPEA-style Gateway, Manufacturing Megaservice, Retriever/RAG layer, Qdrant Vector DB profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser demo console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The key OPEA value is modularity: Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are composable platform boundaries, while the model is a pluggable component behind the adapter. WearEdge can therefore run with local Jetson/Gemma 4 E2B, Gemini, or another OpenAI/OPEA-compatible model endpoint without rewriting route isolation, source grounding, deterministic checks, human-confirmation gates, or action-card contracts. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Web Demo Console at /demo is the judge-facing experience for reproducible evaluation. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer plant images, labels, lot identifiers, and production records are intentionally not published. The five runnable agents cover maintenance / CMMS work order, IQC-OQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the challenge limit of single node, <=64GB RAM, and 4-core CPU. The final package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a champion risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, OPEA docs Publications PR #395, contribution patch, public article, and demo video evidence.
+WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA ecosystem as a Docker-runnable Manufacturing Agent Suite. The public repository starts an OPEA-style Gateway, Manufacturing Megaservice, Retriever/RAG layer, Qdrant Vector DB profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser manufacturing console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The key OPEA value is modularity: Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are composable platform boundaries, while the model is a pluggable component behind the adapter. WearEdge can therefore run with local Jetson/Gemma 4 E2B, Gemini, or another OpenAI/OPEA-compatible model endpoint without rewriting route isolation, source grounding, deterministic checks, human-confirmation gates, or action-card contracts. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Browser Manufacturing Console at /demo is the reproducible product experience. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer plant images, labels, lot identifiers, and production records are intentionally not published. The five runnable agents cover maintenance / CMMS work order, IQC-OQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the target runtime limit of single node, <=64GB RAM, and 4-core CPU. The final package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a product risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, OPEA docs Publications PR #395, contribution patch, public article, and product walkthrough video evidence.
 ```
 
 ## Data Sources
@@ -49,10 +49,10 @@ WearEdge Pro is a real wearable edge industrial AI agent system packaged for the
 Paste this text if the form asks for data sources:
 
 ```text
-WearEdge uses OPEA workloads and GitHub resources from opea.dev and github.com/opea-project for architecture alignment, upstream contribution, and the official OPEA TEI embedding profile. The public challenge repository uses sanitized manufacturing knowledge sources and deterministic/synthetic benchmark fixtures committed under data/, evals/genaieval/, and evidence/ so judges can reproduce the five-agent routes without private plant access. The broader WearEdge program has private enterprise production-data lineage, including toothbrush workshop IQC/OQC visual-inspection work, but raw customer images, labels, lot IDs, and production records are not published. Public/open resources are used only where relevant to the runnable stack, including GitHub-hosted OPEA components, Hugging Face TEI images/models, Qdrant, Docker images, and public documentation. We do not claim use of unrelated public NLP datasets such as THUCTC, CLUE, CSDB, DRCD, Common Crawl, DBpedia, Kaggle, or other public corpora unless they are explicitly added in a future benchmark.
+WearEdge uses OPEA workloads and GitHub resources from opea.dev and github.com/opea-project for architecture alignment, upstream contribution, and the official OPEA TEI embedding profile. The public repository uses sanitized manufacturing knowledge sources and deterministic/synthetic benchmark fixtures committed under data/, evals/genaieval/, and evidence/ so evaluators can reproduce the five-agent routes without private plant access. The broader WearEdge program has private enterprise production-data lineage, including toothbrush workshop IQC/OQC visual-inspection work, but raw customer images, labels, lot IDs, and production records are not published. Public/open resources are used only where relevant to the runnable stack, including GitHub-hosted OPEA components, Hugging Face TEI images/models, Qdrant, Docker images, and public documentation. We do not claim use of unrelated public NLP datasets such as THUCTC, CLUE, CSDB, DRCD, Common Crawl, DBpedia, Kaggle, or other public corpora unless they are explicitly added in a future benchmark.
 ```
 
-## Bonus Evidence URLs
+## Evidence Evidence URLs
 
 Paste these into any optional links, supporting materials, or notes fields:
 
@@ -65,10 +65,10 @@ Paste these into any optional links, supporting materials, or notes fields:
 | OPEA project tracker | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2` |
 | OPEA contribution package | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready` |
 | Direct upstream PR attempt | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md` |
-| Champion risk burn-down | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/champion-risk-burn-down.md` |
-| Evaluation criteria scorecard | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/evaluation-criteria-scorecard.md` |
-| Full-mark gap closure plan | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/full-mark-gap-closure-plan.md` |
-| Challenge task compliance | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/challenge-task-compliance.md` |
+| Product risk burn-down | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-risk-burn-down.md` |
+| Product evidence map | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-evaluation-map.md` |
+| Product hardening plan | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-hardening-plan.md` |
+| OPEA architecture alignment | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-architecture-alignment.md` |
 | OPEA native depth matrix | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-native-depth-matrix.md` |
 | Production LLM benchmark path | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/production-llm-benchmark-path.md` |
 | GenAIEval-compatible evaluation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/genaieval-compatible-evaluation.md` |
@@ -81,15 +81,15 @@ Paste these into any optional links, supporting materials, or notes fields:
 | GitHub article backup | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md` |
 | External-platform article package | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md` |
 | External-platform publishing handoff | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md` |
-| YouTube demo video | `https://www.youtube.com/watch?v=dd9k8m6PDco` |
-| GitHub demo video backup | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` |
+| YouTube product walkthrough video | `https://www.youtube.com/watch?v=dd9k8m6PDco` |
+| GitHub product walkthrough video backup | `https://www.youtube.com/watch?v=dd9k8m6PDco` |
 | Public video platform metadata | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md` |
-| Demo video source | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video` |
-| Demo video render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md` |
-| Submission URL dry run | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-url-dry-run.md` |
-| Submission guidelines final audit | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/submission-guidelines-final-audit.md` |
+| Product walkthrough video source | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/product-walkthrough` |
+| Product walkthrough render report | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-walkthrough-render-report.md` |
+| Public URL availability check | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-url-check.md` |
+| Project guidelines final audit | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/release-guidelines-audit.md` |
 | Local Docker Desktop final validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md` |
-| Local UI/full-mark follow-up validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-ui-full-mark-follow-up-validation.md` |
+| Local UI/product hardening follow-up validation | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-ui-product-hardening-follow-up-validation.md` |
 | Hardware constraints and clean-run boundary | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/hardware-constraints-and-clean-run.md` |
 | License and third-party attribution | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/license-and-attribution.md` |
 | Xeon AVX-512/AMX benchmark JSON | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json` |
@@ -109,12 +109,12 @@ Paste these into any optional links, supporting materials, or notes fields:
 
 ## Final Visual Review
 
-Before pressing submit, verify:
+Before publishing, verify:
 
 - The vertical is `Manufacturing`.
-- The project URL is the OPEA competition repository, not the broader
+- The project URL is the OPEA public repository, not the broader
   WearEdge-Pro source repository.
-- The description says the judge-facing product is Docker/Web/API, not an
+- The description says the evaluation-facing product is Docker/Web/API, not an
   Android-only APK.
 - The description says OPEA's value is modular composition: Gateway,
   Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and
@@ -122,11 +122,11 @@ Before pressing submit, verify:
 - The selected components include RAG, Vector DB, Orchestration, Guardrails,
   and LLM.
 - GenAIEval wording says compatible/lightweight evidence, not full official
-  GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.
-- The demo video URL opens as a GitHub asset page.
-- The external article URL is published on Dev.to, and the external demo video
+  GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.
+- The product walkthrough video URL opens as a GitHub asset page.
+- The external article URL is published on Dev.to, and the external product walkthrough video
   URL is published on YouTube.
-- OPEA docs Publications PR #395 is listed as submitted/open, not as merged or
+- OPEA docs Publications PR #395 is listed as open, not as merged or
   official OPEA publication yet.
 - Data-source wording maps to OPEA/GitHub resources, sanitized manufacturing
   fixtures, synthetic benchmark cases, and private production-data lineage; it

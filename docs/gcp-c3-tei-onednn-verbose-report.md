@@ -13,8 +13,8 @@ application checks and the same-host oneDNN BF16/AMX probe.
 | Zone | `us-central1-a` |
 | VM | `wearedge-tei-onednn-0529024359` |
 | Machine | `c3-standard-4` |
-| Challenge profile | single node, 4 vCPU, 15.61 GiB observed RAM, no GPU |
-| Branch/tag | `final-submission-2026-05-29-r23` |
+| Target profile | single node, 4 vCPU, 15.61 GiB observed RAM, no GPU |
+| Branch/tag | `final-release-2026-05-29-r23` |
 | Full artifact in Cloud Shell | `/home/ryan_on2008/gcp_c3_tei_onednn_verbose.json` |
 | Summary artifact | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` |
 | Overall result | `all_checks_pass=true` |
@@ -25,7 +25,7 @@ application checks and the same-host oneDNN BF16/AMX probe.
 | --- | --- |
 | Gateway health | true |
 | Five-agent scorecard | true |
-| Five demo routes | true |
+| Five sample routes | true |
 | Docker stats captured | true |
 | Compose service list captured | true |
 | C3 CPU flags include AVX-512 | true |
@@ -58,12 +58,12 @@ The goal was not merely to start TEI. The scorecard forces the real WearEdge
 application path to execute: Gateway, Manufacturing Megaservice, Retriever/RAG,
 Qdrant Vector DB, OPEA TEI embeddings, evaluator, and guardrails across the
 five manufacturing agents. That makes the hardware evidence application-level
-evidence for the submitted industrial AI agent system, not a standalone CPU
+evidence for the released industrial AI agent system, not a standalone CPU
 smoke test.
 
 ## Claim Boundary
 
-This is strong hardware bonus evidence for the rubric phrase "effective use of
+This is strong hardware public evidence for the evaluation criteria phrase "effective use of
 Intel hardware features (AMX, AVX-512)" because the same OPEA TEI + Qdrant +
 five-agent scorecard workload ran on a single-node C3 Xeon profile, detected
 AVX-512 and AMX CPU flags, and a same-host oneDNN BF16/AMX probe emitted
@@ -79,13 +79,13 @@ dispatch_markers_captured=false
 probe_dispatch_markers_captured=true
 ```
 
-Use the following wording in the final submission:
+Use the following wording in the release:
 
 ```text
 We validated the official OPEA TEI embedding profile on a Google Cloud C3
 c3-standard-4 single-node host with 4 vCPU, about 16 GiB RAM, no GPU, and
 AVX-512/AMX CPU flags detected. The run passed Gateway health, the five-agent
-scorecard, five demo routes, Docker stats capture, and TEI log capture. The
+scorecard, five sample routes, Docker stats capture, and TEI log capture. The
 same-host oneDNN BF16/AMX probe captured dispatch markers on that host. The TEI
 container logs themselves did not emit oneDNN dispatch marker lines, so we
 claim application-level OPEA workload validation plus same-host oneDNN BF16/AMX

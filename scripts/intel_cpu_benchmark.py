@@ -4,8 +4,8 @@
 
 The script is intentionally CI-friendly. It measures the deterministic
 five-agent pipeline and records whether the host advertises AVX-512 or AMX
-features. Run it again on an Intel Xeon host to produce the competition
-bonus evidence for AVX-512/AMX.
+features. Run it again on an Intel Xeon host to produce public
+evidence for AVX-512/AMX.
 """
 
 from __future__ import annotations
@@ -119,15 +119,15 @@ def claim_status(cpu: dict) -> str:
     return "local_smoke_test_not_avx512_amx_claim"
 
 
-def competition_note(status: str) -> str:
+def evidence_note(status: str) -> str:
     if status == "xeon_avx512_amx_detected":
         return (
             "AVX-512 and AMX feature flags were detected on this host. "
-            "This is valid Intel CPU bonus evidence for the deterministic "
+            "This is valid Intel CPU public evidence for the deterministic "
             "five-agent route pipeline, but not a production LLM acceleration claim."
         )
     return (
-        "For Intel AVX-512/AMX bonus evidence, rerun this script on a Xeon host "
+        "For Intel AVX-512/AMX public evidence, rerun this script on a Xeon host "
         "that advertises avx512f plus AMX flags, then attach the JSON and report."
     )
 
@@ -197,7 +197,7 @@ def main() -> int:
         "claim_status": status,
         "cpu": cpu,
         "pipeline": run_iterations(modes, args.iterations, args.warmup),
-        "competition_note": competition_note(status),
+        "evidence_note": evidence_note(status),
     }
 
     output = ROOT / args.output

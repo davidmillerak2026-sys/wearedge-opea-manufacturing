@@ -156,5 +156,5 @@
       ]
     }
   },
-  "competition_note": "For Intel AVX-512/AMX bonus evidence, rerun this script on a Xeon host that advertises avx512f plus AMX flags, then attach the JSON and report."
+  "evidence_note": "For Intel AVX-512/AMX public evidence, rerun this script on a Xeon host that advertises avx512f plus AMX flags, then attach the JSON and report."
 }

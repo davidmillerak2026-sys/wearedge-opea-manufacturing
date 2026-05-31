@@ -48,7 +48,7 @@ def hashing_embed_text(text: str, dimensions: int = DEFAULT_DIMENSIONS) -> list[
     """Deterministic hashing embedding.
 
     This is deliberately small and dependency-free. It gives the Qdrant profile
-    a real vector path while keeping the demo runnable without model downloads.
+    a real vector path while keeping the walkthrough runnable without model downloads.
     Production can swap this for an OPEA embedding microservice.
     """
 

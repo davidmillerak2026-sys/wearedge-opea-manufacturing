@@ -1,22 +1,22 @@
 # Public Platform Publishing Handoff
 
-Status: external article published on Dev.to; external demo video published on
-YouTube; OPEA docs Publications PR #395 submitted and open/mergeable.
+Status: external article published on Dev.to; external product walkthrough video published on
+YouTube; OPEA docs Publications PR #395 open/mergeable.
 
-The repository contains copy-ready materials for the knowledge-sharing bonus.
+The repository contains ready-to-use materials for the knowledge-sharing evidence.
 The external technical article is now published on Dev.to:
 
 ```text
 https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh
 ```
 
-The external demo video is now published on YouTube:
+The external product walkthrough video is now published on YouTube:
 
 ```text
 https://www.youtube.com/watch?v=dd9k8m6PDco
 ```
 
-The article has also been submitted to the OPEA docs Publications / Blogs list:
+The article has also been released to the OPEA docs Publications / Blogs list:
 
 ```text
 https://github.com/opea-project/docs/pull/395
@@ -24,15 +24,15 @@ https://github.com/opea-project/docs/pull/395
 
 ## Why This Matters
 
-The challenge bonus says:
+The public evidence says:
 
 ```text
 Knowledge Sharing: Technical articles, blogs, or videos on public platforms.
 ```
 
 Current GitHub-hosted article and video assets are public and useful evidence,
-but the strongest interpretation of this bonus is an external public article
-and/or video URL that judges can open directly outside the repository.
+but the strongest interpretation of this evidence is an external public article
+and/or video URL that evaluators can open directly outside the repository.
 
 ## Ready-To-Publish Materials
 
@@ -40,8 +40,8 @@ and/or video URL that judges can open directly outside the repository.
 | --- | --- | --- |
 | External article | `public/external-platform-article.md` | Published on Dev.to |
 | Video title/description/tags | `public/video-platform-description.md` | Published via YouTube |
-| Rendered demo video asset | `renders/wearedge-opea-manufacturing-demo.mp4` | Upload as the public video if present locally |
-| GitHub video asset page | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4` | Fallback public video evidence |
+| Rendered product walkthrough video asset | `renders/wearedge-opea-manufacturing-product-walkthrough.mp4` | Upload as the public video if present locally |
+| GitHub video asset page | `https://www.youtube.com/watch?v=dd9k8m6PDco` | Fallback public video evidence |
 
 ## Published Public Platform URLs
 
@@ -57,14 +57,14 @@ The public article, video, and OPEA Publications PR URLs have been backfilled
 into:
 
 - `docs/publication-record.md`;
-- `submission-fields.draft.json`;
-- `docs/final-submission-form-fill-guide.md`.
+- `project-profile.json`;
+- `docs/project-profile-fill-guide.md`.
 
 Verification commands:
 
 ```powershell
 python scripts\evidence_check.py
-python -m json.tool submission-fields.draft.json
+python -m json.tool project-profile.json
 git diff --check
 ```
 
@@ -78,7 +78,7 @@ for the external publishing step.
 Safe to claim now:
 
 ```text
-The repository contains a public Dev.to article, a public YouTube demo video,
+The repository contains a public Dev.to article, a public YouTube product walkthrough video,
 an open OPEA docs Publications PR, and GitHub article/video backup evidence.
 ```
 

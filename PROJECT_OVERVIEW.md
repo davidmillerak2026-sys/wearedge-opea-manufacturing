@@ -1,6 +1,6 @@
-# ITU AI for Good OPEA Manufacturing Submission
+# WearEdge OPEA Manufacturing Project Overview
 
-Challenge: Innovation Challenge on Generative AI Applications for Enterprise Scenarios Using OPEA
+Program: OPEA-aligned enterprise GenAI manufacturing application
 
 Vertical: Manufacturing
 
@@ -12,17 +12,17 @@ WearEdge Pro is a real OPEA-aligned wearable edge industrial AI agent system for
 
 ## Final Product Shape
 
-The competition deliverable is not an Android-only APK and not an ephemeral contest artifact. It is the Docker-runnable OPEA Manufacturing Agent Suite package for the WearEdge Pro industrial AI agent system, with a browser evaluation console and API surface.
+The public release package is not an Android-only APK and not an ephemeral contest artifact. It is the Docker-runnable OPEA Manufacturing Agent Suite package for the WearEdge Pro industrial AI agent system, with a browser evaluation console and API surface.
 
 The public repository contains sanitized, reproducible route fixtures. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection. Raw customer plant images, labels, lot identifiers, and customer-specific production records are intentionally not published.
 
-Judge-facing entry point:
+Evaluation entry point:
 
 ```text
 http://127.0.0.1:8088/demo
 ```
 
-The Vuzix M400 / Android client is the real deployment front end and field-evidence source from the full WearEdge-Pro product. The Web Demo Console is the reproducible evaluation surface for judges who do not have M400 hardware.
+The Vuzix M400 / Android client is the real deployment front end and field-evidence source from the full WearEdge-Pro product. The Browser Manufacturing Console is the reproducible evaluation surface for evaluators who do not have M400 hardware.
 
 Data-source boundary:
 
@@ -44,7 +44,7 @@ Google Cloud C3 c3-standard-4, us-central1-a
 4 vCPU, 16 GiB RAM, no GPU
 Intel Xeon Platinum 8481C
 AVX-512 and AMX flags detected
-Challenge fit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
+Runtime fit: single node, <=64GB RAM, 4-core CPU profile, GPU optional
 10-minute clean-run: default Docker/Qdrant C3 timed run passed clean_initial_run_under_10_min=true and all_checks_pass=true
 Measured clean install + initial run: 45 seconds
 ```
@@ -61,11 +61,11 @@ Manufacturing losses rarely live in one silo. A frontline operator may see a gea
 | `wi` | What released work instruction should guide the operator? | `wi_reference` |
 | `hazard` | Does the scene require stop, report, or EHS correction? | `ehs_case` |
 
-The hero scenario remains the lao-shi-fu predictive-maintenance loop for packaging-line gearbox `PKG-L3-GBX-03`, because it has the strongest archived M400/Jetson evidence. The submitted repository now also includes runnable samples and route-specific guardrails for IQC, changeover, WI, and hazard.
+The hero scenario remains the lao-shi-fu predictive-maintenance loop for packaging-line gearbox `PKG-L3-GBX-03`, because it has the strongest archived M400/Jetson evidence. The public repository now also includes runnable samples and route-specific guardrails for IQC, changeover, WI, and hazard.
 
 ## OPEA Claim
 
-Current submission components:
+Current project components:
 
 ```text
 LLM, RAG, Vector DB, Orchestration, Guardrails
@@ -91,7 +91,7 @@ Evaluation path:
 /v1/scorecard + GenAIEval-compatible JSONL dataset, runner, metrics, benchmark JSON, and summary.md
 ```
 
-The Docker Compose profile uses Qdrant as the Vector DB. The local no-dependency demo keeps an in-memory vector fallback so reviewers can run the same route contracts without Docker.
+The Docker Compose profile uses Qdrant as the Vector DB. The local no-dependency sample keeps an in-memory vector fallback so operators and evaluators can run the same route contracts without Docker.
 
 The repository also includes an official OPEA-compatible embedding microservice profile:
 
@@ -113,39 +113,39 @@ OPEA embedding microservice, Qdrant, and the same five WearEdge manufacturing
 routes. It is the right profile to rerun on Google Cloud C3 for official
 production embedding evidence.
 
-The FastAPI gateway also serves a browser Manufacturing Demo Console at `/demo`, so reviewers can inspect requests, RAG evidence, action cards, guardrails, and scorecard results without writing curl commands.
+The FastAPI gateway also serves a browser Manufacturing Console at `/demo`, so operators and evaluators can inspect requests, RAG evidence, action cards, guardrails, and scorecard results without writing curl commands.
 
 The LLM adapter now supports both the deterministic no-secret path and an
-OpenAI/OPEA-compatible chat-completions endpoint. The submitted evidence
+OpenAI/OPEA-compatible chat-completions endpoint. The recorded evidence
 includes a local adapter contract benchmark; production LLM wording should only
 be used after a configured endpoint benchmark reports
 `production_llm_endpoint_benchmarked`.
 
-## Challenge Task Compliance
+## OPEA Architecture Alignment
 
-| Official task | WearEdge Pro submission |
+| OPEA requirement | WearEdge Pro implementation |
 | --- | --- |
 | Design and build a domain-specific GenAI application | OPEA-style Manufacturing suite with Gateway, Megaservice, LLM adapter, official TEI embedding profile, Qdrant RAG, route evaluators, guardrails, and scorecard |
 | Select a concrete industry scenario | Manufacturing, covering maintenance, IQC, changeover, work instruction, and EHS hazard observation |
 | Deliver a working prototype with documentation | Docker-runnable WearEdge Pro OPEA package with `README.md`, `TECHNICAL_REPORT.md`, `deploy.sh`, Compose profiles, and Web/API evaluation surface |
 | Demonstrate performance and usability | GCP C3 4-vCPU / 16-GiB / no-GPU runs, latency JSON, Docker memory stats, 8-worker route concurrency benchmark, GenAIEval-compatible 300-call benchmark, and browser console at `/demo` |
 
-Detailed mapping: `docs/challenge-task-compliance.md`.
+Detailed mapping: `docs/opea-architecture-alignment.md`.
 
-## Evaluation Criteria Defense
+## Product Evidence Defense
 
-WearEdge Pro is organized around the official 100 base + 40 bonus rubric:
+WearEdge Pro is organized around the official product evaluation criteria:
 
-| Rubric area | Submission defense |
+| Product evidence area | Project evidence |
 | --- | --- |
-| Creativity and Business Value, 30 pts | Five real manufacturing workflows and integration targets, private production-data lineage, and field evidence, not a single chatbot |
-| Technical Implementation, 40 pts | OPEA-style modular Gateway/Megaservice/Retriever-RAG/Qdrant Vector DB/LLM-adapter/Evaluator/Guardrails architecture with local and GCP evidence; model choice is pluggable |
-| Prototype Quality, 30 pts | Docker-runnable Web/API product, `/demo`, five demo routes, five infer routes, scorecard, tests, and documentation |
-| Open-source bonus, up to 15 pts | OPEA RFC/comments plus upstream PR #2462, CI-green from fork, and OPEA docs Publications PR #395 |
-| Knowledge sharing bonus, up to 10 pts | Public Dev.to technical article, YouTube demo video, and submitted OPEA Publications blog-listing PR #395 |
-| Hardware optimization bonus, up to 15 pts | Intel Xeon AVX-512/AMX C3 evidence, application-level OPEA TEI/Qdrant workload records, and same-host oneDNN BF16/AMX probe dispatch evidence |
+| Creativity and Business Value | Five real manufacturing workflows and integration targets, private production-data lineage, and field evidence, not a single chatbot |
+| Technical Implementation | OPEA-style modular Gateway/Megaservice/Retriever-RAG/Qdrant Vector DB/LLM-adapter/Evaluator/Guardrails architecture with local and GCP evidence; model choice is pluggable |
+| Product Quality | Docker-runnable Web/API product, `/demo`, five sample routes, five infer routes, scorecard, tests, and documentation |
+| Open-source evidence | OPEA RFC/comments plus upstream PR #2462, CI-green from fork, and OPEA docs Publications PR #395 |
+| Knowledge-sharing evidence | Public Dev.to technical article, YouTube product walkthrough video, and OPEA Publications blog-listing PR #395 |
+| Hardware optimization evidence | Intel Xeon AVX-512/AMX C3 evidence, application-level OPEA TEI/Qdrant workload records, and same-host oneDNN BF16/AMX probe dispatch evidence |
 
-Detailed score defense: `docs/evaluation-criteria-scorecard.md`. Full-mark gap closure plan: `docs/full-mark-gap-closure-plan.md`.
+Detailed evidence map: `docs/product-evaluation-map.md`. Product hardening plan: `docs/product-hardening-plan.md`.
 
 ## Runnable Evidence
 
@@ -175,7 +175,7 @@ Full engineering source:
 https://github.com/davidmillerak2026-sys/WearEdge-Pro
 ```
 
-Key archived evidence already mapped into this submission package:
+Key archived evidence already mapped into this product package:
 
 - M400 real-device full chain
 - Jetson local multimodal inference
@@ -187,24 +187,24 @@ Key archived evidence already mapped into this submission package:
 - runtime stream and audit logs
 - automated tests
 
-## Remaining Champion Bonus Work
+## Product Hardening And Public Evidence
 
 - OPEA issue/PR/blueprint feedback: public RFC issue posted at `https://github.com/opea-project/GenAIExamples/issues/2461`; implementation and official TEI update comments posted upstream; real upstream PR opened at `https://github.com/opea-project/GenAIExamples/pull/2462`; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; OPEA docs Publications PR #395 opened at `https://github.com/opea-project/docs/pull/395`; public tracker posted at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`. The prepared contribution package and `git format-patch` artifact remain under `docs/opea-upstream/pr-ready/`.
-- Champion risk burn-down: each known non-winning risk has a mitigation and claim boundary in `docs/champion-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly demo positioning, data provenance, upstream PR status, and telecom-vs-manufacturing positioning.
-- LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default judge run deterministic and reproducible.
+- Product risk burn-down: each known product risk has a mitigation and claim boundary in `docs/product-risk-burn-down.md`, including OPEA-native depth, production LLM benchmark path, skim-friendly sample positioning, data provenance, upstream PR status, and telecom-vs-manufacturing positioning.
+- LLM adapter benchmark path: `src/wear_edge_opea/llm_adapter.py` and `scripts/llm_adapter_benchmark.py` provide a production endpoint benchmark path while keeping the default reproducible run deterministic and reproducible.
 - GenAIEval-compatible evaluation: `evals/genaieval/` and `evidence/genaieval/` provide a dataset, benchmark config, runner, 15-case route evaluation JSON, throughput/latency benchmark JSON, and summary.
 - OPEA-compatible embedding profile: `docker-compose.opea.yml` adds a separate `/v1/embeddings` microservice and routes Qdrant RAG embeddings through it.
 - Official OPEA TEI profile: `docker-compose.opea-tei.yml` wires Hugging Face TEI, the OPEA embedding microservice, Qdrant, and the five agent routes for production embedding evidence; local E2E and Google Cloud C3 fresh-clone E2E both passed.
-- Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the demo video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but is not merged yet; the GitHub article/video backups remain public evidence.
+- Knowledge sharing: the external technical article is published on Dev.to at `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; the product walkthrough video is published on YouTube at `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but is not merged yet; the GitHub article/video backups remain public evidence.
 - Intel AVX-512/AMX: Google Cloud C3 `c3-standard-4` single-node run captured in `us-central1-a` with 4 vCPU, 16 GiB RAM, no GPU, Intel Xeon Platinum 8481C, `avx512f`, `amx_tile`, `amx_int8`, and `amx_bf16` detected; scorecard passed; `docs/intel-effective-use-evidence.md` and `evidence/benchmarks/intel_effective_use.summary.json` connect the C3 CPU feature run to Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI, and supplemental TEI/oneDNN verbose-attempt workloads.
-- Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five demo routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
+- Docker/Qdrant E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant plus the Manufacturing Gateway, `/demo` returned HTTP 200, five sample routes and five infer routes returned correct action cards, `/v1/scorecard` passed, and the VM was deleted after the run.
 - 10-minute clean-run requirement: the default Docker/Qdrant timed C3 run on temporary VM `wearedge-docker-e2e-0529041313` reached `setup_seconds=23`, `clean_initial_run_seconds=45`, `validation.clean_initial_run_under_10_min=true`, and `all_checks_pass=true`.
 - OPEA profile E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, the OPEA-compatible `/v1/embeddings` service, and the Manufacturing Gateway; five routes reported `qdrant-opea-compatible-embedding-vector-store`, `/v1/scorecard` passed, and the VM was deleted after the run.
-- Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five demos reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
-- GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
-- Supplemental C3 TEI/oneDNN run: Google Cloud C3 `c3-standard-4` single-node run from tag `final-submission-2026-05-29-r23` passed Gateway health, `/v1/scorecard`, five demo routes, Docker stats capture, AVX-512 flag check, AMX flag check, TEI log capture, and same-host oneDNN BF16/AMX probe dispatch capture; temporary VM `wearedge-tei-onednn-0529024359` was deleted after the run. The captured TEI build did not emit dispatch marker lines, so this is application-level Intel effective-use evidence plus host-level oneDNN dispatch evidence, not TEI-internal AMX dispatch proof.
+- Local official OPEA TEI E2E: Docker Desktop started `opea/embedding:latest`, Hugging Face TEI, Qdrant, and the Manufacturing Gateway; `/v1/embeddings` returned 768-dimensional embeddings; all five samples reported `qdrant-opea-tei-vector-store`; `/v1/scorecard` passed.
+- GCP C3 official OPEA TEI E2E: Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU fresh-clone run captured in `us-central1-a`; Docker Compose started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway; 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route samples, and `/v1/scorecard` passed; temporary VM `wearedge-opea-tei-0527103938` was deleted after the run.
+- Supplemental C3 TEI/oneDNN run: Google Cloud C3 `c3-standard-4` single-node run from tag `final-release-2026-05-29-r23` passed Gateway health, `/v1/scorecard`, five sample routes, Docker stats capture, AVX-512 flag check, AMX flag check, TEI log capture, and same-host oneDNN BF16/AMX probe dispatch capture; temporary VM `wearedge-tei-onednn-0529024359` was deleted after the run. The captured TEI build did not emit dispatch marker lines, so this is application-level Intel effective-use evidence plus host-level oneDNN dispatch evidence, not TEI-internal AMX dispatch proof.
 
-## Bonus URLs And Artifacts
+## Public Evidence URLs And Artifacts
 
 - `publication_url`: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`
 - `publication_record_url`: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1`
@@ -214,11 +214,11 @@ Key archived evidence already mapped into this submission package:
 - OPEA TEI update comment: `https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017`
 - OPEA tracker: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2`
 - Upstream PR record: `docs/upstream-pr-attempt-2026-05-28.md`
-- OPEA RFC issue draft: `docs/opea-upstream/rfc-issue-draft.md`
+- OPEA RFC issue working copy: `docs/opea-upstream/rfc-issue-working-copy.md`
 - OPEA blueprint feedback: `docs/opea-upstream/blueprint-feedback.md`
 - OPEA contribution package used for PR #2462: `docs/opea-upstream/pr-ready/`
 - OPEA PR patch artifact: `docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch`
-- Champion risk burn-down: `docs/champion-risk-burn-down.md`
+- Product risk burn-down: `docs/product-risk-burn-down.md`
 - OPEA native depth matrix: `docs/opea-native-depth-matrix.md`
 - Production LLM benchmark path: `docs/production-llm-benchmark-path.md`
 - GenAIEval-compatible evaluation: `docs/genaieval-compatible-evaluation.md`
@@ -229,7 +229,7 @@ Key archived evidence already mapped into this submission package:
 - Local OPEA TEI report: `docs/local-opea-tei-profile-e2e-report.md`
 - GCP C3 OPEA TEI report: `docs/gcp-c3-opea-tei-profile-e2e-report.md`
 - GCP C3 TEI/oneDNN verbose report: `docs/gcp-c3-tei-onednn-verbose-report.md`
-- Submission URL dry run report: `docs/submission-url-dry-run.md`
+- Public URL availability check report: `docs/public-url-check.md`
 - Local Docker Desktop final validation: `docs/local-docker-desktop-final-validation.md`
 - GCP OPEA profile report: `docs/gcp-c3-opea-profile-e2e-report.md`
 - Intel benchmark report: `docs/intel-avx512-amx-benchmark-report.md`
@@ -237,10 +237,10 @@ Key archived evidence already mapped into this submission package:
 - Intel effective-use summary JSON: `evidence/benchmarks/intel_effective_use.summary.json`
 - GCP C3 TEI/oneDNN verbose summary JSON: `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json`
 - GCP Docker/Qdrant E2E report: `docs/gcp-c3-docker-qdrant-e2e-report.md`
-- Demo video source package: `public/demo-video/`
-- Demo video render report: `docs/demo-video-render-report.md`
-- Demo video URL: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4`
-- Final form fill guide: `docs/final-submission-form-fill-guide.md`
+- Product walkthrough video source package: `public/product-walkthrough/`
+- Product walkthrough render report: `docs/product-walkthrough-render-report.md`
+- Product walkthrough video URL: `https://www.youtube.com/watch?v=dd9k8m6PDco`
+- Final form fill guide: `docs/project-profile-fill-guide.md`
 - Local benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.local-smoke.json`
 - Xeon AVX-512/AMX benchmark JSON: `evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json`
 - GCP Docker/Qdrant E2E summary JSON: `evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json`

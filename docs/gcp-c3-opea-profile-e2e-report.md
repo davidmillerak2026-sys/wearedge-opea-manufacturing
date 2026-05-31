@@ -5,7 +5,7 @@ Status: passed on Google Cloud C3.
 ## Objective
 
 This run validates the OPEA-compatible profile, not only the default
-Docker/Qdrant demo. It fresh-clones the public repository, starts:
+Docker/Qdrant profile. It fresh-clones the public repository, starts:
 
 ```text
 docker-compose.yml + docker-compose.opea.yml
@@ -46,7 +46,7 @@ All checks passed:
 | Gateway `embedding_backend=opea` | pass |
 | Embedding service ok | pass |
 | Embedding endpoint returns OpenAI-compatible shape | pass |
-| Five demo routes ok | pass |
+| Five sample routes ok | pass |
 | Five routes use OPEA-compatible embedding marker | pass |
 | `/v1/scorecard` ok | pass |
 | Scorecard routes pass | pass |

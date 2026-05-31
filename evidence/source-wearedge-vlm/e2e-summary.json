@@ -85,11 +85,11 @@
       "pass": true
     }
   },
-  "submission_boundary": {
+  "project_boundary": {
     "wear_edge_pro_role": "real industrial product and edge VLM evidence source",
-    "opea_repo_role": "runnable OPEA-aligned challenge package with TEI, Qdrant, guardrails, scorecard, and Docker",
+    "opea_repo_role": "runnable OPEA-aligned public package with TEI, Qdrant, guardrails, scorecard, and Docker",
     "default_opea_docker_claim": "does not require Gemma 4 E2B weights or private images",
-    "local_model_claim": "Jetson/Gemma 4 E2B proves the product is not a cloud-wrapper demo",
+    "local_model_claim": "Jetson/Gemma 4 E2B proves the product is not a cloud-wrapper",
     "external_model_claim": "Gemini and OpenAI/OPEA-compatible image endpoints are adapter examples for enterprise or cloud-hosted LMMs",
     "model_flexibility_claim": "the five-agent OPEA pipeline can use local edge VLMs or external production LMM APIs without changing route, RAG, evaluator, guardrail, or action-card layers",
     "strict_vlm_benchmark_status": "public oil-leak fixture benchmark passed through an external image-capable endpoint with no fallback"

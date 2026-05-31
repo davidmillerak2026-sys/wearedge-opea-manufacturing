@@ -2,7 +2,7 @@
 
 Date: 2026-05-28
 
-This OPEA submission package is the runnable challenge deliverable. The
+This OPEA product package is the runnable public deliverable. The
 broader WearEdge-Pro repository contains the real edge VLM product path that
 proved the same industrial agent loop with first-person image evidence, a
 Jetson gateway, local Gemma 4 E2B vision-language inference, output contracts,
@@ -34,8 +34,8 @@ Vuzix M400 / browser image
   -> CMMS, QMS, MES, WI, or EHS integration event
 ```
 
-This is the real WearEdge-Pro VLM chain. The OPEA challenge repository then
-packages the manufacturing agent suite into a judge-runnable OPEA architecture:
+This is the real WearEdge-Pro VLM chain. The OPEA public repository then
+packages the manufacturing agent suite into a evaluation-runnable OPEA architecture:
 Gateway, Manufacturing Megaservice, Dataprep, OPEA TEI embeddings, Qdrant RAG,
 LLM adapter boundary, deterministic evaluators, route guardrails, scorecard,
 and GenAIEval-compatible evidence.
@@ -71,7 +71,7 @@ enterprise or cloud model APIs through a strict adapter boundary.
 | `docs/poc-results/m400-hotspot-audit-recent.json` | Audited M400 maintenance runs include `model.call.completed`, action cards, integration events, and request IDs. |
 | `docs/poc-results/m400-hotspot-agent-runs-recent.json` | Agent run query exposes closed runtime stream, action cards, and latest workflow event. |
 
-## Metrics To Reuse In Submission Narrative
+## Metrics To Reuse In Project Narrative
 
 | Metric | Evidence |
 | --- | --- |
@@ -90,7 +90,7 @@ Use precise wording:
 
 ```text
 WearEdge-Pro has already run a real edge VLM product path on Jetson with
-Gemma 4 E2B + mmproj and M400-style image evidence. The OPEA competition repo
+Gemma 4 E2B + mmproj and M400-style image evidence. The OPEA public repo
 packages that industrial system into a reproducible, model-flexible,
 OPEA-aligned five-agent suite using official TEI embeddings, Qdrant RAG,
 guardrails, scorecards, and one-click Docker. The same architecture can use
@@ -98,10 +98,10 @@ local edge VLMs or external production LMM APIs without changing the route,
 RAG, evaluator, guardrail, or action-card layers.
 ```
 
-Avoid wording that would over-claim the OPEA challenge Docker path:
+Avoid wording that would over-claim the OPEA ecosystem Docker path:
 
 ```text
-Do not say the default OPEA Docker demo runs Gemma 4 E2B VLM locally.
+Do not say the default OPEA Docker sample runs Gemma 4 E2B VLM locally.
 Do not say the Gemini benchmark is the local WearEdge-Pro product model.
 Do not say the public package contains private production images or large GGUF
 model weights. Do not claim final root cause, restart permission, quality
@@ -112,11 +112,11 @@ release, or safety clearance.
 
 1. Keep WearEdge-Pro as the product evidence repository for M400, Jetson, VLM,
    and field workflow proof.
-2. Keep this OPEA repository as the judge-facing runnable package.
+2. Keep this OPEA repository as the evaluation-facing runnable package.
 3. Add strict LMM/VLM benchmark scripts here that can call an image-capable
    endpoint when credentials or a local server are available.
 4. Use the public oil-leak maintenance image as a redacted benchmark fixture,
    not as private customer production data.
-5. In the final submission, place this source-evidence map beside the OPEA
+5. In the release, place this source-evidence map beside the OPEA
    TEI/Qdrant/GCP C3 evidence to show both real industrial product depth and
    OPEA-native reproducibility.

@@ -534,17 +534,17 @@ _HTML = """<!doctype html>
       </div>
       <div class="system-badge">
         <b>Production lineage</b>
-        M400 frontline evidence, Jetson edge gateway, private customer production data, and a reproducible OPEA judge package.
+        M400 frontline evidence, Jetson edge gateway, private customer production data, and a reproducible OPEA product package.
       </div>
       <div class="mode-list" id="modeList"></div>
       <div class="side-note">
-        Judge-facing product: Docker + Web Console + API + scorecard. Real deployment front end: Vuzix M400 / Android from WearEdge-Pro.
+        Evaluation-facing product: Docker + Web Console + API + scorecard. Real deployment front end: Vuzix M400 / Android from WearEdge-Pro.
       </div>
     </aside>
     <main>
       <header>
         <div>
-          <h1>Manufacturing Demo Console</h1>
+          <h1>Manufacturing Console</h1>
           <div class="header-copy">
             Five industrial agents run through one OPEA-aligned Gateway, Manufacturing Megaservice, Dataprep, RAG, LLM adapter, evaluator, guardrail, and action-card contract.
           </div>
@@ -589,7 +589,7 @@ _HTML = """<!doctype html>
             <div class="panel-body">
               <div class="lineage-grid">
                 <div class="lineage-item"><b>Private production lineage</b><span>Customer plant evidence includes real quality-inspection flows, including toothbrush workshop visual-inspection data.</span></div>
-                <div class="lineage-item"><b>Public judge package</b><span>Committed samples are sanitized, reproducible fixtures with source IDs, thresholds, and blocked claims.</span></div>
+                <div class="lineage-item"><b>Public product package</b><span>Committed samples are sanitized, reproducible fixtures with source IDs, thresholds, and blocked claims.</span></div>
                 <div class="lineage-item"><b>Route isolation</b><span>Maintenance, IQC, changeover, WI, and hazard routes keep targets and claims separate.</span></div>
                 <div class="lineage-item"><b>Human confirmation</b><span>High-risk outputs remain bounded action cards, not autonomous release authority.</span></div>
               </div>
@@ -618,7 +618,7 @@ _HTML = """<!doctype html>
             <div class="panel-body"><div class="score-list" id="scoreList"></div></div>
           </section>
           <section>
-            <div class="panel-header"><div class="panel-title">Raw judge-verifiable JSON</div><span class="muted">/v1/agents and /v1/scorecard compatible</span></div>
+            <div class="panel-header"><div class="panel-title">Raw evaluator-verifiable JSON</div><span class="muted">/v1/agents and /v1/scorecard compatible</span></div>
             <div class="panel-body"><pre id="rawJson">{}</pre></div>
           </section>
         </div>

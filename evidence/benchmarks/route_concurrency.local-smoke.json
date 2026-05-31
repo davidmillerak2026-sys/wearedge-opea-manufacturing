@@ -2,7 +2,7 @@
   "suite": "WearEdge OPEA Manufacturing concurrent route benchmark",
   "schema_version": "2026-05-28",
   "generated_at_utc": "2026-05-28T08:31:53+00:00",
-  "claim_boundary": "This is a local deterministic route-concurrency benchmark for the WearEdge Manufacturing megaservice. It validates concurrent request handling for the submitted route pipeline, not production LLM serving or certified plant control.",
+  "claim_boundary": "This is a local deterministic route-concurrency benchmark for the WearEdge Manufacturing megaservice. It validates concurrent request handling for the released route pipeline, not production LLM serving or certified plant control.",
   "config": {
     "concurrency": 8,
     "requests_per_route": 20,

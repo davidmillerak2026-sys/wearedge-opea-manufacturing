@@ -1,10 +1,10 @@
-# WearEdge OPEA Demo Video Design
+# WearEdge OPEA Product Walkthrough Design
 
 ## Style Prompt
 
-Industrial evidence-room motion system for a manufacturing AI competition demo.
+Industrial evidence-room motion system for a manufacturing AI product walkthrough.
 The video should feel like a serious plant-floor control package: precise,
-dense, verifiable, and ready for technical judges. It should not look like a
+dense, verifiable, and ready for technical evaluators. It should not look like a
 marketing landing page. The visual language uses machine-console panels,
 route-isolated evidence lanes, scorecard readouts, and bounded action cards.
 

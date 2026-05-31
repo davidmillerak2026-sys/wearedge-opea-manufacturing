@@ -6,7 +6,7 @@ Target issue:
 https://github.com/opea-project/GenAIExamples/issues/2461
 ```
 
-Status: historical manual-post draft. The package described below was later
+Status: historical manual-post working copy. The package described below was later
 opened as upstream PR #2462:
 
 ```text
@@ -14,7 +14,7 @@ https://github.com/opea-project/GenAIExamples/pull/2462
 ```
 
 The PR-ready package and a generated `git format-patch` artifact have been
-pushed to the public submission repository. A GitHub App attempt to post this update directly to
+pushed to the public repository. A GitHub App attempt to post this update directly to
 `opea-project/GenAIExamples#2461` on 2026-05-27 returned
 `403 Resource not accessible by integration`, so the comment body below is the
 manual paste source.
@@ -36,7 +36,7 @@ Patch artifact:
 docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch
 ```
 
-The package is intentionally smaller than the full competition repository so it
+The package is intentionally smaller than the full public repository so it
 can be reviewed as a first OPEA `GenAIExamples` contribution:
 
 ```text
@@ -62,10 +62,10 @@ Validated locally on 2026-05-27:
 - Official OPEA TEI Compose config passed with Hugging Face TEI,
   `opea/embedding:latest`, Qdrant, and the same manufacturing gateway.
 - `git format-patch` artifact generated from a local `GenAIExamples` branch
-  named `codex/wear-edge-manufacturing-suite-pr-ready`.
+  named `wear-edge-manufacturing-suite-pr-ready`.
 
 The first PR boundary remains deliberately small: route registry, Qdrant
-profile, official OPEA TEI embedding profile, deterministic demo path,
+profile, official OPEA TEI embedding profile, deterministic sample path,
 route-specific guardrails, scorecard, and docs. Production LLM, Helm/GMC, and
 any reusable GenAIComps action-card component can remain follow-up PRs after
 maintainer feedback.

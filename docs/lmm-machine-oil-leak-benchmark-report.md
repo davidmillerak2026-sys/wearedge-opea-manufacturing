@@ -5,7 +5,7 @@ Date: 2026-05-28
 ## Purpose
 
 This benchmark closes the gap between the real WearEdge-Pro VLM evidence path
-and the OPEA challenge package. It uses a public redacted oil-leak factory
+and the OPEA public package. It uses a public redacted oil-leak factory
 fixture, calls a real image-capable endpoint with no fallback, parses a strict
 maintenance JSON evidence contract, then feeds that evidence into the OPEA
 Manufacturing Megaservice.
@@ -74,7 +74,7 @@ If the endpoint fails, the script writes
 because it proves the benchmark is honest: it does not silently replace a real
 LMM with a deterministic stub.
 
-## Submission Claim Boundary
+## Project Claim Boundary
 
 Use this wording after a passing run:
 
@@ -91,7 +91,7 @@ the five-agent OPEA pipeline.
 Do not use this wording before a passing run:
 
 ```text
-The default Docker demo includes production VLM inference.
+The default Docker sample includes production VLM inference.
 ```
 
 ## Current Run
@@ -113,7 +113,7 @@ The LMM parsed the oil-leak fixture as `maintenance` for
 `maintenance_work_order` action card with RAG source IDs and blocked
 `restart_permission` / `maintenance_release` claims.
 
-Submission wording should call this a model-flexibility result: Gemini was used
+Project wording should call this a model-flexibility result: Gemini was used
 as one production-grade external endpoint, while the architecture also supports
 local llama.cpp/Gemma 4 E2B and OpenAI/OPEA-compatible image endpoints.
 

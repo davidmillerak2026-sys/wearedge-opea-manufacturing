@@ -10,11 +10,11 @@ Keep the official vertical as:
 Manufacturing
 ```
 
-Do not pivot the submission to telecom. The project is strongest when it owns
+Do not pivot the project to telecom. The project is strongest when it owns
 the manufacturing edge-AI story: wearable evidence, plant workflows, CMMS/QMS/
 MES/WI/EHS action cards, and human-confirmed safety boundaries.
 
-## How To Handle A Telecom-Leaning Judge
+## How To Handle A Telecom-Leaning Evaluator
 
 Use enterprise reliability language without changing the vertical:
 
@@ -25,7 +25,7 @@ Use enterprise reliability language without changing the vertical:
 - OPEA is shown as a reusable enterprise application platform, not a one-off
   factory script.
 
-## Submission Wording
+## Project Wording
 
 Use:
 
@@ -44,13 +44,13 @@ Avoid:
 telecom product, network-only agent, generic operations chatbot
 ```
 
-## Why This Is Champion-Relevant
+## Why This Matters For Enterprise Evaluation
 
-If another team has a telecom demo, our counter-position is platform breadth
+If another team has a telecom reference implementation, our counter-position is platform breadth
 and physical-world enterprise value:
 
 - five workflows instead of one;
 - real wearable/edge product lineage;
 - official OPEA TEI path and C3 validation;
 - guardrails for safety, release authority, quality, and maintenance claims;
-- judge-verifiable scorecard instead of only a polished UI.
+- evaluator-verifiable scorecard instead of only a polished UI.

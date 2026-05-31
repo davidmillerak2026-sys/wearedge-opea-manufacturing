@@ -1,15 +1,15 @@
 # Building an OPEA Manufacturing Five-Agent Suite: TEI, Qdrant, Guardrails, and What We Would Feed Back to OPEA
 
 WearEdge Pro is a real industrial AI agent system for frontline manufacturing.
-For the OPEA challenge, we packaged the product into a reproducible
-OPEA-aligned manufacturing suite that judges can run without private factory
+For the OPEA ecosystem, we packaged the product into a reproducible
+OPEA-aligned manufacturing suite that evaluators can run without private factory
 data, M400 hardware, or large local VLM model weights.
 
 The important design choice was separation of concerns:
 
 - WearEdge-Pro remains the broader product repository for M400, Jetson, real
   edge VLM evidence, Android client work, and field workflow history.
-- `wearedge-opea-manufacturing` is the challenge-facing OPEA package:
+- `wearedge-opea-manufacturing` is the public OPEA package:
   one-click Docker, Gateway, Megaservice, official TEI embeddings, Qdrant RAG,
   five manufacturing routes, guardrails, scorecard, and evaluation evidence.
 
@@ -31,7 +31,7 @@ M400/API evidence
   -> scorecard and GenAIEval-compatible metrics
 ```
 
-The default path is intentionally reproducible. A judge can run it on a normal
+The default path is intentionally reproducible. An evaluator can run it on a normal
 CPU machine and inspect every route without secrets. The production product
 path is deeper: WearEdge-Pro has already run a Jetson edge VLM flow with
 Gemma 4 E2B + `mmproj-F16` through a FastAPI gateway and M400-style image
@@ -73,7 +73,7 @@ instruction, changeover checklist, or safety policy.
 
 | Route | Industrial decision | Integration target |
 | --- | --- | --- |
-| `maintenance` | High-risk gearbox condition and work-order draft | `maintenance_work_order` |
+| `maintenance` | High-risk gearbox condition and work-order proposal | `maintenance_work_order` |
 | `iqc` | Defect evidence and QMS hold event | `qms_quality_event` |
 | `changeover` | SKU changeover checklist gating | `changeover_checklist` |
 | `wi` | Released work-instruction guidance | `wi_reference` |
@@ -133,7 +133,7 @@ it calls a real image-capable endpoint, parses maintenance evidence, and feeds
 that into the OPEA action-card pipeline with no fallback.
 
 The model story is deliberately not locked to one provider. The local
-Jetson/Gemma 4 E2B path proves WearEdge is not a cloud-wrapper demo. The
+Jetson/Gemma 4 E2B path proves WearEdge is not a cloud-wrapper. The
 external LMM benchmark path proves the same five-agent OPEA pipeline can also
 attach to Gemini or any OpenAI/OPEA-compatible image endpoint through a strict
 adapter boundary. Edge models serve privacy-sensitive or offline factory
@@ -153,7 +153,7 @@ The scorecard checks every route for:
 
 We also added a lightweight GenAIEval-compatible pack with a JSONL dataset,
 route evaluator, benchmark runner, and generated summary. It does not pretend
-to be the full official GenAIEval/RAGAS/AutoRAG stack, but it makes the
+to be the official GenAIEval/RAGAS/AutoRAG stack, but it makes the
 evaluation method visible and repeatable.
 
 ## Hardware Evidence
@@ -169,7 +169,7 @@ AVX-512 and AMX flags detected
 ```
 
 The profile ran official TEI embeddings, OPEA embedding wrapper, Qdrant, the
-gateway, five route demos, and scorecard. We also added a follow-up Cloud Shell
+gateway, five sample routes, and scorecard. We also added a follow-up Cloud Shell
 script that enables `ONEDNN_VERBOSE`, `DNNL_VERBOSE`, and `MKLDNN_VERBOSE`,
 then captures TEI/OPEA logs and searches for oneDNN/ISA markers. If the logs
 do not emit dispatch details, the artifact says so instead of over-claiming.
@@ -194,11 +194,11 @@ blueprints with real operational guardrails, not only generic chat examples.
 
 ## Closing
 
-The system we submitted is not an Android-only demo and not a single
+The system we released is not an Android-only sample and not a single
 maintenance prompt. It is a manufacturing agent suite: five bounded industrial
 routes, official OPEA TEI embeddings, Qdrant RAG, route-specific guardrails,
 action-card contracts, scorecard evidence, and a mapped real VLM product path
 from WearEdge-Pro.
 
 That combination is what makes it enterprise-shaped: reproducible enough for
-judges, grounded enough for operators, and honest enough for industrial use.
+evaluators, grounded enough for operators, and honest enough for industrial use.

@@ -25,7 +25,7 @@
       "wi",
       "hazard"
     ],
-    "note": "This run measures the deterministic demo path with Qdrant. It does not claim production LLM or embedding acceleration."
+    "note": "This run measures the deterministic sample path with Qdrant. It does not claim production LLM or embedding acceleration."
   },
   "validation": {
     "demo_http_200": true,

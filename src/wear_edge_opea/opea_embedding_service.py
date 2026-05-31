@@ -13,7 +13,7 @@ except ImportError as exc:  # pragma: no cover - import guard for container setu
 
 from .embedding import DEFAULT_DIMENSIONS, hashing_embed_text
 
-try:  # pragma: no cover - optional OPEA package is not required for fast demo
+try:  # pragma: no cover - optional OPEA package is not required for the fast local path
     from comps import EmbedDoc, ServiceType, TextDoc, register_microservice
 except ImportError:  # pragma: no cover
     EmbedDoc = None

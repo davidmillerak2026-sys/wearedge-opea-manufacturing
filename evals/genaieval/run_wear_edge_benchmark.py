@@ -62,7 +62,7 @@ def main() -> int:
             "official_genaieval_runner_used": False,
             "claim_boundary": (
                 "Benchmark uses the local deterministic WearEdge route runner and GenAIEval-compatible "
-                "metric schema. It is not a full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge run."
+                "metric schema. It is not a official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluation run."
             ),
         },
         "benchmark_config": {

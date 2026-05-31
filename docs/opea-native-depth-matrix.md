@@ -3,7 +3,7 @@
 Date: 2026-05-28
 
 This matrix records how WearEdge follows the spirit of OPEA rather than merely
-adding OPEA names to a demo. It is based on the public OPEA/GenAIExamples
+adding OPEA names to a thin prototype. It is based on the public OPEA/GenAIExamples
 patterns for microservice-based applications, Docker Compose deployment,
 Kubernetes Helm/GMC deployment options, and GenAIComps services such as
 embedding, retriever, reranking, and LLM.
@@ -20,7 +20,7 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 
 ## Component Alignment
 
-| OPEA pattern | WearEdge implementation | Runtime proof | Submission stance |
+| OPEA pattern | WearEdge implementation | Runtime proof | Project stance |
 | --- | --- | --- | --- |
 | Example application built from microservice boundaries | Gateway, Manufacturing Megaservice, OPEA embedding service, Qdrant, TEI, route evaluators | `docker-compose.yml`, `docker-compose.opea.yml`, `docker-compose.opea-tei.yml` | Strong |
 | Gateway / user-facing API | FastAPI gateway with `/demo`, `/healthz`, `/v1/agents`, `/v1/scorecard` | `src/wear_edge_opea/gateway.py` | Strong |
@@ -33,11 +33,11 @@ https://github.com/opea-project/GenAIInfra/tree/main/microservices-connector
 | Guardrails | Route-specific blocked claims, human confirmation, and integration target controls | `src/wear_edge_opea/guardrails.py` | Strong |
 | Evaluation | Five-route scorecard plus lightweight GenAIEval-compatible dataset, runner, metrics, benchmark JSON, and summary | `src/wear_edge_opea/scorecard.py`, `/v1/scorecard`, `evals/genaieval/`, `evidence/genaieval/` | Strong |
 | Docker Compose | One-command base profile plus official OPEA TEI profile | README run commands, C3 fresh-clone evidence | Strong |
-| Helm/GMC | Not implemented in this submission package | Documented as follow-up in upstream blueprint | Do not claim |
+| Helm/GMC | Not implemented in this product package | Documented as follow-up in upstream blueprint | Do not claim |
 | Upstream example | GenAIExamples first PR opened from the prepared `docs/opea-upstream/pr-ready/` package | Smoke-tested local package, public RFC issue, and upstream PR #2462 | Strong, but weaker than merged PR |
 | OPEA docs contribution | Publications PR #395 proposes adding the WearEdge technical article to OPEA Publications / Blogs | `https://github.com/opea-project/docs/pull/395` | Strong, but not official publication until merged |
 
-## Why This Is OPEA-Native Enough For The Challenge
+## Why This Is OPEA-Native Enough For Enterprise Use
 
 The project adopts OPEA's enterprise application shape:
 
@@ -54,7 +54,7 @@ The project adopts OPEA's enterprise application shape:
 - an opened OPEA docs Publications PR for public knowledge sharing.
 
 The deliberately conservative boundary is model serving. The default
-submission does not download or require a large model, so judges can evaluate
+project does not download or require a large model, so evaluators can run
 it quickly. The LLM/LMM adapter and benchmark harnesses are included so the
 same pipeline can run with local Jetson/Gemma 4 E2B, Gemini, or another
 OpenAI/OPEA-compatible endpoint without changing route logic, RAG source
@@ -69,11 +69,11 @@ Publications PR. If additional hardening time is available, prioritize:
 | Option | Why it helps | Risk |
 | --- | --- | --- |
 | Keep PR #2462 and docs PR #395 green/responded | Converts OPEA alignment into public OPEA collaboration | Depends on upstream timing |
-| Add a final PR/issue comment linking official TEI, GCP C3, article, and video evidence | Makes bonus evidence easy for OPEA reviewers to see | Low |
+| Add a final PR/issue comment linking official TEI, GCP C3, article, and video evidence | Makes public evidence easy for OPEA reviewers to see | Low |
 | Add optional Kubernetes/Helm/GMC notes | Supports OPEA cloud-native deployment narrative | Medium; may distract from Docker one-click path |
-| Add more official GenAIComps services | Deepens OPEA-native component count | Medium; could destabilize a working submission if rushed |
+| Add more official GenAIComps services | Deepens OPEA-native component count | Medium; could destabilize a working project if rushed |
 | Run a real production LLM endpoint benchmark | Strengthens the LLM service claim | Requires model endpoint and strict no-fallback proof |
 
-Champion recommendation: protect the current runnable official TEI profile first.
+Product recommendation: protect the current runnable official TEI profile first.
 Do not add a heavier OPEA integration unless it can pass fresh-clone validation
-without weakening the one-click judge experience.
+without weakening the one-click evaluation experience.

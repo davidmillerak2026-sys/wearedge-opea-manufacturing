@@ -1,0 +1,90 @@
+{
+  "program": {
+    "name": "Generative AI Applications for Enterprise Scenarios Using OPEA",
+    "project_url": "https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/project",
+    "vertical": "Manufacturing"
+  },
+  "github": {
+    "project_repo": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "release_reference": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main",
+    "source_repo": "https://github.com/davidmillerak2026-sys/WearEdge-Pro"
+  },
+  "project_meta": {
+    "ApplicationName": "WearEdge Pro",
+    "IndustryVertical": "Manufacturing",
+    "OPEAComponents": [
+      "LLM",
+      "RAG",
+      "Vector DB",
+      "Orchestration",
+      "Guardrails"
+    ],
+    "OpenSourceCommitment": true
+  },
+  "project_profile_fields": {
+    "method_name": "WearEdge Pro: OPEA Manufacturing Five-Agent Suite",
+    "method_description": "WearEdge Pro is a real wearable edge industrial AI agent system packaged for the OPEA ecosystem as a Docker-runnable Manufacturing Agent Suite. The public repository starts an OPEA-style Gateway, Manufacturing Megaservice, Retriever/RAG layer, Qdrant Vector DB profile, OPEA-compatible embedding microservice profile, official OPEA TEI embedding profile, OpenAI/OPEA-compatible LLM adapter, deterministic evaluators, guardrails, browser manufacturing console, five route scenarios, a scorecard, and a lightweight GenAIEval-compatible evaluation pack. The key OPEA value is modularity: Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are composable platform boundaries, while the model is a pluggable component behind the adapter. WearEdge can therefore run with local Jetson/Gemma 4 E2B, Gemini, or another OpenAI/OPEA-compatible model endpoint without rewriting route isolation, source grounding, deterministic checks, human-confirmation gates, or action-card contracts. The Vuzix M400 / Android client is the real deployment front end and field-evidence source; the Browser Manufacturing Console at /demo is the reproducible product experience. The broader WearEdge program has private enterprise production-data lineage, including quality-inspection work such as toothbrush workshop visual inspection for IQC/OQC-style defect detection; raw customer plant images, labels, lot identifiers, and production records are intentionally not published. The five runnable agents cover maintenance / CMMS work order, IQC-OQC / QMS quality event, changeover / checklist verification, WI / released instruction guidance, and hazard / EHS observation. The official TEI profile has both local Docker Desktop and Google Cloud C3 c3-standard-4 fresh-clone evidence on a single-node 4-vCPU / 16-GiB-RAM / no-GPU configuration, which is inside the target runtime limit of single node, <=64GB RAM, and 4-core CPU. The package includes 15/15 GenAIEval-compatible route evaluation cases passing, an 8-worker route concurrency benchmark, a product risk burn-down, OPEA native depth matrix, CI-green upstream OPEA PR, OPEA docs Publications PR #395, contribution patch, public article, and product walkthrough video evidence.",
+    "data_sources": "WearEdge uses OPEA workloads and GitHub resources from opea.dev and github.com/opea-project for architecture alignment, upstream contribution, and the official OPEA TEI embedding profile. The public repository uses sanitized manufacturing knowledge sources and deterministic/synthetic benchmark fixtures committed under data/, evals/genaieval/, and evidence/ so evaluators can reproduce the five-agent routes without private plant access. The broader WearEdge program has private enterprise production-data lineage, including toothbrush workshop IQC/OQC visual-inspection work, but raw customer images, labels, lot IDs, and production records are not published. Public/open resources are used only where relevant to the runnable stack, including GitHub-hosted OPEA components, Hugging Face TEI images/models, Qdrant, Docker images, and public documentation. We do not claim use of unrelated public NLP datasets such as THUCTC, CLUE, CSDB, DRCD, Common Crawl, DBpedia, Kaggle, or other public corpora unless they are explicitly added in a future benchmark.",
+    "project_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
+    "publication_url": "https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh",
+    "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1"
+  },
+  "public_evidence_urls": {
+    "opea_rfc_issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
+    "opea_upstream_pr_url": "https://github.com/opea-project/GenAIExamples/pull/2462",
+    "opea_docs_publications_pr_url": "https://github.com/opea-project/docs/pull/395",
+    "opea_tei_update_comment_url": "https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017",
+    "opea_tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
+    "opea_pr_ready_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready",
+    "upstream_pr_attempt_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md",
+    "product_risk_burn_down_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-risk-burn-down.md",
+    "product_evaluation_evaluation_map_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-evaluation-map.md",
+    "product_hardening_plan_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-hardening-plan.md",
+    "opea_architecture_alignment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-architecture-alignment.md",
+    "opea_native_depth_matrix_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/opea-native-depth-matrix.md",
+    "production_llm_benchmark_path_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/production-llm-benchmark-path.md",
+    "genaieval_compatible_evaluation_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/genaieval-compatible-evaluation.md",
+    "genaieval_route_eval_results_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/genaieval/route_eval_results.json",
+    "genaieval_benchmark_results_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/genaieval/benchmark_results.json",
+    "route_concurrency_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/route_concurrency.local-smoke.json",
+    "data_provenance_field_validation_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/data-provenance-and-field-validation.md",
+    "telecom_manufacturing_positioning_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/telecom-scope-and-manufacturing-positioning.md",
+    "knowledge_article_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
+    "external_platform_article_url": "https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh",
+    "external_platform_article_package_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md",
+    "external_platform_publishing_handoff_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md",
+    "product_walkthrough_video_url": "https://www.youtube.com/watch?v=dd9k8m6PDco",
+    "youtube_product_walkthrough_video_url": "https://www.youtube.com/watch?v=dd9k8m6PDco",
+    "github_product_walkthrough_asset_url": "https://www.youtube.com/watch?v=dd9k8m6PDco",
+    "video_platform_description_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md",
+    "product_walkthrough_source_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/product-walkthrough",
+    "product_walkthrough_render_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-walkthrough-render-report.md",
+    "project_profile_fill_guide_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/project-profile-fill-guide.md",
+    "release_evidence_audit_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/release-evidence-audit-2026-05-28.md",
+    "public_url_check_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-url-check.md",
+    "local_docker_desktop_final_validation_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-docker-desktop-final-validation.md",
+    "local_ui_product_hardening_follow_up_validation_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-ui-product-hardening-follow-up-validation.md",
+    "xeon_avx512_amx_benchmark_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json",
+    "intel_effective_use_evidence_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/intel-effective-use-evidence.md",
+    "intel_effective_use_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/intel_effective_use.summary.json",
+    "gcp_c3_tei_onednn_verbose_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-tei-onednn-verbose-report.md",
+    "gcp_c3_tei_onednn_verbose_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json",
+    "gcp_c3_docker_qdrant_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-docker-qdrant-e2e-report.md",
+    "gcp_c3_docker_qdrant_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_docker_qdrant_e2e.summary.json",
+    "official_opea_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-profile.md",
+    "official_opea_tei_profile_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md",
+    "gcp_c3_opea_profile_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-profile-e2e-report.md",
+    "gcp_c3_opea_profile_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_opea_profile_e2e.summary.json",
+    "local_opea_tei_profile_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-opea-tei-profile-e2e-report.md",
+    "local_opea_tei_profile_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/local_opea_tei_profile_e2e.summary.json",
+    "gcp_c3_opea_tei_profile_e2e_report_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md",
+    "gcp_c3_opea_tei_profile_e2e_summary_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/evidence/benchmarks/gcp_c3_opea_tei_profile_e2e.summary.json"
+  },
+  "do_not_claim_until_implemented": {
+    "official GenAIEval": "The repository includes a lightweight GenAIEval-compatible dataset, config, runner, metrics, route evaluation JSON, benchmark JSON, and summary. Do not claim official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.",
+    "production LLM service": "The official OPEA TEI embedding path has local and GCP C3 fresh-clone evidence. The runtime now includes an OpenAI/OPEA-compatible LLM adapter and benchmark harness. Do not claim production LLM acceleration until a real endpoint benchmark records production_llm_endpoint_benchmarked with fallback_count=0.",
+    "Intel hardware optimization": "Google Cloud C3 Xeon AVX-512/AMX benchmark evidence is included for the deterministic five-agent route pipeline, and C3 Docker/Qdrant plus OPEA-compatible, official OPEA TEI embedding, and supplemental TEI/oneDNN runs validate the product package. The r24 Intel effective-use summary connects those workloads into an application-level effective-use record and includes r23 same-host oneDNN BF16/AMX probe dispatch evidence. The TEI container logs still recorded dispatch_markers_captured=false, so do not claim TEI-internal AMX dispatch proof or production LLM acceleration.",
+    "OPEA public contribution": "Public RFC issue, implementation comment, and official TEI update comment are posted at https://github.com/opea-project/GenAIExamples/issues/2461. A real upstream PR is open and CI-green at https://github.com/opea-project/GenAIExamples/pull/2462 from Ryanhuii:wear-edge-manufacturing-suite-pr-ready to opea-project:main. DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test all passed on head 0c149a06. OPEA docs Publications PR #395 is open and mergeable at https://github.com/opea-project/docs/pull/395. A contribution package and git format-patch artifact are included at docs/opea-upstream/pr-ready.",
+    "external public platform publication": "The technical article is published on Dev.to at https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh and the product walkthrough video is published on YouTube at https://www.youtube.com/watch?v=dd9k8m6PDco. OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but it is not merged yet, so do not claim official OPEA publication until merge. GitHub article/video backups remain in the repository."
+  }
+}

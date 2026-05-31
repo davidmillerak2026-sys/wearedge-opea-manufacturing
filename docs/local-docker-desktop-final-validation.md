@@ -2,14 +2,14 @@
 
 Date: 2026-05-28 Asia/Shanghai
 
-Purpose: final local validation of the judge-facing Docker runtime before
-challenge submission.
+Purpose: final local validation of the evaluation-facing Docker runtime before
+public release.
 
 Result: pass.
 
 ## Running Profile
 
-Docker Desktop ran the WearEdge OPEA TEI profile on the standard judge-facing
+Docker Desktop ran the WearEdge OPEA TEI profile on the standard evaluation-facing
 ports after the Gateway was rebuilt/recreated with:
 
 ```text
@@ -53,7 +53,7 @@ http://127.0.0.1:6000
 
 ## Route Results
 
-| Route | Demo target | Infer target | Vector store marker |
+| Route | Sample target | Infer target | Vector store marker |
 | --- | --- | --- | --- |
 | `maintenance` | `maintenance_work_order` | `maintenance_work_order` | `qdrant-opea-tei-vector-store` |
 | `iqc` | `qms_quality_event` | `qms_quality_event` | `qdrant-opea-tei-vector-store` |
@@ -91,7 +91,7 @@ Result:
 
 ## Verdict
 
-The local Docker Desktop profile validates the final submission product shape:
-browser demo console, API route registry, five route demos, five infer routes,
+The local Docker Desktop profile validates the final product package shape:
+browser manufacturing console, API route registry, five sample routes, five infer routes,
 Qdrant-backed RAG, official OPEA TEI embedding path, five-route scorecard, and
 HTTP-level concurrent route handling.

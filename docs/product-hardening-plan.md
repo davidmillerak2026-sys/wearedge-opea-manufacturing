@@ -1,9 +1,9 @@
-# Full-Mark Gap Closure Plan
+# Product Hardening Plan
 
 Date: 2026-05-28
 
-This plan turns the scoring audit into concrete follow-up actions. It assumes
-the goal is to defend 100 base points and pursue all 40 bonus points.
+This plan turns the product evidence map into concrete follow-up actions. It assumes
+the goal is to maintain strong product evidence across the expected criteria.
 
 ## 1. Framing: Real Industrial Agent System
 
@@ -11,20 +11,20 @@ Required position across all materials:
 
 ```text
 WearEdge Pro is a real industrial AI agent system. This repository is the
-OPEA challenge-facing runnable package for that system.
+OPEA public runnable package for that system.
 ```
 
 Actions already taken:
 
-- README, submission docs, technical report, and demo console describe the
+- README, project docs, technical report, and manufacturing console describe the
   product as a real industrial AI agent system.
-- The demo console now shows five plant agents, OPEA pipeline stages, RAG source
+- The manufacturing console now shows five plant agents, OPEA pipeline stages, RAG source
   evidence, action-card guardrails, and private production-data boundary.
 
 Remaining follow-up:
 
-- In the final submission form, avoid "demo project" wording.
-- Use "judge-facing demo console" only to describe the Web UI, not the whole
+- In the project profile, avoid "sample project" wording.
+- Use "evaluation-facing manufacturing console" only to describe the Web UI, not the whole
   product.
 
 ## 2. Enterprise Customer Production Data
@@ -40,8 +40,8 @@ fixtures instead of leaking customer files.
 
 Why this matters:
 
-- It protects business relevance points.
-- It answers the likely judge question: "Is this just synthetic data?"
+- It protects business relevance evidence.
+- It answers the likely evaluator question: "Is this just synthetic data?"
 - It keeps confidentiality clean.
 
 Do not publish:
@@ -74,13 +74,13 @@ Highest-value remaining upgrades:
 
 | Upgrade | Value | Feasibility | Recommendation |
 | --- | --- | --- | --- |
-| Keep PR #2462 and docs PR #395 green/responded | Directly protects OPEA use, open-source bonus, and knowledge-sharing evidence | High | Do daily until judging |
-| Add final upstream comment linking TEI, GCP C3, article, and video | Shows feedback loop, not just code dump | High | Do before final submission |
-| Optional Helm/GMC/Kubernetes note or manifest | Helps if judges expect cloud-native OPEA | Medium | Nice-to-have, not P0 |
+| Keep PR #2462 and docs PR #395 green/responded | Directly protects OPEA use, open-source evidence, and knowledge-sharing evidence | High | Do daily through the review window |
+| Add final upstream comment linking TEI, GCP C3, article, and video | Shows feedback loop, not just code dump | High | Do before release |
+| Optional Helm/GMC/Kubernetes note or manifest | Helps if evaluators expect cloud-native OPEA | Medium | Nice-to-have, not P0 |
 | More official GenAIComps services | Could deepen OPEA-native implementation | Medium/low under time limit | Only if it does not destabilize the runnable package |
-| Full official GenAIEval integration | Stronger than compatible pack | Medium/low if dependency setup is heavy | Do only if quick; current compatible pack is honest and runnable |
+| Official GenAIEval integration | Stronger than compatible pack | Medium/low if dependency setup is heavy | Do only if quick; current compatible pack is honest and runnable |
 
-Best champion posture:
+Best product posture:
 
 ```text
 We use official OPEA TEI where it matters most for the reproducible workload,
@@ -94,21 +94,21 @@ Current state:
 - The repository includes a real OpenAI/OPEA-compatible LLM adapter.
 - `scripts/llm_adapter_benchmark.py` can benchmark a real chat-completions
   endpoint when configured.
-- The committed default path is deterministic so judges can run the package
+- The committed default path is deterministic so evaluators can run the package
   without secrets or large model downloads.
 
-Can we run a production full-chain benchmark now?
+Can we run a production end-to-end benchmark now?
 
 | Requirement | Status | Decision |
 | --- | --- | --- |
 | Real OpenAI/OPEA-compatible LLM endpoint | Not currently configured in repo | Needed for honest production LLM claim |
 | Multimodal LMM endpoint for image evidence | Not currently configured in OPEA package | Needed for honest production LMM/VLM claim |
-| Local Docker Desktop | Available, but Docker Engine access needs approval from Codex sandbox | Can rerun Compose/TEI if approved |
+| Local Docker Desktop | Available, but Docker Engine access needs local Docker permission | Can rerun Compose/TEI if approved |
 | GCP C3 CPU host | Available and validated, including supplemental TEI/oneDNN verbose attempt | Additional perf/non-AMX comparison is possible but optional |
 
 Recommendation:
 
-- Do not claim production LLM/LMM full-chain benchmark unless a real endpoint is
+- Do not claim production LLM/LMM end-to-end benchmark unless a real endpoint is
   configured and `fallback_count=0`.
 - If credentials or a local model service become available, run the existing
   strict benchmark path and commit `evidence/benchmarks/llm_adapter.production.json`.
@@ -116,12 +116,12 @@ Recommendation:
   endpoint accepts image inputs. Otherwise keep the IQC detector evidence as
   structured visual evidence, not LMM benchmark evidence.
 
-## 5. Code Quality: Why We Should Still Defend Full Marks
+## 5. Code Quality: Why We Should Still Defend Strong Product Quality
 
 We should not say "code is elsewhere." The correct framing is:
 
 ```text
-This repository contains the complete runnable OPEA challenge product package.
+This repository contains the complete runnable OPEA public product package.
 WearEdge-Pro is the broader engineering source tree for M400 Android, Jetson,
 edge gateway, and archived field evidence.
 ```
@@ -141,12 +141,12 @@ Remaining optional upgrade:
 
 - Add a `docs/source-release-snapshot.md` or mirror selected WearEdge-Pro source
   directories only if the repo must be self-contained for M400/Jetson review.
-  This is not required for the OPEA challenge product, but it can remove any
+  This is not required for the OPEA public product, but it can remove any
   doubt that code quality is real.
 
 ## 6. Functional Completeness And UI
 
-Functional completeness is now a full-mark position:
+Functional completeness is now a product-hardening position:
 
 - `/demo` Web Console;
 - `/healthz`;
@@ -164,9 +164,9 @@ UI follow-up completed:
 - It shows the OPEA pipeline rail, route selector, scorecard, RAG sources,
   blocked claims, LLM runtime, and enterprise data boundary.
 
-## 7. Bonus Plan
+## 7. Evidence Plan
 
-### Open-Source Bonus
+### Open-Source Evidence
 
 Current state: strong but still vulnerable until maintainers engage.
 
@@ -177,7 +177,7 @@ Follow-up:
 - add a final comment with GCP C3 TEI evidence and the public article/video;
 - if maintainers ask for a smaller scope, split the PR.
 
-### Knowledge-Sharing Bonus
+### Knowledge-Sharing Evidence
 
 Current state: defendable because Dev.to and YouTube are public, and OPEA docs
 PR #395 is open and mergeable to add the article to the official OPEA
@@ -196,9 +196,9 @@ and one video", optional follow-up articles could cover:
 
 Recommendation: keep PR #395 monitored and do not claim official OPEA
 publication until it merges. The existing Dev.to + YouTube evidence already
-satisfies the rubric; PR #395 makes the knowledge-sharing evidence stronger.
+satisfies the evaluation criteria; PR #395 makes the knowledge-sharing evidence stronger.
 
-### Hardware Optimization Bonus
+### Hardware Optimization Evidence
 
 Current state: strong application-level evidence; supplemental TEI/oneDNN
 verbose attempt captured; still vulnerable only on instruction-level dispatch
@@ -213,7 +213,7 @@ What we already have:
 - Docker/Qdrant E2E;
 - OPEA-compatible embedding E2E;
 - official OPEA TEI E2E;
-- supplemental TEI/oneDNN verbose attempt with Gateway, scorecard, five demos,
+- supplemental TEI/oneDNN verbose attempt with Gateway, scorecard, five samples,
   Docker stats, CPU flags, and TEI logs captured;
 - route, scorecard, memory, and cleanup evidence.
 
@@ -226,6 +226,6 @@ What would make it harder to dispute:
   disabled.
 
 Recommendation: keep the current claim as "effective use of Intel hardware
-features", which is exactly the wording of the bonus category. Only add more
+features", which is exactly the wording of the evidence category. Only add more
 hardware work if we can collect perf counters, a non-AMX comparison, or a TEI
 build that emits oneDNN/DNNL dispatch marker lines.

@@ -29,7 +29,7 @@ ROUTES: dict[str, AgentRoute] = {
     "maintenance": AgentRoute(
         mode="maintenance",
         name="lao-shi-fu predictive maintenance",
-        business_value="Reduce downtime by converting M400 evidence into CMMS-ready maintenance work-order drafts.",
+        business_value="Reduce downtime by converting M400 evidence into CMMS-ready maintenance work-order proposals.",
         entity_key="asset_id",
         integration_target="maintenance_work_order",
         owner="maintenance_engineer",

@@ -1,6 +1,6 @@
 # Publication Record
 
-This file records public URLs that support the OPEA challenge bonus evidence.
+This file records public URLs that support the OPEA ecosystem public evidence.
 
 ## OPEA Upstream
 
@@ -25,16 +25,16 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 | External-platform article package | Published via Dev.to; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/external-platform-article.md |
 | OPEA practical article | Published as a public GitHub issue; source retained in repo | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/3 |
 | OPEA practical article source | Ready in public repository as the source copy | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-opea-tei-qdrant-guardrails-lessons.md |
-| OPEA Publications blog-listing PR | Submitted to the official OPEA Publications page; open and mergeable, not merged yet | https://github.com/opea-project/docs/pull/395 |
+| OPEA Publications blog-listing PR | Proposed for the official OPEA Publications page; open and mergeable, not merged yet | https://github.com/opea-project/docs/pull/395 |
 | External-platform publishing handoff | Ready; manual publish selected | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/public-platform-publishing-handoff.md |
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
-| Demo video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/demo-video-script.md |
-| Demo video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/demo-video |
-| YouTube demo video | Published on YouTube | https://www.youtube.com/watch?v=dd9k8m6PDco |
-| Demo video backup | Published as public MP4 asset page | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4 |
+| Product walkthrough video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/product-walkthrough-script.md |
+| Product walkthrough video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/product-walkthrough |
+| YouTube product walkthrough video | Published on YouTube | https://www.youtube.com/watch?v=dd9k8m6PDco |
+| Product walkthrough video backup | Published as public MP4 asset page | https://www.youtube.com/watch?v=dd9k8m6PDco |
 | Public video platform metadata | Published via YouTube; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md |
-| Demo video render report | Local MP4 rendered; public URL verified | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/demo-video-render-report.md |
-| Final form fill guide | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/final-submission-form-fill-guide.md |
+| Product walkthrough render report | Local MP4 rendered; public URL verified | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/product-walkthrough-render-report.md |
+| Final form fill guide | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/project-profile-fill-guide.md |
 | Official OPEA TEI profile note | Published; local E2E passed | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/official-opea-tei-profile.md |
 | Local OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/local-opea-tei-profile-e2e-report.md |
 | GCP C3 OPEA TEI report | Published in repository docs | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/gcp-c3-opea-tei-profile-e2e-report.md |
@@ -60,10 +60,10 @@ This file records public URLs that support the OPEA challenge bonus evidence.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
 - The PR is CI-green on head `0c149a06`: DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
-- The demo video is published on YouTube; the rendered MP4, committed
+- The product walkthrough video is published on YouTube; the rendered MP4, committed
   HyperFrames source package, and public GitHub asset page remain as backup
   evidence.
 - The first upstream PR scope is intentionally small: route registry, Docker Compose,
-  Qdrant profile, OPEA embedding profiles, deterministic demo path, scorecard,
+  Qdrant profile, OPEA embedding profiles, deterministic sample path, scorecard,
   and docs. A copyable contribution package is included under
   `docs/opea-upstream/pr-ready/`.

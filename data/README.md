@@ -1,7 +1,7 @@
 # Data Fixtures
 
 This directory contains small, sanitized fixtures used by the public OPEA
-challenge package. They are intentionally reviewable so judges can reproduce
+public package. They are intentionally reviewable so evaluators can reproduce
 RAG retrieval, route evaluation, action-card generation, guardrails, and
 scorecard behavior.
 

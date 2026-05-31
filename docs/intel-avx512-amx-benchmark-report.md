@@ -9,7 +9,7 @@ OPEA TEI workloads that ran on the C3 Xeon profile.
 
 ## Objective
 
-The OPEA challenge gives bonus credit for demonstrating Intel AVX-512/AMX optimization. WearEdge OPEA Manufacturing now includes a repeatable benchmark harness that measures the five-agent route pipeline and records CPU feature detection.
+The OPEA ecosystem gives evidence credit for demonstrating Intel AVX-512/AMX optimization. WearEdge OPEA Manufacturing now includes a repeatable benchmark harness that measures the five-agent route pipeline and records CPU feature detection.
 
 ## Benchmark Command
 
@@ -39,9 +39,9 @@ Current local result file:
 evidence/benchmarks/intel_cpu_benchmark.local-smoke.json
 ```
 
-This local machine is useful for smoke testing the benchmark and proving repeatability, but it is not sufficient for an AVX-512/AMX bonus claim unless the feature detector reports the relevant flags.
+This local machine is useful for smoke testing the benchmark and proving repeatability, but it is not sufficient for an AVX-512/AMX evidence claim unless the feature detector reports the relevant flags.
 
-## Captured Xeon Bonus Run
+## Captured Xeon Evidence Run
 
 Cloud machine:
 
@@ -98,7 +98,7 @@ wearedge-amx-bench-0527072816 in us-central1-a
 
 ## Complementary Docker / Qdrant E2E Run
 
-A second Google Cloud C3 run validates the challenge-facing Docker package
+A second Google Cloud C3 run validates the public Docker package
 rather than only the dependency-free benchmark harness.
 
 Result files:
@@ -118,7 +118,7 @@ Cleanup: VM deleted after run
 ```
 
 All E2E checks passed: `/demo` HTTP 200, `/healthz` ok, Qdrant backend reported,
-five agents registered, five demo endpoints ok, five infer endpoints ok, action
+five agents registered, five sample endpoints ok, five infer endpoints ok, action
 targets correct, `/v1/scorecard` ok, scorecard routes pass, and Docker stats
 captured.
 
@@ -143,7 +143,7 @@ cd wearedge-opea-manufacturing
 python scripts/intel_cpu_benchmark.py --iterations 1000 --output evidence/benchmarks/intel_cpu_benchmark.xeon-amx.json
 ```
 
-For a strong bonus submission, attach:
+For a strong evidence project, attach:
 
 - CPU model and core count.
 - `avx512f=true`.

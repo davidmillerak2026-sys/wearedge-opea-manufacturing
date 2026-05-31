@@ -3,7 +3,7 @@
 
 set -euo pipefail
 
-# Cloud Shell controller for the judge-facing Docker/Qdrant E2E benchmark.
+# Cloud Shell controller for the evaluation-facing Docker/Qdrant E2E benchmark.
 # It creates a temporary Google Cloud C3 VM, performs a fresh clone, runs
 # docker compose with Qdrant, captures API/latency/container evidence, copies
 # the artifact back to Cloud Shell, and deletes the VM unless KEEP_VM=1.
@@ -331,7 +331,7 @@ feature_detection = {
 health = load_json("healthz.json")
 agents = load_json("agents.json")
 scorecard = load_json("scorecard.json")
-demos = {mode: load_json(f"demo_{mode}.json") for mode in modes}
+samples = {mode: load_json(f"demo_{mode}.json") for mode in modes}
 infers = {mode: load_json(f"infer_{mode}.json") for mode in modes}
 latency = load_json("latency_summary.json")
 score_routes = scorecard.get("routes", [])
@@ -342,7 +342,7 @@ infer_target_checks = {
     for mode in modes
 }
 demo_target_checks = {
-    mode: demos[mode].get("action_card", {}).get("integration_target") == expected_targets[mode]
+    mode: samples[mode].get("action_card", {}).get("integration_target") == expected_targets[mode]
     for mode in modes
 }
 
@@ -352,7 +352,7 @@ validation = {
     "qdrant_backend": health.get("vector_backend") == "qdrant",
     "qdrant_endpoint_responds": bool(load_json("qdrant_root.json")),
     "five_agents": sorted(agents.get("modes", [])) == sorted(modes),
-    "all_demo_ok": all(demos[mode].get("ok") is True for mode in modes),
+    "all_demo_ok": all(samples[mode].get("ok") is True for mode in modes),
     "all_infer_ok": all(infers[mode].get("ok") is True for mode in modes),
     "demo_action_targets_correct": all(demo_target_checks.values()),
     "infer_action_targets_correct": all(infer_target_checks.values()),
@@ -400,7 +400,7 @@ artifact = {
         "qdrant_root": load_json("qdrant_root.json"),
         "agents": agents,
         "scorecard": scorecard,
-        "demos": demos,
+        "samples": samples,
         "infers": infers,
     },
     "latency": latency,

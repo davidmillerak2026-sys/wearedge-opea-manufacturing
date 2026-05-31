@@ -74,7 +74,7 @@ def main() -> int:
         "claim_boundary": (
             "This is a local deterministic route-concurrency benchmark for the WearEdge "
             "Manufacturing megaservice. It validates concurrent request handling for the "
-            "submitted route pipeline, not production LLM serving or certified plant control."
+            "released route pipeline, not production LLM serving or certified plant control."
         ),
         "config": {
             "concurrency": args.concurrency,

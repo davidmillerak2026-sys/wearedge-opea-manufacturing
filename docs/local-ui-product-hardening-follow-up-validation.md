@@ -1,15 +1,15 @@
-# Local UI And Full-Mark Follow-Up Validation
+# Local UI And Product Hardening Follow-Up Validation
 
 Date: 2026-05-28
 
-Purpose: validate the follow-up changes requested after the official rubric
+Purpose: validate the follow-up changes requested after the product evidence areas
 audit:
 
 - stronger "real industrial AI agent system" framing;
 - private enterprise production-data boundary, including toothbrush workshop
   IQC/OQC lineage;
 - upgraded five-agent Web Console UI;
-- OPEA/LLM/hardware/bonus gap closure documentation.
+- OPEA/LLM/hardware/evidence gap closure documentation.
 
 ## Docker Compose Run
 
@@ -66,7 +66,7 @@ The returned `/demo` HTML includes:
 
 ## Browser Screenshot Note
 
-An attempt to inspect the UI through the Codex in-app Browser plugin failed
+An attempt to inspect the UI through the browser automation tool failed
 because the browser automation kernel exited unexpectedly. The live application
 itself was still verified through Docker and HTTP endpoint checks. A visual
 browser screenshot can be retried through Chrome/Browser plugin separately if
@@ -75,7 +75,7 @@ needed.
 ## Supporting Checks
 
 ```text
-submission-fields.draft.json: valid JSON
+project-profile.json: valid JSON
 evidence/component-evidence.json: valid JSON
 scripts/evidence_check.py: passed
 python -m unittest discover -s tests: 15 tests passed

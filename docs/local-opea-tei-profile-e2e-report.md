@@ -88,7 +88,7 @@ against `GET /v1/agents/{mode}/demo`:
 ## Claim Boundary
 
 This is local Docker Desktop evidence for the official OPEA TEI component path.
-It validates the judge-facing Gateway, Qdrant, OPEA embedding wrapper, TEI
-embedding service, `/demo`, demo routes, infer routes, scorecard, and HTTP
+It validates the evaluation-facing Gateway, Qdrant, OPEA embedding wrapper, TEI
+embedding service, `/demo`, sample routes, infer routes, scorecard, and HTTP
 concurrency. It does not claim certified plant control, oneDNN/TEI microkernel
 dispatch proof, or production LLM acceleration.

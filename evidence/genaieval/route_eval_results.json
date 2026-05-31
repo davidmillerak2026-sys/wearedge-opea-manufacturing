@@ -4,7 +4,7 @@
   "generated_at_utc": "2026-05-28T06:39:23+00:00",
   "compatibility": {
     "official_genaieval_runner_used": false,
-    "claim_boundary": "This is a lightweight GenAIEval-compatible artifact: JSONL dataset, benchmark config, deterministic runner, metrics, and evidence JSON. It does not claim full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution.",
+    "claim_boundary": "This is a lightweight GenAIEval-compatible artifact: JSONL dataset, benchmark config, deterministic runner, metrics, and evidence JSON. It does not claim official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.",
     "maps_to_genaieval_concepts": [
       "dataset",
       "task runner",

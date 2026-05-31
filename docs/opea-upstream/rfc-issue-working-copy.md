@@ -1,4 +1,4 @@
-# OPEA RFC Issue Draft
+# OPEA RFC Issue Working Copy
 
 Target repository: `opea-project/GenAIExamples`
 
@@ -40,7 +40,7 @@ Manufacturing deployments often need more than a single chatbot. A plant-floor a
 
 | Route | Manufacturing workflow | Output target |
 | --- | --- | --- |
-| `maintenance` | Predictive maintenance / lao-shi-fu troubleshooting | CMMS work-order draft |
+| `maintenance` | Predictive maintenance / lao-shi-fu troubleshooting | CMMS work-order proposal |
 | `iqc` | Incoming and in-process quality control | QMS quality event |
 | `changeover` | SKU changeover verification | MES/checklist hold |
 | `wi` | Released work-instruction guidance | Work-instruction reference |
@@ -132,7 +132,7 @@ If maintainers agree, I can prepare a PR with:
 - Minimal Docker Compose deployment.
 - README and architecture diagram.
 - Five sample manufacturing routes.
-- Deterministic CI-friendly demo mode.
+- Deterministic CI-friendly sample mode.
 - Qdrant vector DB profile.
 - OPEA-compatible and official TEI embedding profiles.
 - Scorecard endpoint and E2E test.

@@ -1,11 +1,11 @@
 # Hardware Constraints And Clean-Run Evidence
 
-This note maps WearEdge OPEA Manufacturing to the challenge hardware
+This note maps WearEdge OPEA Manufacturing to the target hardware
 constraints and separates measured evidence from claim boundaries.
 
 ## Constraint Status
 
-| Challenge constraint | WearEdge status | Evidence |
+| Target constraint | WearEdge status | Evidence |
 | --- | --- | --- |
 | 64GB RAM or less | Pass | Google Cloud C3 `c3-standard-4` evidence uses 16 GiB RAM, with Docker stats captured for Gateway, Qdrant, OPEA-compatible embedding, and official TEI profiles. |
 | 4-core CPU, Intel preferred | Pass | `c3-standard-4` was used as the cloud validation target: 4 vCPU, Intel Xeon Platinum 8481C, AVX-512 and AMX flags detected. |
@@ -69,9 +69,9 @@ Interpretation:
 
 - `setup_seconds` measures Docker Compose build/start until `/healthz`.
 - `clean_initial_run_seconds` measures package installation, Docker startup,
-  fresh clone, Compose build/start, `/demo`, `/healthz`, five demo routes, five
+  fresh clone, Compose build/start, `/demo`, `/healthz`, five sample routes, five
   infer routes, and `/v1/scorecard` until the initial run is complete.
-- `clean_initial_run_under_10_min=true` is the field to cite for the challenge
+- `clean_initial_run_under_10_min=true` is the field to cite for the target environment
   10-minute requirement.
 
 ## Timed Run Result
@@ -101,5 +101,5 @@ complete.
 Safe wording:
 
 ```text
-The default one-click Docker/Qdrant profile completed clean installation and initial run in 45 seconds on Google Cloud C3 c3-standard-4, staying within the challenge envelope of single node, 4 vCPU, 16 GiB RAM, and no GPU. The timed run passed all route, scorecard, Docker stats, and clean-run validation checks, and the temporary VM was deleted after the run.
+The default one-click Docker/Qdrant profile completed clean installation and initial run in 45 seconds on Google Cloud C3 c3-standard-4, staying within the target runtime envelope of single node, 4 vCPU, 16 GiB RAM, and no GPU. The timed run passed all route, scorecard, Docker stats, and clean-run validation checks, and the temporary VM was deleted after the run.
 ```

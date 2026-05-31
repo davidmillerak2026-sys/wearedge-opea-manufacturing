@@ -1,6 +1,6 @@
 # WearEdge Pro: Five Manufacturing Agents On One OPEA-Aligned Architecture
 
-WearEdge Pro is a real industrial AI agent system, not a demo-only chatbot. It started from a simple manufacturing question: what if the most useful AI assistant on a factory floor is a governed action-card system that understands which workflow it is helping?
+WearEdge Pro is a real industrial AI agent system, not a sample-only chatbot. It started from a simple manufacturing question: what if the most useful AI assistant on a factory floor is a governed action-card system that understands which workflow it is helping?
 
 In a real plant, the same first-person evidence can mean very different things. A gearbox vibration observation belongs to maintenance. A visual defect on a customer product belongs to IQC/OQC quality. A label-roll mismatch during SKU changeover belongs to MES or a changeover checklist. A question about a cartoner guide rail belongs to a released work instruction. A blocked walkway or exposed moving part belongs to EHS.
 
@@ -8,7 +8,7 @@ That is why the OPEA Manufacturing version of WearEdge Pro is built as a five-ag
 
 | Agent route | Workflow | Output |
 | --- | --- | --- |
-| `maintenance` | Lao-shi-fu predictive maintenance | CMMS work-order draft |
+| `maintenance` | Lao-shi-fu predictive maintenance | CMMS work-order proposal |
 | `iqc` | Incoming and in-process quality control | QMS quality event |
 | `changeover` | SKU changeover verification | MES/checklist hold |
 | `wi` | Released work-instruction guidance | Work-instruction reference |
@@ -35,9 +35,9 @@ M400 or API request
   -> bounded action card
 ```
 
-This maps naturally to OPEA concepts: Gateway, Megaservice, Dataprep, Retriever/RAG, Vector DB, LLM service, Guardrails, and Evaluation. The submitted repository keeps a deterministic no-model path so judges and maintainers can run the full suite without pulling a large model, while the architecture remains compatible with a production LLM service.
+This maps naturally to OPEA concepts: Gateway, Megaservice, Dataprep, Retriever/RAG, Vector DB, LLM service, Guardrails, and Evaluation. The public repository keeps a deterministic no-model path so evaluators and maintainers can run the full suite without pulling a large model, while the architecture remains compatible with a production LLM service.
 
-The challenge package is not an Android-only APK. It is a Docker-runnable OPEA Manufacturing Agent Suite with a browser demo console and API surface. The Vuzix M400 / Android client remains the real deployment front end and field-evidence source, while the reproducible judge-facing entry point is:
+The public package is not an Android-only APK. It is a Docker-runnable OPEA Manufacturing Agent Suite with a browser manufacturing console and API surface. The Vuzix M400 / Android client remains the real deployment front end and field-evidence source, while the reproducible evaluation-facing entry point is:
 
 ```text
 http://127.0.0.1:8088/demo
@@ -51,7 +51,7 @@ published.
 
 ## Why Five Agents Matter
 
-Manufacturing AI value does not come from one isolated demo. The enterprise value comes from covering several loss pools with the same governed platform:
+Manufacturing AI value does not come from one isolated prototype. The enterprise value comes from covering several loss pools with the same governed platform:
 
 - Downtime through maintenance triage.
 - Scrap and rework through quality holds.
@@ -78,13 +78,13 @@ That design choice is practical. It lets an AI assistant help technicians, opera
 
 ## Open Source Package
 
-The OPEA submission package is public:
+The OPEA product package is public:
 
 ```text
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
 ```
 
-It includes Docker Compose, Qdrant, five sample requests, route-specific knowledge sources, a FastAPI gateway, a scorecard endpoint, tests, OPEA component mapping, an OPEA-compatible embedding profile, an official OPEA TEI profile, and a draft upstream blueprint proposal for the OPEA community.
+It includes Docker Compose, Qdrant, five sample requests, route-specific knowledge sources, a FastAPI gateway, a scorecard endpoint, tests, OPEA component mapping, an OPEA-compatible embedding profile, an official OPEA TEI profile, and a working copy upstream blueprint proposal for the OPEA community.
 
 The OPEA RFC issue is public:
 
@@ -95,13 +95,13 @@ https://github.com/opea-project/GenAIExamples/issues/2461
 Current validation status:
 
 - `docker compose up --build -d` starts the Qdrant-backed gateway.
-- `/demo` serves the browser Manufacturing Demo Console.
+- `/demo` serves the browser Manufacturing Console.
 - `/v1/agents` returns all five routes.
 - `/v1/agents/{mode}/demo` returns route-specific action cards for all five modes.
 - `/v1/scorecard` reports five passing route checks.
 - `docker-compose.opea.yml` validates the `/v1/embeddings` microservice boundary.
-- `docker-compose.opea-tei.yml` passed locally with `opea/embedding:latest`, Hugging Face TEI, Qdrant, and all five route demos.
-- The same official OPEA TEI profile passed as a Google Cloud C3 fresh-clone run with 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route demos, and `/v1/scorecard`.
+- `docker-compose.opea-tei.yml` passed locally with `opea/embedding:latest`, Hugging Face TEI, Qdrant, and all five sample routes.
+- The same official OPEA TEI profile passed as a Google Cloud C3 fresh-clone run with 768-dimensional embeddings, five `qdrant-opea-tei-vector-store` route samples, and `/v1/scorecard`.
 
 ## What Comes Next
 
@@ -109,6 +109,6 @@ The next hardening steps are:
 
 - Prepare the first minimal OPEA PR once maintainers confirm the preferred blueprint location and naming.
 - Run the production LLM profile on Intel Xeon hardware with AVX-512 and AMX when available.
-- Add a short demo video showing all five agents in less than three minutes.
+- Add a short product walkthrough video showing all five agents in less than three minutes.
 
 WearEdge Pro's position is simple: the best plant-floor AI systems will be source-grounded, route-aware, human-confirmed, and measured. That is the shape this OPEA Manufacturing suite is trying to make concrete.

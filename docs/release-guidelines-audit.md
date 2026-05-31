@@ -1,27 +1,27 @@
-# Submission Guidelines Final Audit
+# Project Guidelines Final Audit
 
-Status: ready. The source package satisfies the submission format, hardware
+Status: ready. The source package satisfies the release format, hardware
 runtime, licensing, originality, and documentation requirements. The timed GCP
 C3 default Docker/Qdrant run completed clean installation and initial run in 45
 seconds, with `clean_initial_run_under_10_min=true` and `all_checks_pass=true`.
 
-## Submission Format
+## Release Format
 
 | Requirement | Status | Evidence |
 | --- | --- | --- |
-| GitHub submission | Ready | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
+| GitHub project | Ready | `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
 | Full source code | Ready | `src/wear_edge_opea/`, `tests/`, `evals/genaieval/`, `scripts/`, `data/` |
-| Complete runnable codebase | Ready | Dependency-free local demo, Docker/Qdrant profile, optional OPEA-compatible and official TEI profiles |
+| Complete runnable codebase | Ready | Dependency-free local sample, Docker/Qdrant profile, optional OPEA-compatible and official TEI profiles |
 | One-click Bash setup | Ready | `deploy.sh` |
 | Docker Compose configuration | Ready | `docker-compose.yml`, `docker-compose.opea.yml`, `docker-compose.opea-tei.yml` |
 | README system overview | Ready | `README.md` opening sections and OPEA Architecture |
 | README setup instructions | Ready | `README.md` Run Locally section |
 | README hardware/software requirements | Ready | Single-node C3 block, Hardware/Runtime sections, and `docs/hardware-constraints-and-clean-run.md` |
 | README expected outcomes | Ready | API route list, scorecard, five-agent action-card descriptions |
-| README demo commands or URLs | Ready | `/demo`, `/healthz`, `/v1/agents`, route demo URLs, `/v1/scorecard` |
+| README sample commands or URLs | Ready | `/demo`, `/healthz`, `/v1/agents`, route sample URLs, `/v1/scorecard` |
 | LICENSE file | Ready | `LICENSE` is MIT |
 | Technical report, max 2 pages | Ready | `TECHNICAL_REPORT.md` |
-| Optional demo video | Ready | YouTube video `https://www.youtube.com/watch?v=dd9k8m6PDco`, source under `public/demo-video/` |
+| Optional product walkthrough video | Ready | YouTube walkthrough `https://www.youtube.com/watch?v=dd9k8m6PDco`, source under `public/product-walkthrough/` |
 
 ## Hardware And Runtime
 
@@ -54,15 +54,15 @@ Strict interpretation:
 
 | Requirement | Status | Evidence |
 | --- | --- | --- |
-| Original work | Pass | WearEdge route registry, Gateway, Megaservice, evaluators, guardrails, demo console, scorecard, and evidence pack are local source |
+| Original work | Pass | WearEdge route registry, Gateway, Megaservice, evaluators, guardrails, manufacturing console, scorecard, and evidence pack are local source |
 | Derived/open-source components attributed | Pass | `README.md` license section and `docs/license-and-attribution.md` |
 | Third-party code declared in README | Pass | README table lists component, license, purpose, and boundary |
 | Private/customer data protected | Pass | `docs/data-provenance-and-field-validation.md`; sanitized fixtures only |
 | Safety and restricted claims bounded | Pass | Guardrails block final root cause, restart permission, quality release, safety clearance, incident root cause, and maintenance release |
 
-## Final Pre-Submit Checklist
+## Final Release Checklist
 
-| Step | Required before final submission? | Status |
+| Step | Required before release? | Status |
 | --- | --- | --- |
 | Run `git diff --check` | Yes | Passed after latest compliance edits |
 | Run `scripts/evidence_check.py` | Yes | Passed after latest compliance edits |
@@ -72,7 +72,7 @@ Strict interpretation:
 | Commit and push latest compliance docs | Yes, after user approval | Pending |
 | Confirm OPEA docs PR #395 wording | No blocker | PR is open/mergeable, not merged; do not claim official OPEA publication |
 
-## Safe Submission Wording
+## Safe Project Wording
 
 ```text
 The default one-click Docker/Qdrant profile completed clean installation and initial run in 45 seconds on a single-node Google Cloud C3 c3-standard-4 instance, with 4 vCPU, 16 GiB RAM, no GPU, and all scorecard checks passing.

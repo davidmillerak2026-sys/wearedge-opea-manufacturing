@@ -47,7 +47,7 @@ class PipelineTest(unittest.TestCase):
         self.assertTrue(result["action_card"]["requires_human_confirmation"])
         self.assertIn("final_root_cause", result["action_card"]["blocked_claims"])
 
-    def test_all_five_agent_demos_return_expected_action_targets(self) -> None:
+    def test_all_five_agent_samples_return_expected_action_targets(self) -> None:
         for mode, route in ROUTES.items():
             with self.subTest(mode=mode):
                 result = run_pipeline(load_sample_request(mode), mode=mode)
@@ -85,7 +85,7 @@ class PipelineTest(unittest.TestCase):
     def test_demo_console_exposes_product_entrypoint(self) -> None:
         html = build_demo_console_html()
 
-        self.assertIn("Manufacturing Demo Console", html)
+        self.assertIn("Manufacturing Console", html)
         self.assertIn("/v1/agents", html)
         self.assertIn("/v1/scorecard", html)
         for mode in ROUTES:

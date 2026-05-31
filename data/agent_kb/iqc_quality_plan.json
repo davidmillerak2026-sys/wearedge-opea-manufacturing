@@ -3,7 +3,7 @@
   "entity_id": "AL-HOUSING-L3",
   "line": "Line 3 machining output",
   "title": "Machined Aluminum Housing IQC Quality Plan",
-  "revision": "QP-2026.05-demo",
+  "revision": "QP-2026.05-release",
   "thresholds": {
     "detector_min_confidence": 0.62
   },

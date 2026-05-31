@@ -59,7 +59,7 @@ index 0000000..00b4a92
 +
 +The full WearEdge reference implementation also includes Qdrant RAG, OPEA
 +embedding profiles, an official OPEA TEI path, benchmark evidence, and a browser
-+demo console:
++manufacturing console:
 +
 +```text
 +https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
@@ -87,7 +87,7 @@ index 0000000..00b4a92
 +| --- | --- |
 +| `GET /healthz` | Service health and configured embedding profile |
 +| `GET /v1/agents` | Route registry |
-+| `GET /v1/agents/{mode}/demo` | Fixed demo request and bounded action card |
++| `GET /v1/agents/{mode}/demo` | Fixed sample request and bounded action card |
 +| `POST /v1/agents/{mode}/infer` | Route-specific inference contract |
 +| `GET /v1/scorecard` | Five-route validation scorecard |
 +
@@ -344,7 +344,7 @@ index 0000000..ddf2308
 +        "channel": "maintenance_report",
 +        "priority": "high",
 +        "owner": "maintenance_engineer",
-+        "action": "Prepare a human-confirmed maintenance work-order draft.",
++        "action": "Prepare a human-confirmed maintenance work-order proposal.",
 +        "source_ids": ["GBX-HUMAN-01", "GBX-LUBE-01", "GBX-VIB-01"],
 +        "blocked_claims": [
 +            "final_root_cause",

@@ -9,7 +9,7 @@ The prepared package has been opened upstream:
 https://github.com/opea-project/GenAIExamples/pull/2462
 ```
 
-It is not a replacement for the full WearEdge competition repository. It is a
+It is not a replacement for the full WearEdge public repository. It is a
 small first-PR candidate that maintainers can review quickly:
 
 ```text
@@ -31,7 +31,7 @@ It also includes a generated `git format-patch` artifact:
 ```
 
 This patch was generated from a local `opea-project/GenAIExamples` clone on
-branch `codex/wear-edge-manufacturing-suite-pr-ready` with commit
+contributor feature branch with commit
 `f5ea17a Add ManufacturingAgentSuite example`.
 
 ## Intended Upstream Use

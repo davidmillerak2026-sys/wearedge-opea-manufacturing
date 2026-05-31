@@ -25,14 +25,14 @@ Local upstream branch:
 
 ```text
 GenAIExamples-opea
-branch: codex/wear-edge-manufacturing-suite-pr-ready
+branch: wear-edge-manufacturing-suite-pr-ready
 commit: f5ea17a Add ManufacturingAgentSuite example
 ```
 
 Direct push attempt:
 
 ```bash
-git push origin codex/wear-edge-manufacturing-suite-pr-ready
+git push origin wear-edge-manufacturing-suite-pr-ready
 ```
 
 GitHub response:
@@ -54,14 +54,14 @@ Fork push:
 
 ```bash
 git remote add fork https://github.com/Ryanhuii/GenAIExamples.git
-git push fork codex/wear-edge-manufacturing-suite-pr-ready
+git push fork wear-edge-manufacturing-suite-pr-ready
 ```
 
 Push result:
 
 ```text
 To https://github.com/Ryanhuii/GenAIExamples.git
- * [new branch] codex/wear-edge-manufacturing-suite-pr-ready -> codex/wear-edge-manufacturing-suite-pr-ready
+ * [new branch] wear-edge-manufacturing-suite-pr-ready -> wear-edge-manufacturing-suite-pr-ready
 ```
 
 Opened PR:
@@ -69,7 +69,7 @@ Opened PR:
 ```text
 number=2462
 state=open
-head=Ryanhuii:codex/wear-edge-manufacturing-suite-pr-ready
+head=Ryanhuii:wear-edge-manufacturing-suite-pr-ready
 head_sha=0c149a06eab8b53713e0bd208c5caa1ed58ee7a4
 base=opea-project:main
 title=Add ManufacturingAgentSuite example

@@ -14,9 +14,9 @@ def main() -> int:
     scorecard = build_scorecard()
     print(json.dumps(scorecard, indent=2, ensure_ascii=False))
     if not result["ok"] or not scorecard["ok"]:
-        print("WearEdge OPEA five-agent demo failed")
+        print("WearEdge OPEA five-agent sample failed")
         return 1
-    print("WearEdge OPEA Manufacturing five-agent demo passed")
+    print("WearEdge OPEA Manufacturing five-agent sample passed")
     return 0
 
 

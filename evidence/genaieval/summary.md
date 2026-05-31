@@ -2,7 +2,7 @@
 
 Generated UTC: `2026-05-28T06:39:23+00:00`
 
-Claim boundary: lightweight GenAIEval-compatible evidence package; not a full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge run.
+Claim boundary: lightweight GenAIEval-compatible evidence package; not a official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluation run.
 
 Overall: `ok=true`, `15/15` cases passed, pass rate `1.0`.
 

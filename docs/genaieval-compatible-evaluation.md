@@ -1,19 +1,19 @@
 # GenAIEval-Compatible Evaluation
 
-This submission includes a lightweight GenAIEval-compatible evaluation pack for
+This project includes a lightweight GenAIEval-compatible evaluation pack for
 the five WearEdge Manufacturing agents.
 
 Claim boundary: the artifacts in `evals/genaieval/` provide a GenAIEval-style
 dataset, benchmark config, runner, metrics, and evidence JSON. They do not claim
-full official GenAIEval, RAGAS, AutoRAG, or LLM-as-judge execution.
+official GenAIEval, RAGAS, AutoRAG, or LLM-as-evaluator execution.
 
 ## Why It Exists
 
-The challenge asks teams to show OPEA-style technical implementation,
+The program asks teams to show OPEA-style technical implementation,
 efficiency, and product quality. OPEA also highlights standardized
 evaluation as part of the ecosystem. The existing `/v1/scorecard` is useful for live API
 verification; this package makes that evaluation reproducible as committed
-artifacts that judges can rerun from a fresh clone.
+artifacts that evaluators can rerun from a fresh clone.
 
 ## Evaluation Shape
 
@@ -63,7 +63,7 @@ Companion concurrency evidence is stored in
 `evidence/benchmarks/route_concurrency.local-smoke.json`. It records an
 8-worker, 100-request local route benchmark with all requests and action targets
 passing. This complements the 300-call GenAIEval-compatible benchmark by
-addressing the challenge's concurrent-request usability/performance prompt.
+addressing the program's concurrent-request usability/performance prompt.
 | Benchmark calls | 300 route evaluations |
 | Benchmark validation | all cases pass, all routes covered |
 
@@ -77,7 +77,7 @@ Artifacts:
 - `evidence/genaieval/benchmark_results.json`
 - `evidence/genaieval/summary.md`
 
-## Submission Wording
+## Project Wording
 
 Safe wording:
 
@@ -90,5 +90,5 @@ committed evidence outputs for 15 cases across five Manufacturing agents.
 Avoid:
 
 ```text
-Fully integrated official GenAIEval with RAGAS, AutoRAG, and LLM-as-judge.
+Fully integrated official GenAIEval with RAGAS, AutoRAG, and LLM-as-evaluator.
 ```

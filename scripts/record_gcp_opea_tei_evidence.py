@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: MIT
 
-"""Create submission evidence files from a full GCP OPEA TEI E2E artifact."""
+"""Create project evidence files from a full GCP OPEA TEI E2E artifact."""
 
 from __future__ import annotations
 
@@ -35,7 +35,7 @@ def build_summary(artifact: dict[str, Any]) -> dict[str, Any]:
         .get("embedding", [])
     )
     scorecard = artifact.get("endpoints", {}).get("scorecard", {})
-    demos = artifact.get("endpoints", {}).get("demos", {})
+    samples = artifact.get("endpoints", {}).get("samples", {})
 
     return {
         "benchmark": "WearEdge official OPEA TEI embedding profile C3 E2E",
@@ -59,14 +59,14 @@ def build_summary(artifact: dict[str, Any]) -> dict[str, Any]:
             "ok": scorecard.get("ok"),
             "routes": scorecard.get("routes", []),
         },
-        "demos": {
+        "samples": {
             mode: {
                 "ok": demo.get("ok"),
                 "vector_store": demo.get("rag", {}).get("vector_store"),
                 "integration_target": demo.get("action_card", {}).get("integration_target"),
                 "latency_ms": demo.get("timing", {}).get("pipeline_latency_ms"),
             }
-            for mode, demo in demos.items()
+            for mode, sample in samples.items()
         },
         "docker": {
             "stats": artifact.get("docker", {}).get("stats", []),

@@ -4,11 +4,11 @@ Status: lightweight profile validated; official TEI profile added separately.
 
 ## Why This Exists
 
-The default `docker-compose.yml` profile is optimized for judge
+The default `docker-compose.yml` profile is optimized for evaluator
 reproducibility: Qdrant plus the Manufacturing Gateway, no model downloads, and
 a deterministic embedding path.
 
-For the OPEA challenge, the stronger story is not just that WearEdge has RAG.
+For the OPEA ecosystem, the stronger story is not just that WearEdge has RAG.
 It is that WearEdge can be assembled as OPEA-style microservices behind a
 Gateway and Megaservice. OPEA's embedding service documentation exposes
 `/v1/embeddings` and describes the API as OpenAI-compatible. This profile moves

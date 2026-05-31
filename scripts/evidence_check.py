@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MIT
 
-"""Validate the standalone OPEA Manufacturing submission package.
+"""Validate the standalone OPEA Manufacturing product package.
 
-The check is dependency-free. It verifies the local submission files and
+The check is dependency-free. It verifies the local project files and
 ensures that no planned component is accidentally marked as implemented.
 """
 
@@ -16,22 +16,22 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "evidence" / "component-evidence.json"
 REQUIRED_LOCAL_FILES = [
     "README.md",
-    "SUBMISSION.md",
+    "PROJECT_OVERVIEW.md",
     "TECHNICAL_REPORT.md",
     "LICENSE",
-    "submission-fields.draft.json",
+    "project-profile.json",
     "pyproject.toml",
-    "docs/technical-report.draft.md",
-    "docs/submission-product-shape.md",
-    "docs/final-submission-readiness-audit.md",
-    "docs/submission-guidelines-final-audit.md",
+    "docs/technical-report-working-copy.md",
+    "docs/product-package.md",
+    "docs/release-readiness-audit.md",
+    "docs/release-guidelines-audit.md",
     "docs/license-and-attribution.md",
-    "docs/evaluation-criteria-scorecard.md",
-    "docs/full-mark-gap-closure-plan.md",
-    "docs/challenge-task-compliance.md",
+    "docs/product-evaluation-map.md",
+    "docs/product-hardening-plan.md",
+    "docs/opea-architecture-alignment.md",
     "docs/hardware-constraints-and-clean-run.md",
     "docs/source-vlm-e2e-evidence-map.md",
-    "docs/champion-risk-burn-down.md",
+    "docs/product-risk-burn-down.md",
     "docs/opea-native-depth-matrix.md",
     "docs/production-llm-benchmark-path.md",
     "docs/lmm-machine-oil-leak-benchmark-report.md",
@@ -43,12 +43,12 @@ REQUIRED_LOCAL_FILES = [
     "docs/official-opea-profile.md",
     "docs/official-opea-tei-profile.md",
     "docs/local-opea-tei-profile-e2e-report.md",
-    "docs/local-ui-full-mark-follow-up-validation.md",
+    "docs/local-ui-product-hardening-follow-up-validation.md",
     "docs/gcp-c3-opea-tei-profile-e2e-report.md",
-    "docs/champion-gap-worklist.md",
+    "docs/product-gap-worklist.md",
     "docs/source-project-map.md",
     "docs/publication-record.md",
-    "docs/opea-upstream/rfc-issue-draft.md",
+    "docs/opea-upstream/rfc-issue-working-copy.md",
     "docs/opea-upstream/blueprint-feedback.md",
     "docs/opea-upstream/implementation-feedback-comment.md",
     "docs/opea-upstream/minimal-pr-scope.md",
@@ -63,8 +63,8 @@ REQUIRED_LOCAL_FILES = [
     "public/article-wear-edge-opea-manufacturing.md",
     "public/article-opea-tei-qdrant-guardrails-lessons.md",
     "public/external-platform-article.md",
-    "public/demo-video-script.md",
-    "public/demo-video-captions.srt",
+    "public/product-walkthrough-script.md",
+    "public/product-walkthrough-captions.srt",
     "public/video-platform-description.md",
     "scripts/intel_cpu_benchmark.py",
     "scripts/build_intel_effective_use_summary.py",
@@ -132,7 +132,7 @@ REQUIRED_LOCAL_FILES = [
 def main() -> int:
     missing = [path for path in REQUIRED_LOCAL_FILES if not (ROOT / path).exists()]
     if missing:
-        print("OPEA submission evidence check failed")
+        print("OPEA project evidence check failed")
         for path in missing:
             print(f"- missing {path}")
         return 1
@@ -148,23 +148,23 @@ def main() -> int:
             if not (ROOT / path).exists():
                 missing_manifest_paths.append(f"{item['opea_layer']}: {path}")
 
-    for item in manifest.get("bonus_evidence", []):
+    for item in manifest.get("public_evidence", []):
         for path in item.get("local_paths", []):
             if not (ROOT / path).exists():
                 missing_manifest_paths.append(f"{item['category']}: {path}")
 
     if missing_manifest_paths:
-        print("OPEA submission evidence check failed")
+        print("OPEA project evidence check failed")
         for path in missing_manifest_paths:
             print(f"- missing manifest path {path}")
         return 1
 
-    print("OPEA submission evidence check passed")
+    print("OPEA project evidence check passed")
     print(f"components={len(manifest['component_map'])}")
-    print(f"bonus_evidence={len(manifest.get('bonus_evidence', []))}")
+    print(f"public_evidence={len(manifest.get('public_evidence', []))}")
     for status in sorted(statuses):
         print(f"{status}={statuses[status]}")
-    print(manifest["submission"]["target_github_url"])
+    print(manifest["project"]["target_github_url"])
     return 0
 
 

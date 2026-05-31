@@ -100,7 +100,7 @@ scp ubuntu@<public-ip>:~/wearedge-opea-manufacturing/evidence/benchmarks/intel_c
 
 ## Google Cloud Path
 
-Use `c3-standard-4`. The submitted evidence used `us-central1-a`:
+Use `c3-standard-4`. The recorded evidence used `us-central1-a`:
 
 ```bash
 gcloud compute instances create wearedge-amx-bench \

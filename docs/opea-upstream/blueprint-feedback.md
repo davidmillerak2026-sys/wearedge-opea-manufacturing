@@ -1,6 +1,6 @@
 # OPEA Blueprint Feedback Package
 
-This document records the upstream contribution plan for OPEA bonus evidence. It is based on OPEA's public contribution guidance: substantial workflow or user-facing interface changes should start as an RFC issue, and GenAIExamples contributions should include at least a Docker Compose deployment plus an end-to-end test.
+This document records the upstream contribution plan for OPEA public evidence. It is based on OPEA's public contribution guidance: substantial workflow or user-facing interface changes should start as an RFC issue, and GenAIExamples contributions should include at least a Docker Compose deployment plus an end-to-end test.
 
 ## Target Repositories
 
@@ -28,7 +28,7 @@ ManufacturingAgentSuite/
   assets/flow.md
 ```
 
-The first PR should stay intentionally small: route registry, Docker Compose, Qdrant profile, optional OPEA TEI embedding profile, deterministic demo path, scorecard, and docs. Helm/GMC can be a follow-up once maintainers accept the blueprint.
+The first PR should stay intentionally small: route registry, Docker Compose, Qdrant profile, optional OPEA TEI embedding profile, deterministic sample path, scorecard, and docs. Helm/GMC can be a follow-up once maintainers accept the blueprint.
 
 ## Maintainer Feedback Questions
 
@@ -42,10 +42,10 @@ The first PR should stay intentionally small: route registry, Docker Compose, Qd
 
 | Item | Status |
 | --- | --- |
-| RFC issue body prepared | Ready in `docs/opea-upstream/rfc-issue-draft.md` |
+| RFC issue body prepared | Ready in `docs/opea-upstream/rfc-issue-working-copy.md` |
 | Reference implementation public | Ready at `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing` |
-| Docker Compose demo | Ready |
-| Five route demos | Ready |
+| Docker Compose sample | Ready |
+| Five route samples | Ready |
 | Scorecard endpoint | Ready |
 | Qdrant vector DB profile | Ready |
 | Official OPEA TEI embedding profile | Local and GCP C3 fresh-clone E2E passed |

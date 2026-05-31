@@ -12,7 +12,7 @@ The route registry exposes maintenance, IQC, changeover, work instruction, and h
 
 4
 00:00:45,000 --> 00:01:05,000
-Maintenance is the hero demo: gearbox evidence becomes a CMMS-ready work-order draft while root cause and restart permission stay blocked.
+Maintenance is the hero scenario: gearbox evidence becomes a CMMS-ready work-order proposal while root cause and restart permission stay blocked.
 
 5
 00:01:05,000 --> 00:01:20,000

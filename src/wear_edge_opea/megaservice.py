@@ -55,7 +55,7 @@ def run_pipeline(request: dict, mode: str | None = None) -> dict:
         "action_card": action_card,
         "timing": {
             "pipeline_latency_ms": elapsed_ms,
-            "note": "Deterministic demo-path timing; production embedding and LLM service latency should be measured separately.",
+            "note": "Deterministic local-path timing; production embedding and LLM service latency should be measured separately.",
         },
     }
     if route.mode == "maintenance":
@@ -69,10 +69,10 @@ def run_agent_demo(mode: str) -> dict:
 
 
 def run_all_agent_demos() -> dict:
-    demos = [run_agent_demo(mode) for mode in ("maintenance", "iqc", "changeover", "wi", "hazard")]
+    results = [run_agent_demo(mode) for mode in ("maintenance", "iqc", "changeover", "wi", "hazard")]
     return {
-        "ok": all(item["ok"] for item in demos),
+        "ok": all(item["ok"] for item in results),
         "suite": "WearEdge OPEA Manufacturing five-agent suite",
-        "modes": [item["mode"] for item in demos],
-        "results": demos,
+        "modes": [item["mode"] for item in results],
+        "results": results,
     }

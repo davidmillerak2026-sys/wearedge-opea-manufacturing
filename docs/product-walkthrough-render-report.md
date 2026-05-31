@@ -1,4 +1,4 @@
-# Demo Video Render Report
+# Product Walkthrough Render Report
 
 Date: 2026-05-27
 
@@ -7,14 +7,14 @@ Status: local render complete; public GitHub raw video URL verified.
 ## Rendered Asset
 
 ```text
-renders/wearedge-opea-manufacturing-demo.mp4
+renders/wearedge-opea-manufacturing-product-walkthrough.mp4
 ```
 
 The rendered `.mp4` is intentionally excluded from git by `.gitignore`.
-The file is hosted on the public `codex/video-assets` branch:
+The published product walkthrough is hosted on YouTube:
 
 ```text
-https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
+https://www.youtube.com/watch?v=dd9k8m6PDco
 ```
 
 This URL was verified with `curl -I -L` and returned `HTTP/1.1 200 OK` with
@@ -24,15 +24,15 @@ This URL was verified with `curl -I -L` and returned `HTTP/1.1 200 OK` with
 
 | File | Purpose |
 | --- | --- |
-| `public/demo-video/DESIGN.md` | Visual identity, palette, typography, motion rules, and claim guardrails |
-| `public/demo-video/index.html` | HyperFrames composition source |
-| `public/demo-video/README.md` | Render instructions |
-| `public/demo-video-script.md` | Narration and shot list |
-| `public/demo-video-captions.srt` | Caption timing source |
+| `public/product-walkthrough/DESIGN.md` | Visual identity, palette, typography, motion rules, and claim guardrails |
+| `public/product-walkthrough/index.html` | HyperFrames composition source |
+| `public/product-walkthrough/README.md` | Render instructions |
+| `public/product-walkthrough-script.md` | Narration and shot list |
+| `public/product-walkthrough-captions.srt` | Caption timing source |
 
 ## Validation Commands
 
-Executed from `public/demo-video`:
+Executed from `public/product-walkthrough`:
 
 ```powershell
 npx --yes hyperframes@0.6.7 lint
@@ -55,14 +55,14 @@ maintainability warning and does not block rendering.
 
 ## Render Command
 
-Executed from `public/demo-video`:
+Executed from `public/product-walkthrough`:
 
 ```powershell
-$env:Path='C:\Users\ryan hui\Documents\Codex\2026-05-15\hyperframe\node_modules\@ffmpeg-installer\win32-x64;C:\Users\ryan hui\Documents\Codex\2026-05-15\hyperframe\node_modules\@ffprobe-installer\win32-x64;' + $env:Path
+$env:Path='<local-ffmpeg-bin>;<local-ffprobe-bin>;' + $env:Path
 $env:HYPERFRAMES_BROWSER_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'
 $env:PRODUCER_HEADLESS_SHELL_PATH='C:\Program Files\Google\Chrome\Application\chrome.exe'
 $env:PRODUCER_PUPPETEER_LAUNCH_TIMEOUT_MS='120000'
-npx --yes hyperframes@0.6.7 render --output ..\..\renders\wearedge-opea-manufacturing-demo.mp4 --quality standard --fps 30
+npx --yes hyperframes@0.6.7 render --output ..\..\renders\wearedge-opea-manufacturing-product-walkthrough.mp4 --quality standard --fps 30
 ```
 
 ## Media Metadata

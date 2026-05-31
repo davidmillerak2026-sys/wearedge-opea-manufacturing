@@ -20,7 +20,7 @@ user-authenticated GitHub browser session.
 
 Implementation update for the proposed `ManufacturingAgentSuite` blueprint:
 
-The reference package is now more judge- and maintainer-friendly. It includes a browser demo console in addition to the API endpoints, so reviewers can inspect route selection, sample requests, RAG evidence, bounded action cards, blocked claims, and the five-route scorecard without writing curl commands.
+The reference package is now more evaluator- and maintainer-friendly. It includes a browser manufacturing console in addition to the API endpoints, so operators and evaluators can inspect route selection, sample requests, RAG evidence, bounded action cards, blocked claims, and the five-route scorecard without writing curl commands.
 
 Reference implementation:
 https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing
@@ -38,7 +38,7 @@ Current validation status:
 - `GET /v1/scorecard` reports five passing route checks covering contract, guardrail, RAG/source match, action target correctness, and route isolation.
 - The Docker profile starts a Qdrant-backed gateway, with a deterministic no-model evaluation path for CI/reviewer reproducibility.
 - `docker-compose.opea.yml` adds an OPEA-compatible `/v1/embeddings` microservice boundary for Qdrant RAG.
-- `docker-compose.opea-tei.yml` adds the official OPEA TEI embedding pattern with Hugging Face TEI, `TEI_EMBEDDING_ENDPOINT`, and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; local E2E passed with 768-dimensional embeddings and all five demos using `qdrant-opea-tei-vector-store`.
+- `docker-compose.opea-tei.yml` adds the official OPEA TEI embedding pattern with Hugging Face TEI, `TEI_EMBEDDING_ENDPOINT`, and `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`; local E2E passed with 768-dimensional embeddings and all five samples using `qdrant-opea-tei-vector-store`.
 
 PR-ready minimal scope I can prepare if this direction is useful:
 

@@ -4,7 +4,7 @@ Date: 2026-05-28
 
 ## Status
 
-The submitted demo path remains deterministic by default so judges can run it
+The reproducible sample path remains deterministic by default so evaluators can run it
 without model credentials or a large model download. The LLM service boundary is
 now implemented as a real adapter:
 
@@ -46,7 +46,7 @@ This is a contract test, not a production LLM acceleration claim.
 
 ## Current Decision
 
-Do not claim a production LLM or LMM full-chain benchmark unless a real model
+Do not claim a production LLM or LMM end-to-end benchmark unless a real model
 endpoint is configured and the benchmark output proves:
 
 ```text
@@ -56,7 +56,7 @@ all_contracts_pass=true
 ```
 
 The current repository is production-endpoint-ready, not production-endpoint
-benchmarked. That boundary is intentional and protects the submission from
+benchmarked. That boundary is intentional and protects the project from
 over-claiming.
 
 This statement applies to the text-only LLM explanation adapter. The
@@ -104,19 +104,19 @@ WearEdge-Pro /v1/infer
 
 Source evidence is mapped in
 [`docs/source-vlm-e2e-evidence-map.md`](source-vlm-e2e-evidence-map.md). In
-this OPEA challenge package, visual evidence is represented through structured
+this OPEA public package, visual evidence is represented through structured
 detector fields, observations, source IDs, and guarded action cards so the
 package stays runnable without private images or a large vision model.
 
 The model strategy is intentionally modular:
 
-- local Jetson/Gemma 4 E2B proves WearEdge is not a cloud-wrapper demo;
+- local Jetson/Gemma 4 E2B proves WearEdge is not a cloud-wrapper;
 - external LMM endpoints such as Gemini prove the same agent pipeline can use
   enterprise-hosted or cloud-hosted vision models;
 - OpenAI/OPEA-compatible adapters keep the Gateway, Megaservice, RAG,
   evaluator, guardrail, and action-card layers unchanged when the model changes.
 
-A true production LMM/VLM full-chain benchmark would require:
+A true production LMM/VLM end-to-end benchmark would require:
 
 - an image-capable endpoint;
 - a redacted image set cleared for public benchmark use;
@@ -136,19 +136,19 @@ the honest claim is:
 
 ```text
 WearEdge-Pro has a real edge VLM product path and visual-evidence lineage, and
-the OPEA submission is model-flexible by design. The same five-agent
+the OPEA project is model-flexible by design. The same five-agent
 manufacturing pipeline can run with a local Jetson/Gemma 4 E2B VLM or attach
 to external production LMM APIs through a strict adapter boundary, while the
 OPEA-native package remains reproducible with TEI, Qdrant, guardrails, and
 scorecards.
 ```
 
-## Why This Matters For Scoring
+## Why This Matters
 
 This closes the architectural gap without weakening reproducibility:
 
-- judges can run the no-secret deterministic path immediately;
+- evaluators can run the no-secret deterministic path immediately;
 - the same megaservice now exposes LLM runtime metadata in `/demo` results;
 - a real endpoint benchmark can be attached later without rewriting the agent
   pipeline;
-- the submission stays honest about what was actually benchmarked.
+- the project stays honest about what was actually benchmarked.

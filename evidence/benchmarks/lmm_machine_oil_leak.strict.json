@@ -88,7 +88,7 @@
     },
     "agent": {
       "name": "lao-shi-fu predictive maintenance",
-      "business_value": "Reduce downtime by converting M400 evidence into CMMS-ready maintenance work-order drafts.",
+      "business_value": "Reduce downtime by converting M400 evidence into CMMS-ready maintenance work-order proposals.",
       "integration_target": "maintenance_work_order"
     },
     "architecture": "OPEA-style Gateway -> Manufacturing Megaservice -> Dataprep -> RAG -> LLM -> Evaluator -> Guardrails",
@@ -106,7 +106,7 @@
     "rag": {
       "mode": "maintenance",
       "entity_id": "PKG-L3-GBX-03",
-      "revision": "manufacturing-demo-kb-2026-05-26",
+      "revision": "manufacturing-release-kb-2026-05-26",
       "thresholds": {
         "vibration_rms_mm_s_high": 7.0,
         "gearbox_temperature_c_high": 75.0,
@@ -122,7 +122,7 @@
             "title": "Operator sensory observation",
             "content": "High-pitched noise, burnt-oil smell, abnormal heat, visible shaking, or fresh oil leakage are valid operator sensory evidence. They should escalate the action card only when paired with accepted machine identity and condition evidence.",
             "asset_id": "PKG-L3-GBX-03",
-            "revision": "manufacturing-demo-kb-2026-05-26",
+            "revision": "manufacturing-release-kb-2026-05-26",
             "mode": "maintenance"
           }
         },
@@ -131,9 +131,9 @@
           "payload": {
             "id": "GBX-VIB-01",
             "title": "Gearbox vibration escalation",
-            "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order draft for technician confirmation.",
+            "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order proposal for technician confirmation.",
             "asset_id": "PKG-L3-GBX-03",
-            "revision": "manufacturing-demo-kb-2026-05-26",
+            "revision": "manufacturing-release-kb-2026-05-26",
             "mode": "maintenance"
           }
         },
@@ -144,7 +144,7 @@
             "title": "Lubrication record cross-check",
             "content": "If lubrication interval exceeds 14 days or oil leakage is visible, request lubrication record evidence and recent work-order history before recommending restart or maintenance release.",
             "asset_id": "PKG-L3-GBX-03",
-            "revision": "manufacturing-demo-kb-2026-05-26",
+            "revision": "manufacturing-release-kb-2026-05-26",
             "mode": "maintenance"
           }
         }
@@ -199,7 +199,7 @@
       "owner": "maintenance_engineer",
       "requires_human_confirmation": true,
       "integration_target": "maintenance_work_order",
-      "action": "Report a high-risk gearbox condition and prepare a human-confirmed maintenance work-order draft.",
+      "action": "Report a high-risk gearbox condition and prepare a human-confirmed maintenance work-order proposal.",
       "source_ids": [
         "GBX-HUMAN-01",
         "GBX-VIB-01",
@@ -214,7 +214,7 @@
     },
     "timing": {
       "pipeline_latency_ms": 1.08,
-      "note": "Deterministic demo-path timing; production embedding and LLM service latency should be measured separately.",
+      "note": "Deterministic local-path timing; production embedding and LLM service latency should be measured separately.",
       "strict_lmm_to_opea_pipeline_ms": 1.09
     },
     "asset_id": "PKG-L3-GBX-03",

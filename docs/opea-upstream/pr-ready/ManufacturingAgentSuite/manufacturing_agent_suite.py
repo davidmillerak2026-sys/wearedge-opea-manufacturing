@@ -25,7 +25,7 @@ ROUTES = {
         "channel": "maintenance_report",
         "priority": "high",
         "owner": "maintenance_engineer",
-        "action": "Prepare a human-confirmed maintenance work-order draft.",
+        "action": "Prepare a human-confirmed maintenance work-order proposal.",
         "source_ids": ["GBX-HUMAN-01", "GBX-LUBE-01", "GBX-VIB-01"],
         "blocked_claims": [
             "final_root_cause",

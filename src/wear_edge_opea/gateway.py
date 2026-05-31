@@ -8,7 +8,7 @@ try:
     from fastapi import FastAPI
     from fastapi.responses import HTMLResponse
     import uvicorn
-except ImportError as exc:  # pragma: no cover - import guard for local no-deps demo
+except ImportError as exc:  # pragma: no cover - import guard for local no-deps run
     raise SystemExit("Install server dependencies with `pip install -r requirements.txt`.") from exc
 
 from .agents import list_agents, load_sample_request

@@ -4,11 +4,11 @@ Date: 2026-05-28
 
 ## Goal
 
-This runbook strengthens the hardware optimization bonus evidence. It reruns
+This runbook strengthens the hardware optimization evidence evidence. It reruns
 the official OPEA TEI + Qdrant profile on Google Cloud C3 `c3-standard-4`
 hardware and captures:
 
-- single-node challenge configuration: 4 vCPU, 16 GiB RAM, no GPU;
+- single-node target evaluation configuration: 4 vCPU, 16 GiB RAM, no GPU;
 - Intel Xeon C3 CPU flags for AVX-512, AVX-512 BF16/VNNI, AMX TILE/INT8/BF16;
 - official OPEA TEI embedding workload;
 - Qdrant indexing and search through the five manufacturing agents;
@@ -71,9 +71,9 @@ is same-host oneDNN BF16/AMX probe evidence plus the full WearEdge scorecard
 path. The third still proves official TEI + OPEA embedding + Qdrant +
 five-agent scorecard ran on C3 hardware with Intel ISA flags present.
 
-## Scoring Use
+## Evidence Use
 
-Use this as hardware bonus evidence only with precise wording:
+Use this as hardware public evidence only with precise wording:
 
 ```text
 We ran official OPEA TEI embeddings and Qdrant RAG on a single GCP C3
@@ -92,14 +92,14 @@ supplemental probe.
 ## Captured Result
 
 The 2026-05-28 Cloud Shell run on
-`final-submission-2026-05-28-r20` completed successfully:
+`final-release-2026-05-28-r20` completed successfully:
 
 ```text
 VM: wearedge-tei-onednn-0528111751
 all_checks_pass=true
 gateway_ok=true
 scorecard_ok=true
-five_demos_ok=true
+five_samples_ok=true
 c3_cpu_flags_include_avx512=true
 c3_cpu_flags_include_amx=true
 tei_logs_present=true
@@ -130,7 +130,7 @@ validation.probe_dispatch_markers_captured
 probe_dispatch_evidence.marker_lines
 ```
 
-Use tag `final-submission-2026-05-29-r22` or newer when rerunning from Cloud
+Use tag `final-release-2026-05-29-r22` or newer when rerunning from Cloud
 Shell. If the probe captures marker lines while TEI still does not, the proper
 claim is:
 

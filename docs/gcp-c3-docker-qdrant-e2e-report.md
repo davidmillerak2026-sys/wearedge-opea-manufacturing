@@ -4,12 +4,12 @@ Status: passed on Google Cloud C3.
 
 ## Objective
 
-This run validates the challenge-facing product package rather than only the
+This run validates the public product package rather than only the
 dependency-free benchmark harness. The test creates a temporary GCP C3 VM,
 fresh-clones the public GitHub repository, starts Docker Compose, brings up
 Qdrant plus the Manufacturing Gateway, and verifies the five-agent API surface.
 
-This is the strongest current hardware/runtime evidence for the submitted
+This is the strongest current hardware/runtime evidence for the released
 product shape:
 
 ```text
@@ -39,7 +39,7 @@ All checks passed:
 | Qdrant backend reported | pass |
 | Qdrant endpoint responded | pass |
 | Five agents registered | pass |
-| All five demo endpoints ok | pass |
+| All five sample endpoints ok | pass |
 | All five infer endpoints ok | pass |
 | Demo action targets correct | pass |
 | Infer action targets correct | pass |
@@ -71,24 +71,24 @@ Each endpoint was sampled 30 times from inside the VM against
 
 ## What This Proves
 
-- The public submission repository can be cloned fresh on cloud hardware.
-- `docker compose up --build -d` starts the judge-facing package.
+- The public repository can be cloned fresh on cloud hardware.
+- `docker compose up --build -d` starts the evaluation-facing package.
 - The running profile uses Qdrant as the vector backend.
 - All five Manufacturing agents run through the same Gateway and Megaservice.
 - RAG source evidence, action-card contracts, guardrails, and integration
-  targets are returned by both demo and infer endpoints.
+  targets are returned by both sample and infer endpoints.
 - The scorecard passes across all five routes.
 
 ## Claim Boundary
 
-This run measures the deterministic WearEdge OPEA demo path with Qdrant. It is
+This run measures the deterministic WearEdge OPEA sample path with Qdrant. It is
 valid evidence for Docker/Qdrant reproducibility and endpoint latency. It should
 not be described as production LLM acceleration or production embedding
 acceleration. The API-reported vector store is `qdrant-hashing-vector-store`,
 so the next OPEA hardening step is to add an official OPEA/GenAIComps-compatible
 embedding or LLM microservice profile.
 
-## Recommended Submission Language
+## Recommended Project Language
 
 ```text
 WearEdge OPEA Manufacturing was fresh-cloned and run on Google Cloud C3
@@ -96,5 +96,5 @@ WearEdge OPEA Manufacturing was fresh-cloned and run on Google Cloud C3
 Manufacturing Gateway, verified `/demo`, `/healthz`, `/v1/agents`,
 five `/demo` routes, five `/infer` routes, and `/v1/scorecard`, and all
 validation checks passed. The five agent infer endpoints reported p95 latency
-between 5.7111 ms and 6.4216 ms in the deterministic Qdrant demo profile.
+between 5.7111 ms and 6.4216 ms in the deterministic Qdrant sample profile.
 ```

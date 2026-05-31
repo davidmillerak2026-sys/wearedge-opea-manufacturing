@@ -100,7 +100,7 @@
     "gateway_embedding_backend_opea": true,
     "embedding_service_ok": true,
     "embedding_endpoint_openai_shape": true,
-    "all_demos_ok": true,
+    "all_samples_ok": true,
     "all_rag_uses_opea_embedding_marker": true,
     "scorecard_ok": true,
     "scorecard_routes_pass": true

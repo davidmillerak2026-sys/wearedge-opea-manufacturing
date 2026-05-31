@@ -130,7 +130,7 @@ def build_report(case_results: list[dict[str, Any]], dataset_path: Path = DEFAUL
             "claim_boundary": (
                 "This is a lightweight GenAIEval-compatible artifact: JSONL dataset, "
                 "benchmark config, deterministic runner, metrics, and evidence JSON. "
-                "It does not claim full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge execution."
+                "It does not claim official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution."
             ),
             "maps_to_genaieval_concepts": [
                 "dataset",
@@ -173,7 +173,7 @@ def write_markdown_summary(report: dict[str, Any], output_path: Path) -> None:
         "",
         f"Generated UTC: `{report['generated_at_utc']}`",
         "",
-        "Claim boundary: lightweight GenAIEval-compatible evidence package; not a full official GenAIEval/RAGAS/AutoRAG/LLM-as-judge run.",
+        "Claim boundary: lightweight GenAIEval-compatible evidence package; not a official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluation run.",
         "",
         f"Overall: `ok={str(summary['ok']).lower()}`, `{summary['passed_cases']}/{summary['total_cases']}` cases passed, pass rate `{summary['pass_rate']}`.",
         "",

@@ -2,7 +2,7 @@
   "asset_id": "PKG-L3-GBX-03",
   "line": "Packaging Line 3",
   "machine": "Gearbox drive station",
-  "revision": "manufacturing-demo-kb-2026-05-26",
+  "revision": "manufacturing-release-kb-2026-05-26",
   "thresholds": {
     "vibration_rms_mm_s_high": 7.0,
     "gearbox_temperature_c_high": 75.0,
@@ -13,7 +13,7 @@
     {
       "id": "GBX-VIB-01",
       "title": "Gearbox vibration escalation",
-      "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order draft for technician confirmation."
+      "content": "For PKG-L3-GBX-03, vibration RMS above 7.0 mm/s with a yellow PLC alarm should be treated as a maintenance risk. Capture the condition screen, reduce load if required by plant procedure, and create a maintenance work-order proposal for technician confirmation."
     },
     {
       "id": "GBX-TEMP-01",

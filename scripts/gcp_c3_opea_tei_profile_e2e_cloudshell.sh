@@ -238,11 +238,11 @@ def load_jsonl(name: str):
 health = load_json("healthz.json")
 embedding_response = load_json("embedding_response.json")
 scorecard = load_json("scorecard.json")
-demos = {mode: load_json(f"demo_{mode}.json") for mode in modes}
+samples = {mode: load_json(f"demo_{mode}.json") for mode in modes}
 
 embedding_vector = embedding_response.get("data", [{}])[0].get("embedding", [])
 rag_markers = {
-    mode: demos[mode].get("rag", {}).get("vector_store")
+    mode: samples[mode].get("rag", {}).get("vector_store")
     for mode in modes
 }
 
@@ -254,7 +254,7 @@ validation = {
     "embedding_health_endpoint_responds": bool(text("embedding_health_raw.txt")),
     "embedding_endpoint_openai_shape": bool(embedding_vector),
     "embedding_dimensions_768": len(embedding_vector) == 768,
-    "all_demos_ok": all(demos[mode].get("ok") is True for mode in modes),
+    "all_samples_ok": all(samples[mode].get("ok") is True for mode in modes),
     "all_rag_uses_opea_tei_marker": all(
         marker == "qdrant-opea-tei-vector-store"
         for marker in rag_markers.values()
@@ -295,7 +295,7 @@ artifact = {
         "embedding_health_raw": text("embedding_health_raw.txt"),
         "embedding_response_sample": embedding_response,
         "scorecard": scorecard,
-        "demos": demos,
+        "samples": samples,
     },
     "rag_vector_store_markers": rag_markers,
     "docker": {

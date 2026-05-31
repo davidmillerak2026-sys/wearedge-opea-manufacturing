@@ -1,18 +1,18 @@
 # License And Third-Party Attribution
 
-WearEdge OPEA Manufacturing is submitted under the MIT License. The root
+WearEdge OPEA Manufacturing is licensed under the MIT License. The root
 `LICENSE` file is authoritative for original source code in this repository.
 Source files include SPDX headers so automated reviewers can identify the
 project license quickly.
 
 ## Original Work
 
-The submitted source package is original WearEdge OPEA Manufacturing work:
+The source package is original WearEdge OPEA Manufacturing work:
 
 - OPEA-style Gateway and Manufacturing Megaservice;
 - five route agents for maintenance, IQC/OQC, changeover, work instruction,
   and hazard observation;
-- deterministic evaluators, guardrails, action-card contracts, browser demo
+- deterministic evaluators, guardrails, action-card contracts, browser walkthrough
   console, scorecard, and GenAIEval-compatible evaluation pack;
 - sanitized manufacturing knowledge fixtures and benchmark evidence.
 
@@ -24,7 +24,7 @@ production records are intentionally not redistributed in this public package.
 
 | Component | License | Purpose | Usage boundary |
 | --- | --- | --- | --- |
-| Python standard library | PSF License | Dependency-free local demo, evaluators, route benchmarks, JSON evidence tooling | Required for local smoke path |
+| Python standard library | PSF License | Dependency-free local sample, evaluators, route benchmarks, JSON evidence tooling | Required for local smoke path |
 | FastAPI | MIT | Optional HTTP Gateway and embedding microservice API | Installed through `requirements.txt` and Docker profile |
 | Uvicorn | BSD-3-Clause | Optional ASGI server for FastAPI services | Installed through `requirements.txt` and Docker profile |
 | Qdrant container `qdrant/qdrant:v1.12.6` | Apache-2.0 | Optional Vector DB profile for RAG evidence | Used by `docker-compose.yml` |
@@ -32,7 +32,7 @@ production records are intentionally not redistributed in this public package.
 | Hugging Face Text Embeddings Inference | Apache-2.0 | Optional TEI embedding model server | Used by `docker-compose.opea-tei.yml` |
 | BAAI `bge-base-en-v1.5` | MIT model family notice on Hugging Face model card | Optional TEI embedding model for 768-dimensional embedding evidence | Pulled by TEI profile only |
 | OpenAI/OPEA-compatible or Gemini-compatible external model endpoints | Provider terms selected by deployer | Optional LLM/LMM adapter benchmarks | Not bundled, vendored, or required by default |
-| HyperFrames demo-video source | Tooling only for public demo video source package | Optional demo video rendering evidence | Not required for runtime evaluation |
+| HyperFrames product-walkthrough source | Tooling only for public product walkthrough source package | Optional product walkthrough rendering evidence | Not required for runtime evaluation |
 
 References:
 
@@ -46,14 +46,14 @@ References:
 ## Restrictive-License Check
 
 The application code does not vendor or intentionally import GPL, LGPL, AGPL,
-or other restrictive-license packages. The default local demo and evaluation
+or other restrictive-license packages. The default local sample and evaluation
 pack are dependency-free beyond Python. The Docker/Qdrant and official OPEA TEI
 profiles use permissive MIT, BSD, or Apache-compatible application components
 as listed above.
 
 If a downstream deployer swaps the optional embedding model, LLM/LMM endpoint,
 or container images, that deployer must re-check the replacement component
-licenses before using those artifacts for the competition or production.
+licenses before using those artifacts for public release or production.
 
 ## Attribution Boundary
 
@@ -61,6 +61,6 @@ OPEA, Qdrant, FastAPI, Uvicorn, Hugging Face TEI, and BAAI model names are used
 only to identify compatible third-party components. This repository does not
 claim ownership of those projects. The OPEA upstream contribution package under
 `docs/opea-upstream/pr-ready/` is a proposed Apache-2.0-style contribution for
-the OPEA project and is kept separate from the MIT-licensed WearEdge submission
+the OPEA project and is kept separate from the MIT-licensed WearEdge project
 source.
 

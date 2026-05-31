@@ -1,11 +1,11 @@
 {
-  "submission": {
+  "project": {
     "name": "WearEdge OPEA Manufacturing Five-Agent Suite",
     "target_github_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing",
     "source_project_url": "https://github.com/davidmillerak2026-sys/WearEdge-Pro",
     "vertical": "Manufacturing",
-    "judge_entrypoint": "http://127.0.0.1:8088/demo",
-    "product_shape": "Real industrial AI agent system packaged as a Docker-runnable OPEA Manufacturing Agent Suite with Web Demo Console, API, scorecard, M400/Android deployment-front-end evidence, and private production-data lineage represented through sanitized fixtures",
+    "evaluation_entrypoint": "http://127.0.0.1:8088/demo",
+    "product_shape": "Real industrial AI agent system packaged as a Docker-runnable OPEA Manufacturing Agent Suite with Browser Manufacturing Console, API, scorecard, M400/Android deployment-front-end evidence, and private production-data lineage represented through sanitized fixtures",
     "agents": [
       "maintenance",
       "iqc",
@@ -46,12 +46,12 @@
       "used_for": "Evaluation artifact compatibility boundary: dataset, runner, metrics, benchmark evidence, and pass/fail summary"
     }
   ],
-  "bonus_evidence": [
+  "public_evidence": [
     {
       "category": "OPEA open-source contribution",
       "status": "upstream_pr_opened_ci_green",
       "local_paths": [
-        "docs/opea-upstream/rfc-issue-draft.md",
+        "docs/opea-upstream/rfc-issue-working-copy.md",
         "docs/opea-upstream/blueprint-feedback.md",
         "docs/opea-upstream/implementation-feedback-comment.md",
         "docs/opea-upstream/minimal-pr-scope.md",
@@ -77,15 +77,15 @@
       "local_paths": [
         "public/article-wear-edge-opea-manufacturing.md",
         "public/external-platform-article.md",
-        "public/demo-video-script.md",
-        "public/demo-video-captions.srt",
+        "public/product-walkthrough-script.md",
+        "public/product-walkthrough-captions.srt",
         "public/video-platform-description.md",
         "docs/publication-record.md"
       ],
       "publication_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/article-wear-edge-opea-manufacturing.md",
       "publication_record_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1",
       "opea_docs_publications_pr_url": "https://github.com/opea-project/docs/pull/395",
-      "claim_boundary": "The external technical article is published on Dev.to, the demo video is published on YouTube, and GitHub article/video backups remain public. OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but it is not merged yet. The article is technical: it covers route registry, OPEA architecture, Qdrant RAG, TEI embeddings, guardrails, evaluation, and Intel evidence. Do not claim official OPEA publication until that PR is merged."
+      "claim_boundary": "The external technical article is published on Dev.to, the product walkthrough video is published on YouTube, and GitHub article/video backups remain public. OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list, but it is not merged yet. The article is technical: it covers route registry, OPEA architecture, Qdrant RAG, TEI embeddings, guardrails, evaluation, and Intel evidence. Do not claim official OPEA publication until that PR is merged."
     },
     {
       "category": "Intel AVX-512/AMX benchmark",
@@ -127,7 +127,7 @@
         "Qdrant endpoint",
         "Docker stats"
       ],
-      "claim_boundary": "Fresh-clone Docker/Qdrant E2E passed for the deterministic demo profile. This is not a production LLM or production embedding acceleration claim."
+      "claim_boundary": "Fresh-clone Docker/Qdrant E2E passed for the deterministic sample profile. This is not a production LLM or production embedding acceleration claim."
     },
     {
       "category": "GCP C3 OPEA-compatible embedding profile E2E",
@@ -173,25 +173,25 @@
       "claim_boundary": "Official OPEA TEI embedding path passed local Docker Desktop and Google Cloud C3 fresh-clone E2E. This does not claim production LLM acceleration."
     },
     {
-      "category": "Champion risk burn-down",
+      "category": "Product risk burn-down",
       "status": "risk_mitigations_documented",
       "local_paths": [
-        "docs/champion-risk-burn-down.md",
+        "docs/product-risk-burn-down.md",
         "docs/opea-native-depth-matrix.md",
         "docs/production-llm-benchmark-path.md",
         "docs/data-provenance-and-field-validation.md",
-        "docs/full-mark-gap-closure-plan.md",
-        "docs/local-ui-full-mark-follow-up-validation.md",
+        "docs/product-hardening-plan.md",
+        "docs/local-ui-product-hardening-follow-up-validation.md",
         "docs/telecom-scope-and-manufacturing-positioning.md"
       ],
-      "claim_boundary": "Known competitive risks are mitigated and documented, including real industrial-system framing, private production-data lineage, OPEA depth, LLM/LMM benchmark boundary, code quality, UI completeness, upstream contribution readiness, knowledge sharing, and Intel hardware evidence. This does not guarantee a prize."
+      "claim_boundary": "Known product-readiness risks are mitigated and documented, including real industrial-system framing, private production-data lineage, OPEA depth, LLM/LMM benchmark boundary, code quality, UI completeness, upstream contribution readiness, knowledge sharing, and Intel hardware evidence. This does not guarantee an external review outcome."
     }
   ],
   "component_map": [
     {
       "opea_layer": "Gateway",
       "wear_edge_component": "WearEdge OPEA FastAPI gateway",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/gateway.py",
         "src/wear_edge_opea/demo_console.py",
@@ -203,12 +203,12 @@
         "scripts/run_fastapi.sh",
         "docs/m400-inference-contract.md"
       ],
-      "submission_claim": "Five-agent browser/API entry point with industrial Web Demo Console, health, demo, infer, suite, scorecard routes, OPEA pipeline rail, RAG evidence, action cards, and private data boundary"
+      "project_claim": "Five-agent browser/API entry point with industrial Browser Manufacturing Console, health, sample, infer, suite, scorecard routes, OPEA pipeline rail, RAG evidence, action cards, and private data boundary"
     },
     {
       "opea_layer": "Megaservice",
       "wear_edge_component": "Manufacturing megaservice wrapper",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/megaservice.py",
         "src/wear_edge_opea/run_demo.py"
@@ -218,12 +218,12 @@
         "jetson/agent_loop.py",
         "docs/five-agent-poc-validation.md"
       ],
-      "submission_claim": "Coordinates route selection, RAG, LLM adapter, evaluator, guardrails, and action cards"
+      "project_claim": "Coordinates route selection, RAG, LLM adapter, evaluator, guardrails, and action cards"
     },
     {
       "opea_layer": "Route Registry",
       "wear_edge_component": "Five-agent manufacturing registry",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/agents.py",
         "data/sample_requests/maintenance.json",
@@ -236,12 +236,12 @@
         "jetson/agent_profiles.py",
         "docs/five-agent-poc-validation.md"
       ],
-      "submission_claim": "Defines maintenance, IQC, changeover, WI, and hazard route contracts"
+      "project_claim": "Defines maintenance, IQC, changeover, WI, and hazard route contracts"
     },
     {
       "opea_layer": "Dataprep",
       "wear_edge_component": "Route-specific knowledge loader and chunk builder",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/dataprep.py",
         "data/maintenance_kb/pkg_l3_gbx_03.json",
@@ -255,7 +255,7 @@
         "data/iqc_quality_plans/al_housing_line3.json",
         "data/released_sources/"
       ],
-      "submission_claim": "Prepares maintenance KB, quality plan, changeover checklist, WI, and hazard policy for retrieval"
+      "project_claim": "Prepares maintenance KB, quality plan, changeover checklist, WI, and hazard policy for retrieval"
     },
     {
       "opea_layer": "Embeddings",
@@ -279,12 +279,12 @@
         "docs/gcp-c3-opea-profile-e2e-report.md"
       ],
       "source_paths": [],
-      "submission_claim": "Runnable no-download embedding profile plus an official OPEA TEI profile that connects Hugging Face TEI, OPEA embedding microservice, Qdrant, and the five manufacturing routes; local and Google Cloud C3 fresh-clone evidence are included"
+      "project_claim": "Runnable no-download embedding profile plus an official OPEA TEI profile that connects Hugging Face TEI, OPEA embedding microservice, Qdrant, and the five manufacturing routes; local and Google Cloud C3 fresh-clone evidence are included"
     },
     {
       "opea_layer": "Vector DB",
       "wear_edge_component": "Qdrant profile with in-memory fallback",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "docker-compose.yml",
         "src/wear_edge_opea/vector_store.py"
@@ -292,12 +292,12 @@
       "source_paths": [
         "industrial-rag-agent/src/wear_edge_rag/retriever.py"
       ],
-      "submission_claim": "Qdrant collections are created per route; in-memory fallback keeps local demo runnable"
+      "project_claim": "Qdrant collections are created per route; in-memory fallback keeps local sample runnable"
     },
     {
       "opea_layer": "Retriever / RAG",
       "wear_edge_component": "Five-route manufacturing retriever",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/retriever.py",
         "src/wear_edge_opea/vector_store.py"
@@ -306,7 +306,7 @@
         "jetson/maintenance_kb.py",
         "industrial-rag-agent/src/wear_edge_rag/retriever.py"
       ],
-      "submission_claim": "Retrieves route-specific source snippets before action-card generation"
+      "project_claim": "Retrieves route-specific source snippets before action-card generation"
     },
     {
       "opea_layer": "LLM Service",
@@ -324,12 +324,12 @@
         "scripts/run_llama_server.sh",
         "docs/edge-runtime-benchmark.md"
       ],
-      "submission_claim": "Local demo is deterministic by default; the submitted runtime can call an OpenAI/OPEA-compatible chat-completions endpoint and benchmark endpoint latency/fallback status when configured"
+      "project_claim": "Local sample is deterministic by default; the released runtime can call an OpenAI/OPEA-compatible chat-completions endpoint and benchmark endpoint latency/fallback status when configured"
     },
     {
       "opea_layer": "Guardrails",
       "wear_edge_component": "Route-specific action map, blocked claims, and human gate",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/guardrails.py"
       ],
@@ -339,12 +339,12 @@
         "jetson/released_source.py",
         "tests/test_agent_poc_validation.py"
       ],
-      "submission_claim": "Blocks unsupported maintenance, quality, restart, release, and safety-clearance claims"
+      "project_claim": "Blocks unsupported maintenance, quality, restart, release, and safety-clearance claims"
     },
     {
       "opea_layer": "Evaluation / GenAIEval-style Scorecard",
       "wear_edge_component": "Deterministic evaluator, five-agent scorecard, and GenAIEval-compatible evaluation pack",
-      "status": "implemented_in_submission",
+      "status": "implemented_in_project",
       "local_paths": [
         "src/wear_edge_opea/evaluator.py",
         "src/wear_edge_opea/scorecard.py",
@@ -369,7 +369,7 @@
         "docs/test-log-history.md",
         "tests/test_agent_poc_validation.py"
       ],
-      "submission_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, a 15-case GenAIEval-compatible evaluation/benchmark artifact set, and an 8-worker concurrent route benchmark"
+      "project_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, a 15-case GenAIEval-compatible evaluation/benchmark artifact set, and an 8-worker concurrent route benchmark"
     }
   ]
 }

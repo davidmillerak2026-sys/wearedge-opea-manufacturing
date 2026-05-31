@@ -1,21 +1,21 @@
-# Demo Video Platform Description
+# Product Walkthrough Platform Description
 
-Use this text when uploading the WearEdge demo video to YouTube, Bilibili,
+Use this text when uploading the WearEdge product walkthrough video to YouTube, Bilibili,
 LinkedIn, or another public video platform.
 
 ## Title
 
 ```text
-WearEdge Pro OPEA Manufacturing Demo: Five Agents, Qdrant RAG, TEI, Guardrails
+WearEdge Pro OPEA Manufacturing Product Walkthrough: Five Agents, Qdrant RAG, TEI, Guardrails
 ```
 
 ## Short Description
 
 ```text
 WearEdge Pro is a real industrial AI agent system packaged as an OPEA-aligned
-Manufacturing Agent Suite. This demo shows five frontline routes: maintenance,
+Manufacturing Agent Suite. This sample shows five frontline routes: maintenance,
 IQC, changeover, work-instruction guidance, and hazard observation. The
-challenge package uses a Gateway, Manufacturing
+public package uses a Gateway, Manufacturing
 Megaservice, Qdrant RAG, OPEA-compatible embeddings, official OPEA TEI profile,
 guardrails, and GenAIEval-compatible route evidence.
 ```
@@ -27,7 +27,7 @@ WearEdge Pro packages wearable frontline manufacturing evidence and
 privacy-safe production-data lineage into an OPEA-aligned five-agent suite.
 
 Routes shown:
-- maintenance -> CMMS work-order draft
+- maintenance -> CMMS work-order proposal
 - iqc -> QMS quality event
 - changeover -> MES/checklist verification
 - wi -> released work-instruction guidance
@@ -40,7 +40,7 @@ OPEA upstream PR:
 https://github.com/opea-project/GenAIExamples/pull/2462
 
 Evidence highlights:
-- Docker-runnable Web/API demo console
+- Docker-runnable Web/API manufacturing console
 - Real industrial system lineage with M400/Jetson evidence
 - Private enterprise quality-inspection lineage, with public sanitized fixtures
 - Qdrant RAG and route-specific knowledge sources
@@ -64,11 +64,11 @@ OPEA, AI for Good, Manufacturing AI, Edge AI, RAG, Qdrant, Intel Xeon, AVX-512, 
 ## Local Video Asset
 
 ```text
-renders/wearedge-opea-manufacturing-demo.mp4
+renders/wearedge-opea-manufacturing-product-walkthrough.mp4
 ```
 
 Public GitHub asset page:
 
 ```text
-https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/codex/video-assets/renders/wearedge-opea-manufacturing-demo.mp4
+https://www.youtube.com/watch?v=dd9k8m6PDco
 ```

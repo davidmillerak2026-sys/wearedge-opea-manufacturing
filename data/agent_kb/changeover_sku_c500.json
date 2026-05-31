@@ -3,7 +3,7 @@
   "entity_id": "LABELER-FL1",
   "line": "Filling Line 1",
   "title": "Filling Line 1 Labeler Changeover Checklist For SKU-C500",
-  "revision": "CO-2026.05-demo",
+  "revision": "CO-2026.05-release",
   "thresholds": {},
   "sections": [
     {

@@ -48,7 +48,7 @@ def _maintenance_action_card(route: AgentRoute, asset_id: str, evaluation: dict,
     elif risk_level == "high":
         channel = "maintenance_report"
         priority = "high"
-        action = "Report a high-risk gearbox condition and prepare a human-confirmed maintenance work-order draft."
+        action = "Report a high-risk gearbox condition and prepare a human-confirmed maintenance work-order proposal."
     elif risk_level == "medium":
         channel = "schedule_maintenance"
         priority = "medium"

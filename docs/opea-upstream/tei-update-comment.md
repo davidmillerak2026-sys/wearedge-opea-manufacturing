@@ -39,11 +39,11 @@ What changed:
 - The profile uses the OPEA TEI pattern with `TEI_EMBEDDING_ENDPOINT`,
   `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and `/v1/embeddings`.
 - Local E2E passed with `BAAI/bge-base-en-v1.5`, 768-dimensional embeddings,
-  all five manufacturing demo routes, and `/v1/scorecard` passing.
+  all five manufacturing sample routes, and `/v1/scorecard` passing.
 - Google Cloud C3 fresh-clone E2E passed on `c3-standard-4` in
   `us-central1-a`; the temporary VM `wearedge-opea-tei-0527103938` was deleted
   after the run.
-- All five route demos report `qdrant-opea-tei-vector-store` in the RAG
+- All five sample routes report `qdrant-opea-tei-vector-store` in the RAG
   evidence when this profile is used.
 - A Google Cloud C3 fresh-clone rerun script is included for the same profile:
   `scripts/gcp_c3_opea_tei_profile_e2e_cloudshell.sh`.

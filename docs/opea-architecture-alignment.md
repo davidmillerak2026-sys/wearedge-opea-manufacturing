@@ -1,15 +1,15 @@
-# Challenge Task Compliance
+# OPEA Architecture Alignment
 
 Date: 2026-05-28
 
-This document maps the official challenge task to the submitted WearEdge Pro
-OPEA Manufacturing package. The wording uses the challenge term "prototype"
+This document maps the official OPEA requirement to the released WearEdge Pro
+OPEA Manufacturing package. The wording uses the program term "prototype"
 only to describe the executable evaluation deliverable; WearEdge Pro itself is
 a real industrial AI agent system.
 
 ## 1. Domain-Specific GenAI Application
 
-WearEdge Pro is submitted as a Manufacturing GenAI application using OPEA-style
+WearEdge Pro is released as a Manufacturing GenAI application using OPEA-style
 modular components:
 
 | Required capability | WearEdge implementation | Evidence |
@@ -24,9 +24,9 @@ modular components:
 
 ## 2. Concrete Industry Scenario
 
-The selected vertical is Manufacturing. The submitted package covers five
+The selected vertical is Manufacturing. The released package covers five
 frontline enterprise workflows instead of a single chatbot. The real product
-has private enterprise production-data lineage; the public challenge package
+has private enterprise production-data lineage; the public package
 uses sanitized fixtures so customer images, labels, lot IDs, and plant records
 are not exposed.
 
@@ -40,17 +40,17 @@ are not exposed.
 
 ## 3. Working Prototype With Documentation
 
-The executable challenge deliverable is the Docker-runnable OPEA Manufacturing
+The executable public deliverable is the Docker-runnable OPEA Manufacturing
 Agent Suite package for WearEdge Pro.
 
-| Requirement | Submission evidence |
+| Requirement | Project evidence |
 | --- | --- |
 | Functioning source code | `src/wear_edge_opea/`, `docker-compose.yml`, `docker-compose.opea-tei.yml` |
 | README | `README.md` |
-| Technical report under 2 pages | `TECHNICAL_REPORT.md`; source draft retained at `docs/technical-report.draft.md` |
+| Technical report under 2 pages | `TECHNICAL_REPORT.md`; source working copy retained at `docs/technical-report-working-copy.md` |
 | Architecture and component usage | `README.md`, `docs/opea-component-evidence.md`, `docs/opea-native-depth-matrix.md` |
 | Deployment strategy | `README.md`, `deploy.sh`, `docker-compose.yml`, `docker-compose.opea.yml`, `docker-compose.opea-tei.yml` |
-| Use-case alignment | `SUBMISSION.md`, `docs/submission-product-shape.md`, `docs/telecom-scope-and-manufacturing-positioning.md` |
+| Use-case alignment | `PROJECT_OVERVIEW.md`, `docs/product-package.md`, `docs/telecom-scope-and-manufacturing-positioning.md` |
 | OneClick setup | `docker compose up --build -d` and `./deploy.sh` |
 
 OneClick smoke path:
@@ -64,10 +64,10 @@ curl http://127.0.0.1:8088/v1/scorecard
 
 ## 4. Performance And Usability
 
-WearEdge was validated inside the challenge hardware envelope and includes
+WearEdge was validated inside the target hardware envelope and includes
 explicit response-time, memory-footprint, and user-experience evidence.
 
-| Metric requested by challenge | WearEdge evidence |
+| Metric requested by the target environment | WearEdge evidence |
 | --- | --- |
 | Typical enterprise hardware | Google Cloud C3 `c3-standard-4`, single node, 4 vCPU, 16 GiB RAM, no GPU |
 | Installation and initial run within 10 minutes | Default Docker/Qdrant C3 timed run on VM `wearedge-docker-e2e-0529041313` reached `setup_seconds=23`, `clean_initial_run_seconds=45`, `validation.clean_initial_run_under_10_min=true`, and `all_checks_pass=true` |
