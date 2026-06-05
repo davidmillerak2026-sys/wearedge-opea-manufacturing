@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-06-05T12:38:42.3640346+08:00",
+  "tool": "official OPEA GenAIEval benchmark.py / stresscli Locust",
+  "official_repo": "https://github.com/opea-project/GenAIEval",
+  "official_commit": "b4fe6fc20f69ed3644525bd71c2e1f5ed7955dfd",
+  "endpoint": "http://127.0.0.1:8088/v1/chatqna",
+  "benchmark_target": "chatqnafixed",
+  "tokenizer_model": "bert-base-uncased",
+  "output_dir": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447",
+  "windows_compatibility_patch": "Removed unsupported Locust --processes flag from the local GenAIEval stresscli checkout.",
+  "runs": [
+    {
+      "run": 1,
+      "request_count": 1,
+      "failure_count": 0,
+      "median_response_time_ms": 17.398800002411008,
+      "average_response_time_ms": 17.398800002411008,
+      "min_response_time_ms": 17.398800002411008,
+      "max_response_time_ms": 17.398800002411008,
+      "requests_per_second": 42.291948575749934,
+      "success": {
+        "succeed_response": 1,
+        "total_response": 1,
+        "success_percent": "100.0%"
+      },
+      "stats_csv": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\1_stats.csv",
+      "output_log": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\1_output.log"
+    },
+    {
+      "run": 2,
+      "request_count": 5,
+      "failure_count": 0,
+      "median_response_time_ms": 16.0,
+      "average_response_time_ms": 16.576860018540174,
+      "min_response_time_ms": 10.27919998159632,
+      "max_response_time_ms": 26.859800040256232,
+      "requests_per_second": 180.39706843753225,
+      "success": {
+        "succeed_response": 5,
+        "total_response": 5,
+        "success_percent": "100.0%"
+      },
+      "stats_csv": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\2_stats.csv",
+      "output_log": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\2_output.log"
+    },
+    {
+      "run": 3,
+      "request_count": 10,
+      "failure_count": 0,
+      "median_response_time_ms": 28.0,
+      "average_response_time_ms": 28.030140016926453,
+      "min_response_time_ms": 22.27280003717169,
+      "max_response_time_ms": 34.0989000396803,
+      "requests_per_second": 200.55198003232314,
+      "success": {
+        "succeed_response": 10,
+        "total_response": 10,
+        "success_percent": "100.0%"
+      },
+      "stats_csv": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\3_stats.csv",
+      "output_log": "C:\\tmp\\GenAIEval\\evals\\benchmark\\benchmark_output\\wearedge\\chatqnafixed_20260605_123447\\3_output.log"
+    }
+  ]
+}

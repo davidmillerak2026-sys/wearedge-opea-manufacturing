@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT
+
+services:
+  reranker:
+    build: .
+    environment:
+      WEAREDGE_RERANKER_HOST: 0.0.0.0
+      WEAREDGE_RERANKER_PORT: "7000"
+      WEAREDGE_RERANKER_MODEL: wear-edge-lexical-reranker
+    command: ["python", "-m", "wear_edge_opea.reranker_service"]
+    ports:
+      - "7000:7000"
+
+  manufacturing-gateway:
+    depends_on:
+      - qdrant
+      - reranker
+    environment:
+      WEAREDGE_RERANKER_BACKEND: remote
+      WEAREDGE_RERANKER_URL: http://reranker:7000/v1/rerank

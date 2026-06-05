@@ -1,0 +1,78 @@
+# SPDX-License-Identifier: MIT
+#
+# OPEA GenAIEval benchmark-compatible configuration for WearEdge.
+# Copy this file into opea-project/GenAIEval/evals/benchmark/ and run:
+#   python benchmark.py --yaml official_wearedge_benchmark.yaml
+
+test_suite_config:
+  examples: ["chatqna"]
+  deployment_type: "docker"
+  service_ip: "127.0.0.1"
+  service_port: 8088
+  warm_ups: 0
+  run_time: 1m
+  seed: 20260605
+  user_queries: [1, 5, 10]
+  query_timeout: 120
+  random_prompt: false
+  collect_service_metric: false
+  data_visualization: false
+  # Official aistress.py uses this as a tokenizer model for token statistics.
+  # The service model itself is reported by the WearEdge response payload.
+  llm_model: "bert-base-uncased"
+  test_output_dir: "./benchmark_output/wearedge"
+  load_shape:
+    name: constant
+    params:
+      constant:
+        concurrent_level: 1
+      poisson:
+        arrival_rate: 1.0
+  namespace: ""
+
+test_cases:
+  chatqna:
+    embedding:
+      run_test: false
+      service_name: "wear-edge-embedding"
+    embedserve:
+      run_test: false
+      service_name: "wear-edge-embedding-serving"
+    retriever:
+      run_test: false
+      service_name: "wear-edge-retriever"
+      parameters:
+        search_type: "similarity"
+        k: 3
+        fetch_k: 3
+        lambda_mult: 0.5
+        score_threshold: 0.0
+    reranking:
+      run_test: false
+      service_name: "wear-edge-reranker"
+      parameters:
+        top_n: 3
+    rerankserve:
+      run_test: false
+      service_name: "wear-edge-reranker-service"
+    llm:
+      run_test: false
+      service_name: "wear-edge-llm-adapter"
+      parameters:
+        max_new_tokens: 160
+        temperature: 0.0
+        streaming: false
+    llmserve:
+      run_test: false
+      service_name: "wear-edge-llm-service"
+    e2e:
+      run_test: true
+      service_name: "manufacturing-gateway"
+      service_list:
+        - "manufacturing-gateway"
+        - "qdrant"
+        - "reranker"
+      prompts: "Operator reports high gearbox vibration, warm housing, and oil smell on PKG-L3-GBX-03. Produce a bounded maintenance action card with source IDs and human-confirmed restrictions."
+      max_output: 160
+      k: 3
+      top_n: 3

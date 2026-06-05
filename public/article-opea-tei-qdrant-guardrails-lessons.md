@@ -154,7 +154,9 @@ The scorecard checks every route for:
 We also added a lightweight GenAIEval-compatible pack with a JSONL dataset,
 route evaluator, benchmark runner, and generated summary. It does not pretend
 to be the official GenAIEval/RAGAS/AutoRAG stack, but it makes the
-evaluation method visible and repeatable.
+evaluation method visible and repeatable. The repository now also carries a
+separate official GenAIEval `chatqnafixed` benchmark path and captured local
+summary; RAGAS, AutoRAG, and LLM-as-evaluator are still not claimed.
 
 ## Hardware Evidence
 

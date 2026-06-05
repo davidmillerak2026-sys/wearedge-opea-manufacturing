@@ -27,6 +27,7 @@ def build_scorecard() -> dict:
                 "risk_level": evaluation["risk_level"],
                 "channel": action_card["channel"],
                 "integration_target": action_card["integration_target"],
+                "reranker": result["rag"].get("reranker", {}),
                 **checks,
             }
         )

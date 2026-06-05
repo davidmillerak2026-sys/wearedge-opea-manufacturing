@@ -56,6 +56,8 @@
         "docs/opea-upstream/implementation-feedback-comment.md",
         "docs/opea-upstream/minimal-pr-scope.md",
         "docs/opea-upstream/tei-update-comment.md",
+        "docs/opea-upstream/final-evidence-update-comment.md",
+        "docs/upstream-maintainer-merge-plan.md",
         "docs/upstream-pr-attempt-2026-05-28.md",
         "docs/opea-upstream/pr-ready/0001-add-manufacturing-agent-suite.patch",
         "docs/publication-record.md"
@@ -69,7 +71,8 @@
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
       "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
-      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462, and OPEA docs Publications PR #395 is open and mergeable. Neither PR is merged yet."
+      "final_evidence_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4631635695",
+      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A final consolidated evidence update is posted to the project tracker. Direct posting to the upstream PR was attempted but blocked by GitHub integration permissions. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462, and OPEA docs Publications PR #395 is open and mergeable. Neither PR is merged yet."
     },
     {
       "category": "Knowledge sharing",
@@ -178,6 +181,7 @@
       "local_paths": [
         "docs/product-risk-burn-down.md",
         "docs/opea-native-depth-matrix.md",
+        "docs/optimization-plan-status-2026-06-05.md",
         "docs/production-llm-benchmark-path.md",
         "docs/data-provenance-and-field-validation.md",
         "docs/product-hardening-plan.md",
@@ -196,7 +200,9 @@
         "src/wear_edge_opea/gateway.py",
         "src/wear_edge_opea/demo_console.py",
         "Dockerfile",
-        "docker-compose.yml"
+        "docker-compose.yml",
+        "deploy/kubernetes/wearedge-opea-manufacturing.yaml",
+        "docs/kubernetes-optional-profile.md"
       ],
       "source_paths": [
         "jetson/app.py",
@@ -309,22 +315,39 @@
       "project_claim": "Retrieves route-specific source snippets before action-card generation"
     },
     {
+      "opea_layer": "Re-ranker",
+      "wear_edge_component": "Optional in-process and microservice reranker profile",
+      "status": "implemented_in_project",
+      "local_paths": [
+        "src/wear_edge_opea/reranker.py",
+        "src/wear_edge_opea/reranker_service.py",
+        "docker-compose.reranker.yml",
+        "docs/opea-reranker-profile.md",
+        "tests/test_pipeline.py"
+      ],
+      "source_paths": [],
+      "project_claim": "Adds an optional reranking stage after vector retrieval and before route evaluation, with a separate /v1/rerank microservice profile and deterministic in-process smoke path"
+    },
+    {
       "opea_layer": "LLM Service",
       "wear_edge_component": "Deterministic no-model path plus OpenAI/OPEA-compatible LLM adapter and benchmark harness",
-      "status": "openai_compatible_adapter_benchmark_ready",
+      "status": "local_and_cloud_llm_benchmarked",
       "local_paths": [
         "src/wear_edge_opea/llm_stub.py",
         "src/wear_edge_opea/llm_adapter.py",
         "scripts/llm_adapter_benchmark.py",
         "docs/production-llm-benchmark-path.md",
-        "evidence/benchmarks/llm_adapter_contract.local-smoke.json"
+        "docs/local-gemma-llm-benchmark.md",
+        "evidence/benchmarks/llm_adapter_contract.local-smoke.json",
+        "evidence/benchmarks/llm_adapter.deepseek.json",
+        "evidence/benchmarks/llm_adapter.local-gemma.json"
       ],
       "source_paths": [
         "jetson/llama_client.py",
         "scripts/run_llama_server.sh",
         "docs/edge-runtime-benchmark.md"
       ],
-      "project_claim": "Local sample is deterministic by default; the released runtime can call an OpenAI/OPEA-compatible chat-completions endpoint and benchmark endpoint latency/fallback status when configured"
+      "project_claim": "Local sample is deterministic by default; the released runtime can call OpenAI/OPEA-compatible and Ollama local model endpoints, benchmark endpoint latency/fallback status, and has strict DeepSeek plus local Gemma4:31B evidence with fallback_count=0"
     },
     {
       "opea_layer": "Guardrails",
@@ -349,15 +372,19 @@
         "src/wear_edge_opea/evaluator.py",
         "src/wear_edge_opea/scorecard.py",
         "docs/genaieval-compatible-evaluation.md",
+        "docs/official-genaieval-benchmark.md",
         "evals/genaieval/README.md",
         "evals/genaieval/manufacturing_route_eval.dataset.jsonl",
         "evals/genaieval/manufacturing_route_benchmark.yaml",
+        "evals/genaieval/official_wearedge_benchmark.yaml",
         "evals/genaieval/wear_edge_eval.py",
         "evals/genaieval/run_wear_edge_eval.py",
         "evals/genaieval/run_wear_edge_benchmark.py",
         "scripts/route_concurrency_benchmark.py",
+        "scripts/run_official_genaieval_benchmark.ps1",
         "evidence/genaieval/route_eval_results.json",
         "evidence/genaieval/benchmark_results.json",
+        "evidence/genaieval/official_benchmark_summary.json",
         "evidence/benchmarks/route_concurrency.local-smoke.json",
         "evidence/genaieval/summary.md",
         "scripts/evidence_check.py",
@@ -369,7 +396,7 @@
         "docs/test-log-history.md",
         "tests/test_agent_poc_validation.py"
       ],
-      "project_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, a 15-case GenAIEval-compatible evaluation/benchmark artifact set, and an 8-worker concurrent route benchmark"
+      "project_claim": "Reports latency, contract, guardrail, RAG/source match, action target correctness, route isolation, a 15-case GenAIEval-compatible evaluation/benchmark artifact set, an official GenAIEval chatqnafixed benchmark run, and an 8-worker concurrent route benchmark"
     }
   ]
 }

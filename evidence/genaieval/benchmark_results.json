@@ -1,7 +1,7 @@
 {
   "suite": "WearEdge GenAIEval-compatible manufacturing route benchmark",
   "schema_version": "2026-05-28",
-  "generated_at_utc": "2026-05-28T06:39:24+00:00",
+  "generated_at_utc": "2026-06-05T04:49:24+00:00",
   "compatibility": {
     "official_genaieval_runner_used": false,
     "claim_boundary": "Benchmark uses the local deterministic WearEdge route runner and GenAIEval-compatible metric schema. It is not a official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluation run."
@@ -15,61 +15,61 @@
   },
   "summary": {
     "ok": true,
-    "total_seconds": 0.8015,
-    "calls_per_second": 374.3016,
+    "total_seconds": 1.2018,
+    "calls_per_second": 249.6258,
     "latency_ms": {
       "count": 300,
-      "min_ms": 1.8799,
-      "mean_ms": 2.6623,
-      "p50_ms": 2.5726,
-      "p95_ms": 3.5925,
-      "max_ms": 6.0342
+      "min_ms": 2.8351,
+      "mean_ms": 3.9917,
+      "p50_ms": 3.7419,
+      "p95_ms": 6.1361,
+      "max_ms": 9.3931
     },
     "python_tracemalloc": {
-      "current_mb": 0.1257,
-      "peak_mb": 0.1415
+      "current_mb": 0.141,
+      "peak_mb": 0.1568
     }
   },
   "routes": {
     "maintenance": {
       "count": 60,
-      "min_ms": 2.5333,
-      "mean_ms": 3.1111,
-      "p50_ms": 2.9691,
-      "p95_ms": 4.0435,
-      "max_ms": 4.7331
+      "min_ms": 3.7156,
+      "mean_ms": 4.734,
+      "p50_ms": 4.2854,
+      "p95_ms": 6.8356,
+      "max_ms": 9.3931
     },
     "iqc": {
       "count": 60,
-      "min_ms": 2.0662,
-      "mean_ms": 2.7365,
-      "p50_ms": 2.5347,
-      "p95_ms": 3.5925,
-      "max_ms": 6.0342
+      "min_ms": 3.1677,
+      "mean_ms": 3.9638,
+      "p50_ms": 3.5582,
+      "p95_ms": 6.1205,
+      "max_ms": 7.3284
     },
     "changeover": {
       "count": 60,
-      "min_ms": 1.8799,
-      "mean_ms": 2.3982,
-      "p50_ms": 2.3318,
-      "p95_ms": 3.0642,
-      "max_ms": 3.2959
+      "min_ms": 2.8726,
+      "mean_ms": 3.5987,
+      "p50_ms": 3.3955,
+      "p95_ms": 5.1857,
+      "max_ms": 5.749
     },
     "wi": {
       "count": 60,
-      "min_ms": 1.9371,
-      "mean_ms": 2.3915,
-      "p50_ms": 2.3042,
-      "p95_ms": 3.2588,
-      "max_ms": 3.4764
+      "min_ms": 2.8351,
+      "mean_ms": 3.6866,
+      "p50_ms": 3.4029,
+      "p95_ms": 5.2747,
+      "max_ms": 6.9564
     },
     "hazard": {
       "count": 60,
-      "min_ms": 2.1748,
-      "mean_ms": 2.6741,
-      "p50_ms": 2.574,
-      "p95_ms": 3.5407,
-      "max_ms": 4.5341
+      "min_ms": 3.3826,
+      "mean_ms": 3.9753,
+      "p50_ms": 3.8254,
+      "p95_ms": 5.1161,
+      "max_ms": 6.2537
     }
   },
   "validation": {

@@ -14,6 +14,7 @@ from .llm_stub import explain as deterministic_explain
 
 
 OPENAI_COMPATIBLE_BACKENDS = {"openai", "openai-compatible", "opea", "opea-compatible"}
+OLLAMA_BACKENDS = {"ollama", "ollama-native"}
 
 
 @dataclass(frozen=True)
@@ -44,12 +45,21 @@ def configured_url() -> str:
     if explicit_url:
         return explicit_url
 
+    if configured_backend() in OLLAMA_BACKENDS:
+        base_url = os.getenv("WEAREDGE_LLM_BASE_URL", os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"))
+        return f"{base_url.rstrip('/')}/api/chat"
+
     base_url = os.getenv("WEAREDGE_LLM_BASE_URL", os.getenv("OPENAI_BASE_URL", "")).strip().rstrip("/")
     if not base_url:
         return ""
     if base_url.endswith("/v1"):
         return f"{base_url}/chat/completions"
     return f"{base_url}/v1/chat/completions"
+
+
+def _is_local_url(url: str) -> bool:
+    lowered = url.lower()
+    return any(host in lowered for host in ("127.0.0.1", "localhost", "::1"))
 
 
 def build_prompt(
@@ -119,7 +129,17 @@ def _extract_text(body: dict) -> str:
         return str(body["text"])
     if body.get("generated_text"):
         return str(body["generated_text"])
+    message = body.get("message")
+    if isinstance(message, dict) and message.get("content"):
+        return str(message["content"])
     raise ValueError("LLM response did not contain text")
+
+
+def _env_bool(name: str, default: bool) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _deterministic_result(
@@ -157,7 +177,7 @@ def generate_explanation(
     if backend in {"deterministic", "stub", "template"}:
         return _deterministic_result(route, entity_id, observation, rag_hits, evaluation, start=start)
 
-    if backend not in OPENAI_COMPATIBLE_BACKENDS:
+    if backend not in OPENAI_COMPATIBLE_BACKENDS and backend not in OLLAMA_BACKENDS:
         if os.getenv("WEAREDGE_LLM_STRICT", "").lower() == "true":
             raise ValueError(f"Unsupported WEAREDGE_LLM_BACKEND={backend}")
         return _deterministic_result(
@@ -187,22 +207,35 @@ def generate_explanation(
         )
 
     model = configured_model()
-    payload = {
-        "model": model,
-        "messages": [
-            {
-                "role": "system",
-                "content": (
-                    "You are an OPEA manufacturing action-card explanation service. "
-                    "Return concise, source-grounded text. Do not grant restart, release, "
-                    "final root-cause, safety-clearance, or quality-disposition authority."
-                ),
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are an OPEA manufacturing action-card explanation service. "
+                "Return concise, source-grounded text. Do not grant restart, release, "
+                "final root-cause, safety-clearance, or quality-disposition authority."
+            ),
+        },
+        {"role": "user", "content": build_prompt(route, entity_id, observation, rag_hits, evaluation)},
+    ]
+    if backend in OLLAMA_BACKENDS:
+        payload = {
+            "model": model,
+            "messages": messages,
+            "stream": False,
+            "think": _env_bool("WEAREDGE_LLM_OLLAMA_THINK", False),
+            "options": {
+                "temperature": float(os.getenv("WEAREDGE_LLM_TEMPERATURE", "0")),
+                "num_predict": int(os.getenv("WEAREDGE_LLM_MAX_TOKENS", "160")),
             },
-            {"role": "user", "content": build_prompt(route, entity_id, observation, rag_hits, evaluation)},
-        ],
-        "temperature": float(os.getenv("WEAREDGE_LLM_TEMPERATURE", "0")),
-        "max_tokens": int(os.getenv("WEAREDGE_LLM_MAX_TOKENS", "160")),
-    }
+        }
+    else:
+        payload = {
+            "model": model,
+            "messages": messages,
+            "temperature": float(os.getenv("WEAREDGE_LLM_TEMPERATURE", "0")),
+            "max_tokens": int(os.getenv("WEAREDGE_LLM_MAX_TOKENS", "160")),
+        }
 
     try:
         body = _post_json(url, payload, timeout=float(os.getenv("WEAREDGE_LLM_TIMEOUT", "30")))
@@ -214,7 +247,7 @@ def generate_explanation(
             latency_ms=round((time.perf_counter() - start) * 1000, 2),
             service_url=url,
             fallback_used=False,
-            claim_status="production_llm_endpoint_used",
+            claim_status="local_llm_endpoint_used" if _is_local_url(url) else "production_llm_endpoint_used",
         )
     except (OSError, urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError) as exc:
         if os.getenv("WEAREDGE_LLM_STRICT", "").lower() == "true":

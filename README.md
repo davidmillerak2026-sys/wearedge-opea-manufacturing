@@ -166,6 +166,28 @@ the embedding model, the OPEA embedding microservice connects through
 `EMBEDDING_COMPONENT_NAME=OPEA_TEI_EMBEDDING`, and the Manufacturing Gateway
 uses `/v1/embeddings` for Qdrant indexing and retrieval.
 
+Optional OPEA-compatible reranker profile:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.reranker.yml up --build -d
+curl http://127.0.0.1:7000/healthz
+curl http://127.0.0.1:8088/v1/agents/maintenance/demo
+curl http://127.0.0.1:8088/v1/scorecard
+```
+
+This profile inserts a separate `/v1/rerank` microservice after vector
+retrieval and before route evaluation. See
+[`docs/opea-reranker-profile.md`](docs/opea-reranker-profile.md).
+
+Optional Kubernetes profile:
+
+```powershell
+docker build -t wearedge-opea-manufacturing:local .
+kubectl apply -f deploy\kubernetes\wearedge-opea-manufacturing.yaml
+```
+
+See [`docs/kubernetes-optional-profile.md`](docs/kubernetes-optional-profile.md).
+
 LLM adapter contract benchmark:
 
 ```powershell
@@ -179,6 +201,24 @@ To benchmark a real OpenAI/OPEA-compatible LLM endpoint, set
 `WEAREDGE_LLM_BASE_URL`, `WEAREDGE_LLM_MODEL`, and
 `WEAREDGE_LLM_STRICT=true`. See
 [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md).
+
+Local Gemma models can also be used if they are served as a real endpoint. For
+example, with Ollama:
+
+```powershell
+$env:PYTHONPATH="src"
+python scripts\llm_adapter_benchmark.py --local-profile ollama `
+  --model <your-gemma-model-name> `
+  --strict --iterations 1 `
+  --output evidence\benchmarks\llm_adapter.local-gemma.json
+```
+
+Use local LLM evidence only when the benchmark reports
+`claim_status=local_llm_endpoint_benchmarked`, `fallback_count=0`, and
+`all_contracts_pass=true`. See
+[`docs/local-gemma-llm-benchmark.md`](docs/local-gemma-llm-benchmark.md).
+The current evidence includes a strict WSL/Ollama `gemma4:31b` run in
+`evidence/benchmarks/llm_adapter.local-gemma.json`.
 
 Strict LMM oil-leak image benchmark:
 
@@ -210,6 +250,17 @@ python evals\genaieval\run_wear_edge_benchmark.py --iterations 20 --output evide
 This lightweight package provides a JSONL dataset, benchmark metadata, runner,
 metrics, and committed evidence outputs. It does not claim full official
 GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.
+
+Official GenAIEval benchmark:
+
+```powershell
+.\scripts\run_official_genaieval_benchmark.ps1
+```
+
+This uses `evals/genaieval/official_wearedge_benchmark.yaml`, the
+`/v1/chatqna` SSE compatibility alias, and records the latest local official
+run summary in `evidence/genaieval/official_benchmark_summary.json`. See
+[`docs/official-genaieval-benchmark.md`](docs/official-genaieval-benchmark.md).
 
 The legacy maintenance endpoints remain available:
 
@@ -252,7 +303,11 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/product-risk-burn-down.md`](docs/product-risk-burn-down.md) | One-by-one mitigation for the six known product risks |
 | [`docs/opea-native-depth-matrix.md`](docs/opea-native-depth-matrix.md) | OPEA component depth matrix and claim boundaries |
 | [`docs/production-llm-benchmark-path.md`](docs/production-llm-benchmark-path.md) | Optional production LLM endpoint benchmark path |
+| [`docs/local-gemma-llm-benchmark.md`](docs/local-gemma-llm-benchmark.md) | Local Gemma/Ollama/LM Studio/vLLM/llama.cpp strict LLM benchmark path |
 | [`docs/genaieval-compatible-evaluation.md`](docs/genaieval-compatible-evaluation.md) | Lightweight GenAIEval-compatible dataset, runner, metrics, and evidence |
+| [`docs/official-genaieval-benchmark.md`](docs/official-genaieval-benchmark.md) | Official OPEA GenAIEval benchmark YAML and run script path |
+| [`docs/opea-reranker-profile.md`](docs/opea-reranker-profile.md) | Optional OPEA-compatible reranker service profile |
+| [`docs/kubernetes-optional-profile.md`](docs/kubernetes-optional-profile.md) | Optional Kubernetes deployment manifest and claim boundary |
 | [`docs/data-provenance-and-field-validation.md`](docs/data-provenance-and-field-validation.md) | Real system lineage, public data scope, and field validation boundary |
 | [`docs/telecom-scope-and-manufacturing-positioning.md`](docs/telecom-scope-and-manufacturing-positioning.md) | Manufacturing positioning if evaluators compare telecom/network projects |
 | [`docs/public-url-check.md`](docs/public-url-check.md) | Public URL availability check for project profile fields |

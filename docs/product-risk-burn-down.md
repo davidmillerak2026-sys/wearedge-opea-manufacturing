@@ -16,7 +16,8 @@ WearEdge should be released as:
 An OPEA-aligned, Docker-runnable Manufacturing Agent Suite that demonstrates
 how one Gateway + Megaservice + RAG + Qdrant + official OPEA TEI embedding path
 can support five front-line manufacturing agents with guardrails and a
-machine-verifiable scorecard plus GenAIEval-compatible route evidence.
+machine-verifiable scorecard plus GenAIEval-compatible route evidence and an
+official GenAIEval benchmark run.
 ```
 
 Do not publish it as an Android app only, an M400-only artifact, or a generic
@@ -26,7 +27,7 @@ RAG chatbot.
 
 | Risk | Current mitigation | Evidence | Residual claim boundary |
 | --- | --- | --- | --- |
-| OPEA-native depth could be beaten by teams with more official microservices, Helm/GMC, or merged PRs | Official TEI profile is implemented and C3-validated; OPEA component matrix maps Gateway, Megaservice, Dataprep, Retriever/RAG, Embeddings, Vector DB, LLM adapter, Guardrails, and Evaluation; GenAIEval-compatible route evidence is included; upstream PR #2462 is open and CI-green | `docker-compose.opea-tei.yml`, `docs/official-opea-tei-profile.md`, `docs/opea-native-depth-matrix.md`, `docs/genaieval-compatible-evaluation.md`, `docs/opea-upstream/pr-ready/`, `docs/upstream-pr-attempt-2026-05-28.md`, `https://github.com/opea-project/GenAIExamples/pull/2462` | We can claim official OPEA TEI embedding path, lightweight GenAIEval-compatible evidence, and real CI-green upstream PR opened; do not claim Helm/GMC production deployment, official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution, or merged upstream PR |
+| OPEA-native depth could be beaten by teams with more official microservices, Helm/GMC, or merged PRs | Official TEI profile is implemented and C3-validated; OPEA component matrix maps Gateway, Megaservice, Dataprep, Retriever/RAG, Embeddings, Vector DB, LLM adapter, Guardrails, and Evaluation; GenAIEval-compatible route evidence and an official GenAIEval `chatqnafixed` benchmark run are included; upstream PR #2462 is open and CI-green | `docker-compose.opea-tei.yml`, `docs/official-opea-tei-profile.md`, `docs/opea-native-depth-matrix.md`, `docs/genaieval-compatible-evaluation.md`, `docs/official-genaieval-benchmark.md`, `evidence/genaieval/official_benchmark_summary.json`, `docs/opea-upstream/pr-ready/`, `docs/upstream-pr-attempt-2026-05-28.md`, `https://github.com/opea-project/GenAIExamples/pull/2462` | We can claim official OPEA TEI embedding path, lightweight GenAIEval-compatible evidence, an official local GenAIEval benchmark run, and a real CI-green upstream PR opened; do not claim Helm/GMC production deployment, RAGAS/AutoRAG/LLM-as-evaluator execution, or merged upstream PR |
 | Production LLM path had no complete benchmark | OpenAI/OPEA-compatible LLM adapter now exists in the runtime path; benchmark harness records endpoint usage, latency, fallback, and contract pass/fail | `src/wear_edge_opea/llm_adapter.py`, `scripts/llm_adapter_benchmark.py`, `evidence/benchmarks/llm_adapter_contract.local-smoke.json`, `docs/production-llm-benchmark-path.md` | Current committed JSON is an adapter contract smoke test unless a real endpoint is configured and `production_llm_endpoint_benchmarked` is recorded |
 | Product walkthrough may not catch a fast-skimming evaluator | README, form guide, and manufacturing console now put "five agents + OPEA TEI + Qdrant + scorecard" first; manufacturing console shows LLM runtime and route evidence | `README.md`, `/demo`, `docs/project-profile-fill-guide.md`, `public/product-walkthrough-script.md` | The strongest proof is engineering evidence; the video remains short and focused rather than cinematic |
 | Knowledge-sharing evidence may be discounted if GitHub-only | Burned down: external Dev.to article and YouTube product walkthrough video are published; OPEA docs Publications PR #395 is open and mergeable to add the article to the official OPEA Publications / Blogs list | Dev.to article, YouTube walkthrough, `docs/publication-record.md`, `https://github.com/opea-project/docs/pull/395` | Do not claim official OPEA publication until PR #395 is merged |
@@ -43,8 +44,9 @@ Use this in any short notes field:
 WearEdge Pro is not a single maintenance chatbot. It is a five-agent OPEA
 Manufacturing suite with official OPEA TEI embeddings, Qdrant RAG, a unified
 Gateway/Megaservice, guardrails, a scorecard, GenAIEval-compatible route
-evaluation, C3 Xeon validation, upstream OPEA RFC/comment/open-PR evidence,
-and a evaluation-facing Docker/Web/API product.
+evaluation, an official GenAIEval benchmark run, C3 Xeon validation, upstream
+OPEA RFC/comment/open-PR evidence, and an evaluation-facing Docker/Web/API
+product.
 ```
 
 ## Remaining Human Action

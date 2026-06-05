@@ -87,9 +87,11 @@ under `evals/genaieval/`. It provides a JSONL dataset, benchmark metadata,
 runner scripts, metric outputs, and committed evidence under
 `evidence/genaieval/`. The captured local run reports 15/15 cases passing across
 contract, target, channel, risk, human gate, guardrail, RAG source, and
-route-isolation metrics, plus a 300-call route benchmark. This is intentionally
-claimed as GenAIEval-compatible evidence, not official GenAIEval/RAGAS/
-AutoRAG/LLM-as-evaluator execution.
+route-isolation metrics, plus a 300-call route benchmark. In addition, the
+official OPEA GenAIEval `chatqnafixed` benchmark has been run against
+`/v1/chatqna`, with the local official summary captured in
+`evidence/genaieval/official_benchmark_summary.json`. This does not claim
+RAGAS, AutoRAG, or LLM-as-evaluator execution.
 
 Archived WearEdge-Pro evidence includes a real Vuzix M400 -> Jetson -> local edge LLM -> M400 result chain, lao-shi-fu multi-evidence maintenance validation, five-agent validation, power/runtime notes, and edge-runtime benchmark records. The OPEA product package was also fresh-cloned on Google Cloud C3 `c3-standard-4` single-node 4-vCPU / 16-GiB-RAM / no-GPU configurations, started with Docker Compose, verified Qdrant plus the Manufacturing Gateway, passed all five sample and infer routes, and passed `/v1/scorecard`. Performance evidence includes C3 latency and Docker memory JSON, a 300-call GenAIEval-compatible route benchmark, and a local 8-worker / 100-request concurrency benchmark with all action targets correct.
 

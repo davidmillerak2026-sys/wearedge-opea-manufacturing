@@ -123,7 +123,7 @@ M400 / API evidence
 | Vector DB | Qdrant | Qdrant |
 | Gateway | FastAPI | FastAPI with `WEAREDGE_EMBEDDING_BACKEND=opea` |
 | RAG evidence | Five route KBs | Same five route KBs, embedded through service boundary |
-| LLM | Adapter-ready deterministic path | Same, pending production OPEA LLM profile |
+| LLM | Adapter-ready deterministic path | Same adapter; local Gemma and DeepSeek endpoint benchmarks are captured separately |
 
 ## Claim Boundary
 

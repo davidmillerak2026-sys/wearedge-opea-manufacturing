@@ -1,42 +1,41 @@
 {
   "benchmark": "WearEdge OPEA Manufacturing LLM adapter benchmark",
   "schema_version": "2026-05-28",
-  "claim_status": "deterministic_llm_adapter_contract_smoke_test",
+  "claim_status": "production_llm_endpoint_benchmarked",
   "configuration": {
-    "WEAREDGE_LLM_BACKEND": "deterministic",
-    "WEAREDGE_LLM_URL_CONFIGURED": false,
-    "WEAREDGE_LLM_MODEL": "manufacturing-action-card-adapter",
-    "WEAREDGE_LLM_STRICT": "false",
-    "WEAREDGE_LLM_API_KEY_CONFIGURED": false,
-    "service_url": "in-process",
-    "endpoint_scope": "no_endpoint_configured"
+    "WEAREDGE_LLM_BACKEND": "openai-compatible",
+    "WEAREDGE_LLM_URL_CONFIGURED": true,
+    "WEAREDGE_LLM_MODEL": "deepseek-chat",
+    "WEAREDGE_LLM_STRICT": "true",
+    "WEAREDGE_LLM_API_KEY_CONFIGURED": true,
+    "service_url": "https://api.deepseek.com/v1/chat/completions",
+    "endpoint_scope": "remote_model_endpoint"
   },
   "iterations_per_route": 1,
   "total_calls": 5,
-  "total_seconds": 0.0056,
+  "total_seconds": 13.5012,
   "llm_latency": {
     "count": 5,
-    "min_ms": 0.01,
-    "mean_ms": 0.01,
-    "p50_ms": 0.01,
-    "p95_ms": 0.01,
-    "max_ms": 0.01
+    "min_ms": 2145.93,
+    "mean_ms": 2678.02,
+    "p50_ms": 2722.07,
+    "p95_ms": 2963.27,
+    "max_ms": 2963.27
   },
   "pipeline_latency": {
     "count": 5,
-    "min_ms": 0.73,
-    "mean_ms": 0.83,
-    "p50_ms": 0.77,
-    "p95_ms": 0.99,
-    "max_ms": 0.99
+    "min_ms": 2157.7,
+    "mean_ms": 2690.43,
+    "p50_ms": 2736.41,
+    "p95_ms": 2972.94,
+    "max_ms": 2972.94
   },
   "backend_names": [
-    "deterministic"
+    "openai-compatible"
   ],
   "fallback_count": 0,
   "all_contracts_pass": true,
-  "model_endpoint_used": false,
-  "production_endpoint_used": false,
+  "production_endpoint_used": true,
   "local_endpoint_used": false,
   "sample_calls": [
     {
@@ -46,11 +45,11 @@
       "expected_integration_target": "maintenance_work_order",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "openai-compatible",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.73
+      "llm_claim_status": "production_llm_endpoint_used",
+      "llm_latency_ms": 2947.02,
+      "pipeline_latency_ms": 2964.58
     },
     {
       "mode": "iqc",
@@ -59,11 +58,11 @@
       "expected_integration_target": "qms_quality_event",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "openai-compatible",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.87
+      "llm_claim_status": "production_llm_endpoint_used",
+      "llm_latency_ms": 2722.07,
+      "pipeline_latency_ms": 2736.41
     },
     {
       "mode": "changeover",
@@ -72,11 +71,11 @@
       "expected_integration_target": "changeover_checklist",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "openai-compatible",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.77
+      "llm_claim_status": "production_llm_endpoint_used",
+      "llm_latency_ms": 2611.79,
+      "pipeline_latency_ms": 2620.53
     },
     {
       "mode": "wi",
@@ -85,11 +84,11 @@
       "expected_integration_target": "wi_reference",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "openai-compatible",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.99
+      "llm_claim_status": "production_llm_endpoint_used",
+      "llm_latency_ms": 2145.93,
+      "pipeline_latency_ms": 2157.7
     },
     {
       "mode": "hazard",
@@ -98,11 +97,11 @@
       "expected_integration_target": "ehs_case",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "openai-compatible",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.77
+      "llm_claim_status": "production_llm_endpoint_used",
+      "llm_latency_ms": 2963.27,
+      "pipeline_latency_ms": 2972.94
     }
   ],
   "claim_boundary": "Use local_llm_endpoint_benchmarked for localhost model services such as Ollama, LM Studio, vLLM, or llama.cpp. Use production_llm_endpoint_benchmarked only when a remote production endpoint is configured and fallback_count is zero. Otherwise this is a deterministic adapter contract smoke test."

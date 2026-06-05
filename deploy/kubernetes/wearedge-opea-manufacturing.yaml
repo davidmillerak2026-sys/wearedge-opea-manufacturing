@@ -1,0 +1,147 @@
+# SPDX-License-Identifier: MIT
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wearedge-opea
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wearedge-config
+  namespace: wearedge-opea
+data:
+  WEAREDGE_VECTOR_BACKEND: "qdrant"
+  WEAREDGE_QDRANT_URL: "http://qdrant:6333"
+  WEAREDGE_COLLECTION: "wearedge_manufacturing_kb"
+  WEAREDGE_RERANKER_BACKEND: "remote"
+  WEAREDGE_RERANKER_URL: "http://reranker:7000/v1/rerank"
+  WEAREDGE_HOST: "0.0.0.0"
+  WEAREDGE_PORT: "8088"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qdrant
+  namespace: wearedge-opea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qdrant
+  template:
+    metadata:
+      labels:
+        app: qdrant
+    spec:
+      containers:
+        - name: qdrant
+          image: qdrant/qdrant:v1.12.6
+          ports:
+            - containerPort: 6333
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 6333
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qdrant
+  namespace: wearedge-opea
+spec:
+  selector:
+    app: qdrant
+  ports:
+    - name: http
+      port: 6333
+      targetPort: 6333
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reranker
+  namespace: wearedge-opea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reranker
+  template:
+    metadata:
+      labels:
+        app: reranker
+    spec:
+      containers:
+        - name: reranker
+          image: wearedge-opea-manufacturing:local
+          imagePullPolicy: IfNotPresent
+          command: ["python", "-m", "wear_edge_opea.reranker_service"]
+          ports:
+            - containerPort: 7000
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 7000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reranker
+  namespace: wearedge-opea
+spec:
+  selector:
+    app: reranker
+  ports:
+    - name: http
+      port: 7000
+      targetPort: 7000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manufacturing-gateway
+  namespace: wearedge-opea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manufacturing-gateway
+  template:
+    metadata:
+      labels:
+        app: manufacturing-gateway
+    spec:
+      containers:
+        - name: manufacturing-gateway
+          image: wearedge-opea-manufacturing:local
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: wearedge-config
+          ports:
+            - containerPort: 8088
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8088
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: manufacturing-gateway
+  namespace: wearedge-opea
+spec:
+  type: ClusterIP
+  selector:
+    app: manufacturing-gateway
+  ports:
+    - name: http
+      port: 8088
+      targetPort: 8088

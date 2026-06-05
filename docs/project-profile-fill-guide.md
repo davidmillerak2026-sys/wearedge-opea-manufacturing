@@ -121,8 +121,9 @@ Before publishing, verify:
   Guardrails are stable; the model is pluggable.
 - The selected components include RAG, Vector DB, Orchestration, Guardrails,
   and LLM.
-- GenAIEval wording says compatible/lightweight evidence, not full official
-  GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.
+- GenAIEval wording says lightweight compatible evidence plus an official
+  GenAIEval benchmark run; it does not claim RAGAS/AutoRAG/LLM-as-evaluator
+  execution.
 - The product walkthrough video URL opens as a GitHub asset page.
 - The external article URL is published on Dev.to, and the external product walkthrough video
   URL is published on YouTube.

@@ -1,7 +1,7 @@
 {
   "suite": "WearEdge GenAIEval-compatible manufacturing route evaluation",
   "schema_version": "2026-05-28",
-  "generated_at_utc": "2026-05-28T06:39:23+00:00",
+  "generated_at_utc": "2026-06-05T04:48:50+00:00",
   "compatibility": {
     "official_genaieval_runner_used": false,
     "claim_boundary": "This is a lightweight GenAIEval-compatible artifact: JSONL dataset, benchmark config, deterministic runner, metrics, and evidence JSON. It does not claim official GenAIEval/RAGAS/AutoRAG/LLM-as-evaluator execution.",
@@ -87,40 +87,40 @@
         "cases": 3,
         "passed": 3,
         "pass_rate": 1.0,
-        "mean_eval_latency_ms": 1.1841,
-        "p95_eval_latency_ms": 1.5958,
+        "mean_eval_latency_ms": 1.0359,
+        "p95_eval_latency_ms": 1.1333,
         "status": "pass"
       },
       "iqc": {
         "cases": 3,
         "passed": 3,
         "pass_rate": 1.0,
-        "mean_eval_latency_ms": 0.7547,
-        "p95_eval_latency_ms": 0.8065,
+        "mean_eval_latency_ms": 0.935,
+        "p95_eval_latency_ms": 1.0084,
         "status": "pass"
       },
       "changeover": {
         "cases": 3,
         "passed": 3,
         "pass_rate": 1.0,
-        "mean_eval_latency_ms": 0.6912,
-        "p95_eval_latency_ms": 0.7244,
+        "mean_eval_latency_ms": 0.7804,
+        "p95_eval_latency_ms": 0.81,
         "status": "pass"
       },
       "wi": {
         "cases": 3,
         "passed": 3,
         "pass_rate": 1.0,
-        "mean_eval_latency_ms": 0.738,
-        "p95_eval_latency_ms": 0.8444,
+        "mean_eval_latency_ms": 0.8651,
+        "p95_eval_latency_ms": 1.008,
         "status": "pass"
       },
       "hazard": {
         "cases": 3,
         "passed": 3,
         "pass_rate": 1.0,
-        "mean_eval_latency_ms": 0.7337,
-        "p95_eval_latency_ms": 0.8059,
+        "mean_eval_latency_ms": 0.859,
+        "p95_eval_latency_ms": 0.9252,
         "status": "pass"
       }
     }
@@ -148,8 +148,8 @@
         "requires_human_confirmation": true,
         "source_ids": [
           "GBX-HUMAN-01",
-          "GBX-VIB-01",
-          "GBX-LUBE-01"
+          "GBX-LUBE-01",
+          "GBX-VIB-01"
         ],
         "blocked_claims": [
           "final_root_cause",
@@ -157,11 +157,11 @@
           "restart_permission",
           "maintenance_release"
         ],
-        "latency_ms": 1.01,
-        "eval_latency_ms": 1.0669,
+        "latency_ms": 1.11,
+        "eval_latency_ms": 1.1333,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
-          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 5 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-VIB-01, GBX-LUBE-01. Operator observation: Operator reports high-pitched gearbox noise, burnt-oil smell, warm housing, guard shaking, and small oil seepage after speed increase.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 5 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-LUBE-01, GBX-VIB-01. Operator observation: Operator reports high-pitched gearbox noise, burnt-oil smell, warm housing, guard shaking, and small oil seepage after speed increase.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
           "backend": "deterministic",
           "model": "deterministic-action-card-template",
           "latency_ms": 0.01,
@@ -193,9 +193,9 @@
         "priority": "medium",
         "requires_human_confirmation": true,
         "source_ids": [
-          "GBX-VIB-01",
           "GBX-HUMAN-01",
-          "GBX-TEMP-01"
+          "GBX-TEMP-01",
+          "GBX-VIB-01"
         ],
         "blocked_claims": [
           "final_root_cause",
@@ -203,11 +203,11 @@
           "restart_permission",
           "maintenance_release"
         ],
-        "latency_ms": 1.58,
-        "eval_latency_ms": 1.5958,
+        "latency_ms": 0.97,
+        "eval_latency_ms": 0.9862,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
-          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 2 accepted evidence flags. The strongest retrieved maintenance sources are GBX-VIB-01, GBX-HUMAN-01, GBX-TEMP-01. Operator observation: Operator notes rising vibration and gearbox housing heat during the second hour of operation.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 2 accepted evidence flags. The strongest retrieved maintenance sources are GBX-HUMAN-01, GBX-TEMP-01, GBX-VIB-01. Operator observation: Operator notes rising vibration and gearbox housing heat during the second hour of operation.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
           "backend": "deterministic",
           "model": "deterministic-action-card-template",
           "latency_ms": 0.01,
@@ -239,8 +239,8 @@
         "priority": "low",
         "requires_human_confirmation": true,
         "source_ids": [
-          "GBX-VIB-01",
           "GBX-LUBE-01",
+          "GBX-VIB-01",
           "GBX-TEMP-01"
         ],
         "blocked_claims": [
@@ -249,11 +249,11 @@
           "restart_permission",
           "maintenance_release"
         ],
-        "latency_ms": 0.87,
-        "eval_latency_ms": 0.8895,
+        "latency_ms": 0.97,
+        "eval_latency_ms": 0.9881,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
-          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 0 accepted evidence flags. The strongest retrieved maintenance sources are GBX-VIB-01, GBX-LUBE-01, GBX-TEMP-01. Operator observation: Routine inspection shows normal gearbox sound and no visible oil seepage.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
+          "text": "lao-shi-fu predictive maintenance for PKG-L3-GBX-03 has 0 accepted evidence flags. The strongest retrieved maintenance sources are GBX-LUBE-01, GBX-VIB-01, GBX-TEMP-01. Operator observation: Routine inspection shows normal gearbox sound and no visible oil seepage.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
           "backend": "deterministic",
           "model": "deterministic-action-card-template",
           "latency_ms": 0.01,
@@ -295,8 +295,8 @@
           "customer_acceptance",
           "measurement_certification"
         ],
-        "latency_ms": 0.79,
-        "eval_latency_ms": 0.8065,
+        "latency_ms": 0.99,
+        "eval_latency_ms": 1.0084,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "incoming and in-process quality control for AL-HOUSING-L3 has 2 accepted evidence flags. The strongest retrieved iqc sources are ALH-MIX-04, ALH-CONTAM-03, ALH-BURR-01. Operator observation: M400 view shows a label mismatch and a missing machined feature on the aluminum housing lot.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -341,8 +341,8 @@
           "customer_acceptance",
           "measurement_certification"
         ],
-        "latency_ms": 0.74,
-        "eval_latency_ms": 0.756,
+        "latency_ms": 0.85,
+        "eval_latency_ms": 0.8697,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "incoming and in-process quality control for AL-HOUSING-L3 has 2 accepted evidence flags. The strongest retrieved iqc sources are ALH-CONTAM-03, ALH-SEAL-02, ALH-MIX-04. Operator observation: M400 view shows edge burrs and dark handling contamination near the sealing face on a machined aluminum housing.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -387,8 +387,8 @@
           "customer_acceptance",
           "measurement_certification"
         ],
-        "latency_ms": 0.69,
-        "eval_latency_ms": 0.7017,
+        "latency_ms": 0.91,
+        "eval_latency_ms": 0.927,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "incoming and in-process quality control for AL-HOUSING-L3 has 0 accepted evidence flags. The strongest retrieved iqc sources are ALH-CONTAM-03, ALH-SEAL-02, ALH-MIX-04. Operator observation: Operator asks to record detector-clear evidence after visual inspection of the sealing face.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -433,8 +433,8 @@
           "recipe_release",
           "first_piece_release"
         ],
-        "latency_ms": 0.71,
-        "eval_latency_ms": 0.7244,
+        "latency_ms": 0.78,
+        "eval_latency_ms": 0.7985,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "SKU changeover verification for LABELER-FL1 has 1 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-GUIDE-RECIPE, CO-C500-LINE-CLEAR, CO-C500-FIRST-PIECE. Operator observation: Previous SKU labels are removed, C500 label roll is loaded, HMI recipe RCP-C500-LBL is visible, and first piece is waiting for quality sign-off.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -479,8 +479,8 @@
           "recipe_release",
           "first_piece_release"
         ],
-        "latency_ms": 0.66,
-        "eval_latency_ms": 0.6752,
+        "latency_ms": 0.71,
+        "eval_latency_ms": 0.7328,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "SKU changeover verification for LABELER-FL1 has 0 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-FIRST-PIECE, CO-C500-LINE-CLEAR, CO-C500-GUIDE-RECIPE. Operator observation: Line clearance, C500 label roll, recipe match, and first-piece verification are all visible for quality sign-off.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -525,8 +525,8 @@
           "recipe_release",
           "first_piece_release"
         ],
-        "latency_ms": 0.66,
-        "eval_latency_ms": 0.6741,
+        "latency_ms": 0.79,
+        "eval_latency_ms": 0.81,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "SKU changeover verification for LABELER-FL1 has 3 accepted evidence flags. The strongest retrieved changeover sources are CO-C500-GUIDE-RECIPE, CO-C500-LINE-CLEAR, CO-C500-FIRST-PIECE. Operator observation: The old labels remain near the reject bin, the C500 roll is not confirmed, and first-piece sign-off is missing.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -571,8 +571,8 @@
           "quality_release",
           "restart_permission"
         ],
-        "latency_ms": 0.69,
-        "eval_latency_ms": 0.7042,
+        "latency_ms": 0.99,
+        "eval_latency_ms": 1.008,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "released work-instruction guidance for CARTONER-ST2 has 0 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks how to align the product guide after clearing the infeed. Guard is closed and no alarm is active.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -617,8 +617,8 @@
           "quality_release",
           "restart_permission"
         ],
-        "latency_ms": 0.83,
-        "eval_latency_ms": 0.8444,
+        "latency_ms": 0.69,
+        "eval_latency_ms": 0.7033,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "released work-instruction guidance for CARTONER-ST2 has 1 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks for guide adjustment, but the released revision is not visible on the station screen.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -663,14 +663,14 @@
           "quality_release",
           "restart_permission"
         ],
-        "latency_ms": 0.65,
-        "eval_latency_ms": 0.6654,
+        "latency_ms": 0.87,
+        "eval_latency_ms": 0.8841,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "released work-instruction guidance for CARTONER-ST2 has 1 accepted evidence flags. The strongest retrieved wi sources are WI-CARTONER-ST2-START, WI-CARTONER-ST2-GUIDE, WI-CARTONER-ST2-RISK. Operator observation: Operator asks for work guidance while an active alarm is visible on CARTONER-ST2.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
           "backend": "deterministic",
           "model": "deterministic-action-card-template",
-          "latency_ms": 0.01,
+          "latency_ms": 0.05,
           "service_url": "in-process",
           "fallback_used": false,
           "claim_status": "deterministic_llm_adapter_contract",
@@ -709,8 +709,8 @@
           "safety_clearance",
           "incident_root_cause"
         ],
-        "latency_ms": 0.79,
-        "eval_latency_ms": 0.8059,
+        "latency_ms": 0.91,
+        "eval_latency_ms": 0.9252,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "EHS hazard observation for PACK-L3-AISLE has 3 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-MOVE-02, EHS-PPE-01. Operator observation: M400 scene shows a pallet blocking the marked walkway while an operator stands near moving transfer equipment without eye protection.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -755,8 +755,8 @@
           "safety_clearance",
           "incident_root_cause"
         ],
-        "latency_ms": 0.66,
-        "eval_latency_ms": 0.6741,
+        "latency_ms": 0.87,
+        "eval_latency_ms": 0.8908,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "EHS hazard observation for PACK-L3-AISLE has 1 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-PPE-01, EHS-MOVE-02. Operator observation: Operator sees a small spill near the aisle edge and asks whether to log an EHS observation.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",
@@ -801,8 +801,8 @@
           "safety_clearance",
           "incident_root_cause"
         ],
-        "latency_ms": 0.71,
-        "eval_latency_ms": 0.7212,
+        "latency_ms": 0.75,
+        "eval_latency_ms": 0.7609,
         "rag_vector_store": "in-memory-hashing-vector-store",
         "llm_runtime": {
           "text": "EHS hazard observation for PACK-L3-AISLE has 0 accepted evidence flags. The strongest retrieved hazard sources are EHS-CASE-04, EHS-PPE-01, EHS-MOVE-02. Operator observation: Routine safety scan shows no visible obstruction, no spill, required PPE, and no exposed moving-parts condition.. The system should create a bounded action card, preserve source IDs, and keep restricted decisions human-confirmed.",

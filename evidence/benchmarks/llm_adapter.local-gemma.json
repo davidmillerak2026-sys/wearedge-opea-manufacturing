@@ -1,43 +1,43 @@
 {
   "benchmark": "WearEdge OPEA Manufacturing LLM adapter benchmark",
   "schema_version": "2026-05-28",
-  "claim_status": "deterministic_llm_adapter_contract_smoke_test",
+  "claim_status": "local_llm_endpoint_benchmarked",
   "configuration": {
-    "WEAREDGE_LLM_BACKEND": "deterministic",
-    "WEAREDGE_LLM_URL_CONFIGURED": false,
-    "WEAREDGE_LLM_MODEL": "manufacturing-action-card-adapter",
-    "WEAREDGE_LLM_STRICT": "false",
+    "WEAREDGE_LLM_BACKEND": "ollama",
+    "WEAREDGE_LLM_URL_CONFIGURED": true,
+    "WEAREDGE_LLM_MODEL": "gemma4:31b",
+    "WEAREDGE_LLM_STRICT": "true",
     "WEAREDGE_LLM_API_KEY_CONFIGURED": false,
-    "service_url": "in-process",
-    "endpoint_scope": "no_endpoint_configured"
+    "service_url": "http://127.0.0.1:11434/api/chat",
+    "endpoint_scope": "local_model_endpoint"
   },
   "iterations_per_route": 1,
   "total_calls": 5,
-  "total_seconds": 0.0056,
+  "total_seconds": 88.6333,
   "llm_latency": {
     "count": 5,
-    "min_ms": 0.01,
-    "mean_ms": 0.01,
-    "p50_ms": 0.01,
-    "p95_ms": 0.01,
-    "max_ms": 0.01
+    "min_ms": 7403.03,
+    "mean_ms": 17613.06,
+    "p50_ms": 8251.42,
+    "p95_ms": 54459.95,
+    "max_ms": 54459.95
   },
   "pipeline_latency": {
     "count": 5,
-    "min_ms": 0.73,
-    "mean_ms": 0.83,
-    "p50_ms": 0.77,
-    "p95_ms": 0.99,
-    "max_ms": 0.99
+    "min_ms": 7424.59,
+    "mean_ms": 17650.67,
+    "p50_ms": 8274.78,
+    "p95_ms": 54485.28,
+    "max_ms": 54485.28
   },
   "backend_names": [
-    "deterministic"
+    "ollama"
   ],
   "fallback_count": 0,
   "all_contracts_pass": true,
-  "model_endpoint_used": false,
+  "model_endpoint_used": true,
   "production_endpoint_used": false,
-  "local_endpoint_used": false,
+  "local_endpoint_used": true,
   "sample_calls": [
     {
       "mode": "maintenance",
@@ -46,11 +46,11 @@
       "expected_integration_target": "maintenance_work_order",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "ollama",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.73
+      "llm_claim_status": "local_llm_endpoint_used",
+      "llm_latency_ms": 54459.95,
+      "pipeline_latency_ms": 54485.28
     },
     {
       "mode": "iqc",
@@ -59,11 +59,11 @@
       "expected_integration_target": "qms_quality_event",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "ollama",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.87
+      "llm_claim_status": "local_llm_endpoint_used",
+      "llm_latency_ms": 9770.57,
+      "pipeline_latency_ms": 9807.28
     },
     {
       "mode": "changeover",
@@ -72,11 +72,11 @@
       "expected_integration_target": "changeover_checklist",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "ollama",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.77
+      "llm_claim_status": "local_llm_endpoint_used",
+      "llm_latency_ms": 8180.31,
+      "pipeline_latency_ms": 8261.43
     },
     {
       "mode": "wi",
@@ -85,11 +85,11 @@
       "expected_integration_target": "wi_reference",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "ollama",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.99
+      "llm_claim_status": "local_llm_endpoint_used",
+      "llm_latency_ms": 8251.42,
+      "pipeline_latency_ms": 8274.78
     },
     {
       "mode": "hazard",
@@ -98,11 +98,11 @@
       "expected_integration_target": "ehs_case",
       "guardrail_pass": true,
       "rag_source_match": true,
-      "llm_backend": "deterministic",
+      "llm_backend": "ollama",
       "llm_fallback_used": false,
-      "llm_claim_status": "deterministic_llm_adapter_contract",
-      "llm_latency_ms": 0.01,
-      "pipeline_latency_ms": 0.77
+      "llm_claim_status": "local_llm_endpoint_used",
+      "llm_latency_ms": 7403.03,
+      "pipeline_latency_ms": 7424.59
     }
   ],
   "claim_boundary": "Use local_llm_endpoint_benchmarked for localhost model services such as Ollama, LM Studio, vLLM, or llama.cpp. Use production_llm_endpoint_benchmarked only when a remote production endpoint is configured and fallback_count is zero. Otherwise this is a deterministic adapter contract smoke test."
