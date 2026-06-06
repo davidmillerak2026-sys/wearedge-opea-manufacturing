@@ -38,9 +38,9 @@ GenAIEval-compatible evidence + GCP C3 evidence.
 
 Complete OPEA demo video:
 
-```text
-https://youtu.be/ID8QPYhhhtk
-```
+[![Watch the complete WearEdge OPEA demo video on YouTube](public/images/wearedge-pro-complete-opea-demo-cover.png)](https://youtu.be/ID8QPYhhhtk)
+
+[Watch the complete OPEA demo video on YouTube](https://youtu.be/ID8QPYhhhtk)
 
 Single-node runtime profile:
 
@@ -347,6 +347,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`public/product-walkthrough-script.md`](public/product-walkthrough-script.md) | 1-3 minute product walkthrough video shot list and narration |
 | [`public/video-platform-description.md`](public/video-platform-description.md) | Ready-to-use public video platform title, description, and tags |
 | [Complete OPEA demo video](https://youtu.be/ID8QPYhhhtk) | Full public demo video for evaluator review |
+| [`public/images/wearedge-pro-complete-opea-demo-cover.png`](public/images/wearedge-pro-complete-opea-demo-cover.png) | Clickable README cover image for the complete OPEA demo video |
 | [YouTube product walkthrough video](https://www.youtube.com/watch?v=dd9k8m6PDco) | Published public product walkthrough video |
 | [`public/product-walkthrough/`](public/product-walkthrough/) | Renderable HyperFrames product walkthrough video source package |
 | [`docs/product-walkthrough-render-report.md`](docs/product-walkthrough-render-report.md) | Local product walkthrough render and validation evidence |
