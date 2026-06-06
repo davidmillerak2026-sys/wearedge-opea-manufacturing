@@ -317,7 +317,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/publication-record.md`](docs/publication-record.md) | Public OPEA/article publication URLs |
 | [`docs/opea-upstream/`](docs/opea-upstream/) | OPEA RFC issue working copy, blueprint feedback, and PR plan |
 | [`docs/opea-upstream/pr-ready/`](docs/opea-upstream/pr-ready/) | Copyable OPEA `GenAIExamples` contribution package |
-| [`docs/upstream-pr-attempt-2026-05-28.md`](docs/upstream-pr-attempt-2026-05-28.md) | Direct upstream PR attempt, fork push, opened PR record, and CI-green status |
+| [`docs/upstream-pr-attempt-2026-05-28.md`](docs/upstream-pr-attempt-2026-05-28.md) | Direct upstream PR attempt, fork push, opened PR record, and current check-status boundary |
 | [`docs/intel-avx512-amx-benchmark-report.md`](docs/intel-avx512-amx-benchmark-report.md) | Intel CPU benchmark report with Google Cloud C3 Xeon AVX-512/AMX evidence |
 | [`docs/intel-effective-use-evidence.md`](docs/intel-effective-use-evidence.md) | Intel effective-use evidence across route, Qdrant, embedding, and official OPEA TEI workloads |
 | [`docs/gcp-c3-docker-qdrant-e2e-report.md`](docs/gcp-c3-docker-qdrant-e2e-report.md) | Google Cloud C3 fresh-clone Docker/Qdrant E2E evidence |
@@ -360,7 +360,7 @@ Project profile fields are in [`project-profile.json`](project-profile.json).
 Recommended component selection:
 
 ```text
-LLM, RAG, Vector DB, Orchestration, Guardrails
+LLM, RAG, Vector DB, Orchestration, Guardrails, Embeddings, Evaluation, Retriever, Reranker
 ```
 
 ## Evidence Check
@@ -399,7 +399,7 @@ imported, vendored, or required by the default application source. See
 [`docs/license-and-attribution.md`](docs/license-and-attribution.md) for the
 full attribution boundary.
 
-## Evidence Evidence
+## Evidence
 
 OPEA open-source contribution package:
 
@@ -509,8 +509,9 @@ clean installation and initial-run time was 45 seconds, with `setup_seconds=23`.
 The official OPEA TEI E2E run was captured on Google Cloud C3 `c3-standard-4` in `us-central1-a`. It fresh-cloned this repository, started Qdrant, `opea/embedding:latest`, Hugging Face TEI, and the Manufacturing Gateway, verified 768-dimensional TEI embeddings, passed all five sample routes with `qdrant-opea-tei-vector-store`, passed `/v1/scorecard`, and deleted the temporary VM `wearedge-opea-tei-0527103938` after the run.
 
 The supplemental TEI/oneDNN run was captured on Google Cloud C3
-`c3-standard-4` in `us-central1-a` from tag
-`final-release-2026-05-29-r23`. It started the same official OPEA TEI
+`c3-standard-4` in `us-central1-a` from the historical May 29 submission
+series, now represented by the valid `final-submission-2026-05-29-r23` tag.
+It started the same official OPEA TEI
 profile plus verbose env capture, passed Gateway health, `/v1/scorecard`, all
 five sample routes, Docker stats capture, AVX-512 flag check, AMX flag check, TEI
 log capture, and a same-host oneDNN BF16/AMX probe, then deleted temporary VM

@@ -86,7 +86,7 @@ For OPEA evidence, the repository includes:
   `TEI_EMBEDDING_ENDPOINT`, and `OPEA_TEI_EMBEDDING`;
 - OpenAI/OPEA-compatible LLM adapter boundary;
 - GenAIEval-compatible route evaluation package;
-- upstream OPEA RFC, comments, and a CI-green GenAIExamples PR.
+- upstream OPEA RFC, comments, and an open GenAIExamples PR with key check-run evidence.
 
 The evaluation package includes 15 cases across the five routes and verifies:
 

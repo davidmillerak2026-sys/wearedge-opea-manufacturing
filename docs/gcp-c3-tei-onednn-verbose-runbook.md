@@ -92,7 +92,7 @@ supplemental probe.
 ## Captured Result
 
 The 2026-05-28 Cloud Shell run on
-`final-release-2026-05-28-r20` completed successfully:
+an earlier May 28 working revision completed successfully:
 
 ```text
 VM: wearedge-tei-onednn-0528111751
@@ -130,7 +130,7 @@ validation.probe_dispatch_markers_captured
 probe_dispatch_evidence.marker_lines
 ```
 
-Use tag `final-release-2026-05-29-r22` or newer when rerunning from Cloud
+Use tag `final-submission-2026-05-29-r22` or newer when rerunning from Cloud
 Shell. If the probe captures marker lines while TEI still does not, the proper
 claim is:
 

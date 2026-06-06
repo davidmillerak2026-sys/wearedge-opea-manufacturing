@@ -1,7 +1,7 @@
 # Release Readiness Audit
 
 Status: strong technical package; public product walkthrough video URL verified; OPEA
-upstream RFC/comment posted; real upstream PR #2462 opened and CI-green;
+upstream RFC/comment posted; real upstream PR #2462 opened with key check-run evidence;
 OPEA docs Publications PR #395 opened and mergeable; contribution package and
 patch artifact prepared; local Docker Desktop
 validation passed; GenAIEval-compatible route evaluation passed; supplemental
@@ -43,7 +43,7 @@ detection. Raw customer plant data is intentionally not published.
 | Intel/efficiency evidence | C3 Xeon AVX-512/AMX benchmark plus C3 Docker/Qdrant, OPEA-compatible embedding, official OPEA TEI fresh-clone E2E, and supplemental TEI/oneDNN verbose attempt evidence | Ready |
 | Hardware constraints | C3 `c3-standard-4` single-node 4-vCPU / 16-GiB / no-GPU evidence is ready; the default Docker/Qdrant timed run completed clean installation and initial run in 45 seconds | Ready |
 | Licensing and originality | MIT root license, SPDX headers, declared third-party components, restrictive-license boundary, private-data exclusion | Ready |
-| Open-source contribution evidence | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed; OPEA docs Publications PR #395 opened and mergeable; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PRs are open but not merged yet |
+| Open-source contribution evidence | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; DCO, dependency-review, get-test-matrix, get-test-case, and compose-test check runs pass on the current PR head; OPEA docs Publications PR #395 opened and mergeable; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PRs are open but not merged yet; legacy status contexts should be rechecked before saying fully green |
 | Product risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
 | Knowledge-sharing evidence | External Dev.to article and YouTube product walkthrough video are published; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list; GitHub article/video backup evidence remains public | Ready; do not claim official OPEA publication until #395 is merged |
 
@@ -121,7 +121,7 @@ Use `project-profile.json` as the current source for the project profile.
 Recommended component selection:
 
 ```text
-LLM, RAG, Vector DB, Orchestration, Guardrails
+LLM, RAG, Vector DB, Orchestration, Guardrails, Embeddings, Evaluation, Retriever, Reranker
 ```
 
 Primary project URL:

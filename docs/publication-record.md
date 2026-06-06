@@ -12,7 +12,7 @@ This file records public URLs that support the OPEA ecosystem public evidence.
 | GCP C3 official TEI update | Posted to project tracker | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045 |
 | Public OPEA tracker | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2 |
 | Upstream contribution package | Prepared and locally smoke-tested | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/docs/opea-upstream/pr-ready |
-| Upstream PR | Open and CI-green against `opea-project/GenAIExamples:main`; not merged yet | https://github.com/opea-project/GenAIExamples/pull/2462 |
+| Upstream PR | Open against `opea-project/GenAIExamples:main`; key check runs pass on the current PR head; not merged yet | https://github.com/opea-project/GenAIExamples/pull/2462 |
 | OPEA Publications PR | Open and mergeable against `opea-project/docs:main`; not merged yet | https://github.com/opea-project/docs/pull/395 |
 | Upstream PR attempt log | Direct upstream push failed with GitHub 403, then fork push succeeded and PR #2462 was opened | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/docs/upstream-pr-attempt-2026-05-28.md |
 
@@ -58,7 +58,7 @@ This file records public URLs that support the OPEA ecosystem public evidence.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.
 - The official TEI update is posted directly in `opea-project/GenAIExamples#2461`; it was verified through the GitHub API as comment `4554039017` by `Ryanhuii`.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
-- The PR is CI-green on head `0c149a06`: DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed.
+- Current PR head `4c4621a690dca0523f8ada32070b4a02b34d61fc` has DCO, dependency-review, get-test-matrix, get-test-case, and compose-test check runs passing. Legacy status contexts should be rechecked before saying the PR is fully green.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
 - The product walkthrough video is published on YouTube; the rendered MP4, committed
   HyperFrames source package, and public GitHub asset page remain as backup

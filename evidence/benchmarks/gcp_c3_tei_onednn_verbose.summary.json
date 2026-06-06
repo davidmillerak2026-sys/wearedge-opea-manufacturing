@@ -1,11 +1,11 @@
 {
   "benchmark": "WearEdge OPEA TEI oneDNN verbose / Intel ISA evidence on GCP C3",
-  "capture_source": "Cloud Shell pasted transcript from final-release-2026-05-29-r23",
+  "capture_source": "Cloud Shell pasted transcript from the historical May 29 submission series, now represented by final-submission-2026-05-29-r23",
   "captured_at_utc": "2026-05-29T02:43:59Z",
   "project_id": "gen-lang-client-0555254036",
   "zone": "us-central1-a",
   "vm": "wearedge-tei-onednn-0529024359",
-  "branch_or_tag": "final-release-2026-05-29-r23",
+  "branch_or_tag": "final-submission-2026-05-29-r23",
   "artifact_copied_to_cloud_shell": "/home/ryan_on2008/gcp_c3_tei_onednn_verbose.json",
   "runtime_profile": {
     "cloud": "Google Cloud",

@@ -14,7 +14,7 @@ application checks and the same-host oneDNN BF16/AMX probe.
 | VM | `wearedge-tei-onednn-0529024359` |
 | Machine | `c3-standard-4` |
 | Target profile | single node, 4 vCPU, 15.61 GiB observed RAM, no GPU |
-| Branch/tag | `final-release-2026-05-29-r23` |
+| Branch/tag | historical May 29 submission series, now represented by `final-submission-2026-05-29-r23` |
 | Full artifact in Cloud Shell | `/home/ryan_on2008/gcp_c3_tei_onednn_verbose.json` |
 | Summary artifact | `evidence/benchmarks/gcp_c3_tei_onednn_verbose.summary.json` |
 | Overall result | `all_checks_pass=true` |

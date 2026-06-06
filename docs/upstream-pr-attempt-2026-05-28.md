@@ -10,7 +10,8 @@ A real upstream PR is now open:
 https://github.com/opea-project/GenAIExamples/pull/2462
 ```
 
-The PR is CI-green on head `0c149a06eab8b53713e0bd208c5caa1ed58ee7a4`.
+Historical note: the PR had passing key checks on head `0c149a06eab8b53713e0bd208c5caa1ed58ee7a4`.
+Current public PR status should be rechecked before saying fully green.
 DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and
 compose-test all passed on 2026-05-28.
 
@@ -104,7 +105,7 @@ created_at=2026-05-27T11:18:57Z
 
 ## Remaining Status
 
-The PR is open and CI-green, but not merged. Do not claim it has been accepted
+The PR is open with key check-run evidence, but not merged. Do not claim it has been accepted
 upstream until OPEA maintainers merge it.
 
 The generated patch remains available as a fallback artifact:

@@ -49,7 +49,7 @@
   "public_evidence": [
     {
       "category": "OPEA open-source contribution",
-      "status": "upstream_pr_opened_ci_green",
+      "status": "upstream_pr_opened_key_checks_passing",
       "local_paths": [
         "docs/opea-upstream/rfc-issue-working-copy.md",
         "docs/opea-upstream/blueprint-feedback.md",
@@ -66,13 +66,13 @@
       "issue_url": "https://github.com/opea-project/GenAIExamples/issues/2461",
       "pull_request_url": "https://github.com/opea-project/GenAIExamples/pull/2462",
       "docs_publications_pr_url": "https://github.com/opea-project/docs/pull/395",
-      "pull_request_head_sha": "0c149a06eab8b53713e0bd208c5caa1ed58ee7a4",
-      "pull_request_checks": "DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and compose-test passed on 2026-05-28.",
+      "pull_request_head_sha": "4c4621a690dca0523f8ada32070b4a02b34d61fc",
+      "pull_request_checks": "Current check-run evidence shows DCO, dependency-review, get-test-matrix, get-test-case, and compose-test passing; legacy status contexts should be rechecked before saying fully green.",
       "tracker_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2",
       "tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553776627",
       "gcp_tei_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4553937045",
       "final_evidence_tracker_comment_url": "https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/2#issuecomment-4631635695",
-      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A final consolidated evidence update is posted to the project tracker. Direct posting to the upstream PR was attempted but blocked by GitHub integration permissions. A real upstream PR is open and CI-green at opea-project/GenAIExamples#2462, and OPEA docs Publications PR #395 is open and mergeable. Neither PR is merged yet."
+      "claim_boundary": "Public RFC issue and official TEI update comment are posted upstream. A final consolidated evidence update is posted to the project tracker. Direct posting to the upstream PR was attempted but blocked by GitHub integration permissions. A real upstream PR is open at opea-project/GenAIExamples#2462 with key check-run evidence, and OPEA docs Publications PR #395 is open and mergeable. Neither PR is merged yet."
     },
     {
       "category": "Knowledge sharing",
