@@ -1,7 +1,7 @@
 # Public Platform Publishing Handoff
 
 Status: external article published on Dev.to; external product walkthrough video published on
-YouTube; OPEA docs Publications PR #395 open/mergeable.
+YouTube; OPEA docs Publications PR #395 open but not merged.
 
 The repository contains ready-to-use materials for the knowledge-sharing evidence.
 The external technical article is now published on Dev.to:

@@ -180,7 +180,7 @@ Follow-up:
 ### Knowledge-Sharing Evidence
 
 Current state: defendable because Dev.to and YouTube are public, and OPEA docs
-PR #395 is open and mergeable to add the article to the official OPEA
+PR #395 is open to add the article to the official OPEA
 Publications / Blogs list.
 
 Is the article technical enough?

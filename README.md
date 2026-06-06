@@ -333,7 +333,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [`docs/gcp-c3-tei-onednn-verbose-runbook.md`](docs/gcp-c3-tei-onednn-verbose-runbook.md) | GCP C3 TEI oneDNN/ISA verbose capture runbook |
 | [`docs/gcp-c3-tei-onednn-verbose-report.md`](docs/gcp-c3-tei-onednn-verbose-report.md) | Captured C3 TEI/oneDNN verbose attempt result and claim boundary |
 | [Dev.to external article](https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh) | Published public knowledge-sharing article |
-| [OPEA docs Publications PR](https://github.com/opea-project/docs/pull/395) | OPEA Publications / Blogs listing; open and mergeable, not merged yet |
+| [OPEA docs Publications PR](https://github.com/opea-project/docs/pull/395) | OPEA Publications / Blogs listing proposal; open and not merged yet |
 | [`public/article-wear-edge-opea-manufacturing.md`](public/article-wear-edge-opea-manufacturing.md) | Public GitHub article backup |
 | [`public/article-opea-tei-qdrant-guardrails-lessons.md`](public/article-opea-tei-qdrant-guardrails-lessons.md) | OPEA practical technical article: TEI, Qdrant, guardrails, hardware, and feedback |
 | [`public/external-platform-article.md`](public/external-platform-article.md) | Source article package published via Dev.to |

@@ -66,11 +66,11 @@ Strict interpretation:
 | --- | --- | --- |
 | Run `git diff --check` | Yes | Passed after latest compliance edits |
 | Run `scripts/evidence_check.py` | Yes | Passed after latest compliance edits |
-| Run unit tests | Yes | Passed after latest compliance edits: 15 tests OK |
+| Run unit tests | Yes | Passed after latest compliance edits: 22 tests OK |
 | Run Python compile check | Yes | Passed: `compileall -q src scripts evals tests` |
 | Attach GCP timed clean-run artifact | Needed for measured 10-minute claim | Passed via operator-provided Cloud Shell transcript and jq output: `setup_seconds=23`, `clean_initial_run_seconds=45`, `clean_initial_run_under_10_min=true`, `all_checks_pass=true` |
-| Commit and push latest compliance docs | Yes, after user approval | Pending |
-| Confirm OPEA docs PR #395 wording | No blocker | PR is open/mergeable, not merged; do not claim official OPEA publication |
+| Commit and push latest compliance docs | Yes, after user approval | Completed for the current public package; rerun before final submission if another commit is added |
+| Confirm OPEA docs PR #395 wording | No blocker | PR is open but not merged; do not claim official OPEA publication |
 
 ## Safe Project Wording
 

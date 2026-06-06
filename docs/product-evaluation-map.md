@@ -25,7 +25,7 @@ Status language:
 | System Efficiency | Runtime evidence | Strong evidence, with one LLM caveat | Single-node 4-vCPU / 16-GiB / no-GPU local and GCP C3 evidence is strong; production LLM serving latency is intentionally not over-claimed. |
 | Code Quality | Engineering evidence | Strong evidence | Self-contained source, tests, Docker profiles, evidence checker, and signed commits are present. |
 | Functional Completeness | Product evidence | Strong evidence | Web UI, API, five samples, five infer routes, Qdrant RAG, TEI profile, scorecard, and GenAIEval-compatible pack all run. |
-| Open-source evidence | Public contribution evidence | Evidence gap to watch | Public RFC, comments, GenAIExamples PR #2462 with key check-run evidence, and open/mergeable OPEA docs Publications PR #395 exist; product evidence is stronger if maintainers engage, merge, or request changes that we address. |
+| Open-source evidence | Public contribution evidence | Evidence gap to watch | Public RFC, comments, GenAIExamples PR #2462 with key check-run evidence, and open but unmerged OPEA docs Publications PR #395 exist; product evidence is stronger if maintainers engage, merge, or request changes that we address. |
 | Knowledge-sharing evidence | Public knowledge evidence | Strong evidence | Public Dev.to article and YouTube walkthrough are live and linked; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list. |
 | Hardware optimization evidence | Runtime/hardware evidence | Strong evidence, with TEI-specific boundary | AVX-512/AMX C3 evidence is connected to WearEdge workloads; the r23 run passed the OPEA TEI/Qdrant/five-agent scorecard path and captured same-host oneDNN BF16/AMX probe dispatch markers. |
 
