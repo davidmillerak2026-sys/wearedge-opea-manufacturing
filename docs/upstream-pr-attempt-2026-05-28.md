@@ -11,7 +11,7 @@ https://github.com/opea-project/GenAIExamples/pull/2462
 ```
 
 Historical note: the PR had passing key checks on head `0c149a06eab8b53713e0bd208c5caa1ed58ee7a4`.
-Current public PR status should be rechecked before saying fully green.
+Current public PR status is tracked in `docs/public-url-check.md`.
 DCO, pre-commit.ci, dependency-review, get-test-matrix, get-test-case, and
 compose-test all passed on 2026-05-28.
 

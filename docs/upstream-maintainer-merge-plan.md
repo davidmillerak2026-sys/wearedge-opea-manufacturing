@@ -1,6 +1,6 @@
 # Upstream Maintainer Merge Plan
 
-Date: 2026-06-05
+Date: 2026-06-06
 
 Target PR:
 
@@ -10,7 +10,7 @@ https://github.com/opea-project/GenAIExamples/pull/2462
 
 ## Current PR State
 
-Checked through the GitHub connector on 2026-06-05:
+Checked through the GitHub API on 2026-06-06:
 
 | Field | State |
 | --- | --- |
@@ -19,11 +19,11 @@ Checked through the GitHub connector on 2026-06-05:
 | Merged | false |
 | Mergeable | true as of 2026-06-06 API check |
 | Head branch | `Ryanhuii/GenAIExamples:codex/wear-edge-manufacturing-suite-pr-ready` |
-| Current checked head SHA | `4c4621a690dca0523f8ada32070b4a02b34d61fc` |
-| Changed files | 9 |
+| Current checked head SHA | `e47ebb3bf363ecc15563bb8d05ab4c65f88e2268` |
+| Changed files | 55 |
 | Review threads | 0 |
 | Review submissions | 0 |
-| Visible commit status | key GitHub check runs pass; legacy `pre-commit.ci - pr` currently reports failure |
+| Visible commit status | combined status success; `pre-commit.ci - pr`, DCO, dependency-review, get-test-matrix, get-test-case, and compose-test pass |
 | PR comments | Dependency Review bot only |
 
 Requested reviewers are already present:
@@ -99,7 +99,7 @@ Before pinging maintainers again:
 
 1. Keep the PR small; do not expand it with GraphRAG, fine-tuning, Helm/GMC, or
    heavy reranker changes.
-2. Repair or re-run the legacy `pre-commit.ci - pr` status before saying the PR is fully green.
+2. Keep the current green status intact if any maintainer requests updates.
 3. Preserve mergeability if maintainers request updates.
 4. Keep `maintainer_can_modify` enabled on the fork PR if the GitHub UI exposes
    that setting.
@@ -109,7 +109,7 @@ Before pinging maintainers again:
 ## Current Recommendation
 
 Do not rewrite the PR unless a maintainer asks for changes. The PR is already
-small, review-requested, and CI-friendly in its key GitHub check runs; legacy
-pre-commit status still needs repair before claiming fully green. The next useful action is
-to post the maintainer review request comment above through a GitHub identity
-that has upstream comment permission, then wait for reviewer feedback.
+small, review-requested, mergeable, and green in its current visible checks.
+The next useful action is to post the maintainer review request comment above
+through a GitHub identity that has upstream comment permission, then wait for
+reviewer feedback.

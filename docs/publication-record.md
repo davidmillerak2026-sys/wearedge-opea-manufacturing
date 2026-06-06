@@ -58,7 +58,7 @@ This file records public URLs that support the OPEA ecosystem public evidence.
 - The RFC issue is the primary OPEA feedback channel until maintainers confirm whether the first contribution should live in `GenAIExamples`, `GenAIComps`, or `docs`.
 - The official TEI update is posted directly in `opea-project/GenAIExamples#2461`; it was verified through the GitHub API as comment `4554039017` by `Ryanhuii`.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
-- Current PR head `4c4621a690dca0523f8ada32070b4a02b34d61fc` has DCO, dependency-review, get-test-matrix, get-test-case, and compose-test check runs passing. Legacy status contexts should be rechecked before saying the PR is fully green.
+- Current PR head `e47ebb3bf363ecc15563bb8d05ab4c65f88e2268` has combined status success, with `pre-commit.ci - pr`, DCO, dependency-review, get-test-matrix, get-test-case, and compose-test passing. The PR is still open and not merged, so do not claim maintainer acceptance yet.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
 - The product walkthrough video is published on YouTube; the rendered MP4, committed
   HyperFrames source package, and public GitHub asset page remain as backup
