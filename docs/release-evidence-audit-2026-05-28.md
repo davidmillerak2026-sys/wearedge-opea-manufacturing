@@ -15,7 +15,7 @@ form project.
 | Form source | `project-profile.json` |
 | Form fill guide | `docs/project-profile-fill-guide.md` |
 | Product evidence map | `docs/product-evaluation-map.md` |
-| Current frozen tag | `final-submission-2026-06-06-r28` |
+| Current frozen tag | `final-submission-2026-06-06-r29` |
 
 ## Verification Already Passed
 

@@ -61,6 +61,12 @@ Product front ends:
 
 The M400 evidence is a product differentiator, but evaluators do not need M400 hardware to run the project.
 
+Physical deployment reference:
+
+![WearEdge Smart Inspection System waist-mount wireless hardware reference](public/images/wearedge-smart-inspection-waist-mount.png)
+
+This reference image shows the WearEdge waist-mount wireless setup with Vuzix M400 AR glasses, Jetson edge computing box, wireless link, bracket details, and industrial belt mounting. It illustrates the broader WearEdge field deployment shape; the OPEA evaluation package remains runnable through Docker, Web, and API without requiring the hardware.
+
 ## OPEA Architecture Fit
 
 WearEdge Pro maps cleanly to OPEA enterprise application requirements:
@@ -337,6 +343,7 @@ curl http://127.0.0.1:8088/v1/manufacturing/suite
 | [YouTube product walkthrough video](https://www.youtube.com/watch?v=dd9k8m6PDco) | Published public product walkthrough video |
 | [`public/product-walkthrough/`](public/product-walkthrough/) | Renderable HyperFrames product walkthrough video source package |
 | [`docs/product-walkthrough-render-report.md`](docs/product-walkthrough-render-report.md) | Local product walkthrough render and validation evidence |
+| [`public/images/wearedge-smart-inspection-waist-mount.png`](public/images/wearedge-smart-inspection-waist-mount.png) | Physical WearEdge M400 + Jetson waist-mount deployment reference image |
 | [`evals/genaieval/`](evals/genaieval/) | GenAIEval-compatible evaluation pack |
 | [`evidence/genaieval/`](evidence/genaieval/) | Generated route evaluation, benchmark JSON, and summary |
 | [`evidence/source-wearedge-vlm/e2e-summary.json`](evidence/source-wearedge-vlm/e2e-summary.json) | Machine-readable source-project VLM evidence summary |
