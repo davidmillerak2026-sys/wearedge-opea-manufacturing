@@ -112,10 +112,10 @@ low-level Intel optimization proof.
 | Question | Audit |
 | --- | --- |
 | Is the extended evidence strong now? | Yes. `Strong evidence`. |
-| Why the evidence is strong | A public technical article and a public product walkthrough video are published on external platforms, the repo includes publication records and backup copies, and OPEA docs PR #395 proposes adding the article to the official OPEA Publications / Blogs list. |
+| Why the evidence is strong | A public technical article, complete OPEA demo video, and product walkthrough video are published on external platforms, the repo includes publication records and backup copies, and OPEA docs PR #395 proposes adding the article to the official OPEA Publications / Blogs list. |
 | What could cause weaker evidence | If evaluators do not click external links, if the article/video framing sounds like a sample instead of a real industrial AI agent system, or if they expect OPEA official publication and PR #395 remains unmerged. |
 | Follow-up to protect product quality | In the project profile, include the Dev.to, YouTube, and OPEA docs PR #395 links near the top and use language that says WearEdge Pro is a real industrial AI agent system, with this repo as the OPEA public package. Do not claim official OPEA publication until PR #395 is merged. |
-| Evidence | Dev.to article: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; YouTube walkthrough: `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR: `https://github.com/opea-project/docs/pull/395`; `docs/publication-record.md`; `public/external-platform-article.md`; `public/video-platform-description.md`. |
+| Evidence | Dev.to article: `https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh`; complete OPEA demo video: `https://youtu.be/ID8QPYhhhtk`; YouTube walkthrough: `https://www.youtube.com/watch?v=dd9k8m6PDco`; OPEA docs Publications PR: `https://github.com/opea-project/docs/pull/395`; `docs/publication-record.md`; `public/external-platform-article.md`; `public/video-platform-description.md`. |
 
 ### Hardware Optimization Evidence
 

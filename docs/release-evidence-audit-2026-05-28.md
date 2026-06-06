@@ -15,7 +15,7 @@ form project.
 | Form source | `project-profile.json` |
 | Form fill guide | `docs/project-profile-fill-guide.md` |
 | Product evidence map | `docs/product-evaluation-map.md` |
-| Current frozen tag | `final-submission-2026-06-06-r31` |
+| Current frozen tag | `final-submission-2026-06-06-r32` |
 
 ## Verification Already Passed
 
@@ -39,7 +39,7 @@ form project.
 | OPEA upstream RFC/update evidence | `docs/opea-upstream/` and `docs/publication-record.md` |
 | OPEA upstream PR | `https://github.com/opea-project/GenAIExamples/pull/2462`, open with combined status success on current head `e47ebb3bf363ecc15563bb8d05ab4c65f88e2268`; pre-commit.ci, DCO, dependency-review, get-test-matrix, get-test-case, and compose-test pass; not merged |
 | OPEA docs Publications PR | `https://github.com/opea-project/docs/pull/395`, open with DCO passing; combined status pending; not merged yet |
-| Knowledge-sharing package | External Dev.to article and YouTube product walkthrough video published; OPEA docs Publications PR #395 released; GitHub article/video backup evidence remains available |
+| Knowledge-sharing package | External Dev.to article, complete OPEA demo video, and YouTube product walkthrough video published; OPEA docs Publications PR #395 released; GitHub article/video backup evidence remains available |
 | Product risk burn-down | `docs/product-risk-burn-down.md` |
 | OPEA modular value framing | README, PROJECT_OVERVIEW, technical report, form guide, scorecard, and public article all state that Gateway, Megaservice, Retriever/RAG, Vector DB, LLM adapter, Evaluator, and Guardrails are modular; the model is pluggable |
 

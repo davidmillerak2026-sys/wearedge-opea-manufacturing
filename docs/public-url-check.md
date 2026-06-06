@@ -11,14 +11,14 @@ with `Invoke-WebRequest -Method Head -MaximumRedirection 5`.
 Current release reference:
 
 ```text
-https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-06-06-r31
+https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-06-06-r32
 ```
 
 The frozen tag is created after this audit commit and should resolve to the
 same commit that contains this report. Verify with:
 
 ```text
-git ls-remote --tags origin "refs/tags/final-submission-2026-06-06-r31*"
+git ls-remote --tags origin "refs/tags/final-submission-2026-06-06-r32*"
 ```
 
 ## Checked URLs
@@ -28,9 +28,11 @@ git ls-remote --tags origin "refs/tags/final-submission-2026-06-06-r31*"
 | 200 | https://competition.aiforgood.itu.int/web/challenges/challenge-page/492/project |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing |
 | 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main |
-| 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-06-06-r31 |
+| 200 | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/final-submission-2026-06-06-r32 |
 | 200 | https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/main/public/images/wearedge-smart-inspection-waist-mount.png |
+| 200 | https://raw.githubusercontent.com/davidmillerak2026-sys/wearedge-opea-manufacturing/main/public/images/wearedge-pro-complete-opea-demo-cover.png |
 | 200 | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
+| 200 | https://youtu.be/ID8QPYhhhtk |
 | 200 | https://www.youtube.com/watch?v=dd9k8m6PDco |
 | 200 | https://github.com/opea-project/GenAIExamples/issues/2461 |
 | 200 | https://github.com/opea-project/GenAIExamples/issues/2461#issuecomment-4554039017 |
@@ -44,7 +46,7 @@ git ls-remote --tags origin "refs/tags/final-submission-2026-06-06-r31*"
 
 ## Current PR Status Boundary
 
-Checked: 2026-06-06T11:30:20+08:00.
+Checked: 2026-06-06T19:04:15+08:00.
 
 | PR | State | Merged | Current head | Status boundary |
 | --- | --- | --- | --- | --- |
@@ -57,6 +59,6 @@ Checked: 2026-06-06T11:30:20+08:00.
   does not claim maintainer acceptance, official OPEA publication, or merged
   upstream contribution.
 - The primary runnable evaluation path remains the repository `main` branch and
-  the frozen `final-submission-2026-06-06-r31` tag.
-- The physical hardware image is checked through the raw GitHub URL so the
-  README-rendered asset is covered by this audit.
+  the frozen `final-submission-2026-06-06-r32` tag.
+- The physical hardware image and complete-demo cover image are checked through
+  raw GitHub URLs so the README-rendered assets are covered by this audit.

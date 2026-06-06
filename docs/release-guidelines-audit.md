@@ -21,7 +21,7 @@ seconds, with `clean_initial_run_under_10_min=true` and `all_checks_pass=true`.
 | README sample commands or URLs | Ready | `/demo`, `/healthz`, `/v1/agents`, route sample URLs, `/v1/scorecard` |
 | LICENSE file | Ready | `LICENSE` is MIT |
 | Technical report, max 2 pages | Ready | `TECHNICAL_REPORT.md` |
-| Optional product walkthrough video | Ready | YouTube walkthrough `https://www.youtube.com/watch?v=dd9k8m6PDco`, source under `public/product-walkthrough/` |
+| Optional product walkthrough video | Ready | Complete OPEA demo video `https://youtu.be/ID8QPYhhhtk`, YouTube walkthrough `https://www.youtube.com/watch?v=dd9k8m6PDco`, source under `public/product-walkthrough/` |
 
 ## Hardware And Runtime
 

@@ -1,6 +1,6 @@
 # Release Readiness Audit
 
-Status: strong technical package; public product walkthrough video URL verified; OPEA
+Status: strong technical package; complete OPEA demo video and public product walkthrough video URLs verified; OPEA
 upstream RFC/comment posted; real upstream PR #2462 opened with key check-run evidence;
 OPEA docs Publications PR #395 opened but not merged; contribution package and
 patch artifact prepared; local Docker Desktop
@@ -45,7 +45,7 @@ detection. Raw customer plant data is intentionally not published.
 | Licensing and originality | MIT root license, SPDX headers, declared third-party components, restrictive-license boundary, private-data exclusion | Ready |
 | Open-source contribution evidence | RFC issue posted; upstream implementation and TEI comments posted; project tracker updated; upstream PR #2462 opened from the fork; combined status is success on the current PR head, with pre-commit.ci, DCO, dependency-review, get-test-matrix, get-test-case, and compose-test passing; OPEA docs Publications PR #395 opened but not merged; contribution package prepared and smoke-tested; `git format-patch` artifact generated | Strong; PRs are open but not merged yet; do not describe #2462 as reviewed, accepted, or merged until maintainers complete it |
 | Product risk burn-down | OPEA depth, LLM benchmark path, fast-skim positioning, data provenance, PR limitation, and telecom/manufacturing scope documented with claim boundaries | Ready |
-| Knowledge-sharing evidence | External Dev.to article and YouTube product walkthrough video are published; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list; GitHub article/video backup evidence remains public | Ready; do not claim official OPEA publication until #395 is merged |
+| Knowledge-sharing evidence | External Dev.to article, complete OPEA demo video, and YouTube product walkthrough video are published; OPEA docs Publications PR #395 proposes adding the article to the official OPEA Publications / Blogs list; GitHub article/video backup evidence remains public | Ready; do not claim official OPEA publication until #395 is merged |
 
 Detailed 100 base + 40 public evidence map:
 `docs/product-evaluation-map.md`.
@@ -60,7 +60,7 @@ Product hardening plan:
 | Domain-specific GenAI application | OPEA-style manufacturing pipeline with LLM adapter, TEI embeddings, RAG, Qdrant, orchestration, guardrails, and evaluation | Ready |
 | Concrete industry scenario | Manufacturing vertical; five real plant workflows mapped to CMMS, QMS, changeover checklist, WI, and EHS targets | Ready |
 | Working prototype with documentation | Docker Compose, `deploy.sh`, README, `TECHNICAL_REPORT.md`, Web/API surface, and `docs/opea-architecture-alignment.md` | Ready |
-| Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, YouTube walkthrough, OPEA docs PR #395 | Ready |
+| Performance and usability | C3 4-vCPU / 16-GiB / no-GPU evidence, latency and memory JSON, 8-worker concurrency benchmark, GenAIEval-compatible benchmark, `/demo` console, Dev.to article, complete OPEA demo video, YouTube walkthrough, OPEA docs PR #395 | Ready |
 
 ## Hard Evidence
 
@@ -91,6 +91,8 @@ Product hardening plan:
 | Technical report | `TECHNICAL_REPORT.md` |
 | Final release audit | `docs/release-evidence-audit-2026-05-28.md` |
 | External technical article | https://dev.to/ryan_hsu_wearedge/wearedge-pro-an-opea-manufacturing-five-agent-suite-for-frontline-operators-5afh |
+| Complete OPEA demo video | https://youtu.be/ID8QPYhhhtk |
+| Complete OPEA demo cover image | `public/images/wearedge-pro-complete-opea-demo-cover.png` |
 | YouTube product walkthrough video | https://www.youtube.com/watch?v=dd9k8m6PDco |
 | Technical article | `public/article-wear-edge-opea-manufacturing.md` |
 | Product walkthrough video source package | `public/product-walkthrough/` |

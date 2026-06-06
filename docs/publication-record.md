@@ -30,6 +30,8 @@ This file records public URLs that support the OPEA ecosystem public evidence.
 | Technical article issue | Posted | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/1 |
 | Product walkthrough video script | Ready | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/product-walkthrough-script.md |
 | Product walkthrough video source | Renderable HyperFrames package | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/tree/main/public/product-walkthrough |
+| Complete OPEA demo video | Published on YouTube | https://youtu.be/ID8QPYhhhtk |
+| Complete OPEA demo cover image | Published in public GitHub repository | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/images/wearedge-pro-complete-opea-demo-cover.png |
 | YouTube product walkthrough video | Published on YouTube | https://www.youtube.com/watch?v=dd9k8m6PDco |
 | Product walkthrough video backup | Published as public MP4 asset page | https://www.youtube.com/watch?v=dd9k8m6PDco |
 | Public video platform metadata | Published via YouTube; source package retained | https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/blob/main/public/video-platform-description.md |
@@ -60,7 +62,8 @@ This file records public URLs that support the OPEA ecosystem public evidence.
 - A direct upstream PR push was attempted and rejected with `403 Permission denied`; after the fork was created, the prepared branch was pushed to `Ryanhuii/GenAIExamples` and real upstream PR #2462 was opened.
 - Current PR head `e47ebb3bf363ecc15563bb8d05ab4c65f88e2268` has combined status success, with `pre-commit.ci - pr`, DCO, dependency-review, get-test-matrix, get-test-case, and compose-test passing. The PR is still open and not merged, so do not claim maintainer acceptance yet.
 - The GCP C3 official TEI pass was also posted to the public project tracker after the cloud rerun passed.
-- The product walkthrough video is published on YouTube; the rendered MP4, committed
+- The complete OPEA demo video and product walkthrough video are published on
+  YouTube; the clickable README cover image, rendered MP4, committed
   HyperFrames source package, and public GitHub asset page remain as backup
   evidence.
 - The first upstream PR scope is intentionally small: route registry, Docker Compose,
