@@ -1,0 +1,15 @@
+{
+  "date": "2026-06-18",
+  "branch": "article-openai-manufacturing",
+  "current_state": "OpenAI-compatible, deterministic default",
+  "target_state": "OpenAI Responses, vision, strict tools, structured outputs",
+  "canonical_articles": [
+    "public/openai-centered-manufacturing-ai-zh.md",
+    "public/openai-centered-manufacturing-ai-en.md"
+  ],
+  "verification": "docs/repository-verification-2026-06-18.md",
+  "implementation_blueprint": "docs/openai-native-integration-blueprint.md",
+  "distribution_pack": "docs/20-platform-publication-pack-2026-06-18.md",
+  "status_ledger": "docs/20-platform-publication-status-2026-06-18.md",
+  "external_platforms_claimed_published": 0
+}
