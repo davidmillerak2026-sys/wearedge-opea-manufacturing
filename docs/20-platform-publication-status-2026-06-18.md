@@ -9,6 +9,14 @@ Date: 2026-06-18
 - `Submitted`: sent to a platform editorial/review workflow, not yet publicly live.
 - `Blocked`: required access, account, approval, or platform condition is unavailable.
 
+## Current Result
+
+```text
+Published: 1 platform (GitHub)
+Prepared: 19 platforms
+Falsely claimed as published: 0
+```
+
 ## Current Status
 
 | # | Platform | Language | Asset | Status | Public URL / next action |
@@ -30,7 +38,7 @@ Date: 2026-06-18
 | 15 | Substack | English | Strategy/governance newsletter edit | Prepared | Owner-authenticated Substack publication required |
 | 16 | DZone | English | Enterprise architecture edit | Prepared | Contributor account and possible editorial review required |
 | 17 | HackerNoon | English | Narrative authority-boundary edit | Prepared | Writer account and possible editorial review required |
-| 18 | GitHub public issue / repository | Chinese + English | Canonical source, verification, blueprint, publication package | In progress | Public issue and merge URL to be recorded after completion |
+| 18 | GitHub public issue / repository | Chinese + English | Canonical source, verification, blueprint, publication package | Published | Issue: https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/4 · Merged PR: https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/pull/5 |
 | 19 | Reddit | English | Substantive discussion/link post | Prepared | Choose a relevant community and verify its posting rules in an authenticated session |
 | 20 | Hacker News / Show HN | English | Show HN title and first comment | Prepared | Authenticated HN account required |
 
@@ -42,6 +50,12 @@ Date: 2026-06-18
 - `docs/openai-native-integration-blueprint.md`
 - `docs/20-platform-publication-pack-2026-06-18.md`
 - `docs/platform-publication-copy-library-2026-06-18.md`
+
+## Verified GitHub Publication
+
+- Public technical-sharing issue: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/issues/4`
+- Merged content PR: `https://github.com/davidmillerak2026-sys/wearedge-opea-manufacturing/pull/5`
+- Merge commit: `3dcf002b7f702707f20d2cb41786c4e638264260`
 
 ## Publication Integrity Rule
 
